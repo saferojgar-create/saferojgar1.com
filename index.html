@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Safe Rojgar – Find Your Dream Job in Nepal</title>
+<meta name="description" content="Safe Rojgar connects unemployed people in Nepal with quality job opportunities. Search, apply and get hired today."/>
+<meta name="keywords" content="jobs nepal, rojgar, employment nepal, vacancy nepal, काम, रोजगार"/>
+<meta property="og:title" content="Safe Rojgar – Jobs for Everyone"/>
+<meta property="og:description" content="Find quality jobs in Nepal across sales, management, hospitality and more."/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Hind:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy: #0d1f3c;
+  --navy-mid: #162d52;
+  --saffron: #e8820c;
+  --saffron-light: #f4a340;
+  --terracotta: #c94f2a;
+  --cream: #fdf6ec;
+  --white: #ffffff;
+  --gray-light: #f4f4f0;
+  --gray-mid: #9a9a8e;
+  --gray-dark: #4a4a44;
+  --card-bg: #ffffff;
+  --shadow-sm: 0 2px 12px rgba(13,31,60,0.08);
+  --shadow-md: 0 6px 28px rgba(13,31,60,0.14);
+  --shadow-lg: 0 16px 48px rgba(13,31,60,0.18);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --font-en: 'Hind', sans-serif;
+  --font-np: 'Noto Sans Devanagari', sans-serif;
+  --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:var(--font-en);
+  background:var(--cream);
+  color:var(--navy);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+body.lang-np{font-family:var(--font-np)}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--cream)}
+::-webkit-scrollbar-thumb{background:var(--saffron);border-radius:4px}
+
+/* ── HEADER ── */
+header{
+  position:sticky;top:0;z-index:100;
+  background:var(--navy);
+  padding:0 1.2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  height:62px;
+  box-shadow:0 2px 20px rgba(0,0,0,0.3);
+}
+.logo{
+  display:flex;align-items:center;gap:0.55rem;text-decoration:none;
+}
+.logo-icon{
+  width:38px;height:38px;background:var(--saffron);
+  border-radius:9px;display:flex;align-items:center;justify-content:center;
+  font-size:1.15rem;font-weight:900;color:var(--white);
+  font-family:'Playfair Display',serif;
+  box-shadow:0 0 0 3px rgba(232,130,12,0.3);
+  flex-shrink:0;
+}
+.logo-text{
+  display:flex;flex-direction:column;line-height:1.1;
+}
+.logo-text span:first-child{
+  font-family:'Playfair Display',serif;
+  font-size:1.1rem;font-weight:900;color:var(--white);letter-spacing:0.01em;
+}
+.logo-text span:last-child{
+  font-size:0.65rem;color:var(--saffron-light);letter-spacing:0.06em;text-transform:uppercase;
+}
+
+.header-right{display:flex;align-items:center;gap:0.6rem}
+nav{display:flex;gap:0.15rem}
+nav a{
+  color:rgba(255,255,255,0.75);font-size:0.82rem;font-weight:500;
+  text-decoration:none;padding:0.35rem 0.6rem;border-radius:6px;
+  transition:var(--transition);white-space:nowrap;
+}
+nav a:hover{color:var(--white);background:rgba(255,255,255,0.1)}
+
+.lang-select{
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
+  color:var(--white);font-size:0.78rem;padding:0.3rem 0.5rem;
+  border-radius:6px;cursor:pointer;outline:none;
+  font-family:inherit;
+}
+.lang-select option{background:var(--navy);color:var(--white)}
+
+/* ── HERO ── */
+.hero{
+  background:var(--navy);
+  padding:3rem 1.4rem 2.5rem;
+  position:relative;overflow:hidden;
+  text-align:center;
+}
+.hero::before{
+  content:'';position:absolute;
+  top:-60px;right:-60px;
+  width:260px;height:260px;
+  border:40px solid rgba(232,130,12,0.12);
+  border-radius:50%;
+}
+.hero::after{
+  content:'';position:absolute;
+  bottom:-80px;left:-50px;
+  width:200px;height:200px;
+  border:30px solid rgba(255,255,255,0.05);
+  border-radius:50%;
+}
+.hero-badge{
+  display:inline-block;background:rgba(232,130,12,0.15);
+  border:1px solid rgba(232,130,12,0.4);
+  color:var(--saffron-light);font-size:0.72rem;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;
+  padding:0.3rem 0.85rem;border-radius:20px;margin-bottom:1rem;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,6vw,2.8rem);
+  font-weight:900;color:var(--white);
+  line-height:1.15;margin-bottom:0.75rem;
+  position:relative;z-index:1;
+}
+.hero h1 em{color:var(--saffron);font-style:normal}
+.hero p{
+  color:rgba(255,255,255,0.65);font-size:0.95rem;
+  max-width:400px;margin:0 auto 1.8rem;
+  position:relative;z-index:1;
+}
+.hero-stats{
+  display:flex;justify-content:center;gap:2rem;
+  position:relative;z-index:1;
+}
+.stat{text-align:center}
+.stat strong{display:block;font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--saffron);font-weight:700}
+.stat span{font-size:0.72rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.06em}
+
+/* ── SEARCH ── */
+.search-wrap{
+  padding:1.4rem 1.2rem 0;
+  position:sticky;top:62px;z-index:90;
+  background:var(--cream);
+}
+.search-box{
+  display:flex;align-items:center;
+  background:var(--white);
+  border:2px solid transparent;
+  border-radius:50px;
+  padding:0.5rem 0.5rem 0.5rem 1.1rem;
+  box-shadow:var(--shadow-md);
+  transition:var(--transition);
+}
+.search-box:focus-within{border-color:var(--saffron)}
+.search-box input{
+  flex:1;border:none;outline:none;
+  font-size:0.92rem;font-family:inherit;
+  background:transparent;color:var(--navy);
+}
+.search-box input::placeholder{color:var(--gray-mid)}
+.search-btn{
+  background:var(--saffron);border:none;
+  border-radius:40px;padding:0.5rem 1.1rem;
+  color:var(--white);font-size:0.82rem;font-weight:600;
+  cursor:pointer;white-space:nowrap;
+  transition:var(--transition);
+}
+.search-btn:hover{background:var(--terracotta)}
+
+/* ── SECTION LABELS ── */
+.section{padding:1.6rem 1.2rem 2rem}
+.section-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:1.2rem;
+}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.35rem;font-weight:700;color:var(--navy);
+}
+.section-title span{color:var(--saffron)}
+.count-badge{
+  background:var(--saffron);color:var(--white);
+  font-size:0.72rem;font-weight:700;
+  padding:0.2rem 0.65rem;border-radius:20px;
+}
+
+/* ── CATEGORY PILLS ── */
+.category-scroll{
+  display:flex;gap:0.6rem;overflow-x:auto;
+  padding:0 1.2rem 1.2rem;
+  scrollbar-width:none;
+}
+.category-scroll::-webkit-scrollbar{display:none}
+.cat-pill{
+  flex-shrink:0;
+  background:var(--white);border:1.5px solid rgba(13,31,60,0.12);
+  color:var(--navy-mid);font-size:0.78rem;font-weight:600;
+  padding:0.4rem 1rem;border-radius:20px;cursor:pointer;
+  transition:var(--transition);white-space:nowrap;
+}
+.cat-pill:hover,.cat-pill.active{
+  background:var(--navy);color:var(--white);border-color:var(--navy);
+}
+
+/* ── JOB CARDS ── */
+.jobs-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1rem;
+}
+.job-card{
+  background:var(--card-bg);
+  border-radius:var(--radius);
+  padding:1.2rem;
+  box-shadow:var(--shadow-sm);
+  border:1.5px solid rgba(13,31,60,0.06);
+  transition:var(--transition);
+  position:relative;overflow:hidden;
+}
+.job-card::before{
+  content:'';
+  position:absolute;top:0;left:0;
+  width:4px;height:100%;
+  background:var(--saffron);
+  border-radius:4px 0 0 4px;
+  transform:scaleY(0);transform-origin:bottom;
+  transition:var(--transition);
+}
+.job-card:hover{
+  box-shadow:var(--shadow-md);
+  transform:translateY(-2px);
+  border-color:rgba(232,130,12,0.25);
+}
+.job-card:hover::before{transform:scaleY(1)}
+
+.job-header{display:flex;align-items:flex-start;gap:0.9rem;margin-bottom:0.8rem}
+.job-icon{
+  width:46px;height:46px;flex-shrink:0;
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;
+}
+.job-meta{flex:1;min-width:0}
+.job-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.05rem;font-weight:700;color:var(--navy);
+  margin-bottom:0.15rem;
+}
+.job-type{
+  display:inline-block;font-size:0.68rem;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;
+  padding:0.15rem 0.55rem;border-radius:4px;
+  background:rgba(232,130,12,0.1);color:var(--saffron);
+}
+.job-desc{
+  font-size:0.84rem;color:var(--gray-dark);
+  line-height:1.55;margin-bottom:1rem;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+}
+.job-footer{display:flex;align-items:center;justify-content:space-between}
+.stars{display:flex;gap:2px;align-items:center}
+.star{font-size:0.9rem;color:#e0d8cc}
+.star.filled{color:#f5b32a}
+.rating-text{font-size:0.75rem;color:var(--gray-mid);margin-left:0.35rem}
+.apply-btn{
+  background:var(--saffron);color:var(--white);
+  border:none;border-radius:8px;
+  padding:0.5rem 1.1rem;font-size:0.82rem;font-weight:700;
+  cursor:pointer;transition:var(--transition);
+  font-family:inherit;letter-spacing:0.02em;
+}
+.apply-btn:hover{background:var(--terracotta);transform:scale(1.03)}
+
+.no-results{
+  text-align:center;padding:3rem 1rem;
+  color:var(--gray-mid);font-size:0.9rem;
+}
+.no-results .icon{font-size:2.5rem;margin-bottom:0.5rem}
+
+/* ── MODAL OVERLAY ── */
+.modal-overlay{
+  display:none;
+  position:fixed;inset:0;z-index:200;
+  background:rgba(13,31,60,0.65);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  align-items:flex-end;
+  justify-content:center;
+}
+.modal-overlay.open{display:flex}
+
+.modal{
+  background:var(--white);
+  border-radius:22px 22px 0 0;
+  width:100%;max-width:520px;
+  max-height:92vh;overflow-y:auto;
+  padding:0;
+  animation:slideUp 0.3s cubic-bezier(0.32,0.72,0,1);
+}
+@keyframes slideUp{
+  from{transform:translateY(100%);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+.modal-handle{
+  width:40px;height:4px;background:#e0d8cc;
+  border-radius:2px;margin:0.9rem auto 0;
+}
+.modal-header{
+  padding:1.2rem 1.4rem 1rem;
+  border-bottom:1px solid var(--gray-light);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.modal-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;font-weight:700;color:var(--navy);
+}
+.modal-subtitle{font-size:0.78rem;color:var(--gray-mid);margin-top:0.1rem}
+.modal-close{
+  width:32px;height:32px;border-radius:50%;
+  background:var(--gray-light);border:none;cursor:pointer;
+  font-size:1rem;color:var(--gray-dark);
+  display:flex;align-items:center;justify-content:center;
+  transition:var(--transition);
+}
+.modal-close:hover{background:var(--terracotta);color:var(--white)}
+
+.modal-body{padding:1.4rem}
+
+/* ── FORM ── */
+.form-group{margin-bottom:1.1rem}
+label{
+  display:block;font-size:0.78rem;font-weight:600;
+  color:var(--navy-mid);margin-bottom:0.35rem;
+  letter-spacing:0.03em;
+}
+label .req{color:var(--terracotta)}
+input[type=text],input[type=number],select,textarea{
+  width:100%;
+  border:1.5px solid rgba(13,31,60,0.15);
+  border-radius:10px;
+  padding:0.65rem 0.9rem;
+  font-size:0.88rem;font-family:inherit;
+  color:var(--navy);background:var(--white);
+  outline:none;transition:var(--transition);
+  appearance:none;-webkit-appearance:none;
+}
+input[type=text]:focus,input[type=number]:focus,select:focus,textarea:focus{
+  border-color:var(--saffron);box-shadow:0 0 0 3px rgba(232,130,12,0.12);
+}
+textarea{resize:vertical;min-height:80px}
+select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%230d1f3c'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 0.9rem center;
+  padding-right:2.2rem;
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem}
+.submit-btn{
+  width:100%;margin-top:0.5rem;
+  background:linear-gradient(135deg,var(--saffron),var(--terracotta));
+  color:var(--white);border:none;border-radius:12px;
+  padding:0.9rem;font-size:0.95rem;font-weight:700;
+  cursor:pointer;transition:var(--transition);
+  display:flex;align-items:center;justify-content:center;gap:0.6rem;
+  font-family:inherit;letter-spacing:0.02em;
+  box-shadow:0 4px 16px rgba(232,130,12,0.35);
+}
+.submit-btn:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(232,130,12,0.45)}
+.submit-btn:active{transform:translateY(0)}
+.whatsapp-note{
+  font-size:0.72rem;color:var(--gray-mid);text-align:center;
+  margin-top:0.75rem;display:flex;align-items:center;justify-content:center;gap:0.3rem;
+}
+
+/* ── ABOUT STRIP ── */
+.about-strip{
+  background:var(--navy);
+  margin:0 1.2rem;border-radius:var(--radius);
+  padding:1.6rem 1.4rem;color:var(--white);
+  text-align:center;
+}
+.about-strip h2{
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;margin-bottom:0.6rem;
+}
+.about-strip h2 em{color:var(--saffron);font-style:normal}
+.about-strip p{font-size:0.84rem;color:rgba(255,255,255,0.65);line-height:1.6}
+.feature-list{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:0.8rem;margin-top:1.2rem;
+}
+.feature-item{
+  background:rgba(255,255,255,0.07);
+  border-radius:10px;padding:0.8rem;
+  border:1px solid rgba(255,255,255,0.1);
+}
+.feature-item .icon{font-size:1.2rem;margin-bottom:0.3rem}
+.feature-item p{font-size:0.75rem;color:rgba(255,255,255,0.6);margin:0}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--navy);
+  margin-top:2.5rem;
+  padding:2.2rem 1.4rem 1.5rem;
+  color:rgba(255,255,255,0.7);
+}
+.footer-brand{margin-bottom:1.4rem}
+.footer-brand .logo{margin-bottom:0.7rem}
+.footer-brand p{font-size:0.8rem;line-height:1.55;color:rgba(255,255,255,0.5)}
+
+.footer-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1.5rem;margin-bottom:1.6rem;
+}
+.footer-col h4{
+  font-size:0.78rem;font-weight:700;color:var(--saffron-light);
+  letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.7rem;
+}
+.footer-col a{
+  display:block;font-size:0.8rem;color:rgba(255,255,255,0.55);
+  text-decoration:none;margin-bottom:0.4rem;transition:var(--transition);
+}
+.footer-col a:hover{color:var(--saffron-light);padding-left:4px}
+.footer-col .info{font-size:0.8rem;color:rgba(255,255,255,0.55);margin-bottom:0.4rem}
+
+.social-row{display:flex;gap:0.6rem;margin-top:0.8rem}
+.social-btn{
+  width:34px;height:34px;border-radius:8px;
+  background:rgba(255,255,255,0.08);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;font-size:0.95rem;
+  transition:var(--transition);border:1px solid rgba(255,255,255,0.1);
+}
+.social-btn:hover{background:var(--saffron);border-color:var(--saffron)}
+
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.1);
+  padding-top:1rem;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:0.5rem;
+}
+.footer-bottom p{font-size:0.72rem;color:rgba(255,255,255,0.35)}
+
+/* ── TOAST ── */
+.toast{
+  position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(80px);
+  background:var(--navy);color:var(--white);
+  border-left:4px solid var(--saffron);
+  padding:0.8rem 1.2rem;border-radius:10px;
+  font-size:0.82rem;font-weight:500;
+  box-shadow:var(--shadow-lg);
+  z-index:999;transition:transform 0.4s cubic-bezier(0.32,0.72,0,1);
+  white-space:nowrap;max-width:90vw;
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ── LOADING ── */
+.skeleton{
+  background:linear-gradient(90deg,#f0ece4 25%,#e8e4dc 50%,#f0ece4 75%);
+  background-size:200% 100%;
+  animation:shimmer 1.4s infinite;
+  border-radius:8px;
+}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+/* ── RESPONSIVE ── */
+@media(min-width:480px){
+  .jobs-grid{grid-template-columns:1fr 1fr}
+}
+@media(min-width:768px){
+  .hero{padding:4rem 2rem 3rem}
+  .section{padding:2rem 2rem 2.4rem}
+  .search-wrap{padding:1.6rem 2rem 0}
+  .category-scroll{padding:0 2rem 1.2rem}
+  .about-strip{margin:0 2rem}
+  footer{padding:2.5rem 2rem 1.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header>
+  <a href="#" class="logo" aria-label="Safe Rojgar Home">
+    <div class="logo-icon">SR</div>
+    <div class="logo-text">
+      <span class="en-text">Safe Rojgar</span>
+      <span class="np-text" style="display:none">सेफ रोजगार</span>
+      <span class="en-text">Employment Solutions</span>
+      <span class="np-text" style="display:none">रोजगार समाधान</span>
+    </div>
+  </a>
+  <div class="header-right">
+    <nav>
+      <a href="#home" class="en-text">Home</a>
+      <a href="#home" class="np-text" style="display:none">गृह</a>
+      <a href="#contact" class="en-text">Contact</a>
+      <a href="#contact" class="np-text" style="display:none">सम्पर्क</a>
+      <a href="#blog" class="en-text">Blog</a>
+      <a href="#blog" class="np-text" style="display:none">ब्लग</a>
+    </nav>
+    <select class="lang-select" id="langSelect" aria-label="Language">
+      <option value="en">🌐 EN</option>
+      <option value="np">🇳🇵 NP</option>
+    </select>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="home">
+  <div class="hero-badge en-text">🇳🇵 Nepal's Trusted Job Portal</div>
+  <div class="hero-badge np-text" style="display:none">🇳🇵 नेपालको भरपर्दो जागिर पोर्टल</div>
+
+  <h1 class="en-text">Find Your<br/><em>Dream Job</em><br/>Today</h1>
+  <h1 class="np-text" style="display:none">आज आफ्नो<br/><em>सपनाको काम</em><br/>खोज्नुहोस्</h1>
+
+  <p class="en-text">Connecting hardworking Nepali people with quality employment opportunities across sales, management, and hospitality.</p>
+  <p class="np-text" style="display:none">मेहनती नेपाली मानिसहरूलाई बिक्री, व्यवस्थापन र आतिथ्यमा गुणस्तरीय रोजगारीसँग जोड्दै।</p>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <strong>500+</strong>
+      <span class="en-text">Jobs Posted</span>
+      <span class="np-text" style="display:none">जागिर</span>
+    </div>
+    <div class="stat">
+      <strong>2,000+</strong>
+      <span class="en-text">Hired</span>
+      <span class="np-text" style="display:none">नियुक्त</span>
+    </div>
+    <div class="stat">
+      <strong>50+</strong>
+      <span class="en-text">Companies</span>
+      <span class="np-text" style="display:none">कम्पनी</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SEARCH ═══ -->
+<div class="search-wrap" id="search-section">
+  <div class="search-box">
+    <input type="text" id="searchInput" 
+      placeholder="Search jobs e.g. Salesman, Manager…" 
+      aria-label="Search jobs"
+      autocomplete="off"/>
+    <button class="search-btn en-text" onclick="filterJobs()">Search</button>
+    <button class="search-btn np-text" style="display:none" onclick="filterJobs()">खोज</button>
+  </div>
+</div>
+
+<!-- ═══ CATEGORY PILLS ═══ -->
+<div class="category-scroll" id="catScroll">
+  <button class="cat-pill active" onclick="filterByCategory('all',this)">
+    <span class="en-text">All Jobs</span>
+    <span class="np-text" style="display:none">सबै</span>
+  </button>
+  <button class="cat-pill" onclick="filterByCategory('sales',this)">
+    <span class="en-text">Sales</span>
+    <span class="np-text" style="display:none">बिक्री</span>
+  </button>
+  <button class="cat-pill" onclick="filterByCategory('management',this)">
+    <span class="en-text">Management</span>
+    <span class="np-text" style="display:none">व्यवस्थापन</span>
+  </button>
+  <button class="cat-pill" onclick="filterByCategory('hospitality',this)">
+    <span class="en-text">Hospitality</span>
+    <span class="np-text" style="display:none">आतिथ्य</span>
+  </button>
+  <button class="cat-pill" onclick="filterByCategory('professional',this)">
+    <span class="en-text">Professional</span>
+    <span class="np-text" style="display:none">पेशेवर</span>
+  </button>
+</div>
+
+<!-- ═══ JOB LISTINGS ═══ -->
+<section class="section" id="jobs">
+  <div class="section-header">
+    <h2 class="section-title en-text">Available <span>Positions</span></h2>
+    <h2 class="section-title np-text" style="display:none">उपलब्ध <span>पदहरू</span></h2>
+    <span class="count-badge" id="jobCount">16</span>
+  </div>
+  <div class="jobs-grid" id="jobsGrid">
+    <!-- Rendered by JS -->
+  </div>
+  <div class="no-results" id="noResults" style="display:none">
+    <div class="icon">🔍</div>
+    <p class="en-text">No jobs found. Try a different keyword.</p>
+    <p class="np-text" style="display:none">कुनै जागिर भेटिएन। अर्को कीवर्ड प्रयास गर्नुहोस्।</p>
+  </div>
+</section>
+
+<!-- ═══ ABOUT STRIP ═══ -->
+<div class="about-strip" id="blog">
+  <h2 class="en-text">Why Choose <em>Safe Rojgar?</em></h2>
+  <h2 class="np-text" style="display:none">सेफ रोजगार किन रोज्ने?</h2>
+  <p class="en-text">We vet every employer and job listing so you only see legitimate, safe opportunities.</p>
+  <p class="np-text" style="display:none">हामी प्रत्येक नियोक्ता र जागिर सूचीलाई जाँच गर्छौं।</p>
+  <div class="feature-list">
+    <div class="feature-item">
+      <div class="icon">✅</div>
+      <p class="en-text">Verified Employers</p>
+      <p class="np-text" style="display:none">प्रमाणित नियोक्ता</p>
+    </div>
+    <div class="feature-item">
+      <div class="icon">🚀</div>
+      <p class="en-text">Fast Placement</p>
+      <p class="np-text" style="display:none">छिटो नियुक्ति</p>
+    </div>
+    <div class="feature-item">
+      <div class="icon">🤝</div>
+      <p class="en-text">Free for Jobseekers</p>
+      <p class="np-text" style="display:none">निःशुल्क सेवा</p>
+    </div>
+    <div class="feature-item">
+      <div class="icon">📱</div>
+      <p class="en-text">Apply via WhatsApp</p>
+      <p class="np-text" style="display:none">WhatsApp मार्फत आवेदन</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer id="contact">
+  <div class="footer-brand">
+    <a href="#" class="logo" style="margin-bottom:0.7rem;display:inline-flex">
+      <div class="logo-icon">SR</div>
+      <div class="logo-text">
+        <span style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:900;color:#fff">Safe Rojgar</span>
+        <span style="font-size:0.6rem;color:var(--saffron-light);letter-spacing:0.06em;text-transform:uppercase">Employment Solutions</span>
+      </div>
+    </a>
+    <p class="en-text">Helping unemployed Nepali people find safe, dignified employment since 2020.</p>
+    <p class="np-text" style="display:none">२०२० देखि बेरोजगार नेपाली नागरिकहरूलाई सुरक्षित रोजगारी खोज्न मद्दत गर्दै।</p>
+  </div>
+
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4 class="en-text">Quick Links</h4>
+      <h4 class="np-text" style="display:none">द्रुत लिङ्क</h4>
+      <a href="#home" class="en-text">Home</a>
+      <a href="#home" class="np-text" style="display:none">गृह</a>
+      <a href="#jobs" class="en-text">Browse Jobs</a>
+      <a href="#jobs" class="np-text" style="display:none">जागिर हेर्नुहोस्</a>
+      <a href="#blog" class="en-text">Blog</a>
+      <a href="#blog" class="np-text" style="display:none">ब्लग</a>
+      <a href="#contact" class="en-text">Contact</a>
+      <a href="#contact" class="np-text" style="display:none">सम्पर्क</a>
+    </div>
+    <div class="footer-col">
+      <h4 class="en-text">Contact Us</h4>
+      <h4 class="np-text" style="display:none">सम्पर्क गर्नुहोस्</h4>
+      <p class="info">📞 +977 9813071254</p>
+      <p class="info">📧 info@saferojgar.com.np</p>
+      <p class="info en-text">📍 Kathmandu, Nepal</p>
+      <p class="info np-text" style="display:none">📍 काठमाडौं, नेपाल</p>
+      <div class="social-row">
+        <a href="https://wa.me/9779813071254" class="social-btn" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+        <a href="#" class="social-btn" aria-label="Facebook">📘</a>
+        <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+        <a href="#" class="social-btn" aria-label="TikTok">🎵</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="en-text">© 2025 Safe Rojgar. All rights reserved.</p>
+    <p class="np-text" style="display:none">© २०२५ सेफ रोजगार। सर्वाधिकार सुरक्षित।</p>
+    <p class="en-text">Made with ❤️ in Nepal</p>
+    <p class="np-text" style="display:none">नेपालमा बनाइएको ❤️</p>
+  </div>
+</footer>
+
+<!-- ═══ APPLY MODAL ═══ -->
+<div class="modal-overlay" id="applyModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-header">
+      <div>
+        <div class="modal-title en-text" id="modalTitle">Apply for Job</div>
+        <div class="modal-title np-text" style="display:none">जागिरका लागि आवेदन दिनुहोस्</div>
+        <div class="modal-subtitle en-text" id="modalSubtitle">Fill in your details below</div>
+        <div class="modal-subtitle np-text" style="display:none" id="modalSubtitleNp">तलको फारम भर्नुहोस्</div>
+      </div>
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="applyForm" onsubmit="submitForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fullName">
+              <span class="en-text">Full Name <span class="req">*</span></span>
+              <span class="np-text" style="display:none">पूरा नाम <span class="req">*</span></span>
+            </label>
+            <input type="text" id="fullName" placeholder="Your full name" required minlength="2"/>
+          </div>
+          <div class="form-group">
+            <label for="age">
+              <span class="en-text">Age <span class="req">*</span></span>
+              <span class="np-text" style="display:none">उमेर <span class="req">*</span></span>
+            </label>
+            <input type="number" id="age" placeholder="e.g. 24" min="16" max="65" required/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="qualification">
+            <span class="en-text">Qualification <span class="req">*</span></span>
+            <span class="np-text" style="display:none">शैक्षिक योग्यता <span class="req">*</span></span>
+          </label>
+          <select id="qualification" required>
+            <option value="" disabled selected>Select qualification</option>
+            <option value="SLC/SEE">SLC / SEE</option>
+            <option value="+2/Intermediate">+2 / Intermediate</option>
+            <option value="Bachelor's Degree">Bachelor's Degree</option>
+            <option value="Master's Degree">Master's Degree</option>
+            <option value="Diploma/Certificate">Diploma / Certificate</option>
+            <option value="No Formal Education">No Formal Education</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="interestedJob">
+            <span class="en-text">Interested Job <span class="req">*</span></span>
+            <span class="np-text" style="display:none">इच्छित जागिर <span class="req">*</span></span>
+          </label>
+          <select id="interestedJob" required>
+            <option value="" disabled selected>Select job</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="address">
+            <span class="en-text">Address <span class="req">*</span></span>
+            <span class="np-text" style="display:none">ठेगाना <span class="req">*</span></span>
+          </label>
+          <textarea id="address" placeholder="Your full address (District, Municipality, Ward…)" required rows="2"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="experience">
+            <span class="en-text">Work Experience <span class="req">*</span></span>
+            <span class="np-text" style="display:none">कार्य अनुभव <span class="req">*</span></span>
+          </label>
+          <select id="experience" required>
+            <option value="" disabled selected>Select experience</option>
+            <option value="Freshers (No Experience)">Freshers (No Experience)</option>
+            <option value="1–5 months">1–5 months</option>
+            <option value="5–11 months">5–11 months</option>
+            <option value="1–2 years">1–2 years</option>
+            <option value="More than 2 years">More than 2 years</option>
+          </select>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <span>💬</span>
+          <span class="en-text">Send Application via WhatsApp</span>
+          <span class="np-text" style="display:none">WhatsApp मार्फत पठाउनुहोस्</span>
+        </button>
+        <p class="whatsapp-note en-text">🔒 Your information will be sent securely via WhatsApp</p>
+        <p class="whatsapp-note np-text" style="display:none">🔒 तपाईंको जानकारी WhatsApp मार्फत सुरक्षित पठाइनेछ</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TOAST ═══ -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ─── JOB DATA ───
+const jobs = [
+  {
+    id:1, category:'sales',
+    titleEn:'Senior Salesman',titleNp:'वरिष्ठ सेल्समान',
+    icon:'🤝', iconBg:'#fff3e0',
+    typeEn:'Sales & Marketing',typeNp:'बिक्री र मार्केटिङ',
+    descEn:'Drive product sales across retail and wholesale channels. Build strong customer relationships, achieve monthly targets, and represent our partner brands with professionalism.',
+    descNp:'खुद्रा र थोक च्यानलहरूमा उत्पादन बिक्री गर्नुहोस्। ग्राहक सम्बन्ध कायम राख्नुहोस् र मासिक लक्ष्य हासिल गर्नुहोस्।',
+    rating:4.5
+  },
+  {
+    id:2, category:'sales',
+    titleEn:'Field Sales Executive',titleNp:'फिल्ड सेल्स एक्जिक्युटिभ',
+    icon:'📦', iconBg:'#e8f5e9',
+    typeEn:'Sales & Marketing',typeNp:'बिक्री र मार्केटिङ',
+    descEn:'Visit clients, distribute products, and collect payments across assigned territories. Two-wheeler required. Daily allowance and incentives provided.',
+    descNp:'नियुक्त क्षेत्रहरूमा ग्राहकहरूलाई भेट्नुहोस्। दैनिक भत्ता र प्रोत्साहन प्रदान गरिनेछ।',
+    rating:4.0
+  },
+  {
+    id:3, category:'management',
+    titleEn:'Branch Manager',titleNp:'शाखा प्रबन्धक',
+    icon:'🏢', iconBg:'#e3f2fd',
+    typeEn:'Management',typeNp:'व्यवस्थापन',
+    descEn:'Oversee daily operations of a retail branch. Lead a team of 5–10 staff, manage inventory, handle customer escalations, and report to regional head office.',
+    descNp:'खुद्रा शाखाको दैनिक सञ्चालन निरीक्षण गर्नुहोस्। ५–१० कर्मचारीको टोली नेतृत्व गर्नुहोस्।',
+    rating:4.7
+  },
+  {
+    id:4, category:'management',
+    titleEn:'Office Administrator',titleNp:'कार्यालय प्रशासक',
+    icon:'📋', iconBg:'#f3e5f5',
+    typeEn:'Administration',typeNp:'प्रशासन',
+    descEn:'Manage office correspondence, schedule meetings, handle petty cash, and coordinate between departments. Proficiency in MS Office required.',
+    descNp:'कार्यालय पत्राचार व्यवस्थापन गर्नुहोस्, बैठकहरू मिलाउनुहोस् र विभागहरू बीच समन्वय गर्नुहोस्।',
+    rating:4.2
+  },
+  {
+    id:5, category:'hospitality',
+    titleEn:'Hotel Front Desk Officer',titleNp:'होटल फ्रन्ट डेस्क अफिसर',
+    icon:'🏨', iconBg:'#fff8e1',
+    typeEn:'Hospitality',typeNp:'आतिथ्य',
+    descEn:'Welcome guests, manage check-ins and check-outs, handle bookings, and ensure exceptional guest experiences at a 3-star hotel in Kathmandu.',
+    descNp:'अतिथिहरूलाई स्वागत गर्नुहोस्, चेक-इन र चेक-आउट व्यवस्थापन गर्नुहोस्।',
+    rating:4.3
+  },
+  {
+    id:6, category:'hospitality',
+    titleEn:'Restaurant Supervisor',titleNp:'रेस्टुरेन्ट सुपरभाइजर',
+    icon:'🍽️', iconBg:'#fce4ec',
+    typeEn:'Food & Beverage',typeNp:'खाना र पेय',
+    descEn:'Supervise waitstaff, ensure food quality standards, handle customer complaints, manage shift schedules, and maintain cleanliness throughout the dining area.',
+    descNp:'वेटरस्टाफको निरीक्षण, खाना गुणस्तर कायम राख्नुहोस् र ग्राहक गुनासो समाधान गर्नुहोस्।',
+    rating:4.1
+  },
+  {
+    id:7, category:'professional',
+    titleEn:'Accountant',titleNp:'लेखापाल',
+    icon:'📊', iconBg:'#e0f7fa',
+    typeEn:'Finance',typeNp:'वित्त',
+    descEn:'Maintain financial records, prepare monthly reports, manage accounts payable/receivable, and assist with tax filings. Experience with Tally preferred.',
+    descNp:'वित्तीय अभिलेख राख्नुहोस्, मासिक रिपोर्ट तयार गर्नुहोस् र करको काममा सहयोग गर्नुहोस्।',
+    rating:4.6
+  },
+  {
+    id:8, category:'professional',
+    titleEn:'Legal Assistant',titleNp:'कानुनी सहायक',
+    icon:'⚖️', iconBg:'#e8eaf6',
+    typeEn:'Legal',typeNp:'कानुन',
+    descEn:'Assist attorneys with document drafting, filing court papers, client communication, and legal research. Law graduate preferred.',
+    descNp:'वकिलहरूलाई कागजात तयारी, अदालती फाइलिङ र कानुनी अनुसन्धानमा सहायता गर्नुहोस्।',
+    rating:4.0
+  },
+  {
+    id:9, category:'sales',
+    titleEn:'Insurance Sales Agent',titleNp:'बिमा बिक्री एजेन्ट',
+    icon:'🛡️', iconBg:'#fff3e0',
+    typeEn:'Sales & Finance',typeNp:'बिक्री र वित्त',
+    descEn:'Sell life and health insurance products to individuals and businesses. Commision-based with a guaranteed base salary. Training provided.',
+    descNp:'व्यक्ति र व्यवसायमा जीवन र स्वास्थ्य बिमा बेच्नुहोस्। आधार तलब र कमिसन।',
+    rating:3.8
+  },
+  {
+    id:10, category:'hospitality',
+    titleEn:'Tour Guide',titleNp:'टूर गाइड',
+    icon:'🗺️', iconBg:'#e8f5e9',
+    typeEn:'Tourism',typeNp:'पर्यटन',
+    descEn:'Guide domestic and international tourists across heritage sites and trekking trails. Fluency in English and knowledge of Nepali culture required.',
+    descNp:'सम्पदा स्थलहरू र ट्रेकिङ मार्गमा देशी–विदेशी पर्यटकहरूलाई गाइड गर्नुहोस्।',
+    rating:4.8
+  },
+  {
+    id:11, category:'management',
+    titleEn:'Warehouse Supervisor',titleNp:'गोदाम सुपरभाइजर',
+    icon:'🏭', iconBg:'#efebe9',
+    typeEn:'Logistics',typeNp:'लजिस्टिक्स',
+    descEn:'Oversee inventory receipt, storage, and dispatch. Lead warehouse team, coordinate with logistics partners, and maintain accurate stock records.',
+    descNp:'इन्भेन्टरी प्राप्ति, भण्डारण र प्रेषण निरीक्षण गर्नुहोस्। टोली नेतृत्व गर्नुहोस्।',
+    rating:4.2
+  },
+  {
+    id:12, category:'professional',
+    titleEn:'Graphic Designer',titleNp:'ग्राफिक डिजाइनर',
+    icon:'🎨', iconBg:'#fce4ec',
+    typeEn:'Creative',typeNp:'सिर्जनात्मक',
+    descEn:'Create marketing materials, social media graphics, banners, and branding assets. Proficiency in Canva or Adobe Suite required.',
+    descNp:'मार्केटिङ सामग्री, सोसल मिडिया ग्राफिक्स र ब्रान्डिङ सामग्री तयार गर्नुहोस्।',
+    rating:4.4
+  },
+  {
+    id:13, category:'sales',
+    titleEn:'Real Estate Agent',titleNp:'घर–जग्गा एजेन्ट',
+    icon:'🏠', iconBg:'#e3f2fd',
+    typeEn:'Real Estate',typeNp:'घर–जग्गा',
+    descEn:'Connect property buyers and sellers, conduct site visits, negotiate deals, and handle paperwork. High commission structure with no ceiling.',
+    descNp:'सम्पत्ति खरिदकर्ता र बिक्रेतालाई जोड्नुहोस्, साइट भ्रमण गर्नुहोस् र सम्झौता गर्नुहोस्।',
+    rating:4.3
+  },
+  {
+    id:14, category:'hospitality',
+    titleEn:'Event Coordinator',titleNp:'कार्यक्रम संयोजक',
+    icon:'🎉', iconBg:'#f3e5f5',
+    typeEn:'Events',typeNp:'कार्यक्रम',
+    descEn:'Plan and execute corporate and social events, manage vendors, coordinate logistics, and ensure smooth event delivery from planning to wrap-up.',
+    descNp:'कर्पोरेट र सामाजिक कार्यक्रमहरू योजना र कार्यान्वयन गर्नुहोस्।',
+    rating:4.5
+  },
+  {
+    id:15, category:'management',
+    titleEn:'HR Coordinator',titleNp:'मानव संसाधन संयोजक',
+    icon:'👥', iconBg:'#e0f7fa',
+    typeEn:'Human Resources',typeNp:'मानव संसाधन',
+    descEn:'Assist in recruitment, onboarding, attendance management, and employee welfare. Good communication skills and attention to detail required.',
+    descNp:'भर्ती, अनुबोर्डिङ र कर्मचारी कल्याणमा सहयोग गर्नुहोस्।',
+    rating:4.1
+  },
+  {
+    id:16, category:'professional',
+    titleEn:'Media Content Creator',titleNp:'मिडिया कन्टेन्ट क्रिएटर',
+    icon:'📹', iconBg:'#fff8e1',
+    typeEn:'Media',typeNp:'मिडिया',
+    descEn:'Produce short-form video content, write scripts, manage social media pages, and grow brand presence for local businesses.',
+    descNp:'छोटो भिडियो सामग्री उत्पादन गर्नुहोस्, स्क्रिप्ट लेख्नुहोस् र सोसल मिडिया पेजहरू व्यवस्थापन गर्नुहोस्।',
+    rating:4.6
+  }
+];
+
+// ─── STATE ───
+let currentLang = 'en';
+let currentCategory = 'all';
+let currentSearch = '';
+
+// ─── RENDER JOBS ───
+function renderStars(rating){
+  const full=Math.floor(rating), half=(rating%1>=0.5)?1:0, empty=5-full-half;
+  let s='';
+  for(let i=0;i<full;i++) s+='<span class="star filled">★</span>';
+  if(half) s+='<span class="star filled" style="opacity:0.5">★</span>';
+  for(let i=0;i<empty;i++) s+='<span class="star">★</span>';
+  s+=`<span class="rating-text">${rating.toFixed(1)}</span>`;
+  return s;
+}
+
+function renderJobs(){
+  const grid=document.getElementById('jobsGrid');
+  const noRes=document.getElementById('noResults');
+  const countBadge=document.getElementById('jobCount');
+
+  const filtered=jobs.filter(j=>{
+    const matchCat=currentCategory==='all'||j.category===currentCategory;
+    const q=currentSearch.toLowerCase();
+    const matchSearch=!q||
+      j.titleEn.toLowerCase().includes(q)||
+      j.titleNp.includes(q)||
+      j.typeEn.toLowerCase().includes(q)||
+      j.descEn.toLowerCase().includes(q);
+    return matchCat&&matchSearch;
+  });
+
+  countBadge.textContent=filtered.length;
+
+  if(!filtered.length){
+    grid.innerHTML='';
+    noRes.style.display='block';
+    return;
+  }
+  noRes.style.display='none';
+
+  grid.innerHTML=filtered.map(j=>`
+    <div class="job-card" data-id="${j.id}">
+      <div class="job-header">
+        <div class="job-icon" style="background:${j.iconBg}">${j.icon}</div>
+        <div class="job-meta">
+          <div class="job-title en-text">${j.titleEn}</div>
+          <div class="job-title np-text" style="${currentLang==='np'?'':'display:none'}">${j.titleNp}</div>
+          <span class="job-type en-text">${j.typeEn}</span>
+          <span class="job-type np-text" style="${currentLang==='np'?'':'display:none'}">${j.typeNp}</span>
+        </div>
+      </div>
+      <p class="job-desc en-text">${j.descEn}</p>
+      <p class="job-desc np-text" style="${currentLang==='np'?'':'display:none'}">${j.descNp}</p>
+      <div class="job-footer">
+        <div class="stars">${renderStars(j.rating)}</div>
+        <button class="apply-btn en-text" onclick="openModal(${j.id})">Apply Now</button>
+        <button class="apply-btn np-text" style="${currentLang==='np'?'':'display:none'}" onclick="openModal(${j.id})">आवेदन दिनुहोस्</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ─── SEARCH & FILTER ───
+function filterJobs(){
+  currentSearch=document.getElementById('searchInput').value;
+  renderJobs();
+}
+
+document.getElementById('searchInput').addEventListener('input',filterJobs);
+document.getElementById('searchInput').addEventListener('keydown',e=>{
+  if(e.key==='Enter') filterJobs();
+});
+
+function filterByCategory(cat, btn){
+  currentCategory=cat;
+  document.querySelectorAll('.cat-pill').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  renderJobs();
+}
+
+// ─── MODAL ───
+function openModal(jobId){
+  const job=jobs.find(j=>j.id===jobId);
+  if(!job)return;
+
+  // Populate job selector
+  const sel=document.getElementById('interestedJob');
+  sel.innerHTML=jobs.map(j=>
+    `<option value="${j.titleEn}" ${j.id===jobId?'selected':''}>${j.titleEn}</option>`
+  ).join('');
+
+  // Update subtitle
+  document.getElementById('modalSubtitle').textContent=`Applying for: ${job.titleEn}`;
+
+  document.getElementById('applyModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeModal(){
+  document.getElementById('applyModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+// Close on overlay click
+document.getElementById('applyModal').addEventListener('click',function(e){
+  if(e.target===this) closeModal();
+});
+
+// ─── FORM SUBMIT → WHATSAPP ───
+function submitForm(e){
+  e.preventDefault();
+  const name=document.getElementById('fullName').value.trim();
+  const age=document.getElementById('age').value;
+  const qual=document.getElementById('qualification').value;
+  const job=document.getElementById('interestedJob').value;
+  const address=document.getElementById('address').value.trim();
+  const exp=document.getElementById('experience').value;
+
+  if(!name||!age||!qual||!job||!address||!exp){
+    showToast('⚠️ Please fill all required fields');
+    return;
+  }
+
+  const msg=
+`🟢 *New Job Application – Safe Rojgar*
+━━━━━━━━━━━━━━━━━━
+👤 *Name:* ${name}
+🎂 *Age:* ${age}
+🎓 *Qualification:* ${qual}
+💼 *Interested Job:* ${job}
+📍 *Address:* ${address}
+⏱ *Experience:* ${exp}
+━━━━━━━━━━━━━━━━━━
+📲 Sent via Safe Rojgar Portal`;
+
+  const encoded=encodeURIComponent(msg);
+  const waUrl=`https://wa.me/9779813071254?text=${encoded}`;
+
+  showToast('✅ Redirecting to WhatsApp…');
+  setTimeout(()=>{
+    window.open(waUrl,'_blank');
+    closeModal();
+    document.getElementById('applyForm').reset();
+  },600);
+}
+
+// ─── LANGUAGE TOGGLE ───
+document.getElementById('langSelect').addEventListener('change',function(){
+  currentLang=this.value;
+  document.body.classList.toggle('lang-np',currentLang==='np');
+
+  document.querySelectorAll('.en-text').forEach(el=>{
+    el.style.display=currentLang==='en'?'':'none';
+  });
+  document.querySelectorAll('.np-text').forEach(el=>{
+    el.style.display=currentLang==='np'?'':'none';
+  });
+
+  // Inline display fix for inline/flex elements
+  document.querySelectorAll('.en-text').forEach(el=>{
+    if(currentLang==='en'){
+      el.style.display=el.dataset.inline||'';
+    }
+  });
+
+  document.getElementById('searchInput').placeholder=
+    currentLang==='en'?'Search jobs e.g. Salesman, Manager…':'जागिर खोज्नुहोस्… जस्तै सेल्समान, प्रबन्धक';
+
+  renderJobs();
+});
+
+// ─── TOAST ───
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+// ─── INIT ───
+renderJobs();
+</script>
+</body>
+</html>
