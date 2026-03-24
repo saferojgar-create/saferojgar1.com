@@ -1,983 +1,1541 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Safe Rojgar – Nepal's most trusted job placement platform. Find verified jobs in sales, management, hospitality and more. Apply instantly via WhatsApp."/>
-  <meta name="keywords" content="jobs Nepal, rojgar Nepal, job placement Kathmandu, Safe Rojgar, employment Nepal, naukri Nepal"/>
-  <meta name="author" content="Safe Rojgar Pvt. Ltd."/>
-  <meta property="og:title" content="Safe Rojgar – Find Your Dream Job in Nepal"/>
-  <meta property="og:description" content="Fast, simple, and reliable job placement service in Nepal."/>
-  <meta property="og:type" content="website"/>
-  <title>Safe Rojgar – Find Your Dream Job in Nepal</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Safe Rojgar – Find Your Dream Job in Nepal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+/* ===== CSS VARIABLES ===== */
+:root{
+  --brand:#1a6b3c;
+  --brand-light:#22883f;
+  --brand-dark:#0f4526;
+  --accent:#f59e0b;
+  --accent2:#10b981;
+  --red:#ef4444;
+  --bg:#f0f7f2;
+  --bg2:#ffffff;
+  --bg3:#e8f4ed;
+  --card:#ffffff;
+  --text:#111827;
+  --text2:#4b5563;
+  --text3:#9ca3af;
+  --border:#d1fae5;
+  --shadow:0 4px 24px rgba(26,107,60,.10);
+  --shadow-lg:0 12px 48px rgba(26,107,60,.18);
+  --radius:16px;
+  --radius-sm:10px;
+  --font-head:'Sora',sans-serif;
+  --font-body:'DM Sans',sans-serif;
+  --nav-h:68px;
+  --bottom-h:64px;
+}
+[data-theme="dark"]{
+  --bg:#0d1f14;
+  --bg2:#122118;
+  --bg3:#182d1f;
+  --card:#1a2e21;
+  --text:#f0fdf4;
+  --text2:#86efac;
+  --text3:#4ade80;
+  --border:#166534;
+  --shadow:0 4px 24px rgba(0,0,0,.4);
+  --shadow-lg:0 12px 48px rgba(0,0,0,.55);
+}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+  transition:background .3s,color .3s;
+}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;outline:none;font-family:var(--font-body)}
+img{max-width:100%;display:block}
+ul{list-style:none}
 
-  <style>
-  /* ═══════════════════════════════════════════
-     DESIGN TOKENS
-  ═══════════════════════════════════════════ */
-  :root {
-    --white:      #ffffff;
-    --off:        #f5f8ff;
-    --light:      #edf1fb;
-    --border:     #dce3f5;
-    --border2:    #c8d2ec;
-    --muted:      #8494b8;
-    --sub:        #4a5778;
-    --text:       #111827;
-    --navy:       #0a1f5c;
-    --navy2:      #162d7a;
-    --blue:       #1a4fd8;
-    --blue-lt:    #e8effe;
-    --blue-mid:   #c5d4fc;
-    --gold:       #e8960a;
-    --gold-lt:    #fef5e0;
-    --gold-dark:  #c67d08;
-    --green:      #0f9e6e;
-    --green-lt:   #e2f7f0;
-    --r-sm:       8px;
-    --r:          14px;
-    --r-lg:       20px;
-    --r-xl:       28px;
-    --sh-xs:      0 1px 3px rgba(10,31,92,.06);
-    --sh-sm:      0 2px 8px rgba(10,31,92,.09);
-    --sh:         0 6px 24px rgba(10,31,92,.12);
-    --sh-lg:      0 16px 48px rgba(10,31,92,.18);
-    --sh-xl:      0 28px 72px rgba(10,31,92,.22);
-    --ease:       .28s cubic-bezier(.4,0,.2,1);
-    --hh:         68px;
-  }
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--bg3)}
+::-webkit-scrollbar-thumb{background:var(--brand);border-radius:99px}
 
-  /* ─── RESET ─── */
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
-  body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-  img{max-width:100%;display:block}
-  a{text-decoration:none;color:inherit}
-  ul,ol{list-style:none}
-  button{font-family:inherit;cursor:pointer;border:none;background:none;outline:none}
-  input,select,textarea{font-family:inherit;font-size:1rem}
+/* ===== NAVBAR ===== */
+#navbar{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  height:var(--nav-h);
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;
+  padding:0 clamp(16px,4vw,48px);
+  gap:16px;
+  transition:background .3s,border-color .3s;
+}
+[data-theme="dark"] #navbar{background:rgba(13,31,20,.92)}
+.nav-logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nav-logo img{
+  width:40px;height:40px;border-radius:10px;
+  object-fit:cover;
+  background:var(--brand);
+  padding:4px;
+}
+.nav-logo-text{
+  font-family:var(--font-head);font-weight:800;font-size:1.15rem;
+  color:var(--brand);letter-spacing:-.5px;
+}
+.nav-logo-text span{color:var(--accent)}
+.nav-links{
+  display:flex;align-items:center;gap:4px;margin-left:auto;
+}
+.nav-links a{
+  font-size:.88rem;font-weight:500;padding:7px 13px;border-radius:8px;
+  color:var(--text2);transition:all .2s;
+}
+.nav-links a:hover,.nav-links a.active{background:var(--brand);color:#fff}
+.nav-actions{display:flex;align-items:center;gap:8px;margin-left:8px}
+.btn-icon{
+  width:38px;height:38px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg3);color:var(--text);font-size:.95rem;
+  transition:all .2s;border:1px solid var(--border);
+}
+.btn-icon:hover{background:var(--brand);color:#fff;border-color:var(--brand)}
+.lang-btn{
+  font-size:.78rem;font-weight:700;padding:6px 10px;border-radius:8px;
+  background:var(--bg3);color:var(--brand);border:1px solid var(--border);
+  transition:all .2s;
+}
+.lang-btn:hover{background:var(--brand);color:#fff}
 
-  /* ─── UTILITIES ─── */
-  .container{width:100%;max-width:1180px;margin:0 auto;padding:0 22px}
-  .sec-label{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
-  .sec-label::before{content:'';display:block;width:22px;height:2px;background:var(--gold);border-radius:2px}
-  .sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4.5vw,2.8rem);color:var(--navy);line-height:1.2;font-weight:700}
-  .sec-sub{color:var(--sub);font-size:.96rem;margin-top:12px;line-height:1.75;max-width:560px}
+/* ===== HERO ===== */
+#hero{
+  min-height:100vh;
+  background:linear-gradient(135deg,var(--brand-dark) 0%,var(--brand) 40%,var(--brand-light) 70%,#15803d 100%);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  padding:calc(var(--nav-h) + 40px) clamp(16px,5vw,80px) 60px;
+}
+.hero-shapes{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.shape{
+  position:absolute;border-radius:50%;
+  background:rgba(255,255,255,.06);
+  animation:float 8s ease-in-out infinite;
+}
+.shape:nth-child(1){width:500px;height:500px;top:-120px;right:-100px;animation-delay:0s}
+.shape:nth-child(2){width:300px;height:300px;bottom:-60px;left:-80px;animation-delay:2s;background:rgba(255,255,255,.04)}
+.shape:nth-child(3){width:180px;height:180px;top:40%;left:10%;animation-delay:4s}
+.shape:nth-child(4){width:80px;height:80px;top:20%;right:15%;animation-delay:1s;background:rgba(245,158,11,.25);border-radius:20px;transform:rotate(30deg)}
+.shape:nth-child(5){width:50px;height:50px;bottom:25%;right:20%;animation-delay:3s;background:rgba(255,255,255,.15);border-radius:12px;transform:rotate(15deg)}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-20px) rotate(5deg)}}
+.hero-content{
+  text-align:center;max-width:720px;position:relative;z-index:1;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.15);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:99px;padding:6px 16px;
+  font-size:.8rem;font-weight:600;color:#fff;letter-spacing:.5px;
+  margin-bottom:24px;
+  animation:fadeDown .6s ease both;
+}
+.hero-badge i{color:var(--accent)}
+.hero-title{
+  font-family:var(--font-head);font-size:clamp(2.2rem,6vw,4rem);
+  font-weight:800;color:#fff;line-height:1.1;letter-spacing:-1.5px;
+  margin-bottom:16px;
+  animation:fadeUp .7s ease both .1s;
+}
+.hero-title .accent{color:var(--accent)}
+.hero-subtitle{
+  font-size:clamp(1rem,2.5vw,1.2rem);color:rgba(255,255,255,.8);
+  margin-bottom:40px;line-height:1.6;
+  animation:fadeUp .7s ease both .2s;
+}
+.hero-stats{
+  display:flex;justify-content:center;gap:clamp(20px,5vw,56px);flex-wrap:wrap;
+  margin-bottom:40px;
+  animation:fadeUp .7s ease both .3s;
+}
+.stat{text-align:center}
+.stat-num{
+  font-family:var(--font-head);font-size:clamp(1.8rem,4vw,2.8rem);
+  font-weight:800;color:#fff;line-height:1;
+}
+.stat-num span{color:var(--accent)}
+.stat-label{font-size:.82rem;color:rgba(255,255,255,.7);font-weight:500;margin-top:4px}
+.hero-cta{
+  display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
+  animation:fadeUp .7s ease both .4s;
+}
+.btn-primary{
+  padding:14px 32px;border-radius:12px;font-weight:700;font-size:1rem;
+  background:var(--accent);color:#1a1a1a;
+  transition:all .2s;display:inline-flex;align-items:center;gap:8px;
+  box-shadow:0 4px 20px rgba(245,158,11,.4);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(245,158,11,.5)}
+.btn-primary:active{transform:scale(.97)}
+.btn-secondary{
+  padding:14px 32px;border-radius:12px;font-weight:600;font-size:1rem;
+  background:rgba(255,255,255,.15);color:#fff;
+  border:1.5px solid rgba(255,255,255,.35);backdrop-filter:blur(8px);
+  transition:all .2s;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-secondary:hover{background:rgba(255,255,255,.25);transform:translateY(-2px)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:none}}
 
-  /* ─── BUTTONS ─── */
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 28px;border-radius:var(--r-sm);font-size:.9rem;font-weight:700;transition:all var(--ease);white-space:nowrap;cursor:pointer}
-  .btn-navy{background:var(--navy);color:#fff}
-  .btn-navy:hover{background:var(--blue);transform:translateY(-2px);box-shadow:var(--sh)}
-  .btn-gold{background:var(--gold);color:#fff}
-  .btn-gold:hover{background:var(--gold-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,150,10,.35)}
-  .btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.55)}
-  .btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:#fff}
+/* ===== STICKY SEARCH ===== */
+#search-section{
+  position:sticky;top:var(--nav-h);z-index:800;
+  background:var(--bg);padding:14px clamp(12px,4vw,48px);
+  border-bottom:1px solid var(--border);
+  transition:background .3s;
+}
+.search-wrap{
+  max-width:700px;margin:0 auto;position:relative;
+}
+.search-input{
+  width:100%;padding:14px 50px 14px 48px;
+  border-radius:14px;border:2px solid var(--border);
+  background:var(--card);color:var(--text);
+  font-family:var(--font-body);font-size:1rem;
+  transition:all .2s;
+  box-shadow:var(--shadow);
+}
+.search-input:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 4px rgba(26,107,60,.12)}
+.search-input::placeholder{color:var(--text3)}
+.search-icon{
+  position:absolute;left:16px;top:50%;transform:translateY(-50%);
+  color:var(--brand);font-size:1.05rem;
+}
+.search-clear{
+  position:absolute;right:14px;top:50%;transform:translateY(-50%);
+  color:var(--text3);font-size:.9rem;cursor:pointer;
+  background:none;border:none;display:none;
+  transition:color .2s;
+}
+.search-clear:hover{color:var(--red)}
 
-  /* ─── LANGUAGE SYSTEM ─── */
-  [data-lang="np"]{display:none!important}
-  body.np [data-lang="en"]{display:none!important}
-  body.np [data-lang="np"]{display:revert!important}
+/* ===== CATEGORY PILLS ===== */
+#categories{
+  padding:16px clamp(12px,4vw,48px);
+  background:var(--bg);
+}
+.cat-pills{
+  display:flex;gap:8px;overflow-x:auto;
+  scrollbar-width:none;padding-bottom:4px;
+  max-width:1200px;margin:0 auto;
+}
+.cat-pills::-webkit-scrollbar{display:none}
+.cat-pill{
+  flex-shrink:0;padding:9px 20px;border-radius:99px;
+  font-weight:600;font-size:.85rem;
+  background:var(--card);color:var(--text2);
+  border:1.5px solid var(--border);
+  cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;gap:7px;
+  white-space:nowrap;
+}
+.cat-pill i{font-size:.9rem}
+.cat-pill:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-1px)}
+.cat-pill.active{background:var(--brand);color:#fff;border-color:var(--brand);box-shadow:0 4px 14px rgba(26,107,60,.3)}
 
-  /* ══════════════════════════════════════════
-     HEADER
-  ══════════════════════════════════════════ */
-  #header{
-    position:sticky;top:0;z-index:999;
-    background:rgba(255,255,255,.97);
-    backdrop-filter:blur(14px) saturate(180%);
-    -webkit-backdrop-filter:blur(14px) saturate(180%);
-    border-bottom:1px solid var(--border);
-    transition:box-shadow var(--ease);
-    height:var(--hh);
-  }
-  #header.scrolled{box-shadow:var(--sh)}
-  .header-inner{height:var(--hh);display:flex;align-items:center;justify-content:space-between;gap:14px}
+/* ===== MAIN CONTENT ===== */
+#main{
+  max-width:1200px;margin:0 auto;
+  padding:32px clamp(12px,4vw,48px) calc(var(--bottom-h) + 20px);
+}
+.section-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:20px;
+}
+.section-title{
+  font-family:var(--font-head);font-size:1.4rem;font-weight:700;
+  color:var(--text);letter-spacing:-.5px;
+}
+.section-title span{color:var(--brand)}
+.section-count{
+  font-size:.85rem;color:var(--text3);font-weight:500;
+  background:var(--bg3);padding:4px 12px;border-radius:99px;
+}
 
-  /* Logo */
-  .logo{display:flex;align-items:center;gap:11px;flex-shrink:0}
-  .logo-img{width:44px;height:44px;border-radius:10px;overflow:hidden;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  .logo-img img{width:100%;height:100%;object-fit:cover}
-  .logo-fb{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--gold);display:none}
-  .logo-texts{display:flex;flex-direction:column;line-height:1.1}
-  .logo-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--navy)}
-  .logo-tag{font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+/* ===== JOB CARDS GRID ===== */
+#jobs-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));
+  gap:18px;
+}
 
-  /* Nav */
-  .main-nav{display:flex;align-items:center;gap:4px}
-  .main-nav a{font-size:.88rem;font-weight:600;color:var(--sub);padding:8px 14px;border-radius:var(--r-sm);transition:all var(--ease)}
-  .main-nav a:hover,.main-nav a.active{color:var(--navy);background:var(--blue-lt)}
+/* ===== SKELETON ===== */
+.skeleton{
+  background:linear-gradient(90deg,var(--bg3) 25%,var(--border) 50%,var(--bg3) 75%);
+  background-size:200% 100%;
+  animation:shimmer 1.5s infinite;
+  border-radius:var(--radius);
+}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.skeleton-card{
+  height:220px;border-radius:var(--radius);
+  background:linear-gradient(90deg,var(--bg3) 25%,var(--border) 50%,var(--bg3) 75%);
+  background-size:200% 100%;
+  animation:shimmer 1.5s infinite;
+}
 
-  /* Header actions */
-  .h-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+/* ===== JOB CARD ===== */
+.job-card{
+  background:var(--card);border-radius:var(--radius);
+  border:1.5px solid var(--border);padding:20px;
+  cursor:pointer;transition:all .25s;
+  position:relative;overflow:hidden;
+  animation:cardIn .4s ease both;
+}
+@keyframes cardIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.job-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--brand),var(--brand-light));
+  transform:scaleX(0);transform-origin:left;transition:transform .3s;
+}
+.job-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-lg);
+  border-color:var(--brand);
+}
+.job-card:hover::before{transform:scaleX(1)}
+.job-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:14px}
+.job-icon{
+  width:46px;height:46px;border-radius:12px;
+  background:linear-gradient(135deg,var(--brand),var(--brand-light));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;color:#fff;flex-shrink:0;
+}
+.job-save{
+  width:34px;height:34px;border-radius:9px;
+  background:var(--bg3);border:1.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.95rem;color:var(--text3);
+  transition:all .2s;flex-shrink:0;
+}
+.job-save:hover,.job-save.saved{color:var(--red);border-color:var(--red);background:rgba(239,68,68,.08)}
+.job-save.saved{color:var(--red)}
+.job-title{
+  font-family:var(--font-head);font-weight:700;font-size:1.02rem;
+  color:var(--text);line-height:1.3;margin-bottom:4px;
+}
+.job-company{font-size:.82rem;color:var(--brand);font-weight:600}
+.job-meta{
+  display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:12px 0;
+}
+.job-tag{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:.76rem;font-weight:500;color:var(--text2);
+  background:var(--bg3);border-radius:6px;padding:4px 9px;
+}
+.job-tag i{color:var(--brand);font-size:.72rem}
+.job-cat-tag{
+  font-size:.72rem;font-weight:700;color:var(--brand);
+  background:rgba(26,107,60,.1);border-radius:6px;padding:3px 9px;
+  letter-spacing:.3px;text-transform:uppercase;
+}
+.job-footer{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid var(--border)}
+.job-rating{display:flex;align-items:center;gap:5px}
+.stars{display:flex;gap:2px}
+.stars i{font-size:.75rem;color:var(--accent)}
+.job-rating-num{font-size:.82rem;font-weight:600;color:var(--text2)}
+.job-posted{font-size:.76rem;color:var(--text3)}
+.job-apply-btn{
+  padding:7px 16px;border-radius:8px;font-weight:700;font-size:.82rem;
+  background:var(--brand);color:#fff;transition:all .2s;
+  display:flex;align-items:center;gap:6px;
+}
+.job-apply-btn:hover{background:var(--brand-light);transform:scale(1.03)}
+.applied-badge{
+  padding:5px 10px;border-radius:8px;font-size:.76rem;font-weight:700;
+  background:rgba(16,185,129,.12);color:var(--accent2);
+  border:1px solid rgba(16,185,129,.3);
+  display:flex;align-items:center;gap:5px;
+}
+.applicants-count{font-size:.74rem;color:var(--text3);margin-top:2px}
 
-  /* Language select — ALWAYS visible on all screen sizes */
-  .lang-sel{
-    appearance:none;
-    background:var(--light) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7'%3E%3Cpath d='M5.5 7 0 0h11z' fill='%230a1f5c'/%3E%3C/svg%3E") no-repeat right 9px center;
-    border:1.5px solid var(--border2);
-    color:var(--navy);font-size:.8rem;font-weight:700;
-    padding:7px 28px 7px 10px;border-radius:var(--r-sm);
-    cursor:pointer;transition:border-color var(--ease);
-    min-width:108px;
-  }
-  .lang-sel:focus{outline:none;border-color:var(--blue)}
+/* ===== NO RESULTS ===== */
+#no-results{
+  display:none;text-align:center;padding:60px 20px;
+  grid-column:1/-1;
+}
+#no-results .no-icon{font-size:3.5rem;margin-bottom:16px}
+#no-results h3{font-family:var(--font-head);font-size:1.4rem;color:var(--text);margin-bottom:8px}
+#no-results p{color:var(--text3);font-size:.95rem;line-height:1.6}
+#no-results .suggestions{
+  display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:20px;
+}
+#no-results .suggestion-pill{
+  padding:6px 14px;border-radius:99px;background:var(--bg3);
+  color:var(--brand);font-size:.82rem;font-weight:600;cursor:pointer;
+  border:1px solid var(--border);transition:all .2s;
+}
+#no-results .suggestion-pill:hover{background:var(--brand);color:#fff}
 
-  /* Hamburger */
-  .ham{display:none;flex-direction:column;justify-content:center;gap:5px;width:38px;height:38px;padding:6px;border-radius:var(--r-sm);background:var(--light);flex-shrink:0}
-  .ham span{display:block;width:100%;height:2px;border-radius:2px;background:var(--navy);transition:all var(--ease)}
-  .ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-  .ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}
-  .ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* ===== RECOMMENDED SECTION ===== */
+#recommended{margin-top:40px}
+.rec-scroll{
+  display:flex;gap:14px;overflow-x:auto;
+  scrollbar-width:none;padding-bottom:8px;
+}
+.rec-scroll::-webkit-scrollbar{display:none}
+.rec-card{
+  flex-shrink:0;width:260px;background:var(--card);
+  border-radius:var(--radius-sm);border:1.5px solid var(--border);
+  padding:16px;cursor:pointer;transition:all .2s;
+}
+.rec-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--brand)}
 
-  /* Mobile overlay */
-  .mob-overlay{display:none;position:fixed;inset:0;top:var(--hh);z-index:990;background:rgba(10,31,92,.45);backdrop-filter:blur(3px)}
-  .mob-overlay.open{display:block;animation:fadeIn .2s ease}
-  .mob-panel{background:white;padding:14px 20px 26px;border-bottom:1px solid var(--border);box-shadow:var(--sh-lg);animation:slideDown .25s ease}
-  @keyframes slideDown{from{transform:translateY(-10px);opacity:0}to{transform:translateY(0);opacity:1}}
-  .mob-panel a{display:flex;align-items:center;gap:10px;padding:13px 12px;border-radius:var(--r-sm);font-size:1rem;font-weight:600;color:var(--sub);border-bottom:1px solid var(--light);transition:all var(--ease)}
-  .mob-panel a:last-child{border-bottom:none}
-  .mob-panel a:hover,.mob-panel a.active{color:var(--navy);background:var(--blue-lt)}
-  .mob-panel a i{width:20px;text-align:center;color:var(--blue)}
+/* ===== ABOUT SECTION ===== */
+#about{
+  background:var(--bg2);
+  padding:60px clamp(16px,5vw,80px);
+  margin-top:0;
+}
+.about-inner{max-width:1200px;margin:0 auto;}
+.about-title{
+  font-family:var(--font-head);font-size:clamp(1.8rem,4vw,2.6rem);
+  font-weight:800;text-align:center;margin-bottom:12px;
+  color:var(--text);letter-spacing:-.8px;
+}
+.about-sub{text-align:center;color:var(--text2);max-width:550px;margin:0 auto 48px;line-height:1.6}
+.trust-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.trust-card{
+  background:var(--card);border-radius:var(--radius);
+  border:1.5px solid var(--border);padding:28px 24px;
+  text-align:center;transition:all .3s;
+}
+.trust-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--brand)}
+.trust-icon{
+  width:60px;height:60px;border-radius:16px;
+  background:linear-gradient(135deg,var(--brand),var(--brand-light));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;color:#fff;margin:0 auto 16px;
+}
+.trust-title{font-family:var(--font-head);font-weight:700;font-size:1.05rem;color:var(--text);margin-bottom:8px}
+.trust-desc{font-size:.88rem;color:var(--text2);line-height:1.5}
 
-  @media(max-width:720px){
-    .main-nav{display:none}
-    .ham{display:flex}
-    .logo-tag{display:none}
-  }
-  @media(max-width:380px){
-    .lang-sel{min-width:86px;font-size:.74rem;padding:6px 22px 6px 8px}
-  }
+/* ===== FOOTER ===== */
+footer{
+  background:var(--brand-dark);color:rgba(255,255,255,.85);
+  padding:48px clamp(16px,5vw,80px) 80px;
+}
+@media(min-width:768px){footer{padding-bottom:48px}}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px}
+.footer-brand .nav-logo-text{color:#fff}
+.footer-desc{font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.6;margin-top:12px}
+.footer-social{display:flex;gap:10px;margin-top:20px}
+.social-btn{
+  width:38px;height:38px;border-radius:10px;
+  background:rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.95rem;color:rgba(255,255,255,.7);
+  transition:all .2s;
+}
+.social-btn:hover{background:var(--accent);color:#1a1a1a;transform:translateY(-2px)}
+.footer-col h4{
+  font-family:var(--font-head);font-weight:700;font-size:1rem;color:#fff;
+  margin-bottom:16px;
+}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:.88rem;color:rgba(255,255,255,.6);transition:color .2s}
+.footer-links a:hover{color:var(--accent)}
+.footer-contact li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:.88rem;color:rgba(255,255,255,.6);margin-bottom:12px;
+}
+.footer-contact li i{color:var(--accent);margin-top:2px;flex-shrink:0}
+.footer-bottom{
+  text-align:center;margin-top:40px;padding-top:24px;
+  border-top:1px solid rgba(255,255,255,.1);
+  font-size:.82rem;color:rgba(255,255,255,.4);
+}
 
-  /* ══════════════════════════════════════════
-     HERO
-  ══════════════════════════════════════════ */
-  #hero{background:var(--navy);position:relative;overflow:hidden;padding:80px 0 90px}
-  #hero::before{
-    content:'';position:absolute;inset:0;z-index:0;
-    background:
-      radial-gradient(ellipse 80% 60% at 70% 50%,rgba(26,79,216,.45) 0%,transparent 70%),
-      radial-gradient(ellipse 50% 80% at 15% 80%,rgba(232,150,10,.12) 0%,transparent 60%);
-  }
-  #hero::after{
-    content:'';position:absolute;inset:0;z-index:0;
-    background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
-    background-size:48px 48px;
-  }
-  .hero-inner{position:relative;z-index:1}
-  .hero-badge{
-    display:inline-flex;align-items:center;gap:8px;
-    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
-    color:rgba(255,255,255,.9);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-    padding:7px 16px;border-radius:50px;margin-bottom:24px;
-    animation:fadeUp .6s ease both;
-  }
-  .hero-badge i{color:var(--gold)}
-  .hero-h1{
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(2.2rem,7vw,4rem);color:#fff;font-weight:700;line-height:1.18;margin-bottom:20px;
-    animation:fadeUp .6s .1s ease both;
-  }
-  .hero-h1 .accent{color:var(--gold)}
-  .hero-sub{color:rgba(255,255,255,.75);font-size:1.05rem;line-height:1.75;max-width:540px;margin-bottom:36px;animation:fadeUp .6s .2s ease both}
-  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp .6s .3s ease both}
-  .hero-stats{
-    display:flex;gap:0;margin-top:58px;
-    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
-    border-radius:var(--r-lg);overflow:hidden;
-    animation:fadeUp .6s .4s ease both;
-  }
-  .h-stat{flex:1;text-align:center;padding:20px 10px;border-right:1px solid rgba(255,255,255,.1)}
-  .h-stat:last-child{border-right:none}
-  .h-stat-n{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--gold);line-height:1}
-  .h-stat-l{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
-  @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+/* ===== MODAL ===== */
+.modal-overlay{
+  position:fixed;inset:0;z-index:1000;
+  background:rgba(0,0,0,.5);backdrop-filter:blur(4px);
+  display:flex;align-items:flex-end;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+@media(min-width:640px){.modal-overlay{align-items:center}}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{
+  width:100%;max-width:560px;
+  background:var(--card);
+  border-radius:24px 24px 0 0;
+  max-height:90vh;overflow-y:auto;
+  transform:translateY(30px);transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+  scrollbar-width:thin;
+}
+@media(min-width:640px){.modal{border-radius:24px;max-height:85vh}}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-handle{
+  width:40px;height:4px;border-radius:99px;
+  background:var(--border);margin:12px auto 0;
+}
+@media(min-width:640px){.modal-handle{display:none}}
+.modal-header{
+  padding:20px 24px 16px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;background:var(--card);z-index:1;
+}
+.modal-title{font-family:var(--font-head);font-weight:700;font-size:1.2rem;color:var(--text)}
+.modal-close{
+  width:34px;height:34px;border-radius:9px;background:var(--bg3);
+  display:flex;align-items:center;justify-content:center;color:var(--text2);
+  font-size:1rem;transition:all .2s;
+}
+.modal-close:hover{background:var(--red);color:#fff}
+.modal-body{padding:24px}
+.modal-job-icon{
+  width:56px;height:56px;border-radius:14px;
+  background:linear-gradient(135deg,var(--brand),var(--brand-light));
+  display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#fff;
+  margin-bottom:16px;
+}
+.modal-job-title{font-family:var(--font-head);font-weight:800;font-size:1.4rem;color:var(--text);margin-bottom:4px}
+.modal-company{color:var(--brand);font-weight:600;font-size:.95rem;margin-bottom:14px}
+.modal-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.modal-tag{
+  padding:6px 14px;border-radius:8px;background:var(--bg3);
+  color:var(--text2);font-size:.82rem;font-weight:500;
+  display:flex;align-items:center;gap:6px;
+}
+.modal-tag i{color:var(--brand)}
+.modal-section-title{
+  font-family:var(--font-head);font-weight:700;font-size:1rem;
+  color:var(--text);margin-bottom:10px;
+}
+.modal-desc{
+  font-size:.92rem;color:var(--text2);line-height:1.7;
+  margin-bottom:24px;
+}
+.modal-requirements{
+  background:var(--bg3);border-radius:12px;padding:16px;
+  margin-bottom:24px;
+}
+.modal-req-item{
+  display:flex;align-items:center;gap:10px;
+  font-size:.88rem;color:var(--text2);padding:4px 0;
+}
+.modal-req-item i{color:var(--brand-light);font-size:.9rem;flex-shrink:0}
+.modal-apply-bar{
+  position:sticky;bottom:0;
+  background:var(--card);padding:16px 24px;
+  border-top:1px solid var(--border);
+  display:flex;gap:10px;
+}
+.btn-apply-main{
+  flex:1;padding:14px;border-radius:12px;font-weight:700;font-size:1rem;
+  background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:all .2s;box-shadow:0 4px 16px rgba(37,211,102,.35);
+}
+.btn-apply-main:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(37,211,102,.45)}
+.btn-save-job{
+  padding:14px 16px;border-radius:12px;border:1.5px solid var(--border);
+  background:var(--bg3);color:var(--text2);font-size:1.1rem;
+  transition:all .2s;
+}
+.btn-save-job:hover,.btn-save-job.saved{border-color:var(--red);color:var(--red);background:rgba(239,68,68,.08)}
 
-  /* ══════════════════════════════════════════
-     TRUST
-  ══════════════════════════════════════════ */
-  #trust{padding:80px 0;background:var(--white)}
-  .trust-hd{margin-bottom:48px}
-  .trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
-  .trust-card{
-    background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:30px 26px;
-    transition:transform var(--ease),box-shadow var(--ease),border-color var(--ease);
-    position:relative;overflow:hidden;
-  }
-  .trust-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--navy),var(--blue));transform:scaleX(0);transform-origin:left;transition:transform var(--ease)}
-  .trust-card:hover{transform:translateY(-6px);box-shadow:var(--sh-lg);border-color:var(--blue-mid)}
-  .trust-card:hover::before{transform:scaleX(1)}
-  .t-icon{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,var(--navy),var(--blue));display:flex;align-items:center;justify-content:center;font-size:1.35rem;color:var(--gold);margin-bottom:18px;box-shadow:0 8px 20px rgba(10,31,92,.2)}
-  .trust-card h4{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:9px}
-  .trust-card p{font-size:.86rem;color:var(--sub);line-height:1.7}
+/* ===== APPLY FORM MODAL ===== */
+.form-group{margin-bottom:18px}
+.form-label{
+  display:block;font-weight:600;font-size:.88rem;color:var(--text);
+  margin-bottom:7px;
+}
+.form-input,.form-select,.form-textarea{
+  width:100%;padding:12px 14px;border-radius:10px;
+  border:1.5px solid var(--border);background:var(--bg);color:var(--text);
+  font-family:var(--font-body);font-size:.95rem;
+  transition:all .2s;
+}
+.form-input:focus,.form-select:focus,.form-textarea:focus{
+  outline:none;border-color:var(--brand);
+  box-shadow:0 0 0 3px rgba(26,107,60,.12);
+}
+.form-input::placeholder{color:var(--text3)}
+.form-textarea{height:90px;resize:none}
+.form-error{font-size:.78rem;color:var(--red);margin-top:5px;display:none}
+.preview-box{
+  background:var(--bg3);border-radius:12px;padding:16px;
+  margin-bottom:20px;font-size:.88rem;line-height:1.8;
+  color:var(--text2);white-space:pre-wrap;border:1.5px solid var(--border);
+  display:none;
+}
+.preview-box.show{display:block}
+.preview-label{font-weight:700;color:var(--brand);font-size:.82rem;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
 
-  /* ══════════════════════════════════════════
-     JOBS
-  ══════════════════════════════════════════ */
-  #jobs{background:var(--off);padding:80px 0}
-  .jobs-hd{text-align:center;margin-bottom:44px}
-  .jobs-hd .sec-sub{margin:12px auto 0}
+/* ===== BOTTOM NAV ===== */
+#bottom-nav{
+  position:fixed;bottom:0;left:0;right:0;z-index:900;
+  height:var(--bottom-h);
+  background:var(--card);border-top:1px solid var(--border);
+  display:flex;
+  backdrop-filter:blur(16px);
+}
+@media(min-width:768px){#bottom-nav{display:none}}
+.bnav-item{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:4px;font-size:.66rem;font-weight:600;color:var(--text3);
+  cursor:pointer;transition:all .2s;position:relative;
+}
+.bnav-item i{font-size:1.2rem;transition:all .2s}
+.bnav-item.active,.bnav-item:hover{color:var(--brand)}
+.bnav-item.active i{transform:scale(1.15)}
+.bnav-badge{
+  position:absolute;top:6px;right:calc(50% - 18px);
+  width:18px;height:18px;border-radius:50%;
+  background:var(--red);color:#fff;font-size:.65rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
 
-  /* Search + Filter */
-  .sf-row{display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap;align-items:center;justify-content:center}
-  .search-box{position:relative;flex:1;min-width:240px;max-width:440px}
-  .search-box i{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.95rem;pointer-events:none}
-  .search-box input{
-    width:100%;padding:13px 16px 13px 44px;
-    border:2px solid var(--border);border-radius:var(--r-sm);
-    background:white;color:var(--text);font-size:.92rem;
-    transition:border-color var(--ease),box-shadow var(--ease);
-  }
-  .search-box input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(26,79,216,.1)}
-  .search-box input::placeholder{color:var(--muted)}
+/* ===== TOAST ===== */
+#toast-container{
+  position:fixed;bottom:80px;right:16px;z-index:2000;
+  display:flex;flex-direction:column;gap:8px;
+  pointer-events:none;
+}
+@media(min-width:768px){#toast-container{bottom:20px}}
+.toast{
+  background:var(--brand-dark);color:#fff;
+  padding:12px 18px;border-radius:12px;
+  font-size:.88rem;font-weight:500;
+  display:flex;align-items:center;gap:10px;
+  box-shadow:0 4px 20px rgba(0,0,0,.25);
+  animation:toastIn .3s ease both;
+  pointer-events:all;max-width:300px;
+}
+.toast.success{background:#065f46}
+.toast.error{background:#991b1b}
+.toast.info{background:var(--brand)}
+@keyframes toastIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:none}}
+@keyframes toastOut{to{opacity:0;transform:translateX(20px)}}
 
-  .cat-sel{
-    appearance:none;
-    background:white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7'%3E%3Cpath d='M5.5 7 0 0h11z' fill='%230a1f5c'/%3E%3C/svg%3E") no-repeat right 12px center;
-    border:2px solid var(--border);border-radius:var(--r-sm);
-    color:var(--navy);font-size:.88rem;font-weight:600;
-    padding:13px 38px 13px 14px;cursor:pointer;flex-shrink:0;
-    transition:border-color var(--ease),box-shadow var(--ease);
-    min-width:200px;
-  }
-  .cat-sel:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(26,79,216,.1)}
+/* ===== HIGHLIGHT ===== */
+.highlight{background:rgba(245,158,11,.3);border-radius:3px;color:var(--text)}
 
-  .res-meta{text-align:center;margin-bottom:24px;font-size:.83rem;color:var(--muted);font-weight:500}
-  .res-meta span{color:var(--navy);font-weight:700}
+/* ===== SAVED / APPLIED TABS ===== */
+.tabs{display:flex;gap:4px;margin-bottom:20px;background:var(--bg3);border-radius:12px;padding:4px}
+.tab-btn{
+  flex:1;padding:9px;border-radius:9px;font-weight:600;font-size:.88rem;
+  color:var(--text2);background:none;transition:all .2s;
+}
+.tab-btn.active{background:var(--brand);color:#fff}
 
-  /* Grid */
-  .jobs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:20px}
-  .job-card{
-    background:white;border-radius:var(--r-lg);padding:26px;
-    border:1.5px solid var(--border);box-shadow:var(--sh-xs);
-    display:flex;flex-direction:column;gap:13px;
-    transition:transform var(--ease),box-shadow var(--ease),border-color var(--ease);
-    opacity:0;animation:fadeUp .5s ease forwards;
-  }
-  .job-card:hover{transform:translateY(-6px);box-shadow:var(--sh-lg);border-color:var(--blue-mid)}
-  .jc-top{display:flex;align-items:flex-start;gap:13px}
-  .j-icon{width:50px;height:50px;border-radius:13px;background:var(--blue-lt);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;transition:transform var(--ease)}
-  .job-card:hover .j-icon{transform:scale(1.1) rotate(-4deg)}
-  .j-title-group{flex:1;min-width:0}
-  .j-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;color:var(--navy);line-height:1.2}
-  .j-cat{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);background:var(--blue-lt);padding:3px 9px;border-radius:50px;margin-top:5px}
-  .j-desc{font-size:.84rem;color:var(--sub);line-height:1.65;flex:1}
-  .j-foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
-  .stars-row{display:flex;align-items:center;gap:5px}
-  .stars{color:var(--gold);font-size:.82rem;letter-spacing:1px}
-  .r-text{font-size:.78rem;color:var(--muted);font-weight:600}
-  .j-tags{display:flex;gap:5px;flex-wrap:wrap}
-  .j-tag{font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:50px;background:var(--gold-lt);color:var(--gold-dark)}
-  .apply-btn{
-    width:100%;padding:13px;border-radius:var(--r-sm);
-    background:var(--navy);color:white;font-size:.88rem;font-weight:700;
-    display:flex;align-items:center;justify-content:center;gap:8px;
-    transition:all var(--ease);
-  }
-  .apply-btn:hover{background:var(--blue);transform:translateY(-2px);box-shadow:0 8px 22px rgba(26,79,216,.3)}
-  .no-res{display:none;grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--muted)}
-  .no-res i{font-size:2.5rem;display:block;margin-bottom:12px;opacity:.5}
+/* ===== ANIMATIONS ===== */
+.fade-in-up{
+  opacity:0;transform:translateY(20px);
+  transition:opacity .5s ease,transform .5s ease;
+}
+.fade-in-up.visible{opacity:1;transform:none}
 
-  /* Stagger */
-  .job-card:nth-child(1){animation-delay:.04s}.job-card:nth-child(2){animation-delay:.08s}
-  .job-card:nth-child(3){animation-delay:.12s}.job-card:nth-child(4){animation-delay:.16s}
-  .job-card:nth-child(5){animation-delay:.20s}.job-card:nth-child(6){animation-delay:.24s}
-  .job-card:nth-child(n+7){animation-delay:.28s}
+/* ===== SAVED PANEL ===== */
+.saved-panel{display:none}
+.saved-panel.active{display:block}
+.empty-state{
+  text-align:center;padding:50px 20px;
+}
+.empty-state .empty-icon{font-size:3rem;margin-bottom:12px;opacity:.4}
+.empty-state p{color:var(--text3);font-size:.95rem}
 
-  /* ══════════════════════════════════════════
-     MODAL
-  ══════════════════════════════════════════ */
-  .modal-bg{
-    display:none;position:fixed;inset:0;z-index:1200;
-    background:rgba(10,31,92,.55);backdrop-filter:blur(5px);
-    align-items:center;justify-content:center;padding:16px;
-  }
-  .modal-bg.open{display:flex;animation:fadeIn .2s ease}
-  .modal{
-    background:white;border-radius:var(--r-xl);width:100%;max-width:530px;
-    max-height:92vh;overflow-y:auto;box-shadow:var(--sh-xl);
-    animation:modalUp .3s cubic-bezier(.34,1.56,.64,1) both;
-  }
-  @keyframes modalUp{from{transform:scale(.94) translateY(20px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
-  .modal-head{
-    position:sticky;top:0;z-index:2;
-    display:flex;align-items:center;justify-content:space-between;
-    padding:22px 26px 18px;background:white;border-bottom:1px solid var(--border);
-  }
-  .mh-left{display:flex;flex-direction:column;gap:3px}
-  .mh-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
-  .mh-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--navy)}
-  .modal-x{width:34px;height:34px;border-radius:var(--r-sm);background:var(--light);display:flex;align-items:center;justify-content:center;color:var(--sub);font-size:.9rem;flex-shrink:0;transition:background var(--ease),color var(--ease)}
-  .modal-x:hover{background:var(--border);color:var(--navy)}
-  .modal-body{padding:22px 26px 28px}
+/* LANG HELPERS */
+.np{display:none}
+[data-lang="np"] .en{display:none}
+[data-lang="np"] .np{display:inline}
 
-  /* Form grid */
-  .f-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .f-grid .s2{grid-column:1/-1}
-  @media(max-width:500px){.f-grid{grid-template-columns:1fr}.f-grid .s2{grid-column:1}}
-  .f-group{display:flex;flex-direction:column;gap:6px}
-  .f-group label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--navy)}
-  .f-group input,.f-group select{
-    width:100%;padding:12px 14px;
-    border:2px solid var(--border);border-radius:var(--r-sm);
-    color:var(--text);background:white;font-size:.9rem;
-    transition:border-color var(--ease),box-shadow var(--ease);
-  }
-  .f-group select{
-    appearance:none;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7'%3E%3Cpath d='M5.5 7 0 0h11z' fill='%230a1f5c'/%3E%3C/svg%3E");
-    background-repeat:no-repeat;background-position:right 12px center;background-color:white;
-  }
-  .f-group input:focus,.f-group select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(26,79,216,.1)}
-  .f-group input[readonly]{background:var(--light);cursor:default;color:var(--navy);font-weight:600}
-  .f-submit{
-    width:100%;padding:15px;border-radius:var(--r-sm);margin-top:4px;
-    background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);
-    color:white;font-size:.96rem;font-weight:700;
-    display:flex;align-items:center;justify-content:center;gap:9px;
-    transition:all var(--ease);
-  }
-  .f-submit:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(10,31,92,.3)}
-  .f-submit i{font-size:1.1rem}
-  .success-box{
-    display:none;background:var(--green-lt);border:1.5px solid #9de8cf;
-    border-radius:var(--r);padding:20px;margin-top:16px;text-align:center;
-  }
-  .success-box i{font-size:2rem;color:var(--green);display:block;margin-bottom:8px}
-  .success-box strong{display:block;color:var(--navy);font-size:.95rem;margin-bottom:4px}
-  .success-box span{font-size:.85rem;color:var(--sub)}
-
-  /* ══════════════════════════════════════════
-     CONTACT
-  ══════════════════════════════════════════ */
-  #contact{padding:80px 0;background:var(--white)}
-  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px;align-items:start}
-  @media(max-width:700px){.contact-grid{grid-template-columns:1fr;gap:32px}}
-  .c-items{display:flex;flex-direction:column;gap:18px}
-  .c-item{display:flex;align-items:flex-start;gap:16px;padding:18px 20px;border-radius:var(--r);border:1.5px solid var(--border);transition:border-color var(--ease),box-shadow var(--ease)}
-  .c-item:hover{border-color:var(--blue-mid);box-shadow:var(--sh-sm)}
-  .c-icon{width:46px;height:46px;border-radius:12px;flex-shrink:0;background:linear-gradient(135deg,var(--navy),var(--blue));display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.05rem}
-  .c-body h4{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--gold);margin-bottom:4px}
-  .c-body p,.c-body a{font-size:.9rem;color:var(--sub);line-height:1.6;transition:color var(--ease)}
-  .c-body a:hover{color:var(--navy)}
-  .wa-box{background:linear-gradient(135deg,#128c3b,#25d366);border-radius:var(--r-lg);padding:30px 26px;text-align:center;color:white;box-shadow:0 12px 36px rgba(37,211,102,.28)}
-  .wa-box i{font-size:2.8rem;margin-bottom:12px;display:block}
-  .wa-box h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;margin-bottom:8px}
-  .wa-box p{font-size:.88rem;opacity:.85;line-height:1.6;margin-bottom:20px}
-  .wa-btn{display:inline-flex;align-items:center;gap:9px;background:white;color:#128c3b;font-weight:800;font-size:.95rem;padding:13px 28px;border-radius:var(--r-sm);transition:all var(--ease);box-shadow:0 4px 14px rgba(0,0,0,.15)}
-  .wa-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.22)}
-
-  /* ══════════════════════════════════════════
-     FOOTER
-  ══════════════════════════════════════════ */
-  footer{background:var(--navy);color:rgba(255,255,255,.65)}
-  .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;padding:56px 0 44px}
-  @media(max-width:700px){.footer-top{grid-template-columns:1fr;gap:30px}}
-  .f-desc{font-size:.86rem;line-height:1.75;margin-top:14px;max-width:300px}
-  .f-socials{display:flex;gap:9px;margin-top:20px}
-  .soc{width:38px;height:38px;border-radius:var(--r-sm);background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);font-size:.9rem;transition:all var(--ease)}
-  .soc:hover{background:var(--gold);color:var(--navy);border-color:var(--gold);transform:translateY(-3px)}
-  .f-col h5{font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.9);margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.1)}
-  .f-col a{display:block;font-size:.87rem;margin-bottom:11px;transition:all var(--ease)}
-  .f-col a:hover{color:var(--gold);padding-left:4px}
-  .f-bottom{border-top:1px solid rgba(255,255,255,.1);padding:18px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
-  .f-bottom p{font-size:.8rem}
-  .heart{color:var(--gold)}
-
-  /* ══════════════════════════════════════════
-     SCROLL TO TOP + REVEAL
-  ══════════════════════════════════════════ */
-  #scrollTop{position:fixed;bottom:24px;right:20px;z-index:980;width:46px;height:46px;border-radius:var(--r-sm);background:var(--navy);color:white;font-size:1rem;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh);opacity:0;pointer-events:none;transition:all var(--ease)}
-  #scrollTop.show{opacity:1;pointer-events:auto}
-  #scrollTop:hover{background:var(--blue);transform:translateY(-3px);box-shadow:var(--sh-lg)}
-  .reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
-  .reveal.visible{opacity:1;transform:translateY(0)}
-  </style>
+/* ===== RESPONSIVE ===== */
+@media(max-width:480px){
+  .nav-links{display:none}
+  .hero-title{font-size:2rem}
+  .modal{max-height:95vh}
+}
+@media(min-width:768px){
+  .modal-overlay{align-items:center}
+  .modal{border-radius:24px}
+}
+</style>
 </head>
 <body>
 
-<!-- ══════════════════════════════
-     HEADER
-══════════════════════════════ -->
-<header id="header" role="banner">
-  <div class="container">
-    <div class="header-inner">
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <img src="logo.jpg" alt="Safe Rojgar" id="nav-logo-img" onerror="this.style.display='none';document.getElementById('nav-logo-fallback').style.display='flex'"/>
+    <div id="nav-logo-fallback" style="display:none;width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#1a6b3c,#22883f);align-items:center;justify-content:center;color:#fff;font-size:1.1rem;font-family:'Sora',sans-serif;font-weight:800;">SR</div>
+    <div class="nav-logo-text">Safe <span>Rojgar</span></div>
+  </div>
+  <nav class="nav-links">
+    <a href="#hero" class="active">
+      <span class="en">Home</span><span class="np">गृहपृष्ठ</span>
+    </a>
+    <a href="#main">
+      <span class="en">Jobs</span><span class="np">जागिर</span>
+    </a>
+    <a href="#about">
+      <span class="en">About</span><span class="np">बारे</span>
+    </a>
+    <a href="#footer">
+      <span class="en">Contact</span><span class="np">सम्पर्क</span>
+    </a>
+  </nav>
+  <div class="nav-actions">
+    <button class="lang-btn" id="lang-toggle" title="Toggle Language">EN</button>
+    <button class="btn-icon" id="dark-toggle" title="Toggle Dark Mode">
+      <i class="fas fa-moon" id="dark-icon"></i>
+    </button>
+    <button class="btn-icon" onclick="showSavedPanel()" title="Saved Jobs">
+      <i class="fas fa-heart"></i>
+    </button>
+  </div>
+</nav>
 
-      <a href="#hero" class="logo" aria-label="Safe Rojgar — Home">
-        <div class="logo-img">
-          <img src="1).jpg" alt="Safe Rojgar Logo" onerror="this.style.display='none';document.querySelector('.logo-fb').style.display='flex'"/>
-          <span class="logo-fb">SR</span>
-        </div>
-        <div class="logo-texts">
-          <span class="logo-name">Safe Rojgar</span>
-          <span class="logo-tag">Job Placement Nepal</span>
-        </div>
-      </a>
-
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="#hero" class="active"><span data-lang="en">Home</span><span data-lang="np">गृहपृष्ठ</span></a>
-        <a href="#jobs"><span data-lang="en">Jobs</span><span data-lang="np">जागिर</span></a>
-        <a href="#trust"><span data-lang="en">About</span><span data-lang="np">बारे</span></a>
-        <a href="#contact"><span data-lang="en">Contact</span><span data-lang="np">सम्पर्क</span></a>
-      </nav>
-
-      <div class="h-actions">
-        <!-- Language Selector — visible on ALL screens including mobile -->
-        <select class="lang-sel" id="langSel" aria-label="Select language">
-          <option value="en">🌐 English</option>
-          <option value="np">🇳🇵 नेपाली</option>
-        </select>
-        <!-- Hamburger — mobile only -->
-        <button class="ham" id="ham" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobPanel">
-          <span></span><span></span><span></span>
-        </button>
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <i class="fas fa-shield-halved"></i>
+      <span class="en">Nepal's Trusted Job Portal</span>
+      <span class="np">नेपालको भरोसेमान जागिर पोर्टल</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="en">Find Your <span class="accent">Dream Job</span><br>in Nepal</span>
+      <span class="np">नेपालमा आफ्नो <span class="accent">सपनाको जागिर</span><br>खोज्नुहोस्</span>
+    </h1>
+    <p class="hero-subtitle">
+      <span class="en">Connect with top employers across Kathmandu. Apply instantly via WhatsApp. 100% Free Service.</span>
+      <span class="np">काठमाडौंका शीर्ष नियोक्तासँग जोडिनुहोस्। व्हाट्सएप मार्फत तुरुन्त आवेदन दिनुहोस्।</span>
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num"><span id="count-jobs">0</span>+</div>
+        <div class="stat-label"><span class="en">Active Jobs</span><span class="np">सक्रिय जागिरहरू</span></div>
       </div>
-
+      <div class="stat">
+        <div class="stat-num"><span>2000</span>+</div>
+        <div class="stat-label"><span class="en">People Hired</span><span class="np">नियुक्त भएका</span></div>
+      </div>
+      <div class="stat">
+        <div class="stat-num"><span>50</span>+</div>
+        <div class="stat-label"><span class="en">Companies</span><span class="np">कम्पनीहरू</span></div>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <button class="btn-primary" onclick="document.getElementById('main').scrollIntoView({behavior:'smooth'})">
+        <i class="fas fa-briefcase"></i>
+        <span class="en">Browse Jobs</span><span class="np">जागिर हेर्नुहोस्</span>
+      </button>
+      <button class="btn-secondary" onclick="openWhatsApp('Hi Safe Rojgar, I want to know about job opportunities.')">
+        <i class="fab fa-whatsapp"></i>
+        <span class="en">WhatsApp Us</span><span class="np">सम्पर्क गर्नुहोस्</span>
+      </button>
     </div>
   </div>
-</header>
+</section>
 
-<!-- Mobile Nav -->
-<div class="mob-overlay" id="mobOverlay" aria-hidden="true">
-  <div class="mob-panel" id="mobPanel" role="dialog" aria-label="Navigation">
-    <a href="#hero" class="active" data-mn><i class="fas fa-home"></i><span data-lang="en">Home</span><span data-lang="np">गृहपृष्ठ</span></a>
-    <a href="#jobs" data-mn><i class="fas fa-briefcase"></i><span data-lang="en">Jobs</span><span data-lang="np">जागिर</span></a>
-    <a href="#trust" data-mn><i class="fas fa-shield-alt"></i><span data-lang="en">About Us</span><span data-lang="np">हाम्रो बारे</span></a>
-    <a href="#contact" data-mn><i class="fas fa-phone-alt"></i><span data-lang="en">Contact</span><span data-lang="np">सम्पर्क</span></a>
+<!-- ===== SEARCH ===== -->
+<div id="search-section">
+  <div class="search-wrap">
+    <i class="fas fa-search search-icon"></i>
+    <input type="text" class="search-input" id="search-input"
+      placeholder="Search jobs, roles, skills..."
+      oninput="handleSearch(this.value)"/>
+    <button class="search-clear" id="search-clear" onclick="clearSearch()">
+      <i class="fas fa-times"></i>
+    </button>
   </div>
 </div>
 
+<!-- ===== CATEGORY PILLS ===== -->
+<div id="categories">
+  <div class="cat-pills" id="cat-pills">
+    <button class="cat-pill active" data-cat="all" onclick="filterCategory('all',this)">
+      <i class="fas fa-th"></i>
+      <span class="en">All Jobs</span><span class="np">सबै</span>
+    </button>
+    <button class="cat-pill" data-cat="PROFESSIONAL JOB" onclick="filterCategory('PROFESSIONAL JOB',this)">
+      <i class="fas fa-user-tie"></i>
+      <span class="en">Professional</span><span class="np">पेशेवर</span>
+    </button>
+    <button class="cat-pill" data-cat="SALES OFFICERS" onclick="filterCategory('SALES OFFICERS',this)">
+      <i class="fas fa-chart-line"></i>
+      <span class="en">Sales</span><span class="np">बिक्री</span>
+    </button>
+    <button class="cat-pill" data-cat="HOSPITALITY JOB" onclick="filterCategory('HOSPITALITY JOB',this)">
+      <i class="fas fa-utensils"></i>
+      <span class="en">Hospitality</span><span class="np">आतिथ्य</span>
+    </button>
+  </div>
+</div>
 
-<!-- ══════════════════════════════
-     HERO
-══════════════════════════════ -->
-<section id="hero" aria-labelledby="hero-h1">
-  <div class="container">
-    <div class="hero-inner">
-      <div class="hero-badge">
-        <i class="fas fa-certificate"></i>
-        <span data-lang="en">Nepal's Most Trusted Job Platform</span>
-        <span data-lang="np">नेपालको सबैभन्दा भरोसायोग्य रोजगार प्लेटफर्म</span>
-      </div>
-      <h1 class="hero-h1" id="hero-h1">
-        <span data-lang="en">Find Your <span class="accent">Dream Job</span><br/>with Safe Rojgar</span>
-        <span data-lang="np">Safe Rojgar सँग<br/>आफ्नो <span class="accent">सपनाको जागिर</span> पाउनुहोस्</span>
-      </h1>
-      <p class="hero-sub">
-        <span data-lang="en">Fast, simple, and reliable job placement service in Nepal. We connect talented people with the right employers — no hassle, no hidden fees.</span>
-        <span data-lang="np">नेपालमा द्रुत, सरल र भरोसायोग्य रोजगार सेवा। हामी प्रतिभाशाली व्यक्तिहरूलाई सही नियोक्तासँग जोड्छौं।</span>
-      </p>
-      <div class="hero-cta">
-        <a href="#jobs" class="btn btn-gold"><i class="fas fa-briefcase"></i><span data-lang="en">Browse Jobs Now</span><span data-lang="np">जागिर हेर्नुहोस्</span></a>
-        <a href="#contact" class="btn btn-outline-white"><i class="fas fa-phone-alt"></i><span data-lang="en">Contact Us</span><span data-lang="np">सम्पर्क गर्नुहोस्</span></a>
-      </div>
-      <div class="hero-stats">
-        <div class="h-stat"><div class="h-stat-n">500+</div><div class="h-stat-l"><span data-lang="en">Jobs Available</span><span data-lang="np">उपलब्ध जागिर</span></div></div>
-        <div class="h-stat"><div class="h-stat-n">2,000+</div><div class="h-stat-l"><span data-lang="en">Candidates Placed</span><span data-lang="np">नियुक्त उम्मेदवार</span></div></div>
-        <div class="h-stat"><div class="h-stat-n">98%</div><div class="h-stat-l"><span data-lang="en">Success Rate</span><span data-lang="np">सफलता दर</span></div></div>
-        <div class="h-stat"><div class="h-stat-n">6+</div><div class="h-stat-l"><span data-lang="en">Years Active</span><span data-lang="np">वर्षको अनुभव</span></div></div>
-      </div>
+<!-- ===== MAIN CONTENT ===== -->
+<div id="main">
+  <!-- Jobs Section -->
+  <div class="section-header">
+    <div class="section-title">
+      <span class="en">Available <span>Jobs</span></span>
+      <span class="np">उपलब्ध <span>जागिरहरू</span></span>
+    </div>
+    <div class="section-count" id="job-count">Loading...</div>
+  </div>
+  <div id="jobs-grid">
+    <!-- skeleton -->
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+  </div>
+  <div id="no-results">
+    <div class="no-icon">🔍</div>
+    <h3><span class="en">No Jobs Found</span><span class="np">कुनै जागिर फेला परेन</span></h3>
+    <p><span class="en">Try different keywords or browse by category</span><span class="np">फरक खोजशब्द प्रयास गर्नुहोस्</span></p>
+    <div class="suggestions">
+      <span class="suggestion-pill" onclick="setSearch('Accountant')">Accountant</span>
+      <span class="suggestion-pill" onclick="setSearch('Driver')">Driver</span>
+      <span class="suggestion-pill" onclick="setSearch('Chef')">Chef</span>
+      <span class="suggestion-pill" onclick="setSearch('Sales')">Sales</span>
+      <span class="suggestion-pill" onclick="setSearch('Waiter')">Waiter</span>
     </div>
   </div>
-</section>
 
-
-<!-- ══════════════════════════════
-     TRUST
-══════════════════════════════ -->
-<section id="trust" aria-labelledby="trust-h2">
-  <div class="container">
-    <div class="trust-hd reveal">
-      <p class="sec-label"><span data-lang="en">Why Choose Us</span><span data-lang="np">हामीलाई किन रोज्ने</span></p>
-      <h2 class="sec-title" id="trust-h2"><span data-lang="en">A Partner You Can Trust</span><span data-lang="np">एक भरोसायोग्य साझेदार</span></h2>
-      <p class="sec-sub"><span data-lang="en">Our reputation is built on transparency, speed, and genuine care for every job seeker.</span><span data-lang="np">हाम्रो प्रतिष्ठा पारदर्शिता, गति र प्रत्येक उम्मेदवारको वास्तविक हेरचाहमा निर्मित छ।</span></p>
+  <!-- Recommended Section -->
+  <div id="recommended" style="display:none">
+    <div class="section-header" style="margin-bottom:16px">
+      <div class="section-title">
+        <span class="en">✨ Recommended <span>For You</span></span>
+        <span class="np">✨ तपाईंका लागि <span>सिफारिश</span></span>
+      </div>
     </div>
+    <div class="rec-scroll" id="rec-scroll"></div>
+  </div>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="fade-in-up">
+  <div class="about-inner">
+    <h2 class="about-title">
+      <span class="en">Why Choose Safe Rojgar?</span>
+      <span class="np">Safe Rojgar किन छान्ने?</span>
+    </h2>
+    <p class="about-sub">
+      <span class="en">We connect job seekers with trusted employers across Nepal — fast, free, and simple.</span>
+      <span class="np">हामी नेपालभर जागिर खोज्नेहरूलाई भरोसेमान नियोक्तासँग जोड्छौं।</span>
+    </p>
     <div class="trust-grid">
-      <div class="trust-card reveal">
-        <div class="t-icon"><i class="fas fa-shield-alt"></i></div>
-        <h4><span data-lang="en">100% Verified Jobs</span><span data-lang="np">१००% प्रमाणित जागिर</span></h4>
-        <p><span data-lang="en">Every listing is personally verified by our team. No scams, no fraud, no fake employers — ever.</span><span data-lang="np">प्रत्येक जागिर हाम्रो टोलीद्वारा व्यक्तिगत रूपमा प्रमाणित गरिएको छ।</span></p>
+      <div class="trust-card">
+        <div class="trust-icon"><i class="fas fa-shield-halved"></i></div>
+        <div class="trust-title"><span class="en">Verified Jobs</span><span class="np">प्रमाणित जागिरहरू</span></div>
+        <div class="trust-desc"><span class="en">Every job listing is manually verified by our team for authenticity and safety.</span><span class="np">हरेक जागिर हाम्रो टिमले प्रमाणित गर्छ।</span></div>
       </div>
-      <div class="trust-card reveal">
-        <div class="t-icon"><i class="fas fa-user-shield"></i></div>
-        <h4><span data-lang="en">Confidential &amp; Secure</span><span data-lang="np">गोप्य र सुरक्षित</span></h4>
-        <p><span data-lang="en">Your personal data is kept strictly confidential and never shared without your explicit consent.</span><span data-lang="np">तपाईंको व्यक्तिगत जानकारी कडाईका साथ गोप्य राखिन्छ र तपाईंको सहमति बिना साझा गरिँदैन।</span></p>
+      <div class="trust-card">
+        <div class="trust-icon"><i class="fas fa-bolt"></i></div>
+        <div class="trust-title"><span class="en">Fast Hiring</span><span class="np">छिटो नियुक्ति</span></div>
+        <div class="trust-desc"><span class="en">Get called back within 24-48 hours of applying through WhatsApp.</span><span class="np">व्हाट्सएप मार्फत आवेदन दिएपछि २४-४८ घन्टामा सम्पर्क।</span></div>
       </div>
-      <div class="trust-card reveal">
-        <div class="t-icon"><i class="fas fa-bolt"></i></div>
-        <h4><span data-lang="en">Fast Placement</span><span data-lang="np">द्रुत नियुक्ति</span></h4>
-        <p><span data-lang="en">Most candidates get placed within 7–14 days of applying. Quick, efficient, and proven results.</span><span data-lang="np">अधिकांश उम्मेदवार आवेदन गरेको ७–१४ दिनभित्र नियुक्त हुन्छन्।</span></p>
+      <div class="trust-card">
+        <div class="trust-icon"><i class="fas fa-gift"></i></div>
+        <div class="trust-title"><span class="en">Minimum Fee</span><span class="np">500 शुल्क</span></div>
+        <div class="trust-desc"><span class="en">Minimum registration fees. No hidden charges. Apply to any job completely full aprove method .</span><span class="np">कुनै दर्ता शुल्क छैन। कुनै लुकाइएको शुल्क छैन।</span></div>
       </div>
-      <div class="trust-card reveal">
-        <div class="t-icon"><i class="fas fa-headset"></i></div>
-        <h4><span data-lang="en">Dedicated Support</span><span data-lang="np">समर्पित सहयोग</span></h4>
-        <p><span data-lang="en">Our team is available 7 days a week via WhatsApp and phone to guide you every step of the way.</span><span data-lang="np">हाम्रो टोली WhatsApp र फोनमार्फत हप्ताको ७ दिन उपलब्ध छ।</span></p>
+      <div class="trust-card">
+        <div class="trust-icon"><i class="fab fa-whatsapp"></i></div>
+        <div class="trust-title"><span class="en">WhatsApp Apply</span><span class="np">व्हाट्सएप आवेदन</span></div>
+        <div class="trust-desc"><span class="en">Apply directly via WhatsApp — no CVs needed, no complex forms.</span><span class="np">सिधै व्हाट्सएप मार्फत आवेदन दिनुहोस्।</span></div>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ══════════════════════════════
-     JOBS
-══════════════════════════════ -->
-<section id="jobs" aria-labelledby="jobs-h2">
-  <div class="container">
-    <div class="jobs-hd reveal">
-      <p class="sec-label"><span data-lang="en">Open Positions</span><span data-lang="np">खुला पदहरू</span></p>
-      <h2 class="sec-title" id="jobs-h2"><span data-lang="en">Explore Job Opportunities</span><span data-lang="np">रोजगारका अवसरहरू अन्वेषण गर्नुहोस्</span></h2>
-      <p class="sec-sub"><span data-lang="en">Browse verified listings, filter by category, and apply in seconds via WhatsApp.</span><span data-lang="np">प्रमाणित जागिर हेर्नुहोस्, श्रेणी अनुसार फिल्टर गर्नुहोस् र WhatsApp मार्फत आवेदन दिनुहोस्।</span></p>
-    </div>
-
-    <!-- Search + Category Filter -->
-    <div class="sf-row reveal">
-      <div class="search-box">
-        <i class="fas fa-search"></i>
-        <input type="search" id="jobSearch" placeholder="Search jobs by title or keyword…" aria-label="Search jobs" autocomplete="off"/>
+<!-- ===== FOOTER ===== -->
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo">
+        <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#22883f,#15803d);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;font-family:'Sora',sans-serif;font-weight:800;">SR</div>
+        <div class="nav-logo-text">Safe <span style="color:#f59e0b">Rojgar</span></div>
       </div>
-      <select class="cat-sel" id="catFilter" aria-label="Filter by category">
-        <option value="">📂 All Categories</option>
-        <option value="Sales">🛍️ Sales</option>
-        <option value="Management">🏢 Management</option>
-        <option value="Hospitality">🍽️ Hospitality</option>
-        <option value="Retail">🏪 Retail</option>
-        <option value="Finance">📊 Finance</option>
-        <option value="Admin">🗂️ Admin</option>
-        <option value="Logistics">📦 Logistics</option>
-        <option value="HR">👥 HR</option>
-        <option value="Marketing">📣 Marketing</option>
-        <option value="Service">🎧 Customer Service</option>
-        <option value="Beauty">💆 Beauty &amp; Wellness</option>
-        <option value="Trade">🔧 Skilled Trade</option>
-        <option value="Creative">🎨 Creative</option>
-        <option value="Tourism">✈️ Tourism</option>
-        <option value="Media">✍️ Media &amp; Content</option>
-        <option value="Security">🛡️ Security</option>
-      </select>
+      <p class="footer-desc">Nepal's most trusted job portal connecting job seekers with top employers in Kathmandu and beyond.</p>
+      <div class="footer-social">
+        <a class="social-btn" href="https://wa.me/9712037365" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a class="social-btn" href="mailto:saferojgar@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a class="social-btn" href="#"><i class="fab fa-facebook"></i></a>
+        <a class="social-btn" href="#"><i class="fab fa-instagram"></i></a>
+      </div>
     </div>
-
-    <p class="res-meta" id="resMeta">Showing <span id="resCount">30</span> <span data-lang="en">jobs</span><span data-lang="np">जागिर</span></p>
-
-    <div class="jobs-grid" id="jobsGrid" role="list" aria-label="Job listings"></div>
-    <div class="no-res" id="noRes" role="status" aria-live="polite">
-      <i class="fas fa-search"></i>
-      <p><span data-lang="en">No jobs found. Try a different keyword or category.</span><span data-lang="np">कुनै जागिर भेटिएन। फरक कीवर्ड वा श्रेणी प्रयास गर्नुहोस्।</span></p>
+    <div>
+      <h4>Quick Links</h4>
+      <div class="footer-links">
+        <a href="#hero">Home</a>
+        <a href="#main">Browse Jobs</a>
+        <a href="#about">About Us</a>
+        <a href="#footer">Contact</a>
+      </div>
+    </div>
+    <div>
+      <h4>Job Categories</h4>
+      <div class="footer-links">
+        <a href="#" onclick="filterCategory('PROFESSIONAL JOB')">Professional Jobs</a>
+        <a href="#" onclick="filterCategory('SALES OFFICERS')">Sales Officers</a>
+        <a href="#" onclick="filterCategory('HOSPITALITY JOB')">Hospitality Jobs</a>
+      </div>
+    </div>
+    <div>
+      <h4>Contact Us</h4>
+      <ul class="footer-contact">
+        <li><i class="fab fa-whatsapp"></i><span><a href="https://wa.me/9712037365" style="color:inherit">9712037365</a></span></li>
+        <li><i class="fas fa-envelope"></i><span><a href="mailto:saferojgar@gmail.com" style="color:inherit">saferojgar@gmail.com</a></span></li>
+        <li><i class="fas fa-location-dot"></i><span>Baneshwor, Kathmandu, Nepal</span></li>
+        <li><i class="fas fa-clock"></i><span>Mon–Sat: 9AM – 6PM</span></li>
+      </ul>
     </div>
   </div>
-</section>
+  <div class="footer-bottom">
+    © 2024 Safe Rojgar. All rights reserved. Made with <i class="fas fa-heart" style="color:#ef4444"></i> in Nepal.
+  </div>
+</footer>
 
+<!-- ===== BOTTOM NAV ===== -->
+<div id="bottom-nav">
+  <div class="bnav-item active" onclick="goHome(this)">
+    <i class="fas fa-home"></i>
+    <span class="en">Home</span><span class="np">गृह</span>
+  </div>
+  <div class="bnav-item" onclick="goJobs(this)">
+    <i class="fas fa-briefcase"></i>
+    <span class="en">Jobs</span><span class="np">जागिर</span>
+    <div class="bnav-badge" id="jobs-badge" style="display:none"></div>
+  </div>
+  <div class="bnav-item" onclick="showSavedPanel()">
+    <i class="fas fa-heart"></i>
+    <span class="en">Saved</span><span class="np">सुरक्षित</span>
+    <div class="bnav-badge" id="saved-badge" style="display:none"></div>
+  </div>
+  <div class="bnav-item" onclick="showProfilePanel()">
+    <i class="fas fa-user"></i>
+    <span class="en">Profile</span><span class="np">प्रोफाइल</span>
+  </div>
+</div>
 
-<!-- ══════════════════════════════
-     APPLY MODAL
-══════════════════════════════ -->
-<div class="modal-bg" id="modalBg" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
-  <div class="modal" id="modalEl">
-    <div class="modal-head">
-      <div class="mh-left">
-        <span class="mh-label"><span data-lang="en">Apply Now</span><span data-lang="np">आवेदन दिनुहोस्</span></span>
-        <h3 class="mh-title" id="modalTitle"><span data-lang="en">Submit Your Application</span><span data-lang="np">आफ्नो आवेदन पठाउनुहोस्</span></h3>
+<!-- ===== JOB DETAIL MODAL ===== -->
+<div class="modal-overlay" id="job-modal" onclick="closeModal(event,'job-modal')">
+  <div class="modal" id="job-modal-inner">
+    <div class="modal-handle"></div>
+    <div class="modal-header">
+      <div class="modal-title" id="modal-job-title">Job Details</div>
+      <button class="modal-close" onclick="document.getElementById('job-modal').classList.remove('open')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-apply-bar">
+      <button class="btn-save-job" id="modal-save-btn" onclick="toggleSaveModal()">
+        <i class="fas fa-heart"></i>
+      </button>
+      <button class="btn-apply-main" onclick="openApplyModal()">
+        <i class="fab fa-whatsapp"></i>
+        <span class="en">Apply via WhatsApp</span><span class="np">व्हाट्सएप मार्फत आवेदन</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== APPLY MODAL ===== -->
+<div class="modal-overlay" id="apply-modal" onclick="closeModal(event,'apply-modal')">
+  <div class="modal" style="max-width:480px">
+    <div class="modal-handle"></div>
+    <div class="modal-header">
+      <div class="modal-title">
+        <i class="fab fa-whatsapp" style="color:#25D366"></i>
+        <span class="en"> Apply via WhatsApp</span><span class="np"> व्हाट्सएप मार्फत आवेदन</span>
       </div>
-      <button class="modal-x" id="modalX" aria-label="Close form"><i class="fas fa-times"></i></button>
+      <button class="modal-close" onclick="document.getElementById('apply-modal').classList.remove('open')"><i class="fas fa-times"></i></button>
     </div>
     <div class="modal-body">
-      <div class="f-grid" id="fForm">
-
-        <div class="f-group s2">
-          <label for="fJob"><span data-lang="en">Applying For *</span><span data-lang="np">पदका लागि आवेदन *</span></label>
-          <input type="text" id="fJob" readonly/>
+      <div id="apply-form">
+        <div class="form-group">
+          <label class="form-label"><span class="en">Full Name *</span><span class="np">पूरा नाम *</span></label>
+          <input type="text" class="form-input" id="form-name" placeholder="Ramesh Sharma">
+          <div class="form-error" id="err-name">Please enter your full name</div>
         </div>
-
-        <div class="f-group s2">
-          <label for="fName"><span data-lang="en">Full Name *</span><span data-lang="np">पूरा नाम *</span></label>
-          <input type="text" id="fName" placeholder="Your full name" required/>
+        <div class="form-group">
+          <label class="form-label"><span class="en">Age *</span><span class="np">उमेर *</span></label>
+          <input type="number" class="form-input" id="form-age" placeholder="25" min="16" max="65">
+          <div class="form-error" id="err-age">Age must be between 16 and 65</div>
         </div>
-
-        <div class="f-group">
-          <label for="fAge"><span data-lang="en">Age *</span><span data-lang="np">उमेर *</span></label>
-          <input type="number" id="fAge" placeholder="e.g. 24" min="16" max="65" required/>
-        </div>
-
-        <div class="f-group">
-          <label for="fPhone"><span data-lang="en">Phone Number *</span><span data-lang="np">फोन नम्बर *</span></label>
-          <input type="tel" id="fPhone" placeholder="98XXXXXXXX" required/>
-        </div>
-
-        <div class="f-group s2">
-          <label for="fQual"><span data-lang="en">Qualification *</span><span data-lang="np">योग्यता *</span></label>
-          <select id="fQual" required>
-            <option value="">Select your qualification</option>
-            <option>Below SLC</option>
+        <div class="form-group">
+          <label class="form-label"><span class="en">Qualification *</span><span class="np">योग्यता *</span></label>
+          <select class="form-select" id="form-qual">
+            <option value="">Select qualification</option>
             <option>SLC / SEE</option>
             <option>+2 / Intermediate</option>
             <option>Bachelor's Degree</option>
             <option>Master's Degree</option>
-            <option>Diploma / Technical</option>
-            <option>Other</option>
+            <option>Diploma</option>
+            <option>No formal education</option>
           </select>
+          <div class="form-error" id="err-qual">Please select your qualification</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label"><span class="en">Applying For *</span><span class="np">पदको लागि *</span></label>
+          <input type="text" class="form-input" id="form-job" readonly>
+        </div>
+        <div class="form-group">
+          <label class="form-label"><span class="en">Your Address *</span><span class="np">तपाईंको ठेगाना *</span></label>
+          <input type="text" class="form-input" id="form-address" placeholder="Kathmandu, Nepal">
+          <div class="form-error" id="err-address">Please enter your address</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label"><span class="en">Work Experience</span><span class="np">कार्य अनुभव</span></label>
+          <textarea class="form-textarea" id="form-exp" placeholder="e.g. 2 years experience as cashier in ABC store..."></textarea>
         </div>
 
-        <div class="f-group s2">
-          <label for="fExp"><span data-lang="en">Work Experience *</span><span data-lang="np">कार्य अनुभव *</span></label>
-          <select id="fExp" required>
-            <option value="">Select your experience</option>
-            <option>Fresher (No experience)</option>
-            <option>1 – 5 months</option>
-            <option>5 – 11 months</option>
-            <option>1 – 2 years</option>
-            <option>More than 2 years</option>
-          </select>
-        </div>
+        <div class="preview-label">📋 Message Preview</div>
+        <div class="preview-box" id="msg-preview"></div>
 
-        <div class="f-group s2">
-          <label for="fAddr"><span data-lang="en">Address / District *</span><span data-lang="np">ठेगाना / जिल्ला *</span></label>
-          <input type="text" id="fAddr" placeholder="Your city or district" required/>
-        </div>
-
-        <div class="f-group s2">
-          <button class="f-submit" id="fSubmit" type="button">
-            <i class="fab fa-whatsapp"></i>
-            <span data-lang="en">Send Application via WhatsApp</span>
-            <span data-lang="np">WhatsApp मार्फत आवेदन पठाउनुहोस्</span>
-          </button>
-        </div>
-
-      </div>
-
-      <div class="success-box" id="successBox" role="alert">
-        <i class="fas fa-check-circle"></i>
-        <strong><span data-lang="en">Application Sent Successfully!</span><span data-lang="np">आवेदन सफलतापूर्वक पठाइयो!</span></strong>
-        <span><span data-lang="en">We'll review your details and contact you within 1–2 business days.</span><span data-lang="np">हामी तपाईंको विवरण समीक्षा गरी १–२ कार्य दिनभित्र सम्पर्क गर्नेछौं।</span></span>
+        <button class="btn-apply-main" style="width:100%;padding:15px" onclick="submitApply()">
+          <i class="fab fa-whatsapp"></i>
+          <span class="en">Send to WhatsApp</span><span class="np">व्हाट्सएप मा पठाउनुहोस्</span>
+        </button>
       </div>
     </div>
   </div>
 </div>
 
-
-<!-- ══════════════════════════════
-     CONTACT
-══════════════════════════════ -->
-<section id="contact" aria-labelledby="contact-h2">
-  <div class="container">
-    <div class="reveal">
-      <p class="sec-label"><span data-lang="en">Get In Touch</span><span data-lang="np">सम्पर्कमा आउनुहोस्</span></p>
-      <h2 class="sec-title" id="contact-h2"><span data-lang="en">Contact Safe Rojgar</span><span data-lang="np">Safe Rojgar सँग सम्पर्क</span></h2>
-      <p class="sec-sub"><span data-lang="en">Questions about a job? Reach us via WhatsApp, phone, or email — we respond fast.</span><span data-lang="np">जागिरको बारेमा प्रश्न छ? WhatsApp, फोन वा इमेलमार्फत सम्पर्क गर्नुहोस्।</span></p>
+<!-- ===== SAVED PANEL MODAL ===== -->
+<div class="modal-overlay" id="saved-modal" onclick="closeModal(event,'saved-modal')">
+  <div class="modal" style="max-width:520px">
+    <div class="modal-handle"></div>
+    <div class="modal-header">
+      <div class="modal-title">
+        <span class="en">My Saved & Applied Jobs</span><span class="np">मेरा सुरक्षित जागिरहरू</span>
+      </div>
+      <button class="modal-close" onclick="document.getElementById('saved-modal').classList.remove('open')"><i class="fas fa-times"></i></button>
     </div>
-    <div class="contact-grid">
-      <div class="c-items reveal">
-        <div class="c-item">
-          <div class="c-icon"><i class="fas fa-phone-alt"></i></div>
-          <div class="c-body"><h4><span data-lang="en">Phone</span><span data-lang="np">फोन</span></h4><a href="tel:+9779813071254">+977 9813071254</a></div>
-        </div>
-        <div class="c-item">
-          <div class="c-icon"><i class="fas fa-envelope"></i></div>
-          <div class="c-body"><h4><span data-lang="en">Email</span><span data-lang="np">इमेल</span></h4><a href="mailto:info@saferojgar.com.np">info@saferojgar.com.np</a></div>
-        </div>
-        <div class="c-item">
-          <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div class="c-body"><h4><span data-lang="en">Address</span><span data-lang="np">ठेगाना</span></h4><p><span data-lang="en">Kathmandu, Bagmati Province, Nepal</span><span data-lang="np">काठमाडौं, बागमती प्रदेश, नेपाल</span></p></div>
-        </div>
-        <div class="c-item">
-          <div class="c-icon"><i class="fas fa-clock"></i></div>
-          <div class="c-body"><h4><span data-lang="en">Working Hours</span><span data-lang="np">कार्य समय</span></h4><p><span data-lang="en">Sunday – Friday: 9:00 AM – 6:00 PM</span><span data-lang="np">आइतबार – शुक्रबार: बिहान ९ – साँझ ६</span></p></div>
-        </div>
+    <div class="modal-body">
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('saved-tab',this)">
+          <i class="fas fa-heart"></i> <span class="en">Saved</span><span class="np">सुरक्षित</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('applied-tab',this)">
+          <i class="fas fa-check-circle"></i> <span class="en">Applied</span><span class="np">आवेदन</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('recent-tab',this)">
+          <i class="fas fa-clock"></i> <span class="en">Recent</span><span class="np">हालसालै</span>
+        </button>
       </div>
-      <div class="wa-box reveal">
-        <i class="fab fa-whatsapp"></i>
-        <h3><span data-lang="en">Chat on WhatsApp</span><span data-lang="np">WhatsApp मा कुरा गर्नुहोस्</span></h3>
-        <p><span data-lang="en">Get instant answers. Our team responds quickly — usually within minutes during working hours.</span><span data-lang="np">तुरुन्त उत्तर पाउनुहोस्। हाम्रो टोली कार्य समयमा केही मिनेटभित्र प्रतिक्रिया दिन्छ।</span></p>
-        <a href="https://wa.me/9779813071254?text=Hello%20Safe%20Rojgar%2C%20I%20would%20like%20to%20inquire%20about%20job%20opportunities." class="wa-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat with Safe Rojgar on WhatsApp">
-          <i class="fab fa-whatsapp"></i>
-          <span data-lang="en">Start Chat Now</span>
-          <span data-lang="np">च्याट सुरु गर्नुहोस्</span>
-        </a>
-      </div>
+      <div id="saved-tab" class="saved-panel active"></div>
+      <div id="applied-tab" class="saved-panel"></div>
+      <div id="recent-tab" class="saved-panel"></div>
     </div>
   </div>
-</section>
+</div>
 
+<!-- ===== TOAST CONTAINER ===== -->
+<div id="toast-container"></div>
 
-<!-- ══════════════════════════════
-     FOOTER
-══════════════════════════════ -->
-<footer role="contentinfo">
-  <div class="container">
-    <div class="footer-top">
-      <div>
-        <a href="#hero" class="logo" aria-label="Safe Rojgar">
-          <div class="logo-img" style="background:rgba(255,255,255,.1)">
-            <img src="1).jpg" alt="Safe Rojgar" onerror="this.style.display='none'"/>
-            <span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--gold)">SR</span>
-          </div>
-          <div class="logo-texts">
-            <span class="logo-name" style="color:white">Safe Rojgar</span>
-            <span class="logo-tag">Job Placement Nepal</span>
-          </div>
-        </a>
-        <p class="f-desc"><span data-lang="en">Nepal's trusted job placement platform connecting talented individuals with the right employers since 2020. Your career is our mission.</span><span data-lang="np">२०२० देखि नेपालको भरोसायोग्य रोजगार प्लेटफर्म। तपाईंको करियर हाम्रो लक्ष्य हो।</span></p>
-        <div class="f-socials">
-          <a href="#" class="soc" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="soc" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" class="soc" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://wa.me/9779813071254" class="soc" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
-        </div>
-      </div>
-      <div class="f-col">
-        <h5><span data-lang="en">Quick Links</span><span data-lang="np">द्रुत लिंकहरू</span></h5>
-        <a href="#hero"><span data-lang="en">Home</span><span data-lang="np">गृहपृष्ठ</span></a>
-        <a href="#jobs"><span data-lang="en">Browse Jobs</span><span data-lang="np">जागिर हेर्नुहोस्</span></a>
-        <a href="#trust"><span data-lang="en">About Us</span><span data-lang="np">हाम्रो बारे</span></a>
-        <a href="#contact"><span data-lang="en">Contact</span><span data-lang="np">सम्पर्क</span></a>
-      </div>
-      <div class="f-col">
-        <h5><span data-lang="en">Contact Us</span><span data-lang="np">सम्पर्क</span></h5>
-        <a href="tel:+9779813071254">📞 +977 9813071254</a>
-        <a href="mailto:info@saferojgar.com.np">✉️ info@saferojgar.com.np</a>
-        <a href="https://wa.me/9779813071254" target="_blank" rel="noopener">💬 WhatsApp</a>
-        <a href="#"><span data-lang="en">📍 Kathmandu, Nepal</span><span data-lang="np">📍 काठमाडौं, नेपाल</span></a>
-      </div>
-    </div>
-    <div class="f-bottom">
-      <p><span data-lang="en">© 2026 Safe Rojgar Pvt. Ltd. All Rights Reserved.</span><span data-lang="np">© २०२६ Safe Rojgar Pvt. Ltd. सर्वाधिकार सुरक्षित।</span></p>
-      <p><span class="heart">♥</span> <span data-lang="en">Made with care for Nepal's workforce</span><span data-lang="np">नेपालको कार्यबलका लागि मायाले बनाइएको</span></p>
-    </div>
-  </div>
-</footer>
-
-<button id="scrollTop" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
-
-
-<!-- ══════════════════════════════
-     JAVASCRIPT
-══════════════════════════════ -->
+<!-- ===== JAVASCRIPT ===== -->
 <script>
-'use strict';
-
-/* ─── JOB DATA ─── */
-const JOBS = [
-  {title:'Salesman',               icon:'🛍️',cat:'Sales',      desc:'Handle client relationships, hit sales targets, and promote products across your assigned territory.',       tags:['Full Time','Entry Level'],  r:4.7,v:132},
-  {title:'Senior Sales Executive', icon:'💼',cat:'Sales',      desc:'Lead a sales team, manage key accounts, and develop revenue-growth strategies for the company.',             tags:['Full Time','Experienced'],  r:4.5,v:87 },
-  {title:'Branch Manager',         icon:'🏢',cat:'Management', desc:'Oversee daily branch operations, manage staff performance, and ensure exceptional customer satisfaction.',   tags:['Full Time','Senior'],       r:4.8,v:54 },
-  {title:'Operations Manager',     icon:'⚙️',cat:'Management', desc:'Plan, direct, and coordinate organizational operations to maximise efficiency and productivity.',           tags:['Full Time','Senior'],       r:4.6,v:41 },
-  {title:'Hotel Receptionist',     icon:'🏨',cat:'Hospitality',desc:'Welcome guests warmly, manage check-ins/outs, handle reservations and front-desk inquiries daily.',         tags:['Full Time','Hospitality'],  r:4.4,v:110},
-  {title:'Restaurant Supervisor',  icon:'🍽️',cat:'Hospitality',desc:'Supervise restaurant staff, maintain food quality standards, and deliver outstanding dining experiences.',  tags:['Full Time','Hospitality'],  r:4.5,v:76 },
-  {title:'Chef / Cook',            icon:'👨‍🍳',cat:'Hospitality',desc:'Prepare and cook dishes, maintain kitchen hygiene, and ensure food safety and consistent quality.',        tags:['Full Time','Hospitality'],  r:4.6,v:95 },
-  {title:'Waiter / Food Service',  icon:'🥗',cat:'Hospitality',desc:'Serve food and beverages professionally, take accurate orders, and create pleasant dining experiences.',    tags:['Part/Full Time','Hospitality'],r:4.3,v:143},
-  {title:'Housekeeping Staff',     icon:'🧹',cat:'Hospitality',desc:'Maintain cleanliness and order in hotels, offices, or residential properties to the highest standards.',    tags:['Full Time','Hospitality'],  r:4.2,v:89 },
-  {title:'Cashier',                icon:'💰',cat:'Retail',     desc:'Process customer transactions, handle cash and digital payments, and maintain accurate financial records.',  tags:['Full Time','Retail'],       r:4.4,v:104},
-  {title:'Retail Store Manager',   icon:'🏪',cat:'Retail',     desc:'Manage store operations, staff scheduling, inventory levels, and customer service quality every day.',      tags:['Full Time','Retail'],       r:4.6,v:62 },
-  {title:'Delivery Driver',        icon:'🚚',cat:'Logistics',  desc:'Safely deliver goods on time, maintain vehicle condition, and provide courteous customer service.',         tags:['Full Time','Logistics'],    r:4.3,v:118},
-  {title:'Warehouse Supervisor',   icon:'📦',cat:'Logistics',  desc:'Oversee warehouse operations, manage inventory flow, and coordinate with the logistics team efficiently.', tags:['Full Time','Logistics'],    r:4.4,v:48 },
-  {title:'Office Assistant',       icon:'🗂️',cat:'Admin',      desc:'Provide general administrative support including filing, scheduling, correspondence, and coordination.',   tags:['Full Time','Admin'],        r:4.5,v:97 },
-  {title:'Data Entry Operator',    icon:'⌨️',cat:'Admin',      desc:'Accurately enter, update, and maintain data in company systems and databases with high attention to detail.',tags:['Full Time','Admin'],       r:4.2,v:152},
-  {title:'Accountant',             icon:'📊',cat:'Finance',    desc:'Manage financial records, prepare reports, handle tax compliance, and support financial planning.',         tags:['Full Time','Finance'],      r:4.7,v:71 },
-  {title:'Finance Officer',        icon:'🏦',cat:'Finance',    desc:'Oversee financial transactions, budget management, and ensure full compliance with financial regulations.',  tags:['Full Time','Finance'],      r:4.6,v:39 },
-  {title:'Security Guard',         icon:'🛡️',cat:'Security',   desc:'Monitor premises, control access, patrol grounds, and respond swiftly to security incidents on site.',     tags:['Full Time','Security'],     r:4.1,v:186},
-  {title:'HR Officer',             icon:'👥',cat:'HR',         desc:'Manage recruitment processes, employee onboarding, payroll coordination, and employee relations.',          tags:['Full Time','HR'],           r:4.6,v:58 },
-  {title:'Marketing Executive',    icon:'📣',cat:'Marketing',  desc:'Plan and execute marketing campaigns, manage social media channels, and grow brand market presence.',       tags:['Full Time','Marketing'],    r:4.5,v:83 },
-  {title:'Customer Service Rep',   icon:'🎧',cat:'Service',    desc:'Handle customer inquiries professionally, resolve complaints promptly, and maintain high satisfaction.',     tags:['Full Time','Service'],      r:4.4,v:121},
-  {title:'Call Center Agent',      icon:'📞',cat:'Service',    desc:'Manage inbound and outbound calls with professionalism, resolve queries, and maintain accurate records.',    tags:['Full Time','Service'],      r:4.2,v:137},
-  {title:'Beauty Therapist',       icon:'💆',cat:'Beauty',     desc:'Provide professional beauty treatments, skincare consultations, and wellness services in salons or spas.',  tags:['Full Time','Beauty'],       r:4.5,v:64 },
-  {title:'Gym Trainer',            icon:'💪',cat:'Beauty',     desc:'Guide gym members through personalised workout routines, track progress, and promote healthy lifestyles.',  tags:['Full Time','Fitness'],      r:4.7,v:72 },
-  {title:'Tailor / Garment Worker',icon:'🧵',cat:'Trade',      desc:'Stitch, alter, and repair garments with precision for retail clients or custom tailoring orders.',          tags:['Full Time','Skilled Trade'],r:4.3,v:99 },
-  {title:'Electrician',            icon:'⚡',cat:'Trade',      desc:'Install, maintain, and repair electrical systems in homes, offices, and commercial properties safely.',      tags:['Full Time','Skilled Trade'],r:4.6,v:55 },
-  {title:'Plumber',                icon:'🔧',cat:'Trade',      desc:'Install and repair piping systems, fixtures, and plumbing equipment across residential and commercial sites.',tags:['Full Time','Skilled Trade'],r:4.4,v:47},
-  {title:'Graphic Designer',       icon:'🎨',cat:'Creative',   desc:'Create compelling visual content for print and digital media, branding campaigns, and marketing materials.',tags:['Full/Part Time','Creative'],r:4.7,v:68 },
-  {title:'Tour Coordinator',       icon:'✈️',cat:'Tourism',    desc:'Plan and coordinate travel packages, handle bookings, and assist clients in crafting memorable itineraries.',tags:['Full Time','Tourism'],     r:4.5,v:53 },
-  {title:'Content Writer',         icon:'✍️',cat:'Media',      desc:'Write engaging, SEO-friendly content for websites, blogs, social media platforms, and marketing campaigns.',tags:['Full/Part Time','Media'],  r:4.4,v:79 },
+// ===== JOB DATA =====
+const JOBS=[
+  // PROFESSIONAL JOB
+  {id:1,category:"PROFESSIONAL JOB",title:"Receptionist",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"15,000–22,000",description:"We are looking for a professional and friendly Receptionist to manage front desk operations. You will greet clients, manage phone calls, and support the admin team in daily tasks.",requirements:["Minimum +2 passed","Good communication skills","Basic computer knowledge","Fluent in Nepali & English","Professional appearance"],rating:4.5,posted:"1 day ago",applicants:12,icon:"fas fa-concierge-bell"},
+  {id:2,category:"PROFESSIONAL JOB",title:"Accountant",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"20,000–35,000",description:"Seeking a skilled Accountant to handle financial records, prepare reports, and manage day-to-day accounting tasks for our client companies.",requirements:["Bachelor in Accounting/BBA","Knowledge of Tally or Excel","Minimum 1 year experience","Attention to detail","Tax filing knowledge"],rating:4.3,posted:"2 days ago",applicants:8,icon:"fas fa-calculator"},
+  {id:3,category:"PROFESSIONAL JOB",title:"Cashier",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"14,000–18,000",description:"Looking for a reliable Cashier to handle cash transactions accurately and maintain friendly customer relations at the checkout counter.",requirements:["SLC/SEE passed","Honest and trustworthy","Basic math skills","Customer service attitude","Willing to work shifts"],rating:4.0,posted:"3 days ago",applicants:20,icon:"fas fa-cash-register"},
+  {id:4,category:"PROFESSIONAL JOB",title:"Front Desk Officer",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"16,000–24,000",description:"Join as a Front Desk Officer to be the face of our client organization. Handle visitor management, calls, and coordination.",requirements:["Good personality","+2 minimum","Nepali and English speaking","Computer basics","Punctual and professional"],rating:4.2,posted:"2 days ago",applicants:15,icon:"fas fa-door-open"},
+  {id:5,category:"PROFESSIONAL JOB",title:"Documentation Officer",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"18,000–28,000",description:"Responsible for organizing, maintaining, and tracking all important documents and records for our clients' business operations.",requirements:["Bachelor degree preferred","MS Office skills","Filing and organization skills","Attention to detail","Experience preferred"],rating:4.1,posted:"4 days ago",applicants:7,icon:"fas fa-file-alt"},
+  {id:6,category:"PROFESSIONAL JOB",title:"Call Center Agent",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"15,000–20,000",description:"Seeking energetic Call Center Agents to handle inbound and outbound customer calls professionally, resolve queries, and maintain records.",requirements:["Good phone manner","+2 passed","Fluent in Nepali","Basic English preferred","Comfortable with targets"],rating:3.8,posted:"1 day ago",applicants:25,icon:"fas fa-headset"},
+  {id:7,category:"PROFESSIONAL JOB",title:"Office Cleaner",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"12,000–15,000",description:"Responsible for maintaining cleanliness and hygiene of office premises. Duties include sweeping, mopping, dusting, and restroom upkeep.",requirements:["Any education level","Physically fit","Reliable and punctual","Knowledge of cleaning","Honest character"],rating:3.5,posted:"5 days ago",applicants:18,icon:"fas fa-broom"},
+  {id:8,category:"PROFESSIONAL JOB",title:"Bike Rider (Delivery)",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"15,000–22,000",description:"Looking for bike riders for delivery and courier services within Kathmandu. Must own a bike or be willing to use company bike.",requirements:["Valid bike license","Knowledge of Kathmandu roads","Smartphone user","Responsible and honest","Good physical condition"],rating:4.0,posted:"Today",applicants:30,icon:"fas fa-motorcycle"},
+  {id:9,category:"PROFESSIONAL JOB",title:"License Holder (Vehicle)",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"18,000–25,000",description:"Needed: Individuals with valid driving license (2-wheeler or 4-wheeler) for various driving and transportation roles.",requirements:["Valid driving license","Clean driving record","Knowledge of routes","Responsible","Sober and professional"],rating:3.9,posted:"3 days ago",applicants:10,icon:"fas fa-id-card"},
+  {id:10,category:"PROFESSIONAL JOB",title:"Driver",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"20,000–30,000",description:"Experienced Driver needed for personal or commercial vehicle driving for client companies across Kathmandu valley.",requirements:["Valid 4-wheeler license","Minimum 2 years experience","Knowledge of valley roads","Punctual and reliable","Good behavior"],rating:4.4,posted:"2 days ago",applicants:14,icon:"fas fa-car"},
+  {id:11,category:"PROFESSIONAL JOB",title:"Security Guard",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"14,000–18,000",description:"Responsible for maintaining security and safety at client premises. Duties include monitoring, patrolling, and access control.",requirements:["Age 18–45","Physically fit","Ex-military preferred","No criminal record","Willing to work in shifts"],rating:4.1,posted:"1 day ago",applicants:22,icon:"fas fa-shield-alt"},
+  {id:12,category:"PROFESSIONAL JOB",title:"Supervisor",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"25,000–40,000",description:"We need experienced Supervisors to oversee team operations, ensure productivity, and report to management for various business departments.",requirements:["Minimum 2 years experience","Leadership skills","Bachelor degree preferred","Strong communication","Problem solving ability"],rating:4.6,posted:"4 days ago",applicants:6,icon:"fas fa-tasks"},
+  {id:13,category:"PROFESSIONAL JOB",title:"Manager",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"35,000–60,000",description:"Senior management role requiring strong leadership, strategic planning, and team management skills for our client businesses.",requirements:["Bachelor or Master degree","3+ years management experience","Excellent communication","Strategic thinking","Team leadership"],rating:4.8,posted:"1 week ago",applicants:4,icon:"fas fa-user-tie"},
+  // SALES OFFICERS
+  {id:14,category:"SALES OFFICERS",title:"Retail Shopkeeper",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"13,000–18,000",description:"Manage daily retail shop operations including sales, inventory management, customer service, and cash handling.",requirements:["SLC passed minimum","Customer service skills","Honest and reliable","Basic counting skills","Willing to work weekends"],rating:3.8,posted:"2 days ago",applicants:28,icon:"fas fa-store"},
+  {id:15,category:"SALES OFFICERS",title:"Wholesale Shopkeeper",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"15,000–22,000",description:"Handle bulk sales, manage wholesale inventory, coordinate with suppliers, and build relationships with business clients.",requirements:["Experience in wholesale preferred","Good negotiation skills","SLC minimum","Physical fitness for stock work","Basic accounting"],rating:3.9,posted:"3 days ago",applicants:11,icon:"fas fa-warehouse"},
+  {id:16,category:"SALES OFFICERS",title:"Sales Executive",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"18,000–30,000 + Commission",description:"Drive sales growth for our client companies. Visit clients, build relationships, pitch products, and achieve monthly targets.",requirements:["+2 minimum","Good communication","Target oriented","Own bike preferred","Confident personality"],rating:4.3,posted:"1 day ago",applicants:19,icon:"fas fa-handshake"},
+  {id:17,category:"SALES OFFICERS",title:"Sales & Marketing Officer",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"20,000–35,000 + Incentives",description:"Plan and execute sales and marketing strategies, manage social media presence, coordinate campaigns, and analyze market trends.",requirements:["BBA/BBS degree preferred","Social media savvy","Creative mindset","Communication skills","Market knowledge"],rating:4.5,posted:"2 days ago",applicants:9,icon:"fas fa-bullhorn"},
+  // HOSPITALITY JOB
+  {id:18,category:"HOSPITALITY JOB",title:"Head Chef",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"35,000–60,000",description:"Lead the kitchen team at a premium restaurant. Create menus, maintain food quality standards, manage kitchen staff, and control food costs.",requirements:["5+ years cooking experience","Culinary training preferred","Kitchen management skills","Creative menu planning","Health & hygiene knowledge"],rating:4.7,posted:"5 days ago",applicants:5,icon:"fas fa-hat-chef"},
+  {id:19,category:"HOSPITALITY JOB",title:"Cook",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"18,000–28,000",description:"Prepare and cook meals according to recipes and standards. Maintain cleanliness and proper food handling in the kitchen environment.",requirements:["2+ years cooking experience","Knowledge of Nepali/Indian/Chinese cuisine","Food hygiene awareness","Team player","Physical stamina"],rating:4.2,posted:"1 day ago",applicants:16,icon:"fas fa-utensils"},
+  {id:20,category:"HOSPITALITY JOB",title:"Kitchen Helper",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"12,000–16,000",description:"Assist the cooking team with food preparation, washing, cleaning, and maintaining kitchen organization and cleanliness.",requirements:["No experience required","Physical fitness","Willingness to learn","Honest attitude","Ability to work under pressure"],rating:3.6,posted:"Today",applicants:35,icon:"fas fa-hand-sparkles"},
+  {id:21,category:"HOSPITALITY JOB",title:"Waiter / Waitress",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"13,000–20,000 + Tips",description:"Provide excellent food and beverage service to restaurant guests. Take orders, serve food, and ensure a pleasant dining experience.",requirements:["Pleasant personality","Good communication","SLC minimum","Previous experience preferred","English basic"],rating:4.0,posted:"2 days ago",applicants:24,icon:"fas fa-concierge-bell"},
+  {id:22,category:"HOSPITALITY JOB",title:"Barista",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"15,000–22,000",description:"Prepare specialty coffee and beverages. Operate espresso machines, maintain equipment, and deliver excellent customer experience at the coffee counter.",requirements:["Coffee making knowledge","Customer service skills","Energetic personality","Willing to learn","Café experience preferred"],rating:4.4,posted:"3 days ago",applicants:13,icon:"fas fa-coffee"},
+  {id:23,category:"HOSPITALITY JOB",title:"Bartender",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"18,000–28,000 + Tips",description:"Mix and serve alcoholic and non-alcoholic beverages. Maintain bar inventory, engage with guests, and ensure responsible service standards.",requirements:["Bartending experience preferred","Knowledge of cocktails","Good memory","Age 21+ preferred","Professional appearance"],rating:4.3,posted:"4 days ago",applicants:8,icon:"fas fa-wine-glass-alt"},
+  {id:24,category:"HOSPITALITY JOB",title:"Dishwasher",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"11,000–14,000",description:"Maintain cleanliness of all kitchen dishware, utensils, and equipment. Keep dish area organized and support kitchen operations.",requirements:["Any education","Physical stamina","Reliable","Willing to work shifts","Fast and organized"],rating:3.4,posted:"Today",applicants:40,icon:"fas fa-soap"},
+  {id:25,category:"HOSPITALITY JOB",title:"Housekeeping Staff",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"13,000–18,000",description:"Maintain cleanliness and presentation of hotel rooms, corridors, and public areas. Ensure high standards of hygiene and guest comfort.",requirements:["Any education","Attention to detail","Honest and reliable","Previous hotel experience plus","Physical fitness"],rating:3.9,posted:"2 days ago",applicants:17,icon:"fas fa-bed"},
 ];
 
-/* ─── STARS ─── */
-function stars(r){
-  return '★'.repeat(Math.floor(r)) + (r%1>=.5?'⯨':'') + '☆'.repeat(5-Math.floor(r)-(r%1>=.5?1:0));
+// ===== STATE =====
+let currentCategory="all";
+let currentSearch="";
+let currentJob=null;
+let savedJobs=JSON.parse(localStorage.getItem("sr_saved")||"[]");
+let appliedJobs=JSON.parse(localStorage.getItem("sr_applied")||"[]");
+let recentJobs=JSON.parse(localStorage.getItem("sr_recent")||"[]");
+let darkMode=localStorage.getItem("sr_dark")==="true";
+let lang=localStorage.getItem("sr_lang")||"en";
+
+// ===== INIT =====
+function init(){
+  applyDarkMode();
+  applyLang();
+  updateBadges();
+  setTimeout(()=>{renderJobs();renderRecommended();initScrollAnimations();animateCounter();},700);
+  addFormListeners();
 }
 
-/* ─── RENDER JOBS ─── */
-function renderJobs(q='',cat=''){
-  const grid=document.getElementById('jobsGrid');
-  const noRes=document.getElementById('noRes');
-  const meta=document.getElementById('resMeta');
-  const cnt=document.getElementById('resCount');
-  const isNp=document.body.classList.contains('np');
-  const ql=q.toLowerCase().trim();
-  const list=JOBS.filter(j=>{
-    const mq=!ql||j.title.toLowerCase().includes(ql)||j.desc.toLowerCase().includes(ql)||j.cat.toLowerCase().includes(ql);
-    const mc=!cat||j.cat===cat;
-    return mq&&mc;
+function animateCounter(){
+  const el=document.getElementById("count-jobs");
+  let n=0;const target=JOBS.length;
+  const timer=setInterval(()=>{n+=2;el.textContent=Math.min(n,target);if(n>=target)clearInterval(timer);},30);
+}
+
+// ===== DARK MODE =====
+function applyDarkMode(){
+  document.documentElement.setAttribute("data-theme",darkMode?"dark":"light");
+  document.getElementById("dark-icon").className=darkMode?"fas fa-sun":"fas fa-moon";
+}
+document.getElementById("dark-toggle").onclick=()=>{
+  darkMode=!darkMode;localStorage.setItem("sr_dark",darkMode);applyDarkMode();
+};
+
+// ===== LANGUAGE =====
+function applyLang(){
+  document.documentElement.setAttribute("data-lang",lang);
+  document.getElementById("lang-toggle").textContent=lang==="en"?"NP":"EN";
+}
+document.getElementById("lang-toggle").onclick=()=>{
+  lang=lang==="en"?"np":"en";localStorage.setItem("sr_lang",lang);applyLang();
+};
+
+// ===== CATEGORY ICONS MAP =====
+const catIcons={
+  "PROFESSIONAL JOB":"fas fa-user-tie",
+  "SALES OFFICERS":"fas fa-chart-line",
+  "HOSPITALITY JOB":"fas fa-utensils"
+};
+
+// ===== RENDER JOBS =====
+function getFilteredJobs(){
+  return JOBS.filter(j=>{
+    const matchCat=currentCategory==="all"||j.category===currentCategory;
+    const q=currentSearch.toLowerCase();
+    const matchSearch=!q||j.title.toLowerCase().includes(q)||j.category.toLowerCase().includes(q)||j.description.toLowerCase().includes(q);
+    return matchCat&&matchSearch;
   });
-  grid.innerHTML='';
-  if(!list.length){
-    noRes.style.display='block';
-    grid.style.display='none';
-    meta.style.display='none';
-  } else {
-    noRes.style.display='none';
-    grid.style.display='grid';
-    meta.style.display='block';
-    cnt.textContent=list.length;
-    list.forEach((j,i)=>{
-      const el=document.createElement('article');
-      el.className='job-card';
-      el.setAttribute('role','listitem');
-      el.style.animationDelay=Math.min(i*.05,.35)+'s';
-      el.innerHTML=`
-        <div class="jc-top">
-          <div class="j-icon">${j.icon}</div>
-          <div class="j-title-group">
-            <div class="j-title">${j.title}</div>
-            <span class="j-cat">${j.cat}</span>
-          </div>
-        </div>
-        <p class="j-desc">${j.desc}</p>
-        <div class="j-foot">
-          <div class="stars-row">
-            <span class="stars" aria-label="${j.r} out of 5">${stars(j.r)}</span>
-            <span class="r-text">${j.r} (${j.v})</span>
-          </div>
-          <div class="j-tags">${j.tags.map(t=>`<span class="j-tag">${t}</span>`).join('')}</div>
-        </div>
-        <button class="apply-btn" data-job="${j.title}" aria-label="Apply for ${j.title}">
-          <i class="fas fa-paper-plane"></i>
-          <span class="btn-en">Apply Now</span>
-          <span class="btn-np" style="display:none">आवेदन दिनुहोस्</span>
-        </button>`;
-      grid.appendChild(el);
-    });
-    grid.querySelectorAll('.apply-btn').forEach(b=>b.addEventListener('click',()=>openModal(b.dataset.job)));
-    if(isNp){
-      grid.querySelectorAll('.btn-en').forEach(e=>e.style.display='none');
-      grid.querySelectorAll('.btn-np').forEach(e=>e.style.display='');
-    }
-  }
 }
 
-/* ─── SEARCH & FILTER ─── */
-let sTimer;
-const sInput=document.getElementById('jobSearch');
-const catSel=document.getElementById('catFilter');
-function refresh(){renderJobs(sInput.value,catSel.value);}
-sInput.addEventListener('input',()=>{clearTimeout(sTimer);sTimer=setTimeout(refresh,200);});
-catSel.addEventListener('change',refresh);
-
-/* ─── MODAL ─── */
-const modalBg=document.getElementById('modalBg');
-const modalX=document.getElementById('modalX');
-function openModal(title){
-  ['fName','fAge','fPhone','fAddr'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('fQual').value='';
-  document.getElementById('fExp').value='';
-  document.getElementById('fJob').value=title;
-  document.getElementById('successBox').style.display='none';
-  document.getElementById('fForm').style.display='grid';
-  modalBg.classList.add('open');
-  modalBg.removeAttribute('aria-hidden');
-  document.body.style.overflow='hidden';
-  setTimeout(()=>document.getElementById('fName').focus(),80);
-}
-function closeModal(){
-  modalBg.classList.remove('open');
-  modalBg.setAttribute('aria-hidden','true');
-  document.body.style.overflow='';
-}
-modalX.addEventListener('click',closeModal);
-modalBg.addEventListener('click',e=>{if(e.target===modalBg)closeModal();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modalBg.classList.contains('open'))closeModal();});
-
-/* ─── SUBMIT → WHATSAPP ─── */
-document.getElementById('fSubmit').addEventListener('click',()=>{
-  const f={
-    name: document.getElementById('fName').value.trim(),
-    age:  document.getElementById('fAge').value.trim(),
-    ph:   document.getElementById('fPhone').value.trim(),
-    qual: document.getElementById('fQual').value,
-    job:  document.getElementById('fJob').value,
-    exp:  document.getElementById('fExp').value,
-    addr: document.getElementById('fAddr').value.trim(),
-  };
-  const bad=Object.values(f).some(v=>!v);
-  if(bad){
-    alert(document.body.classList.contains('np')
-      ?'कृपया सबै आवश्यक क्षेत्रहरू भर्नुहोस्।'
-      :'Please fill in all required fields before submitting.');
+function renderJobs(){
+  const grid=document.getElementById("jobs-grid");
+  const noRes=document.getElementById("no-results");
+  const countEl=document.getElementById("job-count");
+  const jobs=getFilteredJobs();
+  grid.innerHTML="";
+  if(jobs.length===0){
+    noRes.style.display="block";
+    countEl.textContent="0 jobs";
+    document.getElementById("recommended").style.display="none";
     return;
   }
-  const msg=`🔔 *New Job Application — Safe Rojgar*
-──────────────────────────────
-👤 *Full Name:*     ${f.name}
-🎂 *Age:*           ${f.age}
-📞 *Phone:*         ${f.ph}
-🎓 *Qualification:* ${f.qual}
-💼 *Applied For:*   ${f.job}
-⏱️ *Experience:*    ${f.exp}
-📍 *Address:*       ${f.addr}
-──────────────────────────────
-✅ Sent via SafeRojgar.com.np`;
-  window.open(`https://wa.me/9779813071254?text=${encodeURIComponent(msg)}`,'_blank','noopener,noreferrer');
-  document.getElementById('fForm').style.display='none';
-  document.getElementById('successBox').style.display='block';
-  setTimeout(closeModal,4000);
-});
-
-/* ─── LANGUAGE SWITCHER ─── */
-const langSel=document.getElementById('langSel');
-langSel.addEventListener('change',function(){
-  const np=this.value==='np';
-  document.body.classList.toggle('np',np);
-  document.documentElement.setAttribute('lang',np?'ne':'en');
-  // Sync card buttons
-  document.querySelectorAll('.btn-en').forEach(e=>e.style.display=np?'none':'');
-  document.querySelectorAll('.btn-np').forEach(e=>e.style.display=np?'':'none');
-  // Sync search placeholder
-  sInput.placeholder=np?'शीर्षक वा कीवर्डद्वारा जागिर खोज्नुहोस्…':'Search jobs by title or keyword…';
-});
-
-/* ─── HAMBURGER ─── */
-const ham=document.getElementById('ham');
-const mob=document.getElementById('mobOverlay');
-function toggleNav(open){
-  ham.classList.toggle('open',open);
-  mob.classList.toggle('open',open);
-  ham.setAttribute('aria-expanded',open);
-  mob.setAttribute('aria-hidden',!open);
-  document.body.style.overflow=open?'hidden':'';
+  noRes.style.display="none";
+  countEl.textContent=`${jobs.length} job${jobs.length!==1?"s":""}`;
+  jobs.forEach((j,i)=>{
+    const card=createJobCard(j,i);
+    grid.appendChild(card);
+  });
+  document.getElementById("recommended").style.display="block";
 }
-ham.addEventListener('click',()=>toggleNav(!mob.classList.contains('open')));
-mob.addEventListener('click',e=>{if(!e.target.closest('.mob-panel'))toggleNav(false);});
-document.querySelectorAll('[data-mn]').forEach(a=>a.addEventListener('click',()=>toggleNav(false)));
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mob.classList.contains('open'))toggleNav(false);});
 
-/* ─── SCROLL EFFECTS ─── */
-const hdr=document.getElementById('header');
-const stBtn=document.getElementById('scrollTop');
-window.addEventListener('scroll',()=>{
-  const y=window.scrollY;
-  hdr.classList.toggle('scrolled',y>10);
-  stBtn.classList.toggle('show',y>400);
-},{passive:true});
-stBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+function highlight(text){
+  if(!currentSearch)return text;
+  const re=new RegExp(`(${currentSearch.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi');
+  return text.replace(re,'<mark class="highlight">$1</mark>');
+}
 
-/* ─── ACTIVE NAV ─── */
-const navAs=document.querySelectorAll('.main-nav a,.mob-panel a');
-const sIds=['hero','trust','jobs','contact'];
-window.addEventListener('scroll',()=>{
-  let cur='hero';
-  sIds.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<=100)cur=id;});
-  navAs.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
-},{passive:true});
+function createJobCard(j,delay){
+  const saved=savedJobs.includes(j.id);
+  const applied=appliedJobs.includes(j.id);
+  const div=document.createElement("div");
+  div.className="job-card";
+  div.style.animationDelay=`${delay*0.06}s`;
+  div.onclick=(e)=>{if(!e.target.closest('.job-save')&&!e.target.closest('.job-apply-btn'))openJobModal(j)};
+  const stars=renderStars(j.rating);
+  div.innerHTML=`
+    <div class="job-card-top">
+      <div class="job-icon"><i class="${j.icon}"></i></div>
+      <div style="flex:1;min-width:0">
+        <div class="job-title">${highlight(j.title)}</div>
+        <div class="job-company"><i class="fas fa-building" style="font-size:.75rem"></i> ${j.company}</div>
+      </div>
+      <button class="job-save${saved?' saved':''}" onclick="toggleSave(${j.id},this)" title="${saved?'Remove':'Save'}">
+        <i class="fa${saved?'s':'r'} fa-heart"></i>
+      </button>
+    </div>
+    <div class="job-meta">
+      <span class="job-cat-tag">${j.category}</span>
+      <span class="job-tag"><i class="fas fa-location-dot"></i>${j.location}</span>
+      <span class="job-tag"><i class="fas fa-clock"></i>${j.type}</span>
+    </div>
+    <div class="applicants-count"><i class="fas fa-users" style="font-size:.7rem;margin-right:3px"></i>${j.applicants + Math.floor(Math.random()*8)} people applied</div>
+    <div class="job-footer">
+      <div>
+        <div class="job-rating">
+          <div class="stars">${stars}</div>
+          <span class="job-rating-num">${j.rating}</span>
+        </div>
+        <div class="job-posted">${j.posted}</div>
+      </div>
+      ${applied
+        ?`<div class="applied-badge"><i class="fas fa-check-circle"></i>Applied</div>`
+        :`<button class="job-apply-btn" onclick="openJobModal(JOBS.find(x=>x.id==${j.id}))"><i class="fab fa-whatsapp"></i> Apply</button>`
+      }
+    </div>
+  `;
+  return div;
+}
 
-/* ─── SCROLL REVEAL ─── */
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
-},{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+function renderStars(r){
+  let s="";
+  for(let i=1;i<=5;i++){
+    if(i<=Math.floor(r))s+=`<i class="fas fa-star"></i>`;
+    else if(i-r<1)s+=`<i class="fas fa-star-half-stroke"></i>`;
+    else s+=`<i class="far fa-star"></i>`;
+  }
+  return s;
+}
 
-/* ─── INIT ─── */
-renderJobs();
+// ===== SEARCH =====
+function handleSearch(v){
+  currentSearch=v.trim();
+  document.getElementById("search-clear").style.display=v?"block":"none";
+  renderJobs();
+}
+function clearSearch(){
+  document.getElementById("search-input").value="";
+  currentSearch="";
+  document.getElementById("search-clear").style.display="none";
+  renderJobs();
+}
+function setSearch(v){
+  document.getElementById("search-input").value=v;
+  handleSearch(v);
+  document.getElementById("main").scrollIntoView({behavior:"smooth"});
+}
+
+// ===== CATEGORY FILTER =====
+function filterCategory(cat,btn){
+  currentCategory=cat;
+  document.querySelectorAll(".cat-pill").forEach(p=>p.classList.remove("active"));
+  if(btn)btn.classList.add("active");
+  else{
+    document.querySelectorAll(".cat-pill").forEach(p=>{
+      if(p.dataset.cat===cat)p.classList.add("active");
+    });
+  }
+  renderJobs();
+  document.getElementById("main").scrollIntoView({behavior:"smooth"});
+}
+
+// ===== SAVE =====
+function toggleSave(id,btn){
+  const idx=savedJobs.indexOf(id);
+  if(idx===-1){
+    savedJobs.push(id);
+    btn.classList.add("saved");
+    btn.innerHTML='<i class="fas fa-heart"></i>';
+    showToast("Job saved! ❤️","success");
+  } else {
+    savedJobs.splice(idx,1);
+    btn.classList.remove("saved");
+    btn.innerHTML='<i class="far fa-heart"></i>';
+    showToast("Removed from saved","info");
+  }
+  localStorage.setItem("sr_saved",JSON.stringify(savedJobs));
+  updateBadges();
+}
+
+function toggleSaveModal(){
+  if(!currentJob)return;
+  const id=currentJob.id;
+  const btn=document.getElementById("modal-save-btn");
+  const idx=savedJobs.indexOf(id);
+  if(idx===-1){
+    savedJobs.push(id);
+    btn.classList.add("saved");
+    btn.innerHTML='<i class="fas fa-heart"></i>';
+    showToast("Job saved! ❤️","success");
+  } else {
+    savedJobs.splice(idx,1);
+    btn.classList.remove("saved");
+    btn.innerHTML='<i class="far fa-heart"></i>';
+    showToast("Removed from saved","info");
+  }
+  localStorage.setItem("sr_saved",JSON.stringify(savedJobs));
+  updateBadges();
+  renderJobs();
+}
+
+function updateBadges(){
+  const sb=document.getElementById("saved-badge");
+  const sc=savedJobs.length;
+  if(sc>0){sb.style.display="flex";sb.textContent=sc}else{sb.style.display="none"}
+}
+
+// ===== JOB MODAL =====
+function openJobModal(j){
+  currentJob=j;
+  // Add to recent
+  recentJobs=recentJobs.filter(x=>x!==j.id);
+  recentJobs.unshift(j.id);
+  if(recentJobs.length>10)recentJobs=recentJobs.slice(0,10);
+  localStorage.setItem("sr_recent",JSON.stringify(recentJobs));
+
+  document.getElementById("modal-job-title").textContent=j.title;
+  const saved=savedJobs.includes(j.id);
+  const saveBtn=document.getElementById("modal-save-btn");
+  saveBtn.className=`btn-save-job${saved?" saved":""}`;
+  saveBtn.innerHTML=`<i class="fa${saved?"s":"r"} fa-heart"></i>`;
+
+  const reqs=j.requirements.map(r=>`<div class="modal-req-item"><i class="fas fa-check-circle"></i>${r}</div>`).join("");
+  document.getElementById("modal-body").innerHTML=`
+    <div class="modal-job-icon"><i class="${j.icon}"></i></div>
+    <div class="modal-job-title">${j.title}</div>
+    <div class="modal-company"><i class="fas fa-building"></i> ${j.company}</div>
+    <div class="modal-tags">
+      <span class="modal-tag"><i class="fas fa-tag"></i>${j.category}</span>
+      <span class="modal-tag"><i class="fas fa-location-dot"></i>${j.location}</span>
+      <span class="modal-tag"><i class="fas fa-briefcase"></i>${j.type}</span>
+      <span class="modal-tag"><i class="fas fa-money-bill-wave"></i>Rs. ${j.salary}</span>
+      <span class="modal-tag"><i class="fas fa-clock"></i>${j.posted}</span>
+    </div>
+    <div class="modal-section-title"><span class="en">Job Description</span><span class="np">जागिर विवरण</span></div>
+    <p class="modal-desc">${j.description}</p>
+    <div class="modal-section-title"><span class="en">Requirements</span><span class="np">आवश्यकताहरू</span></div>
+    <div class="modal-requirements">${reqs}</div>
+    <div style="background:rgba(37,211,102,.08);border:1.5px solid rgba(37,211,102,.3);border-radius:12px;padding:14px;margin-bottom:12px;font-size:.88rem;color:var(--text2)">
+      <i class="fab fa-whatsapp" style="color:#25D366;margin-right:8px"></i>
+      <span class="en">Apply via WhatsApp to <strong>+977-9712037365</strong>. Our team will contact you within 24-48 hours.</span>
+      <span class="np">व्हाट्सएप मार्फत <strong>+977-9712037365</strong> मा आवेदन दिनुहोस्।</span>
+    </div>
+  `;
+  document.getElementById("job-modal").classList.add("open");
+}
+
+// ===== APPLY MODAL =====
+function openApplyModal(){
+  if(!currentJob)return;
+  document.getElementById("form-job").value=currentJob.title;
+  document.getElementById("apply-modal").classList.add("open");
+  document.getElementById("msg-preview").classList.remove("show");
+  // reset
+  ["form-name","form-age","form-address","form-exp"].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el&&id!=="form-job")el.value="";
+  });
+  document.getElementById("form-qual").value="";
+}
+
+function addFormListeners(){
+  ["form-name","form-age","form-qual","form-address","form-exp"].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)el.addEventListener("input",updatePreview);
+  });
+}
+
+function updatePreview(){
+  const name=document.getElementById("form-name").value.trim();
+  const age=document.getElementById("form-age").value.trim();
+  const qual=document.getElementById("form-qual").value;
+  const job=document.getElementById("form-job").value;
+  const addr=document.getElementById("form-address").value.trim();
+  const exp=document.getElementById("form-exp").value.trim();
+  if(!name&&!age)return;
+  const msg=`🟢 New Job Application – Safe Rojgar\n\n👤 Name: ${name||"—"}\n🎂 Age: ${age||"—"}\n💼 Job: ${job||"—"}\n🎓 Qualification: ${qual||"—"}\n📍 Address: ${addr||"—"}\n💪 Experience: ${exp||"Fresher"}\n\n📞 Contact: 9712037365\n🌐 saferojgar@gmail.com`;
+  const preview=document.getElementById("msg-preview");
+  preview.textContent=msg;
+  preview.classList.add("show");
+}
+
+function submitApply(){
+  const name=document.getElementById("form-name").value.trim();
+  const age=parseInt(document.getElementById("form-age").value);
+  const qual=document.getElementById("form-qual").value;
+  const addr=document.getElementById("form-address").value.trim();
+  const exp=document.getElementById("form-exp").value.trim();
+  const job=document.getElementById("form-job").value;
+  let valid=true;
+  const showErr=(id,show)=>{document.getElementById(id).style.display=show?"block":"none"};
+  if(!name){showErr("err-name",true);valid=false}else showErr("err-name",false);
+  if(!age||age<16||age>65){showErr("err-age",true);valid=false}else showErr("err-age",false);
+  if(!qual){showErr("err-qual",true);valid=false}else showErr("err-qual",false);
+  if(!addr){showErr("err-address",true);valid=false}else showErr("err-address",false);
+  if(!valid)return;
+  const msg=`🟢 New Job Application – Safe Rojgar\n\n👤 Name: ${name}\n🎂 Age: ${age}\n💼 Job: ${job}\n🎓 Qualification: ${qual}\n📍 Address: ${addr}\n💪 Experience: ${exp||"Fresher"}\n\n📞 Contact: 9712037365\n🌐 saferojgar@gmail.com`;
+  // Save applied
+  if(currentJob&&!appliedJobs.includes(currentJob.id)){
+    appliedJobs.push(currentJob.id);
+    localStorage.setItem("sr_applied",JSON.stringify(appliedJobs));
+  }
+  showToast("Redirecting to WhatsApp... 📲","success");
+  setTimeout(()=>{
+    document.getElementById("apply-modal").classList.remove("open");
+    document.getElementById("job-modal").classList.remove("open");
+    window.open(`https://wa.me/9712037365?text=${encodeURIComponent(msg)}`,"_blank");
+    renderJobs();
+  },1200);
+}
+
+// ===== WHATSAPP =====
+function openWhatsApp(msg){
+  window.open(`https://wa.me/9712037365?text=${encodeURIComponent(msg)}`,"_blank");
+}
+
+// ===== MODALS =====
+function closeModal(e,id){
+  if(e.target.id===id)document.getElementById(id).classList.remove("open");
+}
+
+// ===== SAVED PANEL =====
+function showSavedPanel(){
+  renderSavedPanel();
+  document.getElementById("saved-modal").classList.add("open");
+}
+
+function renderSavedPanel(){
+  // Saved
+  const savedEl=document.getElementById("saved-tab");
+  const savedList=JOBS.filter(j=>savedJobs.includes(j.id));
+  if(savedList.length===0){
+    savedEl.innerHTML=`<div class="empty-state"><div class="empty-icon">💔</div><p>No saved jobs yet. Tap ❤️ on any job to save it.</p></div>`;
+  } else {
+    savedEl.innerHTML=savedList.map(j=>miniCard(j)).join("");
+  }
+  // Applied
+  const appliedEl=document.getElementById("applied-tab");
+  const appliedList=JOBS.filter(j=>appliedJobs.includes(j.id));
+  if(appliedList.length===0){
+    appliedEl.innerHTML=`<div class="empty-state"><div class="empty-icon">📋</div><p>No applications yet. Apply to a job via WhatsApp!</p></div>`;
+  } else {
+    appliedEl.innerHTML=appliedList.map(j=>miniCard(j,true)).join("");
+  }
+  // Recent
+  const recentEl=document.getElementById("recent-tab");
+  const recentList=JOBS.filter(j=>recentJobs.includes(j.id)).sort((a,b)=>recentJobs.indexOf(a.id)-recentJobs.indexOf(b.id));
+  if(recentList.length===0){
+    recentEl.innerHTML=`<div class="empty-state"><div class="empty-icon">🕐</div><p>No recently viewed jobs.</p></div>`;
+  } else {
+    recentEl.innerHTML=recentList.map(j=>miniCard(j)).join("");
+  }
+}
+
+function miniCard(j,applied=false){
+  const isApplied=appliedJobs.includes(j.id)||applied;
+  return `<div style="display:flex;align-items:center;gap:12px;padding:14px;background:var(--bg3);border-radius:12px;margin-bottom:10px;cursor:pointer;border:1px solid var(--border)" onclick="openJobModal(JOBS.find(x=>x.id===${j.id}));document.getElementById('saved-modal').classList.remove('open')">
+    <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-light));display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0"><i class="${j.icon}"></i></div>
+    <div style="flex:1;min-width:0">
+      <div style="font-weight:700;font-size:.92rem;color:var(--text)">${j.title}</div>
+      <div style="font-size:.78rem;color:var(--text3)">${j.category} · ${j.location}</div>
+    </div>
+    ${isApplied?`<span style="font-size:.72rem;font-weight:700;color:var(--accent2);background:rgba(16,185,129,.12);padding:4px 8px;border-radius:6px">Applied ✓</span>`:""}
+  </div>`;
+}
+
+function switchTab(tabId,btn){
+  document.querySelectorAll(".saved-panel").forEach(p=>p.classList.remove("active"));
+  document.getElementById(tabId).classList.add("active");
+  document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+}
+
+// ===== PROFILE PANEL =====
+function showProfilePanel(){
+  showToast("Feature coming soon! 🚀","info");
+}
+
+// ===== RECOMMENDED =====
+function renderRecommended(){
+  const scroll=document.getElementById("rec-scroll");
+  const picks=JOBS.sort(()=>Math.random()-.5).slice(0,6);
+  scroll.innerHTML=picks.map(j=>`
+    <div class="rec-card" onclick="openJobModal(JOBS.find(x=>x.id===${j.id}))">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+        <div style="width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,var(--brand),var(--brand-light));display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem"><i class="${j.icon}"></i></div>
+        <div>
+          <div style="font-weight:700;font-size:.88rem;color:var(--text)">${j.title}</div>
+          <div style="font-size:.74rem;color:var(--text3)">${j.type}</div>
+        </div>
+      </div>
+      <div style="font-size:.76rem;color:var(--brand);font-weight:600;margin-bottom:6px">${j.category}</div>
+      <div style="font-size:.78rem;color:var(--text3)">${j.posted} · ${j.location}</div>
+    </div>
+  `).join("");
+}
+
+// ===== NAVIGATION =====
+function goHome(el){
+  document.querySelectorAll(".bnav-item").forEach(i=>i.classList.remove("active"));
+  el.classList.add("active");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function goJobs(el){
+  document.querySelectorAll(".bnav-item").forEach(i=>i.classList.remove("active"));
+  el.classList.add("active");
+  document.getElementById("main").scrollIntoView({behavior:"smooth"});
+}
+
+// ===== TOAST =====
+function showToast(msg,type="info"){
+  const container=document.getElementById("toast-container");
+  const toast=document.createElement("div");
+  toast.className=`toast ${type}`;
+  toast.innerHTML=`<i class="fas fa-${type==="success"?"check-circle":type==="error"?"exclamation-circle":"info-circle"}"></i>${msg}`;
+  container.appendChild(toast);
+  setTimeout(()=>{
+    toast.style.animation="toastOut .3s ease forwards";
+    setTimeout(()=>toast.remove(),300);
+  },3000);
+}
+
+// ===== SCROLL ANIMATIONS =====
+function initScrollAnimations(){
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target)}
+    });
+  },{threshold:.15});
+  document.querySelectorAll(".fade-in-up").forEach(el=>obs.observe(el));
+}
+
+// ===== START =====
+window.addEventListener("DOMContentLoaded",init);
 </script>
 </body>
 </html>
