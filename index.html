@@ -1,1541 +1,1175 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Safe Rojgar – Find Your Dream Job in Nepal</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-<style>
-/* ===== CSS VARIABLES ===== */
-:root{
-  --brand:#1a6b3c;
-  --brand-light:#22883f;
-  --brand-dark:#0f4526;
-  --accent:#f59e0b;
-  --accent2:#10b981;
-  --red:#ef4444;
-  --bg:#f0f7f2;
-  --bg2:#ffffff;
-  --bg3:#e8f4ed;
-  --card:#ffffff;
-  --text:#111827;
-  --text2:#4b5563;
-  --text3:#9ca3af;
-  --border:#d1fae5;
-  --shadow:0 4px 24px rgba(26,107,60,.10);
-  --shadow-lg:0 12px 48px rgba(26,107,60,.18);
-  --radius:16px;
-  --radius-sm:10px;
-  --font-head:'Sora',sans-serif;
-  --font-body:'DM Sans',sans-serif;
-  --nav-h:68px;
-  --bottom-h:64px;
-}
-[data-theme="dark"]{
-  --bg:#0d1f14;
-  --bg2:#122118;
-  --bg3:#182d1f;
-  --card:#1a2e21;
-  --text:#f0fdf4;
-  --text2:#86efac;
-  --text3:#4ade80;
-  --border:#166534;
-  --shadow:0 4px 24px rgba(0,0,0,.4);
-  --shadow-lg:0 12px 48px rgba(0,0,0,.55);
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SR Job Center - Nepal's most trusted job placement platform. Find jobs or hire qualified candidates instantly via WhatsApp." />
+  <meta name="keywords" content="jobs in Nepal, job placement Nepal, hire staff Nepal, Kathmandu jobs, SR Job Center" />
+  <meta property="og:title" content="SR Job Center – Nepal's Trusted Job Platform" />
+  <meta property="og:description" content="Connect job seekers and employers instantly. 500+ active jobs. 100% free for job seekers." />
+  <meta property="og:type" content="website" />
+  <title>SR Job Center | एसआर जॉब सेन्टर – Nepal's Trusted Job Platform</title>
 
-/* ===== RESET & BASE ===== */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px}
-body{
-  font-family:var(--font-body);
-  background:var(--bg);
-  color:var(--text);
-  min-height:100vh;
-  overflow-x:hidden;
-  transition:background .3s,color .3s;
-}
-a{text-decoration:none;color:inherit}
-button{cursor:pointer;border:none;outline:none;font-family:var(--font-body)}
-img{max-width:100%;display:block}
-ul{list-style:none}
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
-/* ===== SCROLLBAR ===== */
-::-webkit-scrollbar{width:6px;height:6px}
-::-webkit-scrollbar-track{background:var(--bg3)}
-::-webkit-scrollbar-thumb{background:var(--brand);border-radius:99px}
+  <!-- Font Awesome 6.5.0 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-/* ===== NAVBAR ===== */
-#navbar{
-  position:fixed;top:0;left:0;right:0;z-index:900;
-  height:var(--nav-h);
-  background:rgba(255,255,255,.88);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--border);
-  display:flex;align-items:center;
-  padding:0 clamp(16px,4vw,48px);
-  gap:16px;
-  transition:background .3s,border-color .3s;
-}
-[data-theme="dark"] #navbar{background:rgba(13,31,20,.92)}
-.nav-logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.nav-logo img{
-  width:40px;height:40px;border-radius:10px;
-  object-fit:cover;
-  background:var(--brand);
-  padding:4px;
-}
-.nav-logo-text{
-  font-family:var(--font-head);font-weight:800;font-size:1.15rem;
-  color:var(--brand);letter-spacing:-.5px;
-}
-.nav-logo-text span{color:var(--accent)}
-.nav-links{
-  display:flex;align-items:center;gap:4px;margin-left:auto;
-}
-.nav-links a{
-  font-size:.88rem;font-weight:500;padding:7px 13px;border-radius:8px;
-  color:var(--text2);transition:all .2s;
-}
-.nav-links a:hover,.nav-links a.active{background:var(--brand);color:#fff}
-.nav-actions{display:flex;align-items:center;gap:8px;margin-left:8px}
-.btn-icon{
-  width:38px;height:38px;border-radius:10px;
-  display:flex;align-items:center;justify-content:center;
-  background:var(--bg3);color:var(--text);font-size:.95rem;
-  transition:all .2s;border:1px solid var(--border);
-}
-.btn-icon:hover{background:var(--brand);color:#fff;border-color:var(--brand)}
-.lang-btn{
-  font-size:.78rem;font-weight:700;padding:6px 10px;border-radius:8px;
-  background:var(--bg3);color:var(--brand);border:1px solid var(--border);
-  transition:all .2s;
-}
-.lang-btn:hover{background:var(--brand);color:#fff}
+  <!-- Favicon (text-based SVG) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a56db'/><text y='.9em' font-size='60' font-family='Arial' font-weight='bold' fill='white' x='10'>SR</text></svg>" />
 
-/* ===== HERO ===== */
-#hero{
-  min-height:100vh;
-  background:linear-gradient(135deg,var(--brand-dark) 0%,var(--brand) 40%,var(--brand-light) 70%,#15803d 100%);
-  display:flex;align-items:center;justify-content:center;
-  position:relative;overflow:hidden;
-  padding:calc(var(--nav-h) + 40px) clamp(16px,5vw,80px) 60px;
-}
-.hero-shapes{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.shape{
-  position:absolute;border-radius:50%;
-  background:rgba(255,255,255,.06);
-  animation:float 8s ease-in-out infinite;
-}
-.shape:nth-child(1){width:500px;height:500px;top:-120px;right:-100px;animation-delay:0s}
-.shape:nth-child(2){width:300px;height:300px;bottom:-60px;left:-80px;animation-delay:2s;background:rgba(255,255,255,.04)}
-.shape:nth-child(3){width:180px;height:180px;top:40%;left:10%;animation-delay:4s}
-.shape:nth-child(4){width:80px;height:80px;top:20%;right:15%;animation-delay:1s;background:rgba(245,158,11,.25);border-radius:20px;transform:rotate(30deg)}
-.shape:nth-child(5){width:50px;height:50px;bottom:25%;right:20%;animation-delay:3s;background:rgba(255,255,255,.15);border-radius:12px;transform:rotate(15deg)}
-@keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-20px) rotate(5deg)}}
-.hero-content{
-  text-align:center;max-width:720px;position:relative;z-index:1;
-}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:7px;
-  background:rgba(255,255,255,.15);backdrop-filter:blur(8px);
-  border:1px solid rgba(255,255,255,.25);
-  border-radius:99px;padding:6px 16px;
-  font-size:.8rem;font-weight:600;color:#fff;letter-spacing:.5px;
-  margin-bottom:24px;
-  animation:fadeDown .6s ease both;
-}
-.hero-badge i{color:var(--accent)}
-.hero-title{
-  font-family:var(--font-head);font-size:clamp(2.2rem,6vw,4rem);
-  font-weight:800;color:#fff;line-height:1.1;letter-spacing:-1.5px;
-  margin-bottom:16px;
-  animation:fadeUp .7s ease both .1s;
-}
-.hero-title .accent{color:var(--accent)}
-.hero-subtitle{
-  font-size:clamp(1rem,2.5vw,1.2rem);color:rgba(255,255,255,.8);
-  margin-bottom:40px;line-height:1.6;
-  animation:fadeUp .7s ease both .2s;
-}
-.hero-stats{
-  display:flex;justify-content:center;gap:clamp(20px,5vw,56px);flex-wrap:wrap;
-  margin-bottom:40px;
-  animation:fadeUp .7s ease both .3s;
-}
-.stat{text-align:center}
-.stat-num{
-  font-family:var(--font-head);font-size:clamp(1.8rem,4vw,2.8rem);
-  font-weight:800;color:#fff;line-height:1;
-}
-.stat-num span{color:var(--accent)}
-.stat-label{font-size:.82rem;color:rgba(255,255,255,.7);font-weight:500;margin-top:4px}
-.hero-cta{
-  display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
-  animation:fadeUp .7s ease both .4s;
-}
-.btn-primary{
-  padding:14px 32px;border-radius:12px;font-weight:700;font-size:1rem;
-  background:var(--accent);color:#1a1a1a;
-  transition:all .2s;display:inline-flex;align-items:center;gap:8px;
-  box-shadow:0 4px 20px rgba(245,158,11,.4);
-}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(245,158,11,.5)}
-.btn-primary:active{transform:scale(.97)}
-.btn-secondary{
-  padding:14px 32px;border-radius:12px;font-weight:600;font-size:1rem;
-  background:rgba(255,255,255,.15);color:#fff;
-  border:1.5px solid rgba(255,255,255,.35);backdrop-filter:blur(8px);
-  transition:all .2s;display:inline-flex;align-items:center;gap:8px;
-}
-.btn-secondary:hover{background:rgba(255,255,255,.25);transform:translateY(-2px)}
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-@keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:none}}
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES & RESET
+    ============================================================ */
+    :root {
+      --blue: #1a56db;
+      --blue-mid: #3b82f6;
+      --blue-light: #93c5fd;
+      --cyan: #06b6d4;
+      --orange: #f59e0b;
+      --orange-deep: #ef4444;
+      --white: #ffffff;
+      --off-white: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-400: #94a3b8;
+      --gray-600: #475569;
+      --gray-800: #1e293b;
+      --gray-900: #0f172a;
 
-/* ===== STICKY SEARCH ===== */
-#search-section{
-  position:sticky;top:var(--nav-h);z-index:800;
-  background:var(--bg);padding:14px clamp(12px,4vw,48px);
-  border-bottom:1px solid var(--border);
-  transition:background .3s;
-}
-.search-wrap{
-  max-width:700px;margin:0 auto;position:relative;
-}
-.search-input{
-  width:100%;padding:14px 50px 14px 48px;
-  border-radius:14px;border:2px solid var(--border);
-  background:var(--card);color:var(--text);
-  font-family:var(--font-body);font-size:1rem;
-  transition:all .2s;
-  box-shadow:var(--shadow);
-}
-.search-input:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 4px rgba(26,107,60,.12)}
-.search-input::placeholder{color:var(--text3)}
-.search-icon{
-  position:absolute;left:16px;top:50%;transform:translateY(-50%);
-  color:var(--brand);font-size:1.05rem;
-}
-.search-clear{
-  position:absolute;right:14px;top:50%;transform:translateY(-50%);
-  color:var(--text3);font-size:.9rem;cursor:pointer;
-  background:none;border:none;display:none;
-  transition:color .2s;
-}
-.search-clear:hover{color:var(--red)}
+      /* Theme tokens */
+      --bg: #f0f4ff;
+      --surface: #ffffff;
+      --surface-2: #f8fafc;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow: 0 4px 24px rgba(26, 86, 219, 0.10);
+      --shadow-lg: 0 12px 48px rgba(26, 86, 219, 0.18);
+      --card-bg: #ffffff;
+      --nav-bg: rgba(255,255,255,0.85);
+      --footer-bg: #0f172a;
+      --toast-bg: #1e293b;
+      --toast-text: #ffffff;
 
-/* ===== CATEGORY PILLS ===== */
-#categories{
-  padding:16px clamp(12px,4vw,48px);
-  background:var(--bg);
-}
-.cat-pills{
-  display:flex;gap:8px;overflow-x:auto;
-  scrollbar-width:none;padding-bottom:4px;
-  max-width:1200px;margin:0 auto;
-}
-.cat-pills::-webkit-scrollbar{display:none}
-.cat-pill{
-  flex-shrink:0;padding:9px 20px;border-radius:99px;
-  font-weight:600;font-size:.85rem;
-  background:var(--card);color:var(--text2);
-  border:1.5px solid var(--border);
-  cursor:pointer;transition:all .2s;
-  display:flex;align-items:center;gap:7px;
-  white-space:nowrap;
-}
-.cat-pill i{font-size:.9rem}
-.cat-pill:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-1px)}
-.cat-pill.active{background:var(--brand);color:#fff;border-color:var(--brand);box-shadow:0 4px 14px rgba(26,107,60,.3)}
+      --radius: 18px;
+      --radius-sm: 10px;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-display: 'Sora', sans-serif;
+      --transition: 0.3s cubic-bezier(.4,0,.2,1);
+    }
 
-/* ===== MAIN CONTENT ===== */
-#main{
-  max-width:1200px;margin:0 auto;
-  padding:32px clamp(12px,4vw,48px) calc(var(--bottom-h) + 20px);
-}
-.section-header{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:20px;
-}
-.section-title{
-  font-family:var(--font-head);font-size:1.4rem;font-weight:700;
-  color:var(--text);letter-spacing:-.5px;
-}
-.section-title span{color:var(--brand)}
-.section-count{
-  font-size:.85rem;color:var(--text3);font-weight:500;
-  background:var(--bg3);padding:4px 12px;border-radius:99px;
-}
+    [data-theme="dark"] {
+      --bg: #070d1a;
+      --surface: #0f1a2e;
+      --surface-2: #0a1221;
+      --text: #e8f0ff;
+      --text-muted: #8eaad4;
+      --border: #1e3a5f;
+      --shadow: 0 4px 24px rgba(0,0,0,0.45);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.6);
+      --card-bg: #0f1e38;
+      --nav-bg: rgba(7,13,26,0.90);
+      --footer-bg: #050b18;
+      --toast-bg: #e8f0ff;
+      --toast-text: #0f1a2e;
+    }
 
-/* ===== JOB CARDS GRID ===== */
-#jobs-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));
-  gap:18px;
-}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: background var(--transition), color var(--transition);
+    }
 
-/* ===== SKELETON ===== */
-.skeleton{
-  background:linear-gradient(90deg,var(--bg3) 25%,var(--border) 50%,var(--bg3) 75%);
-  background-size:200% 100%;
-  animation:shimmer 1.5s infinite;
-  border-radius:var(--radius);
-}
-@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-.skeleton-card{
-  height:220px;border-radius:var(--radius);
-  background:linear-gradient(90deg,var(--bg3) 25%,var(--border) 50%,var(--bg3) 75%);
-  background-size:200% 100%;
-  animation:shimmer 1.5s infinite;
-}
+    /* ============================================================
+       NAVBAR
+    ============================================================ */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: var(--nav-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 24px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+    .logo-circle {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-weight: 700; font-size: 15px;
+      color: white; letter-spacing: 0.5px;
+      box-shadow: 0 4px 16px rgba(26,86,219,0.3);
+      flex-shrink: 0;
+    }
+    .logo-text { line-height: 1.2; }
+    .logo-name {
+      font-family: var(--font-display); font-weight: 700; font-size: 17px;
+      color: var(--blue); display: block;
+    }
+    .logo-tagline {
+      font-size: 11px; color: var(--text-muted); font-weight: 500;
+    }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
 
-/* ===== JOB CARD ===== */
-.job-card{
-  background:var(--card);border-radius:var(--radius);
-  border:1.5px solid var(--border);padding:20px;
-  cursor:pointer;transition:all .25s;
-  position:relative;overflow:hidden;
-  animation:cardIn .4s ease both;
-}
-@keyframes cardIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-.job-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,var(--brand),var(--brand-light));
-  transform:scaleX(0);transform-origin:left;transition:transform .3s;
-}
-.job-card:hover{
-  transform:translateY(-4px);
-  box-shadow:var(--shadow-lg);
-  border-color:var(--brand);
-}
-.job-card:hover::before{transform:scaleX(1)}
-.job-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:14px}
-.job-icon{
-  width:46px;height:46px;border-radius:12px;
-  background:linear-gradient(135deg,var(--brand),var(--brand-light));
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.2rem;color:#fff;flex-shrink:0;
-}
-.job-save{
-  width:34px;height:34px;border-radius:9px;
-  background:var(--bg3);border:1.5px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.95rem;color:var(--text3);
-  transition:all .2s;flex-shrink:0;
-}
-.job-save:hover,.job-save.saved{color:var(--red);border-color:var(--red);background:rgba(239,68,68,.08)}
-.job-save.saved{color:var(--red)}
-.job-title{
-  font-family:var(--font-head);font-weight:700;font-size:1.02rem;
-  color:var(--text);line-height:1.3;margin-bottom:4px;
-}
-.job-company{font-size:.82rem;color:var(--brand);font-weight:600}
-.job-meta{
-  display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:12px 0;
-}
-.job-tag{
-  display:inline-flex;align-items:center;gap:4px;
-  font-size:.76rem;font-weight:500;color:var(--text2);
-  background:var(--bg3);border-radius:6px;padding:4px 9px;
-}
-.job-tag i{color:var(--brand);font-size:.72rem}
-.job-cat-tag{
-  font-size:.72rem;font-weight:700;color:var(--brand);
-  background:rgba(26,107,60,.1);border-radius:6px;padding:3px 9px;
-  letter-spacing:.3px;text-transform:uppercase;
-}
-.job-footer{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid var(--border)}
-.job-rating{display:flex;align-items:center;gap:5px}
-.stars{display:flex;gap:2px}
-.stars i{font-size:.75rem;color:var(--accent)}
-.job-rating-num{font-size:.82rem;font-weight:600;color:var(--text2)}
-.job-posted{font-size:.76rem;color:var(--text3)}
-.job-apply-btn{
-  padding:7px 16px;border-radius:8px;font-weight:700;font-size:.82rem;
-  background:var(--brand);color:#fff;transition:all .2s;
-  display:flex;align-items:center;gap:6px;
-}
-.job-apply-btn:hover{background:var(--brand-light);transform:scale(1.03)}
-.applied-badge{
-  padding:5px 10px;border-radius:8px;font-size:.76rem;font-weight:700;
-  background:rgba(16,185,129,.12);color:var(--accent2);
-  border:1px solid rgba(16,185,129,.3);
-  display:flex;align-items:center;gap:5px;
-}
-.applicants-count{font-size:.74rem;color:var(--text3);margin-top:2px}
+    /* Language Dropdown */
+    .lang-select {
+      appearance: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 13px; font-weight: 500;
+      padding: 7px 28px 7px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 9px center;
+      transition: border-color var(--transition), background var(--transition);
+    }
+    .lang-select:focus { outline: none; border-color: var(--blue); }
 
-/* ===== NO RESULTS ===== */
-#no-results{
-  display:none;text-align:center;padding:60px 20px;
-  grid-column:1/-1;
-}
-#no-results .no-icon{font-size:3.5rem;margin-bottom:16px}
-#no-results h3{font-family:var(--font-head);font-size:1.4rem;color:var(--text);margin-bottom:8px}
-#no-results p{color:var(--text3);font-size:.95rem;line-height:1.6}
-#no-results .suggestions{
-  display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:20px;
-}
-#no-results .suggestion-pill{
-  padding:6px 14px;border-radius:99px;background:var(--bg3);
-  color:var(--brand);font-size:.82rem;font-weight:600;cursor:pointer;
-  border:1px solid var(--border);transition:all .2s;
-}
-#no-results .suggestion-pill:hover{background:var(--brand);color:#fff}
+    /* Dark Mode Toggle */
+    .theme-toggle {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 17px; color: var(--text-muted);
+      transition: all var(--transition);
+    }
+    .theme-toggle:hover { background: var(--blue); color: white; border-color: var(--blue); }
 
-/* ===== RECOMMENDED SECTION ===== */
-#recommended{margin-top:40px}
-.rec-scroll{
-  display:flex;gap:14px;overflow-x:auto;
-  scrollbar-width:none;padding-bottom:8px;
-}
-.rec-scroll::-webkit-scrollbar{display:none}
-.rec-card{
-  flex-shrink:0;width:260px;background:var(--card);
-  border-radius:var(--radius-sm);border:1.5px solid var(--border);
-  padding:16px;cursor:pointer;transition:all .2s;
-}
-.rec-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--brand)}
+    /* ============================================================
+       HERO SECTION
+    ============================================================ */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1a56db 0%, #3b82f6 60%, #06b6d4 100%);
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 100px 24px 60px;
+    }
 
-/* ===== ABOUT SECTION ===== */
-#about{
-  background:var(--bg2);
-  padding:60px clamp(16px,5vw,80px);
-  margin-top:0;
-}
-.about-inner{max-width:1200px;margin:0 auto;}
-.about-title{
-  font-family:var(--font-head);font-size:clamp(1.8rem,4vw,2.6rem);
-  font-weight:800;text-align:center;margin-bottom:12px;
-  color:var(--text);letter-spacing:-.8px;
-}
-.about-sub{text-align:center;color:var(--text2);max-width:550px;margin:0 auto 48px;line-height:1.6}
-.trust-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-}
-.trust-card{
-  background:var(--card);border-radius:var(--radius);
-  border:1.5px solid var(--border);padding:28px 24px;
-  text-align:center;transition:all .3s;
-}
-.trust-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--brand)}
-.trust-icon{
-  width:60px;height:60px;border-radius:16px;
-  background:linear-gradient(135deg,var(--brand),var(--brand-light));
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.5rem;color:#fff;margin:0 auto 16px;
-}
-.trust-title{font-family:var(--font-head);font-weight:700;font-size:1.05rem;color:var(--text);margin-bottom:8px}
-.trust-desc{font-size:.88rem;color:var(--text2);line-height:1.5}
+    /* Animated floating shapes */
+    .hero-shape {
+      position: absolute; border-radius: 50%;
+      opacity: 0.12; animation: floatShape 8s ease-in-out infinite;
+      background: white;
+    }
+    .hero-shape:nth-child(1) { width: 340px; height: 340px; top: -80px; left: -100px; animation-delay: 0s; }
+    .hero-shape:nth-child(2) { width: 220px; height: 220px; top: 30%; right: -60px; animation-delay: 2s; }
+    .hero-shape:nth-child(3) { width: 160px; height: 160px; bottom: 10%; left: 10%; animation-delay: 4s; }
+    .hero-shape:nth-child(4) { width: 90px; height: 90px; top: 20%; left: 40%; animation-delay: 1s; }
+    .hero-shape:nth-child(5) { width: 60px; height: 60px; bottom: 20%; right: 15%; animation-delay: 3s; }
 
-/* ===== FOOTER ===== */
-footer{
-  background:var(--brand-dark);color:rgba(255,255,255,.85);
-  padding:48px clamp(16px,5vw,80px) 80px;
-}
-@media(min-width:768px){footer{padding-bottom:48px}}
-.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px}
-.footer-brand .nav-logo-text{color:#fff}
-.footer-desc{font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.6;margin-top:12px}
-.footer-social{display:flex;gap:10px;margin-top:20px}
-.social-btn{
-  width:38px;height:38px;border-radius:10px;
-  background:rgba(255,255,255,.1);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.95rem;color:rgba(255,255,255,.7);
-  transition:all .2s;
-}
-.social-btn:hover{background:var(--accent);color:#1a1a1a;transform:translateY(-2px)}
-.footer-col h4{
-  font-family:var(--font-head);font-weight:700;font-size:1rem;color:#fff;
-  margin-bottom:16px;
-}
-.footer-links{display:flex;flex-direction:column;gap:10px}
-.footer-links a{font-size:.88rem;color:rgba(255,255,255,.6);transition:color .2s}
-.footer-links a:hover{color:var(--accent)}
-.footer-contact li{
-  display:flex;align-items:flex-start;gap:10px;
-  font-size:.88rem;color:rgba(255,255,255,.6);margin-bottom:12px;
-}
-.footer-contact li i{color:var(--accent);margin-top:2px;flex-shrink:0}
-.footer-bottom{
-  text-align:center;margin-top:40px;padding-top:24px;
-  border-top:1px solid rgba(255,255,255,.1);
-  font-size:.82rem;color:rgba(255,255,255,.4);
-}
+    @keyframes floatShape {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-28px) scale(1.05); }
+    }
 
-/* ===== MODAL ===== */
-.modal-overlay{
-  position:fixed;inset:0;z-index:1000;
-  background:rgba(0,0,0,.5);backdrop-filter:blur(4px);
-  display:flex;align-items:flex-end;justify-content:center;
-  opacity:0;pointer-events:none;transition:opacity .3s;
-}
-@media(min-width:640px){.modal-overlay{align-items:center}}
-.modal-overlay.open{opacity:1;pointer-events:all}
-.modal{
-  width:100%;max-width:560px;
-  background:var(--card);
-  border-radius:24px 24px 0 0;
-  max-height:90vh;overflow-y:auto;
-  transform:translateY(30px);transition:transform .35s cubic-bezier(.34,1.56,.64,1);
-  scrollbar-width:thin;
-}
-@media(min-width:640px){.modal{border-radius:24px;max-height:85vh}}
-.modal-overlay.open .modal{transform:translateY(0)}
-.modal-handle{
-  width:40px;height:4px;border-radius:99px;
-  background:var(--border);margin:12px auto 0;
-}
-@media(min-width:640px){.modal-handle{display:none}}
-.modal-header{
-  padding:20px 24px 16px;
-  display:flex;align-items:center;justify-content:space-between;
-  border-bottom:1px solid var(--border);
-  position:sticky;top:0;background:var(--card);z-index:1;
-}
-.modal-title{font-family:var(--font-head);font-weight:700;font-size:1.2rem;color:var(--text)}
-.modal-close{
-  width:34px;height:34px;border-radius:9px;background:var(--bg3);
-  display:flex;align-items:center;justify-content:center;color:var(--text2);
-  font-size:1rem;transition:all .2s;
-}
-.modal-close:hover{background:var(--red);color:#fff}
-.modal-body{padding:24px}
-.modal-job-icon{
-  width:56px;height:56px;border-radius:14px;
-  background:linear-gradient(135deg,var(--brand),var(--brand-light));
-  display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#fff;
-  margin-bottom:16px;
-}
-.modal-job-title{font-family:var(--font-head);font-weight:800;font-size:1.4rem;color:var(--text);margin-bottom:4px}
-.modal-company{color:var(--brand);font-weight:600;font-size:.95rem;margin-bottom:14px}
-.modal-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
-.modal-tag{
-  padding:6px 14px;border-radius:8px;background:var(--bg3);
-  color:var(--text2);font-size:.82rem;font-weight:500;
-  display:flex;align-items:center;gap:6px;
-}
-.modal-tag i{color:var(--brand)}
-.modal-section-title{
-  font-family:var(--font-head);font-weight:700;font-size:1rem;
-  color:var(--text);margin-bottom:10px;
-}
-.modal-desc{
-  font-size:.92rem;color:var(--text2);line-height:1.7;
-  margin-bottom:24px;
-}
-.modal-requirements{
-  background:var(--bg3);border-radius:12px;padding:16px;
-  margin-bottom:24px;
-}
-.modal-req-item{
-  display:flex;align-items:center;gap:10px;
-  font-size:.88rem;color:var(--text2);padding:4px 0;
-}
-.modal-req-item i{color:var(--brand-light);font-size:.9rem;flex-shrink:0}
-.modal-apply-bar{
-  position:sticky;bottom:0;
-  background:var(--card);padding:16px 24px;
-  border-top:1px solid var(--border);
-  display:flex;gap:10px;
-}
-.btn-apply-main{
-  flex:1;padding:14px;border-radius:12px;font-weight:700;font-size:1rem;
-  background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  transition:all .2s;box-shadow:0 4px 16px rgba(37,211,102,.35);
-}
-.btn-apply-main:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(37,211,102,.45)}
-.btn-save-job{
-  padding:14px 16px;border-radius:12px;border:1.5px solid var(--border);
-  background:var(--bg3);color:var(--text2);font-size:1.1rem;
-  transition:all .2s;
-}
-.btn-save-job:hover,.btn-save-job.saved{border-color:var(--red);color:var(--red);background:rgba(239,68,68,.08)}
+    /* Particle dots */
+    .hero-dots {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.25) 1px, transparent 1px);
+      background-size: 36px 36px;
+      animation: driftDots 20s linear infinite;
+    }
+    @keyframes driftDots {
+      0% { background-position: 0 0; }
+      100% { background-position: 36px 36px; }
+    }
 
-/* ===== APPLY FORM MODAL ===== */
-.form-group{margin-bottom:18px}
-.form-label{
-  display:block;font-weight:600;font-size:.88rem;color:var(--text);
-  margin-bottom:7px;
-}
-.form-input,.form-select,.form-textarea{
-  width:100%;padding:12px 14px;border-radius:10px;
-  border:1.5px solid var(--border);background:var(--bg);color:var(--text);
-  font-family:var(--font-body);font-size:.95rem;
-  transition:all .2s;
-}
-.form-input:focus,.form-select:focus,.form-textarea:focus{
-  outline:none;border-color:var(--brand);
-  box-shadow:0 0 0 3px rgba(26,107,60,.12);
-}
-.form-input::placeholder{color:var(--text3)}
-.form-textarea{height:90px;resize:none}
-.form-error{font-size:.78rem;color:var(--red);margin-top:5px;display:none}
-.preview-box{
-  background:var(--bg3);border-radius:12px;padding:16px;
-  margin-bottom:20px;font-size:.88rem;line-height:1.8;
-  color:var(--text2);white-space:pre-wrap;border:1.5px solid var(--border);
-  display:none;
-}
-.preview-box.show{display:block}
-.preview-label{font-weight:700;color:var(--brand);font-size:.82rem;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center; max-width: 800px;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 100px; padding: 8px 20px;
+      font-size: 13px; font-weight: 600; color: white;
+      margin-bottom: 28px;
+      backdrop-filter: blur(10px);
+      animation: fadeDown 0.6s ease both;
+    }
+    .hero-badge i { color: #fde68a; }
 
-/* ===== BOTTOM NAV ===== */
-#bottom-nav{
-  position:fixed;bottom:0;left:0;right:0;z-index:900;
-  height:var(--bottom-h);
-  background:var(--card);border-top:1px solid var(--border);
-  display:flex;
-  backdrop-filter:blur(16px);
-}
-@media(min-width:768px){#bottom-nav{display:none}}
-.bnav-item{
-  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:4px;font-size:.66rem;font-weight:600;color:var(--text3);
-  cursor:pointer;transition:all .2s;position:relative;
-}
-.bnav-item i{font-size:1.2rem;transition:all .2s}
-.bnav-item.active,.bnav-item:hover{color:var(--brand)}
-.bnav-item.active i{transform:scale(1.15)}
-.bnav-badge{
-  position:absolute;top:6px;right:calc(50% - 18px);
-  width:18px;height:18px;border-radius:50%;
-  background:var(--red);color:#fff;font-size:.65rem;font-weight:700;
-  display:flex;align-items:center;justify-content:center;
-}
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700; color: white; line-height: 1.15;
+      margin-bottom: 20px;
+      animation: fadeDown 0.7s ease 0.1s both;
+    }
+    .hero-title span { color: #fde68a; }
 
-/* ===== TOAST ===== */
-#toast-container{
-  position:fixed;bottom:80px;right:16px;z-index:2000;
-  display:flex;flex-direction:column;gap:8px;
-  pointer-events:none;
-}
-@media(min-width:768px){#toast-container{bottom:20px}}
-.toast{
-  background:var(--brand-dark);color:#fff;
-  padding:12px 18px;border-radius:12px;
-  font-size:.88rem;font-weight:500;
-  display:flex;align-items:center;gap:10px;
-  box-shadow:0 4px 20px rgba(0,0,0,.25);
-  animation:toastIn .3s ease both;
-  pointer-events:all;max-width:300px;
-}
-.toast.success{background:#065f46}
-.toast.error{background:#991b1b}
-.toast.info{background:var(--brand)}
-@keyframes toastIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:none}}
-@keyframes toastOut{to{opacity:0;transform:translateX(20px)}}
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: rgba(255,255,255,0.85); line-height: 1.7;
+      margin-bottom: 14px;
+      animation: fadeDown 0.7s ease 0.2s both;
+    }
+    .hero-tagline {
+      font-size: 14px; color: rgba(255,255,255,0.65);
+      margin-bottom: 40px; font-style: italic;
+      animation: fadeDown 0.7s ease 0.3s both;
+    }
+    .hero-cta-label {
+      font-size: 13px; font-weight: 600; color: #fde68a;
+      text-transform: uppercase; letter-spacing: 2px;
+      margin-bottom: 32px;
+      animation: fadeDown 0.7s ease 0.4s both;
+    }
 
-/* ===== HIGHLIGHT ===== */
-.highlight{background:rgba(245,158,11,.3);border-radius:3px;color:var(--text)}
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-/* ===== SAVED / APPLIED TABS ===== */
-.tabs{display:flex;gap:4px;margin-bottom:20px;background:var(--bg3);border-radius:12px;padding:4px}
-.tab-btn{
-  flex:1;padding:9px;border-radius:9px;font-weight:600;font-size:.88rem;
-  color:var(--text2);background:none;transition:all .2s;
-}
-.tab-btn.active{background:var(--brand);color:#fff}
+    /* ============================================================
+       ROLE CARDS
+    ============================================================ */
+    .cards-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 24px; max-width: 840px; width: 100%;
+      animation: fadeUp 0.8s ease 0.5s both;
+    }
+    @media (max-width: 639px) {
+      .cards-row { grid-template-columns: 1fr; }
+    }
 
-/* ===== ANIMATIONS ===== */
-.fade-in-up{
-  opacity:0;transform:translateY(20px);
-  transition:opacity .5s ease,transform .5s ease;
-}
-.fade-in-up.visible{opacity:1;transform:none}
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-/* ===== SAVED PANEL ===== */
-.saved-panel{display:none}
-.saved-panel.active{display:block}
-.empty-state{
-  text-align:center;padding:50px 20px;
-}
-.empty-state .empty-icon{font-size:3rem;margin-bottom:12px;opacity:.4}
-.empty-state p{color:var(--text3);font-size:.95rem}
+    .role-card {
+      position: relative; border-radius: var(--radius);
+      padding: 36px 28px; cursor: pointer;
+      transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s ease;
+      overflow: hidden; text-decoration: none;
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .role-card:hover { transform: translateY(-8px) scale(1.02); }
 
-/* LANG HELPERS */
-.np{display:none}
-[data-lang="np"] .en{display:none}
-[data-lang="np"] .np{display:inline}
+    .card-seeker {
+      background: linear-gradient(145deg, #1a4fd3 0%, #0ea5e9 100%);
+      box-shadow: 0 16px 48px rgba(26,86,219,0.4);
+    }
+    .card-seeker:hover { box-shadow: 0 24px 64px rgba(26,86,219,0.55); }
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:480px){
-  .nav-links{display:none}
-  .hero-title{font-size:2rem}
-  .modal{max-height:95vh}
-}
-@media(min-width:768px){
-  .modal-overlay{align-items:center}
-  .modal{border-radius:24px}
-}
-</style>
+    .card-employer {
+      background: linear-gradient(145deg, #d97706 0%, #ef4444 100%);
+      box-shadow: 0 16px 48px rgba(239,68,68,0.35);
+    }
+    .card-employer:hover { box-shadow: 0 24px 64px rgba(239,68,68,0.5); }
+
+    /* Shine effect */
+    .role-card::before {
+      content: '';
+      position: absolute; top: -50%; left: -60%;
+      width: 60%; height: 200%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+      transform: skewX(-20deg);
+      transition: left 0.6s ease;
+    }
+    .role-card:hover::before { left: 120%; }
+
+    .card-icon {
+      width: 68px; height: 68px; border-radius: 16px;
+      background: rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 30px; backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .card-title {
+      font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;
+      color: white; line-height: 1.2;
+    }
+    .card-desc {
+      font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.65;
+    }
+
+    .card-features {
+      list-style: none; display: flex; flex-direction: column; gap: 10px;
+    }
+    .card-features li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13.5px; color: rgba(255,255,255,0.9); font-weight: 500;
+    }
+    .card-features li::before {
+      content: '';
+      width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(255,255,255,0.25);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .card-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 24px; border-radius: 12px;
+      background: rgba(255,255,255,0.22);
+      border: 1.5px solid rgba(255,255,255,0.45);
+      color: white; font-weight: 700; font-size: 15px;
+      font-family: var(--font-body);
+      transition: background 0.25s, border-color 0.25s, transform 0.2s;
+      backdrop-filter: blur(8px); cursor: pointer;
+      width: 100%;
+    }
+    .card-btn:hover {
+      background: rgba(255,255,255,0.38);
+      border-color: rgba(255,255,255,0.7);
+      transform: scale(1.02);
+    }
+    .card-btn i { font-size: 14px; transition: transform 0.2s; }
+    .card-btn:hover i { transform: translateX(4px); }
+
+    /* ============================================================
+       MAIN CONTENT SECTIONS (white area)
+    ============================================================ */
+    .main-content { background: var(--bg); transition: background var(--transition); }
+
+    .section { padding: 80px 24px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    .section-title {
+      font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700; color: var(--text); text-align: center;
+      margin-bottom: 12px; line-height: 1.25;
+    }
+    .section-sub {
+      font-size: 15px; color: var(--text-muted); text-align: center;
+      max-width: 520px; margin: 0 auto 52px; line-height: 1.7;
+    }
+    .section-pill {
+      display: inline-block; background: rgba(26,86,219,0.1); color: var(--blue);
+      border-radius: 100px; padding: 5px 18px; font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px;
+    }
+
+    /* ============================================================
+       STATS SECTION
+    ============================================================ */
+    .stats-section {
+      background: linear-gradient(135deg, #1a56db 0%, #3b82f6 60%, #06b6d4 100%);
+      padding: 60px 24px;
+    }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 16px; max-width: 900px; margin: 0 auto;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .stat-card {
+      text-align: center; padding: 28px 16px;
+      background: rgba(255,255,255,0.12);
+      border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(12px);
+      transition: transform 0.3s ease;
+    }
+    .stat-card:hover { transform: translateY(-4px); }
+    .stat-number {
+      font-family: var(--font-display); font-size: 2.4rem; font-weight: 700;
+      color: #fde68a; line-height: 1;
+    }
+    .stat-suffix { font-size: 1.5rem; color: rgba(255,255,255,0.8); }
+    .stat-label { font-size: 13px; color: rgba(255,255,255,0.8); margin-top: 8px; font-weight: 500; }
+
+    /* ============================================================
+       HOW IT WORKS
+    ============================================================ */
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; position: relative;
+    }
+    @media (max-width: 768px) {
+      .steps-grid { grid-template-columns: 1fr; gap: 16px; }
+    }
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 36px 28px;
+      text-align: center; position: relative;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background var(--transition), border-color var(--transition);
+    }
+    .step-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .step-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      color: white; font-family: var(--font-display); font-size: 1.3rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 6px 20px rgba(26,86,219,0.3);
+    }
+    .step-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+    .step-title {
+      font-family: var(--font-display); font-size: 1.1rem; font-weight: 700;
+      color: var(--text); margin-bottom: 10px;
+    }
+    .step-desc { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+
+    /* Connector line between steps */
+    @media (min-width: 769px) {
+      .steps-grid::after {
+        content: '';
+        position: absolute; top: 56px; left: calc(33.33% - 12px); right: calc(33.33% - 12px);
+        height: 2px;
+        background: linear-gradient(90deg, var(--blue), var(--cyan));
+        opacity: 0.25; z-index: 0;
+      }
+    }
+
+    /* ============================================================
+       TESTIMONIALS
+    ============================================================ */
+    .testimonials-section { background: var(--surface-2); transition: background var(--transition); }
+    .testi-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 900px) { .testi-grid { grid-template-columns: 1fr; } }
+    @media (min-width: 640px) and (max-width: 900px) { .testi-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .testi-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background var(--transition), border-color var(--transition);
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .testi-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .testi-stars { color: #f59e0b; font-size: 15px; letter-spacing: 2px; }
+    .testi-text {
+      font-size: 14.5px; color: var(--text-muted); line-height: 1.75;
+      font-style: italic;
+    }
+    .testi-user { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+    .testi-avatar {
+      width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 16px; color: white;
+    }
+    .av-blue { background: linear-gradient(135deg, #1a56db, #06b6d4); }
+    .av-orange { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+    .av-green { background: linear-gradient(135deg, #10b981, #3b82f6); }
+    .testi-name { font-weight: 700; font-size: 14px; color: var(--text); }
+    .testi-role { font-size: 12px; color: var(--text-muted); }
+
+    /* ============================================================
+       ABOUT STRIP
+    ============================================================ */
+    .about-strip {
+      background: var(--surface); padding: 60px 24px;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .about-inner {
+      max-width: 800px; margin: 0 auto; text-align: center;
+    }
+    .about-inner p { font-size: 16px; color: var(--text-muted); line-height: 1.8; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--footer-bg);
+      padding: 56px 24px 28px;
+      transition: background var(--transition);
+    }
+    .footer-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px; padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    .footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .footer-logo-circle {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-weight: 700; font-size: 15px; color: white;
+    }
+    .footer-brand { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: white; }
+    .footer-brand-tag { font-size: 11px; color: rgba(255,255,255,0.45); display: block; }
+    .footer-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 20px; }
+    .footer-social { display: flex; gap: 10px; }
+    .social-btn {
+      width: 36px; height: 36px; border-radius: 9px;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.65); font-size: 15px; text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .social-btn:hover { background: var(--blue); color: white; border-color: var(--blue); }
+    .footer-col-title { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 18px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links li a { font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-links li a:hover { color: var(--blue-light); }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+    .footer-contact-item i { color: var(--blue-light); font-size: 14px; margin-top: 3px; }
+    .footer-contact-item span { font-size: 14px; color: rgba(255,255,255,0.5); }
+    .footer-bottom {
+      max-width: 1100px; margin: 0 auto; padding-top: 24px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.35); }
+
+    /* ============================================================
+       TOAST NOTIFICATION
+    ============================================================ */
+    #toast {
+      position: fixed; bottom: 28px; right: 28px; z-index: 9999;
+      background: var(--toast-bg); color: var(--toast-text);
+      padding: 14px 22px; border-radius: 12px;
+      font-size: 14px; font-weight: 600;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      display: flex; align-items: center; gap: 10px;
+      transform: translateY(20px); opacity: 0;
+      transition: all 0.35s cubic-bezier(.34,1.56,.64,1);
+      pointer-events: none; max-width: 300px;
+    }
+    #toast.show { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    #toast i { color: #4ade80; font-size: 16px; }
+
+    /* ============================================================
+       SCROLL REVEAL
+    ============================================================ */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ============================================================
+       MISC UTILITIES
+    ============================================================ */
+    .text-center { text-align: center; }
+    .flex-center { display: flex; align-items: center; justify-content: center; }
+
+    /* Scroll-down chevron */
+    .scroll-hint {
+      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+      color: rgba(255,255,255,0.6); font-size: 24px;
+      animation: bounce 2s infinite;
+      z-index: 2;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+  </style>
 </head>
 <body>
 
-<!-- ===== NAVBAR ===== -->
-<nav id="navbar">
-  <div class="nav-logo">
-    <img src="logo.jpg" alt="Safe Rojgar" id="nav-logo-img" onerror="this.style.display='none';document.getElementById('nav-logo-fallback').style.display='flex'"/>
-    <div id="nav-logo-fallback" style="display:none;width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#1a6b3c,#22883f);align-items:center;justify-content:center;color:#fff;font-size:1.1rem;font-family:'Sora',sans-serif;font-weight:800;">SR</div>
-    <div class="nav-logo-text">Safe <span>Rojgar</span></div>
-  </div>
-  <nav class="nav-links">
-    <a href="#hero" class="active">
-      <span class="en">Home</span><span class="np">गृहपृष्ठ</span>
-    </a>
-    <a href="#main">
-      <span class="en">Jobs</span><span class="np">जागिर</span>
-    </a>
-    <a href="#about">
-      <span class="en">About</span><span class="np">बारे</span>
-    </a>
-    <a href="#footer">
-      <span class="en">Contact</span><span class="np">सम्पर्क</span>
-    </a>
+  <!-- ======================================================
+       NAVBAR
+  ====================================================== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="SR Job Center Home">
+        <div class="logo-circle" aria-hidden="true">SR</div>
+        <div class="logo-text">
+          <span class="logo-name">SR Job Center</span>
+          <span class="logo-tagline">एसआर जॉब सेन्टर</span>
+        </div>
+      </a>
+      <div class="nav-actions">
+        <!-- Language Selector -->
+        <select class="lang-select" id="langSelect" aria-label="Select language">
+          <option value="en">🇬🇧 English</option>
+          <option value="ne">🇳🇵 नेपाली</option>
+          <option value="hi">🇮🇳 हिन्दी</option>
+        </select>
+        <!-- Dark Mode Toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+      </div>
+    </div>
   </nav>
-  <div class="nav-actions">
-    <button class="lang-btn" id="lang-toggle" title="Toggle Language">EN</button>
-    <button class="btn-icon" id="dark-toggle" title="Toggle Dark Mode">
-      <i class="fas fa-moon" id="dark-icon"></i>
-    </button>
-    <button class="btn-icon" onclick="showSavedPanel()" title="Saved Jobs">
-      <i class="fas fa-heart"></i>
-    </button>
-  </div>
-</nav>
 
-<!-- ===== HERO ===== -->
-<section id="hero">
-  <div class="hero-shapes">
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-  </div>
-  <div class="hero-content">
-    <div class="hero-badge">
-      <i class="fas fa-shield-halved"></i>
-      <span class="en">Nepal's Trusted Job Portal</span>
-      <span class="np">नेपालको भरोसेमान जागिर पोर्टल</span>
-    </div>
-    <h1 class="hero-title">
-      <span class="en">Find Your <span class="accent">Dream Job</span><br>in Nepal</span>
-      <span class="np">नेपालमा आफ्नो <span class="accent">सपनाको जागिर</span><br>खोज्नुहोस्</span>
-    </h1>
-    <p class="hero-subtitle">
-      <span class="en">Connect with top employers across Kathmandu. Apply instantly via WhatsApp. 100% Free Service.</span>
-      <span class="np">काठमाडौंका शीर्ष नियोक्तासँग जोडिनुहोस्। व्हाट्सएप मार्फत तुरुन्त आवेदन दिनुहोस्।</span>
-    </p>
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-num"><span id="count-jobs">0</span>+</div>
-        <div class="stat-label"><span class="en">Active Jobs</span><span class="np">सक्रिय जागिरहरू</span></div>
-      </div>
-      <div class="stat">
-        <div class="stat-num"><span>2000</span>+</div>
-        <div class="stat-label"><span class="en">People Hired</span><span class="np">नियुक्त भएका</span></div>
-      </div>
-      <div class="stat">
-        <div class="stat-num"><span>50</span>+</div>
-        <div class="stat-label"><span class="en">Companies</span><span class="np">कम्पनीहरू</span></div>
-      </div>
-    </div>
-    <div class="hero-cta">
-      <button class="btn-primary" onclick="document.getElementById('main').scrollIntoView({behavior:'smooth'})">
-        <i class="fas fa-briefcase"></i>
-        <span class="en">Browse Jobs</span><span class="np">जागिर हेर्नुहोस्</span>
-      </button>
-      <button class="btn-secondary" onclick="openWhatsApp('Hi Safe Rojgar, I want to know about job opportunities.')">
-        <i class="fab fa-whatsapp"></i>
-        <span class="en">WhatsApp Us</span><span class="np">सम्पर्क गर्नुहोस्</span>
-      </button>
-    </div>
-  </div>
-</section>
+  <!-- ======================================================
+       HERO SECTION
+  ====================================================== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <!-- Animated background shapes -->
+    <div class="hero-shape" aria-hidden="true"></div>
+    <div class="hero-shape" aria-hidden="true"></div>
+    <div class="hero-shape" aria-hidden="true"></div>
+    <div class="hero-shape" aria-hidden="true"></div>
+    <div class="hero-shape" aria-hidden="true"></div>
+    <div class="hero-dots" aria-hidden="true"></div>
 
-<!-- ===== SEARCH ===== -->
-<div id="search-section">
-  <div class="search-wrap">
-    <i class="fas fa-search search-icon"></i>
-    <input type="text" class="search-input" id="search-input"
-      placeholder="Search jobs, roles, skills..."
-      oninput="handleSearch(this.value)"/>
-    <button class="search-clear" id="search-clear" onclick="clearSearch()">
-      <i class="fas fa-times"></i>
-    </button>
-  </div>
-</div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-star"></i>
+        <span data-i18n="badge">Nepal's #1 Trusted Job Platform</span>
+      </div>
 
-<!-- ===== CATEGORY PILLS ===== -->
-<div id="categories">
-  <div class="cat-pills" id="cat-pills">
-    <button class="cat-pill active" data-cat="all" onclick="filterCategory('all',this)">
-      <i class="fas fa-th"></i>
-      <span class="en">All Jobs</span><span class="np">सबै</span>
-    </button>
-    <button class="cat-pill" data-cat="PROFESSIONAL JOB" onclick="filterCategory('PROFESSIONAL JOB',this)">
-      <i class="fas fa-user-tie"></i>
-      <span class="en">Professional</span><span class="np">पेशेवर</span>
-    </button>
-    <button class="cat-pill" data-cat="SALES OFFICERS" onclick="filterCategory('SALES OFFICERS',this)">
-      <i class="fas fa-chart-line"></i>
-      <span class="en">Sales</span><span class="np">बिक्री</span>
-    </button>
-    <button class="cat-pill" data-cat="HOSPITALITY JOB" onclick="filterCategory('HOSPITALITY JOB',this)">
-      <i class="fas fa-utensils"></i>
-      <span class="en">Hospitality</span><span class="np">आतिथ्य</span>
-    </button>
-  </div>
-</div>
+      <h1 class="hero-title" id="hero-title">
+        <span data-i18n="hero_title_1">Find Your Dream Job or</span><br/>
+        <span data-i18n="hero_title_2">Hire the Best <span style="color:#fde68a">Talent in Nepal</span></span>
+      </h1>
 
-<!-- ===== MAIN CONTENT ===== -->
-<div id="main">
-  <!-- Jobs Section -->
-  <div class="section-header">
-    <div class="section-title">
-      <span class="en">Available <span>Jobs</span></span>
-      <span class="np">उपलब्ध <span>जागिरहरू</span></span>
-    </div>
-    <div class="section-count" id="job-count">Loading...</div>
-  </div>
-  <div id="jobs-grid">
-    <!-- skeleton -->
-    <div class="skeleton-card"></div>
-    <div class="skeleton-card"></div>
-    <div class="skeleton-card"></div>
-    <div class="skeleton-card"></div>
-    <div class="skeleton-card"></div>
-    <div class="skeleton-card"></div>
-  </div>
-  <div id="no-results">
-    <div class="no-icon">🔍</div>
-    <h3><span class="en">No Jobs Found</span><span class="np">कुनै जागिर फेला परेन</span></h3>
-    <p><span class="en">Try different keywords or browse by category</span><span class="np">फरक खोजशब्द प्रयास गर्नुहोस्</span></p>
-    <div class="suggestions">
-      <span class="suggestion-pill" onclick="setSearch('Accountant')">Accountant</span>
-      <span class="suggestion-pill" onclick="setSearch('Driver')">Driver</span>
-      <span class="suggestion-pill" onclick="setSearch('Chef')">Chef</span>
-      <span class="suggestion-pill" onclick="setSearch('Sales')">Sales</span>
-      <span class="suggestion-pill" onclick="setSearch('Waiter')">Waiter</span>
-    </div>
-  </div>
+      <p class="hero-subtitle" data-i18n="hero_subtitle">
+        SR Job Center connects job seekers and employers instantly via WhatsApp. 100% free for job seekers.
+      </p>
 
-  <!-- Recommended Section -->
-  <div id="recommended" style="display:none">
-    <div class="section-header" style="margin-bottom:16px">
-      <div class="section-title">
-        <span class="en">✨ Recommended <span>For You</span></span>
-        <span class="np">✨ तपाईंका लागि <span>सिफारिश</span></span>
-      </div>
-    </div>
-    <div class="rec-scroll" id="rec-scroll"></div>
-  </div>
-</div>
+      <p class="hero-tagline" data-i18n="tagline">
+        एसआर जॉब सेन्टर – SR Job Center, Better Future
+      </p>
 
-<!-- ===== ABOUT ===== -->
-<section id="about" class="fade-in-up">
-  <div class="about-inner">
-    <h2 class="about-title">
-      <span class="en">Why Choose Safe Rojgar?</span>
-      <span class="np">Safe Rojgar किन छान्ने?</span>
-    </h2>
-    <p class="about-sub">
-      <span class="en">We connect job seekers with trusted employers across Nepal — fast, free, and simple.</span>
-      <span class="np">हामी नेपालभर जागिर खोज्नेहरूलाई भरोसेमान नियोक्तासँग जोड्छौं।</span>
-    </p>
-    <div class="trust-grid">
-      <div class="trust-card">
-        <div class="trust-icon"><i class="fas fa-shield-halved"></i></div>
-        <div class="trust-title"><span class="en">Verified Jobs</span><span class="np">प्रमाणित जागिरहरू</span></div>
-        <div class="trust-desc"><span class="en">Every job listing is manually verified by our team for authenticity and safety.</span><span class="np">हरेक जागिर हाम्रो टिमले प्रमाणित गर्छ।</span></div>
-      </div>
-      <div class="trust-card">
-        <div class="trust-icon"><i class="fas fa-bolt"></i></div>
-        <div class="trust-title"><span class="en">Fast Hiring</span><span class="np">छिटो नियुक्ति</span></div>
-        <div class="trust-desc"><span class="en">Get called back within 24-48 hours of applying through WhatsApp.</span><span class="np">व्हाट्सएप मार्फत आवेदन दिएपछि २४-४८ घन्टामा सम्पर्क।</span></div>
-      </div>
-      <div class="trust-card">
-        <div class="trust-icon"><i class="fas fa-gift"></i></div>
-        <div class="trust-title"><span class="en">Minimum Fee</span><span class="np">500 शुल्क</span></div>
-        <div class="trust-desc"><span class="en">Minimum registration fees. No hidden charges. Apply to any job completely full aprove method .</span><span class="np">कुनै दर्ता शुल्क छैन। कुनै लुकाइएको शुल्क छैन।</span></div>
-      </div>
-      <div class="trust-card">
-        <div class="trust-icon"><i class="fab fa-whatsapp"></i></div>
-        <div class="trust-title"><span class="en">WhatsApp Apply</span><span class="np">व्हाट्सएप आवेदन</span></div>
-        <div class="trust-desc"><span class="en">Apply directly via WhatsApp — no CVs needed, no complex forms.</span><span class="np">सिधै व्हाट्सएप मार्फत आवेदन दिनुहोस्।</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+      <p class="hero-cta-label" data-i18n="cta_label">
+        <i class="fas fa-arrow-down" style="margin-right:8px"></i>Choose your role to get started
+      </p>
 
-<!-- ===== FOOTER ===== -->
-<footer id="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="nav-logo">
-        <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#22883f,#15803d);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;font-family:'Sora',sans-serif;font-weight:800;">SR</div>
-        <div class="nav-logo-text">Safe <span style="color:#f59e0b">Rojgar</span></div>
-      </div>
-      <p class="footer-desc">Nepal's most trusted job portal connecting job seekers with top employers in Kathmandu and beyond.</p>
-      <div class="footer-social">
-        <a class="social-btn" href="https://wa.me/9712037365" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a class="social-btn" href="mailto:saferojgar@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a class="social-btn" href="#"><i class="fab fa-facebook"></i></a>
-        <a class="social-btn" href="#"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div>
-    <div>
-      <h4>Quick Links</h4>
-      <div class="footer-links">
-        <a href="#hero">Home</a>
-        <a href="#main">Browse Jobs</a>
-        <a href="#about">About Us</a>
-        <a href="#footer">Contact</a>
-      </div>
-    </div>
-    <div>
-      <h4>Job Categories</h4>
-      <div class="footer-links">
-        <a href="#" onclick="filterCategory('PROFESSIONAL JOB')">Professional Jobs</a>
-        <a href="#" onclick="filterCategory('SALES OFFICERS')">Sales Officers</a>
-        <a href="#" onclick="filterCategory('HOSPITALITY JOB')">Hospitality Jobs</a>
-      </div>
-    </div>
-    <div>
-      <h4>Contact Us</h4>
-      <ul class="footer-contact">
-        <li><i class="fab fa-whatsapp"></i><span><a href="https://wa.me/9712037365" style="color:inherit">9712037365</a></span></li>
-        <li><i class="fas fa-envelope"></i><span><a href="mailto:saferojgar@gmail.com" style="color:inherit">saferojgar@gmail.com</a></span></li>
-        <li><i class="fas fa-location-dot"></i><span>Baneshwor, Kathmandu, Nepal</span></li>
-        <li><i class="fas fa-clock"></i><span>Mon–Sat: 9AM – 6PM</span></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    © 2024 Safe Rojgar. All rights reserved. Made with <i class="fas fa-heart" style="color:#ef4444"></i> in Nepal.
-  </div>
-</footer>
+      <!-- ============ ROLE CARDS ============ -->
+      <div class="cards-row" role="main">
 
-<!-- ===== BOTTOM NAV ===== -->
-<div id="bottom-nav">
-  <div class="bnav-item active" onclick="goHome(this)">
-    <i class="fas fa-home"></i>
-    <span class="en">Home</span><span class="np">गृह</span>
-  </div>
-  <div class="bnav-item" onclick="goJobs(this)">
-    <i class="fas fa-briefcase"></i>
-    <span class="en">Jobs</span><span class="np">जागिर</span>
-    <div class="bnav-badge" id="jobs-badge" style="display:none"></div>
-  </div>
-  <div class="bnav-item" onclick="showSavedPanel()">
-    <i class="fas fa-heart"></i>
-    <span class="en">Saved</span><span class="np">सुरक्षित</span>
-    <div class="bnav-badge" id="saved-badge" style="display:none"></div>
-  </div>
-  <div class="bnav-item" onclick="showProfilePanel()">
-    <i class="fas fa-user"></i>
-    <span class="en">Profile</span><span class="np">प्रोफाइल</span>
-  </div>
-</div>
+        <!-- Card 1: Job Seeker -->
+        <a href="jobhome.html" class="role-card card-seeker" aria-label="I need a job - Browse Jobs">
+          <div class="card-icon" aria-hidden="true">
+            <i class="fas fa-user-briefcase" style="color:white"></i>
+          </div>
+          <div>
+            <div class="card-title" data-i18n="seeker_title">I Need a Job</div>
+          </div>
+          <p class="card-desc" data-i18n="seeker_desc">
+            Find your dream job in Nepal. Apply instantly via WhatsApp. 500+ active jobs.
+          </p>
+          <ul class="card-features" aria-label="Job Seeker Features">
+            <li data-i18n="sf1">500+ Active Jobs</li>
+            <li data-i18n="sf2">Free &amp; Instant Apply</li>
+            <li data-i18n="sf3">WhatsApp Application</li>
+            <li data-i18n="sf4">Save &amp; Track Jobs</li>
+          </ul>
+          <button class="card-btn" aria-label="Browse Jobs">
+            <span data-i18n="seeker_btn">Browse Jobs</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </a>
 
-<!-- ===== JOB DETAIL MODAL ===== -->
-<div class="modal-overlay" id="job-modal" onclick="closeModal(event,'job-modal')">
-  <div class="modal" id="job-modal-inner">
-    <div class="modal-handle"></div>
-    <div class="modal-header">
-      <div class="modal-title" id="modal-job-title">Job Details</div>
-      <button class="modal-close" onclick="document.getElementById('job-modal').classList.remove('open')"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="modal-body" id="modal-body"></div>
-    <div class="modal-apply-bar">
-      <button class="btn-save-job" id="modal-save-btn" onclick="toggleSaveModal()">
-        <i class="fas fa-heart"></i>
-      </button>
-      <button class="btn-apply-main" onclick="openApplyModal()">
-        <i class="fab fa-whatsapp"></i>
-        <span class="en">Apply via WhatsApp</span><span class="np">व्हाट्सएप मार्फत आवेदन</span>
-      </button>
-    </div>
-  </div>
-</div>
+        <!-- Card 2: Employer -->
+        <a href="staffhome.html" class="role-card card-employer" aria-label="I need staff - Post Requirement">
+          <div class="card-icon" aria-hidden="true">
+            <i class="fas fa-building" style="color:white"></i>
+          </div>
+          <div>
+            <div class="card-title" data-i18n="employer_title">I Need Staff</div>
+          </div>
+          <p class="card-desc" data-i18n="employer_desc">
+            Post job requirements and find qualified candidates. Reach thousands of job seekers.
+          </p>
+          <ul class="card-features" aria-label="Employer Features">
+            <li data-i18n="ef1">Post Staff Requirements</li>
+            <li data-i18n="ef2">Receive Applications via Email</li>
+            <li data-i18n="ef3">WhatsApp Alerts</li>
+            <li data-i18n="ef4">Find Qualified Candidates</li>
+          </ul>
+          <button class="card-btn" aria-label="Post Requirement">
+            <span data-i18n="employer_btn">Post Requirement</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </a>
 
-<!-- ===== APPLY MODAL ===== -->
-<div class="modal-overlay" id="apply-modal" onclick="closeModal(event,'apply-modal')">
-  <div class="modal" style="max-width:480px">
-    <div class="modal-handle"></div>
-    <div class="modal-header">
-      <div class="modal-title">
-        <i class="fab fa-whatsapp" style="color:#25D366"></i>
-        <span class="en"> Apply via WhatsApp</span><span class="np"> व्हाट्सएप मार्फत आवेदन</span>
+      </div><!-- /cards-row -->
+    </div><!-- /hero-content -->
+
+    <div class="scroll-hint" aria-hidden="true"><i class="fas fa-chevron-down"></i></div>
+  </section>
+
+  <!-- ======================================================
+       STATS SECTION
+  ====================================================== -->
+  <section class="stats-section" aria-label="Platform Statistics">
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="stat-number" data-target="500" data-suffix="+"><span class="count">0</span><span class="stat-suffix">+</span></div>
+        <div class="stat-label" data-i18n="stat1">Active Jobs</div>
       </div>
-      <button class="modal-close" onclick="document.getElementById('apply-modal').classList.remove('open')"><i class="fas fa-times"></i></button>
+      <div class="stat-card reveal reveal-delay-1">
+        <div class="stat-number" data-target="200" data-suffix="+"><span class="count">0</span><span class="stat-suffix">+</span></div>
+        <div class="stat-label" data-i18n="stat2">Happy Employers</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-2">
+        <div class="stat-number" data-target="5000" data-suffix="+"><span class="count">0</span><span class="stat-suffix">+</span></div>
+        <div class="stat-label" data-i18n="stat3">Job Seekers</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-3">
+        <div class="stat-number" data-target="95" data-suffix="%"><span class="count">0</span><span class="stat-suffix">%</span></div>
+        <div class="stat-label" data-i18n="stat4">Success Rate</div>
+      </div>
     </div>
-    <div class="modal-body">
-      <div id="apply-form">
-        <div class="form-group">
-          <label class="form-label"><span class="en">Full Name *</span><span class="np">पूरा नाम *</span></label>
-          <input type="text" class="form-input" id="form-name" placeholder="Ramesh Sharma">
-          <div class="form-error" id="err-name">Please enter your full name</div>
+  </section>
+
+  <!-- ======================================================
+       MAIN CONTENT
+  ====================================================== -->
+  <div class="main-content">
+
+    <!-- ABOUT STRIP -->
+    <div class="about-strip">
+      <div class="about-inner reveal">
+        <div class="section-pill" data-i18n="about_pill">About Us</div>
+        <h2 class="section-title" style="margin-bottom:16px" data-i18n="about_title">Nepal's Most Trusted Job Platform</h2>
+        <p data-i18n="about_desc">SR Job Center is Nepal's most trusted job placement platform helping thousands of job seekers find employment and employers find qualified staff. Based in Baneshwor, Kathmandu, we bridge the gap between opportunity and talent across Nepal.</p>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" aria-labelledby="how-title">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-pill" data-i18n="how_pill">How It Works</div>
+          <h2 class="section-title" id="how-title" data-i18n="how_title">Get Started in 3 Easy Steps</h2>
+          <p class="section-sub" data-i18n="how_sub">Whether you're looking for work or looking for workers, we make it simple and fast.</p>
         </div>
-        <div class="form-group">
-          <label class="form-label"><span class="en">Age *</span><span class="np">उमेर *</span></label>
-          <input type="number" class="form-input" id="form-age" placeholder="25" min="16" max="65">
-          <div class="form-error" id="err-age">Age must be between 16 and 65</div>
+        <div class="steps-grid">
+          <div class="step-card reveal">
+            <div class="step-num">1</div>
+            <span class="step-icon" aria-hidden="true">🎯</span>
+            <h3 class="step-title" data-i18n="step1_title">Choose Your Role</h3>
+            <p class="step-desc" data-i18n="step1_desc">Select whether you're a job seeker looking for work or an employer seeking qualified candidates.</p>
+          </div>
+          <div class="step-card reveal reveal-delay-1">
+            <div class="step-num">2</div>
+            <span class="step-icon" aria-hidden="true">📝</span>
+            <h3 class="step-title" data-i18n="step2_title">Complete Your Form</h3>
+            <p class="step-desc" data-i18n="step2_desc">Fill in your job application or post your staff requirement. Takes less than 2 minutes.</p>
+          </div>
+          <div class="step-card reveal reveal-delay-2">
+            <div class="step-num">3</div>
+            <span class="step-icon" aria-hidden="true">🤝</span>
+            <h3 class="step-title" data-i18n="step3_title">Get Hired / Hire</h3>
+            <p class="step-desc" data-i18n="step3_desc">Connect directly via WhatsApp or Email. Fast, simple, and completely free for job seekers.</p>
+          </div>
         </div>
-        <div class="form-group">
-          <label class="form-label"><span class="en">Qualification *</span><span class="np">योग्यता *</span></label>
-          <select class="form-select" id="form-qual">
-            <option value="">Select qualification</option>
-            <option>SLC / SEE</option>
-            <option>+2 / Intermediate</option>
-            <option>Bachelor's Degree</option>
-            <option>Master's Degree</option>
-            <option>Diploma</option>
-            <option>No formal education</option>
-          </select>
-          <div class="form-error" id="err-qual">Please select your qualification</div>
-        </div>
-        <div class="form-group">
-          <label class="form-label"><span class="en">Applying For *</span><span class="np">पदको लागि *</span></label>
-          <input type="text" class="form-input" id="form-job" readonly>
-        </div>
-        <div class="form-group">
-          <label class="form-label"><span class="en">Your Address *</span><span class="np">तपाईंको ठेगाना *</span></label>
-          <input type="text" class="form-input" id="form-address" placeholder="Kathmandu, Nepal">
-          <div class="form-error" id="err-address">Please enter your address</div>
-        </div>
-        <div class="form-group">
-          <label class="form-label"><span class="en">Work Experience</span><span class="np">कार्य अनुभव</span></label>
-          <textarea class="form-textarea" id="form-exp" placeholder="e.g. 2 years experience as cashier in ABC store..."></textarea>
-        </div>
-
-        <div class="preview-label">📋 Message Preview</div>
-        <div class="preview-box" id="msg-preview"></div>
-
-        <button class="btn-apply-main" style="width:100%;padding:15px" onclick="submitApply()">
-          <i class="fab fa-whatsapp"></i>
-          <span class="en">Send to WhatsApp</span><span class="np">व्हाट्सएप मा पठाउनुहोस्</span>
-        </button>
       </div>
-    </div>
-  </div>
-</div>
+    </section>
 
-<!-- ===== SAVED PANEL MODAL ===== -->
-<div class="modal-overlay" id="saved-modal" onclick="closeModal(event,'saved-modal')">
-  <div class="modal" style="max-width:520px">
-    <div class="modal-handle"></div>
-    <div class="modal-header">
-      <div class="modal-title">
-        <span class="en">My Saved & Applied Jobs</span><span class="np">मेरा सुरक्षित जागिरहरू</span>
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials-section" aria-labelledby="testi-title">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-pill" data-i18n="testi_pill">Testimonials</div>
+          <h2 class="section-title" id="testi-title" data-i18n="testi_title">What People Are Saying</h2>
+          <p class="section-sub" data-i18n="testi_sub">Real stories from job seekers and employers who found success with SR Job Center.</p>
+        </div>
+        <div class="testi-grid">
+
+          <div class="testi-card reveal">
+            <div class="testi-stars" aria-label="5 stars">★★★★★</div>
+            <p class="testi-text" data-i18n="t1_text">"I got a job within 3 days of applying on SR Job Center! The WhatsApp application feature made the entire process incredibly fast and easy. Highly recommended for anyone in Nepal."</p>
+            <div class="testi-user">
+              <div class="testi-avatar av-blue" aria-hidden="true">R</div>
+              <div>
+                <div class="testi-name" data-i18n="t1_name">Ramesh Thapa</div>
+                <div class="testi-role" data-i18n="t1_role">Job Seeker · Kathmandu</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testi-card reveal reveal-delay-1">
+            <div class="testi-stars" aria-label="5 stars">★★★★★</div>
+            <p class="testi-text" data-i18n="t2_text">"As a small business owner, finding good staff was always a challenge. SR Job Center sent us 10+ qualified applicants within 24 hours of posting. Excellent service!"</p>
+            <div class="testi-user">
+              <div class="testi-avatar av-orange" aria-hidden="true">S</div>
+              <div>
+                <div class="testi-name" data-i18n="t2_name">Sita Sharma</div>
+                <div class="testi-role" data-i18n="t2_role">Employer · Pokhara</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testi-card reveal reveal-delay-2">
+            <div class="testi-stars" aria-label="4 stars">★★★★★</div>
+            <p class="testi-text" data-i18n="t3_text">"The platform is so simple to use. I'm not very tech-savvy but even I could apply for jobs easily. Found great employment in Lalitpur. Thank you SR Job Center!"</p>
+            <div class="testi-user">
+              <div class="testi-avatar av-green" aria-hidden="true">B</div>
+              <div>
+                <div class="testi-name" data-i18n="t3_name">Bina Gurung</div>
+                <div class="testi-role" data-i18n="t3_role">Job Seeker · Lalitpur</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
-      <button class="modal-close" onclick="document.getElementById('saved-modal').classList.remove('open')"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="modal-body">
-      <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab('saved-tab',this)">
-          <i class="fas fa-heart"></i> <span class="en">Saved</span><span class="np">सुरक्षित</span>
-        </button>
-        <button class="tab-btn" onclick="switchTab('applied-tab',this)">
-          <i class="fas fa-check-circle"></i> <span class="en">Applied</span><span class="np">आवेदन</span>
-        </button>
-        <button class="tab-btn" onclick="switchTab('recent-tab',this)">
-          <i class="fas fa-clock"></i> <span class="en">Recent</span><span class="np">हालसालै</span>
-        </button>
-      </div>
-      <div id="saved-tab" class="saved-panel active"></div>
-      <div id="applied-tab" class="saved-panel"></div>
-      <div id="recent-tab" class="saved-panel"></div>
-    </div>
-  </div>
-</div>
+    </section>
 
-<!-- ===== TOAST CONTAINER ===== -->
-<div id="toast-container"></div>
+  </div><!-- /main-content -->
 
-<!-- ===== JAVASCRIPT ===== -->
-<script>
-// ===== JOB DATA =====
-const JOBS=[
-  // PROFESSIONAL JOB
-  {id:1,category:"PROFESSIONAL JOB",title:"Receptionist",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"15,000–22,000",description:"We are looking for a professional and friendly Receptionist to manage front desk operations. You will greet clients, manage phone calls, and support the admin team in daily tasks.",requirements:["Minimum +2 passed","Good communication skills","Basic computer knowledge","Fluent in Nepali & English","Professional appearance"],rating:4.5,posted:"1 day ago",applicants:12,icon:"fas fa-concierge-bell"},
-  {id:2,category:"PROFESSIONAL JOB",title:"Accountant",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"20,000–35,000",description:"Seeking a skilled Accountant to handle financial records, prepare reports, and manage day-to-day accounting tasks for our client companies.",requirements:["Bachelor in Accounting/BBA","Knowledge of Tally or Excel","Minimum 1 year experience","Attention to detail","Tax filing knowledge"],rating:4.3,posted:"2 days ago",applicants:8,icon:"fas fa-calculator"},
-  {id:3,category:"PROFESSIONAL JOB",title:"Cashier",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"14,000–18,000",description:"Looking for a reliable Cashier to handle cash transactions accurately and maintain friendly customer relations at the checkout counter.",requirements:["SLC/SEE passed","Honest and trustworthy","Basic math skills","Customer service attitude","Willing to work shifts"],rating:4.0,posted:"3 days ago",applicants:20,icon:"fas fa-cash-register"},
-  {id:4,category:"PROFESSIONAL JOB",title:"Front Desk Officer",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"16,000–24,000",description:"Join as a Front Desk Officer to be the face of our client organization. Handle visitor management, calls, and coordination.",requirements:["Good personality","+2 minimum","Nepali and English speaking","Computer basics","Punctual and professional"],rating:4.2,posted:"2 days ago",applicants:15,icon:"fas fa-door-open"},
-  {id:5,category:"PROFESSIONAL JOB",title:"Documentation Officer",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"18,000–28,000",description:"Responsible for organizing, maintaining, and tracking all important documents and records for our clients' business operations.",requirements:["Bachelor degree preferred","MS Office skills","Filing and organization skills","Attention to detail","Experience preferred"],rating:4.1,posted:"4 days ago",applicants:7,icon:"fas fa-file-alt"},
-  {id:6,category:"PROFESSIONAL JOB",title:"Call Center Agent",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"15,000–20,000",description:"Seeking energetic Call Center Agents to handle inbound and outbound customer calls professionally, resolve queries, and maintain records.",requirements:["Good phone manner","+2 passed","Fluent in Nepali","Basic English preferred","Comfortable with targets"],rating:3.8,posted:"1 day ago",applicants:25,icon:"fas fa-headset"},
-  {id:7,category:"PROFESSIONAL JOB",title:"Office Cleaner",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"12,000–15,000",description:"Responsible for maintaining cleanliness and hygiene of office premises. Duties include sweeping, mopping, dusting, and restroom upkeep.",requirements:["Any education level","Physically fit","Reliable and punctual","Knowledge of cleaning","Honest character"],rating:3.5,posted:"5 days ago",applicants:18,icon:"fas fa-broom"},
-  {id:8,category:"PROFESSIONAL JOB",title:"Bike Rider (Delivery)",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"15,000–22,000",description:"Looking for bike riders for delivery and courier services within Kathmandu. Must own a bike or be willing to use company bike.",requirements:["Valid bike license","Knowledge of Kathmandu roads","Smartphone user","Responsible and honest","Good physical condition"],rating:4.0,posted:"Today",applicants:30,icon:"fas fa-motorcycle"},
-  {id:9,category:"PROFESSIONAL JOB",title:"License Holder (Vehicle)",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"18,000–25,000",description:"Needed: Individuals with valid driving license (2-wheeler or 4-wheeler) for various driving and transportation roles.",requirements:["Valid driving license","Clean driving record","Knowledge of routes","Responsible","Sober and professional"],rating:3.9,posted:"3 days ago",applicants:10,icon:"fas fa-id-card"},
-  {id:10,category:"PROFESSIONAL JOB",title:"Driver",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"20,000–30,000",description:"Experienced Driver needed for personal or commercial vehicle driving for client companies across Kathmandu valley.",requirements:["Valid 4-wheeler license","Minimum 2 years experience","Knowledge of valley roads","Punctual and reliable","Good behavior"],rating:4.4,posted:"2 days ago",applicants:14,icon:"fas fa-car"},
-  {id:11,category:"PROFESSIONAL JOB",title:"Security Guard",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"14,000–18,000",description:"Responsible for maintaining security and safety at client premises. Duties include monitoring, patrolling, and access control.",requirements:["Age 18–45","Physically fit","Ex-military preferred","No criminal record","Willing to work in shifts"],rating:4.1,posted:"1 day ago",applicants:22,icon:"fas fa-shield-alt"},
-  {id:12,category:"PROFESSIONAL JOB",title:"Supervisor",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"25,000–40,000",description:"We need experienced Supervisors to oversee team operations, ensure productivity, and report to management for various business departments.",requirements:["Minimum 2 years experience","Leadership skills","Bachelor degree preferred","Strong communication","Problem solving ability"],rating:4.6,posted:"4 days ago",applicants:6,icon:"fas fa-tasks"},
-  {id:13,category:"PROFESSIONAL JOB",title:"Manager",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"35,000–60,000",description:"Senior management role requiring strong leadership, strategic planning, and team management skills for our client businesses.",requirements:["Bachelor or Master degree","3+ years management experience","Excellent communication","Strategic thinking","Team leadership"],rating:4.8,posted:"1 week ago",applicants:4,icon:"fas fa-user-tie"},
-  // SALES OFFICERS
-  {id:14,category:"SALES OFFICERS",title:"Retail Shopkeeper",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"13,000–18,000",description:"Manage daily retail shop operations including sales, inventory management, customer service, and cash handling.",requirements:["SLC passed minimum","Customer service skills","Honest and reliable","Basic counting skills","Willing to work weekends"],rating:3.8,posted:"2 days ago",applicants:28,icon:"fas fa-store"},
-  {id:15,category:"SALES OFFICERS",title:"Wholesale Shopkeeper",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"15,000–22,000",description:"Handle bulk sales, manage wholesale inventory, coordinate with suppliers, and build relationships with business clients.",requirements:["Experience in wholesale preferred","Good negotiation skills","SLC minimum","Physical fitness for stock work","Basic accounting"],rating:3.9,posted:"3 days ago",applicants:11,icon:"fas fa-warehouse"},
-  {id:16,category:"SALES OFFICERS",title:"Sales Executive",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"18,000–30,000 + Commission",description:"Drive sales growth for our client companies. Visit clients, build relationships, pitch products, and achieve monthly targets.",requirements:["+2 minimum","Good communication","Target oriented","Own bike preferred","Confident personality"],rating:4.3,posted:"1 day ago",applicants:19,icon:"fas fa-handshake"},
-  {id:17,category:"SALES OFFICERS",title:"Sales & Marketing Officer",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"20,000–35,000 + Incentives",description:"Plan and execute sales and marketing strategies, manage social media presence, coordinate campaigns, and analyze market trends.",requirements:["BBA/BBS degree preferred","Social media savvy","Creative mindset","Communication skills","Market knowledge"],rating:4.5,posted:"2 days ago",applicants:9,icon:"fas fa-bullhorn"},
-  // HOSPITALITY JOB
-  {id:18,category:"HOSPITALITY JOB",title:"Head Chef",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"35,000–60,000",description:"Lead the kitchen team at a premium restaurant. Create menus, maintain food quality standards, manage kitchen staff, and control food costs.",requirements:["5+ years cooking experience","Culinary training preferred","Kitchen management skills","Creative menu planning","Health & hygiene knowledge"],rating:4.7,posted:"5 days ago",applicants:5,icon:"fas fa-hat-chef"},
-  {id:19,category:"HOSPITALITY JOB",title:"Cook",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"18,000–28,000",description:"Prepare and cook meals according to recipes and standards. Maintain cleanliness and proper food handling in the kitchen environment.",requirements:["2+ years cooking experience","Knowledge of Nepali/Indian/Chinese cuisine","Food hygiene awareness","Team player","Physical stamina"],rating:4.2,posted:"1 day ago",applicants:16,icon:"fas fa-utensils"},
-  {id:20,category:"HOSPITALITY JOB",title:"Kitchen Helper",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"12,000–16,000",description:"Assist the cooking team with food preparation, washing, cleaning, and maintaining kitchen organization and cleanliness.",requirements:["No experience required","Physical fitness","Willingness to learn","Honest attitude","Ability to work under pressure"],rating:3.6,posted:"Today",applicants:35,icon:"fas fa-hand-sparkles"},
-  {id:21,category:"HOSPITALITY JOB",title:"Waiter / Waitress",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"13,000–20,000 + Tips",description:"Provide excellent food and beverage service to restaurant guests. Take orders, serve food, and ensure a pleasant dining experience.",requirements:["Pleasant personality","Good communication","SLC minimum","Previous experience preferred","English basic"],rating:4.0,posted:"2 days ago",applicants:24,icon:"fas fa-concierge-bell"},
-  {id:22,category:"HOSPITALITY JOB",title:"Barista",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"15,000–22,000",description:"Prepare specialty coffee and beverages. Operate espresso machines, maintain equipment, and deliver excellent customer experience at the coffee counter.",requirements:["Coffee making knowledge","Customer service skills","Energetic personality","Willing to learn","Café experience preferred"],rating:4.4,posted:"3 days ago",applicants:13,icon:"fas fa-coffee"},
-  {id:23,category:"HOSPITALITY JOB",title:"Bartender",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"18,000–28,000 + Tips",description:"Mix and serve alcoholic and non-alcoholic beverages. Maintain bar inventory, engage with guests, and ensure responsible service standards.",requirements:["Bartending experience preferred","Knowledge of cocktails","Good memory","Age 21+ preferred","Professional appearance"],rating:4.3,posted:"4 days ago",applicants:8,icon:"fas fa-wine-glass-alt"},
-  {id:24,category:"HOSPITALITY JOB",title:"Dishwasher",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"11,000–14,000",description:"Maintain cleanliness of all kitchen dishware, utensils, and equipment. Keep dish area organized and support kitchen operations.",requirements:["Any education","Physical stamina","Reliable","Willing to work shifts","Fast and organized"],rating:3.4,posted:"Today",applicants:40,icon:"fas fa-soap"},
-  {id:25,category:"HOSPITALITY JOB",title:"Housekeeping Staff",company:"Safe Rojgar",location:"Kathmandu",type:"Full-time",salary:"13,000–18,000",description:"Maintain cleanliness and presentation of hotel rooms, corridors, and public areas. Ensure high standards of hygiene and guest comfort.",requirements:["Any education","Attention to detail","Honest and reliable","Previous hotel experience plus","Physical fitness"],rating:3.9,posted:"2 days ago",applicants:17,icon:"fas fa-bed"},
-];
-
-// ===== STATE =====
-let currentCategory="all";
-let currentSearch="";
-let currentJob=null;
-let savedJobs=JSON.parse(localStorage.getItem("sr_saved")||"[]");
-let appliedJobs=JSON.parse(localStorage.getItem("sr_applied")||"[]");
-let recentJobs=JSON.parse(localStorage.getItem("sr_recent")||"[]");
-let darkMode=localStorage.getItem("sr_dark")==="true";
-let lang=localStorage.getItem("sr_lang")||"en";
-
-// ===== INIT =====
-function init(){
-  applyDarkMode();
-  applyLang();
-  updateBadges();
-  setTimeout(()=>{renderJobs();renderRecommended();initScrollAnimations();animateCounter();},700);
-  addFormListeners();
-}
-
-function animateCounter(){
-  const el=document.getElementById("count-jobs");
-  let n=0;const target=JOBS.length;
-  const timer=setInterval(()=>{n+=2;el.textContent=Math.min(n,target);if(n>=target)clearInterval(timer);},30);
-}
-
-// ===== DARK MODE =====
-function applyDarkMode(){
-  document.documentElement.setAttribute("data-theme",darkMode?"dark":"light");
-  document.getElementById("dark-icon").className=darkMode?"fas fa-sun":"fas fa-moon";
-}
-document.getElementById("dark-toggle").onclick=()=>{
-  darkMode=!darkMode;localStorage.setItem("sr_dark",darkMode);applyDarkMode();
-};
-
-// ===== LANGUAGE =====
-function applyLang(){
-  document.documentElement.setAttribute("data-lang",lang);
-  document.getElementById("lang-toggle").textContent=lang==="en"?"NP":"EN";
-}
-document.getElementById("lang-toggle").onclick=()=>{
-  lang=lang==="en"?"np":"en";localStorage.setItem("sr_lang",lang);applyLang();
-};
-
-// ===== CATEGORY ICONS MAP =====
-const catIcons={
-  "PROFESSIONAL JOB":"fas fa-user-tie",
-  "SALES OFFICERS":"fas fa-chart-line",
-  "HOSPITALITY JOB":"fas fa-utensils"
-};
-
-// ===== RENDER JOBS =====
-function getFilteredJobs(){
-  return JOBS.filter(j=>{
-    const matchCat=currentCategory==="all"||j.category===currentCategory;
-    const q=currentSearch.toLowerCase();
-    const matchSearch=!q||j.title.toLowerCase().includes(q)||j.category.toLowerCase().includes(q)||j.description.toLowerCase().includes(q);
-    return matchCat&&matchSearch;
-  });
-}
-
-function renderJobs(){
-  const grid=document.getElementById("jobs-grid");
-  const noRes=document.getElementById("no-results");
-  const countEl=document.getElementById("job-count");
-  const jobs=getFilteredJobs();
-  grid.innerHTML="";
-  if(jobs.length===0){
-    noRes.style.display="block";
-    countEl.textContent="0 jobs";
-    document.getElementById("recommended").style.display="none";
-    return;
-  }
-  noRes.style.display="none";
-  countEl.textContent=`${jobs.length} job${jobs.length!==1?"s":""}`;
-  jobs.forEach((j,i)=>{
-    const card=createJobCard(j,i);
-    grid.appendChild(card);
-  });
-  document.getElementById("recommended").style.display="block";
-}
-
-function highlight(text){
-  if(!currentSearch)return text;
-  const re=new RegExp(`(${currentSearch.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi');
-  return text.replace(re,'<mark class="highlight">$1</mark>');
-}
-
-function createJobCard(j,delay){
-  const saved=savedJobs.includes(j.id);
-  const applied=appliedJobs.includes(j.id);
-  const div=document.createElement("div");
-  div.className="job-card";
-  div.style.animationDelay=`${delay*0.06}s`;
-  div.onclick=(e)=>{if(!e.target.closest('.job-save')&&!e.target.closest('.job-apply-btn'))openJobModal(j)};
-  const stars=renderStars(j.rating);
-  div.innerHTML=`
-    <div class="job-card-top">
-      <div class="job-icon"><i class="${j.icon}"></i></div>
-      <div style="flex:1;min-width:0">
-        <div class="job-title">${highlight(j.title)}</div>
-        <div class="job-company"><i class="fas fa-building" style="font-size:.75rem"></i> ${j.company}</div>
-      </div>
-      <button class="job-save${saved?' saved':''}" onclick="toggleSave(${j.id},this)" title="${saved?'Remove':'Save'}">
-        <i class="fa${saved?'s':'r'} fa-heart"></i>
-      </button>
-    </div>
-    <div class="job-meta">
-      <span class="job-cat-tag">${j.category}</span>
-      <span class="job-tag"><i class="fas fa-location-dot"></i>${j.location}</span>
-      <span class="job-tag"><i class="fas fa-clock"></i>${j.type}</span>
-    </div>
-    <div class="applicants-count"><i class="fas fa-users" style="font-size:.7rem;margin-right:3px"></i>${j.applicants + Math.floor(Math.random()*8)} people applied</div>
-    <div class="job-footer">
+  <!-- ======================================================
+       FOOTER
+  ====================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-grid">
+      <!-- Brand -->
       <div>
-        <div class="job-rating">
-          <div class="stars">${stars}</div>
-          <span class="job-rating-num">${j.rating}</span>
+        <div class="footer-logo">
+          <div class="footer-logo-circle" aria-hidden="true">SR</div>
+          <div>
+            <div class="footer-brand">SR Job Center</div>
+            <span class="footer-brand-tag">एसआर जॉब सेन्टर</span>
+          </div>
         </div>
-        <div class="job-posted">${j.posted}</div>
+        <p class="footer-desc" data-i18n="footer_desc">Nepal's trusted job placement platform connecting job seekers and employers instantly via WhatsApp.</p>
+        <div class="footer-social">
+          <a href="https://facebook.com" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://wa.me/9779712037365" class="social-btn" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="mailto:srcareer@gmail.com" class="social-btn" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
       </div>
-      ${applied
-        ?`<div class="applied-badge"><i class="fas fa-check-circle"></i>Applied</div>`
-        :`<button class="job-apply-btn" onclick="openJobModal(JOBS.find(x=>x.id==${j.id}))"><i class="fab fa-whatsapp"></i> Apply</button>`
+
+      <!-- Quick Links -->
+      <div>
+        <div class="footer-col-title" data-i18n="footer_links">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#" data-i18n="fl_home">Home</a></li>
+          <li><a href="#" data-i18n="fl_about">About Us</a></li>
+          <li><a href="jobhome.html" data-i18n="fl_jobs">Browse Jobs</a></li>
+          <li><a href="staffhome.html" data-i18n="fl_post">Post Requirement</a></li>
+          <li><a href="#" data-i18n="fl_contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Job Seekers -->
+      <div>
+        <div class="footer-col-title" data-i18n="footer_seekers">Job Seekers</div>
+        <ul class="footer-links">
+          <li><a href="jobhome.html" data-i18n="fs_browse">Browse All Jobs</a></li>
+          <li><a href="jobhome.html" data-i18n="fs_apply">Apply via WhatsApp</a></li>
+          <li><a href="jobhome.html" data-i18n="fs_save">Save Jobs</a></li>
+          <li><a href="#" data-i18n="fs_guide">How to Apply</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <div class="footer-col-title" data-i18n="footer_contact">Contact Us</div>
+        <div class="footer-contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>srcareer@gmail.com</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+977 9712037365</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span data-i18n="footer_addr">Baneshwor, Kathmandu, Nepal</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy" data-i18n="footer_copy">© 2025 SR Job Center · Made with ❤️ in Nepal · Baneshwor, Kathmandu</span>
+      <span class="footer-copy" style="color:rgba(255,255,255,0.2)">srcareer@gmail.com · 9712037365</span>
+    </div>
+  </footer>
+
+  <!-- ======================================================
+       TOAST NOTIFICATION
+  ====================================================== -->
+  <div id="toast" role="status" aria-live="polite">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastMsg">Preference saved!</span>
+  </div>
+
+  <!-- ======================================================
+       JAVASCRIPT
+  ====================================================== -->
+  <script>
+    // ============================================================
+    // TRANSLATIONS
+    // ============================================================
+    const translations = {
+      en: {
+        badge: "Nepal's #1 Trusted Job Platform",
+        hero_title_1: "Find Your Dream Job or",
+        hero_title_2: "Hire the Best Talent in Nepal",
+        hero_subtitle: "SR Job Center connects job seekers and employers instantly via WhatsApp. 100% free for job seekers.",
+        tagline: "एसआर जॉब सेन्टर – SR Job Center, Better Future",
+        cta_label: "Choose your role to get started",
+        seeker_title: "I Need a Job",
+        seeker_desc: "Find your dream job in Nepal. Apply instantly via WhatsApp. 500+ active jobs.",
+        sf1: "500+ Active Jobs", sf2: "Free & Instant Apply", sf3: "WhatsApp Application", sf4: "Save & Track Jobs",
+        seeker_btn: "Browse Jobs",
+        employer_title: "I Need Staff",
+        employer_desc: "Post job requirements and find qualified candidates. Reach thousands of job seekers.",
+        ef1: "Post Staff Requirements", ef2: "Receive Applications via Email", ef3: "WhatsApp Alerts", ef4: "Find Qualified Candidates",
+        employer_btn: "Post Requirement",
+        stat1: "Active Jobs", stat2: "Happy Employers", stat3: "Job Seekers", stat4: "Success Rate",
+        about_pill: "About Us", about_title: "Nepal's Most Trusted Job Platform",
+        about_desc: "SR Job Center is Nepal's most trusted job placement platform helping thousands of job seekers find employment and employers find qualified staff. Based in Baneshwor, Kathmandu, we bridge the gap between opportunity and talent across Nepal.",
+        how_pill: "How It Works", how_title: "Get Started in 3 Easy Steps",
+        how_sub: "Whether you're looking for work or looking for workers, we make it simple and fast.",
+        step1_title: "Choose Your Role", step1_desc: "Select whether you're a job seeker looking for work or an employer seeking qualified candidates.",
+        step2_title: "Complete Your Form", step2_desc: "Fill in your job application or post your staff requirement. Takes less than 2 minutes.",
+        step3_title: "Get Hired / Hire", step3_desc: "Connect directly via WhatsApp or Email. Fast, simple, and completely free for job seekers.",
+        testi_pill: "Testimonials", testi_title: "What People Are Saying",
+        testi_sub: "Real stories from job seekers and employers who found success with SR Job Center.",
+        t1_text: `"I got a job within 3 days of applying on SR Job Center! The WhatsApp application feature made the entire process incredibly fast and easy. Highly recommended for anyone in Nepal."`,
+        t1_name: "Ramesh Thapa", t1_role: "Job Seeker · Kathmandu",
+        t2_text: `"As a small business owner, finding good staff was always a challenge. SR Job Center sent us 10+ qualified applicants within 24 hours of posting. Excellent service!"`,
+        t2_name: "Sita Sharma", t2_role: "Employer · Pokhara",
+        t3_text: `"The platform is so simple to use. I'm not very tech-savvy but even I could apply for jobs easily. Found great employment in Lalitpur. Thank you SR Job Center!"`,
+        t3_name: "Bina Gurung", t3_role: "Job Seeker · Lalitpur",
+        footer_desc: "Nepal's trusted job placement platform connecting job seekers and employers instantly via WhatsApp.",
+        footer_links: "Quick Links", fl_home: "Home", fl_about: "About Us", fl_jobs: "Browse Jobs", fl_post: "Post Requirement", fl_contact: "Contact",
+        footer_seekers: "Job Seekers", fs_browse: "Browse All Jobs", fs_apply: "Apply via WhatsApp", fs_save: "Save Jobs", fs_guide: "How to Apply",
+        footer_contact: "Contact Us", footer_addr: "Baneshwor, Kathmandu, Nepal",
+        footer_copy: "© 2025 SR Job Center · Made with ❤️ in Nepal · Baneshwor, Kathmandu",
+        toast_lang: "Language changed to English", toast_dark: "Dark mode enabled", toast_light: "Light mode enabled",
+      },
+      ne: {
+        badge: "नेपालको #१ विश्वसनीय जागिर प्लेटफर्म",
+        hero_title_1: "आफ्नो सपनाको जागिर खोज्नुहोस् वा",
+        hero_title_2: "नेपालमा उत्तम कर्मचारी भर्ना गर्नुहोस्",
+        hero_subtitle: "एसआर जॉब सेन्टरले जागिर खोज्नेहरू र नियोक्ताहरूलाई व्हाट्सएपमार्फत जोड्छ। जागिर खोज्नेका लागि १००% निशुल्क।",
+        tagline: "एसआर जॉब सेन्टर – SR Job Center, उज्ज्वल भविष्य",
+        cta_label: "सुरु गर्न आफ्नो भूमिका छान्नुहोस्",
+        seeker_title: "मलाई जागिर चाहिन्छ",
+        seeker_desc: "नेपालमा आफ्नो सपनाको जागिर खोज्नुहोस्। व्हाट्सएपमार्फत तुरुन्तै आवेदन दिनुहोस्।",
+        sf1: "५००+ सक्रिय जागिर", sf2: "निशुल्क र तुरुन्त आवेदन", sf3: "व्हाट्सएप आवेदन", sf4: "जागिर बचत गर्नुहोस्",
+        seeker_btn: "जागिर हेर्नुहोस्",
+        employer_title: "मलाई कर्मचारी चाहिन्छ",
+        employer_desc: "जागिरको आवश्यकता पोस्ट गर्नुहोस् र योग्य उम्मेदवारहरू फेला पार्नुहोस्।",
+        ef1: "कर्मचारी आवश्यकता पोस्ट", ef2: "इमेलमार्फत आवेदन प्राप्त", ef3: "व्हाट्सएप अलर्ट", ef4: "योग्य उम्मेदवार खोज्नुहोस्",
+        employer_btn: "आवश्यकता पोस्ट गर्नुहोस्",
+        stat1: "सक्रिय जागिर", stat2: "खुशी नियोक्ता", stat3: "जागिर खोज्नेहरू", stat4: "सफलता दर",
+        about_pill: "हाम्रोबारे", about_title: "नेपालको सबैभन्दा विश्वसनीय जागिर प्लेटफर्म",
+        about_desc: "एसआर जॉब सेन्टर नेपालको सबैभन्दा विश्वसनीय जागिर प्लेसमेन्ट प्लेटफर्म हो जसले हजारौं जागिर खोज्नेहरूलाई रोजगारी र नियोक्ताहरूलाई योग्य कर्मचारी खोज्न मद्दत गर्छ।",
+        how_pill: "कसरी काम गर्छ", how_title: "३ सजिलो चरणमा सुरु गर्नुहोस्",
+        how_sub: "तपाईं काम खोज्दै हुनुहुन्छ वा कामदार खोज्दै, हामी यसलाई सरल र छिटो बनाउँछौं।",
+        step1_title: "आफ्नो भूमिका छान्नुहोस्", step1_desc: "तपाईं जागिर खोज्ने वा कर्मचारी खोज्ने नियोक्ता कुन हुनुहुन्छ छान्नुहोस्।",
+        step2_title: "फर्म भर्नुहोस्", step2_desc: "जागिरको आवेदन वा कर्मचारी आवश्यकता पोस्ट गर्नुहोस्। २ मिनेटभन्दा कम लाग्छ।",
+        step3_title: "काम पाउनुहोस् / भर्ना गर्नुहोस्", step3_desc: "व्हाट्सएप वा इमेलमार्फत सिधै जोडिनुहोस्। जागिर खोज्नेका लागि पूर्णतः निशुल्क।",
+        testi_pill: "प्रशंसापत्र", testi_title: "मानिसहरू के भन्दैछन्",
+        testi_sub: "एसआर जॉब सेन्टरसँग सफलता पाएका जागिर खोज्नेहरू र नियोक्ताहरूका वास्तविक कथाहरू।",
+        t1_text: `"म एसआर जॉब सेन्टरमा आवेदन दिएको ३ दिनभित्र जागिर पाएँ! व्हाट्सएप सुविधाले पूरै प्रक्रिया अत्यन्त छिटो र सजिलो बनायो।"`,
+        t1_name: "रमेश थापा", t1_role: "जागिर खोज्ने · काठमाडौं",
+        t2_text: `"सानो व्यवसाय सञ्चालक भएकाले राम्रो कर्मचारी खोज्नु सधैं चुनौती थियो। एसआर जॉब सेन्टरले पोस्ट गरेको २४ घन्टाभित्र १०+ योग्य आवेदक पठायो।"`,
+        t2_name: "सीता शर्मा", t2_role: "नियोक्ता · पोखरा",
+        t3_text: `"प्लेटफर्म प्रयोग गर्न एकदमै सजिलो छ। म धेरै प्राविधिक जानकार छैन तर पनि सजिलैसँग जागिरका लागि आवेदन दिन सकेँ। धन्यवाद एसआर जॉब सेन्टर!"`,
+        t3_name: "बिना गुरुङ", t3_role: "जागिर खोज्ने · ललितपुर",
+        footer_desc: "नेपालको विश्वसनीय जागिर प्लेसमेन्ट प्लेटफर्म जसले जागिर खोज्नेहरू र नियोक्ताहरूलाई व्हाट्सएपमार्फत जोड्छ।",
+        footer_links: "द्रुत लिङ्कहरू", fl_home: "गृहपृष्ठ", fl_about: "हाम्रोबारे", fl_jobs: "जागिर हेर्नुहोस्", fl_post: "आवश्यकता पोस्ट", fl_contact: "सम्पर्क",
+        footer_seekers: "जागिर खोज्नेहरू", fs_browse: "सबै जागिर हेर्नुहोस्", fs_apply: "व्हाट्सएपमा आवेदन", fs_save: "जागिर बचत गर्नुहोस्", fs_guide: "कसरी आवेदन दिने",
+        footer_contact: "सम्पर्क गर्नुहोस्", footer_addr: "बानेश्वर, काठमाडौं, नेपाल",
+        footer_copy: "© २०२५ एसआर जॉब सेन्टर · ❤️ सहित नेपालमा बनाइएको · बानेश्वर, काठमाडौं",
+        toast_lang: "भाषा नेपालीमा परिवर्तन भयो", toast_dark: "डार्क मोड सक्षम", toast_light: "लाइट मोड सक्षम",
+      },
+      hi: {
+        badge: "नेपाल का #1 विश्वसनीय जॉब प्लेटफॉर्म",
+        hero_title_1: "अपना सपनों का जॉब खोजें या",
+        hero_title_2: "नेपाल में बेहतरीन टैलेंट हायर करें",
+        hero_subtitle: "SR Job Center नौकरी चाहने वालों और नियोक्ताओं को WhatsApp के माध्यम से तुरंत जोड़ता है। नौकरी चाहने वालों के लिए 100% मुफ़्त।",
+        tagline: "एसआर जॉब सेन्टर – SR Job Center, बेहतर भविष्य",
+        cta_label: "शुरू करने के लिए अपनी भूमिका चुनें",
+        seeker_title: "मुझे नौकरी चाहिए",
+        seeker_desc: "नेपाल में अपना सपनों का जॉब खोजें। WhatsApp के ज़रिए तुरंत आवेदन करें।",
+        sf1: "500+ सक्रिय नौकरियाँ", sf2: "मुफ़्त और तुरंत आवेदन", sf3: "WhatsApp आवेदन", sf4: "नौकरियाँ सेव करें",
+        seeker_btn: "नौकरियाँ देखें",
+        employer_title: "मुझे स्टाफ चाहिए",
+        employer_desc: "नौकरी की ज़रूरतें पोस्ट करें और योग्य उम्मीदवार खोजें।",
+        ef1: "स्टाफ की ज़रूरत पोस्ट करें", ef2: "ईमेल से आवेदन प्राप्त करें", ef3: "WhatsApp अलर्ट", ef4: "योग्य उम्मीदवार खोजें",
+        employer_btn: "ज़रूरत पोस्ट करें",
+        stat1: "सक्रिय नौकरियाँ", stat2: "खुश नियोक्ता", stat3: "नौकरी चाहने वाले", stat4: "सफलता दर",
+        about_pill: "हमारे बारे में", about_title: "नेपाल का सबसे विश्वसनीय जॉब प्लेटफॉर्म",
+        about_desc: "SR Job Center नेपाल का सबसे विश्वसनीय जॉब प्लेसमेंट प्लेटफॉर्म है जो हज़ारों नौकरी चाहने वालों को रोजगार और नियोक्ताओं को योग्य स्टाफ खोजने में मदद करता है।",
+        how_pill: "कैसे काम करता है", how_title: "3 आसान चरणों में शुरू करें",
+        how_sub: "चाहे आप काम ढूंढ रहे हों या कर्मचारी, हम इसे सरल और तेज़ बनाते हैं।",
+        step1_title: "अपनी भूमिका चुनें", step1_desc: "चुनें कि आप नौकरी चाहने वाले हैं या योग्य उम्मीदवारों की तलाश करने वाले नियोक्ता।",
+        step2_title: "फॉर्म भरें", step2_desc: "नौकरी का आवेदन भरें या स्टाफ की ज़रूरत पोस्ट करें। 2 मिनट से कम लगता है।",
+        step3_title: "काम पाएं / हायर करें", step3_desc: "WhatsApp या ईमेल के ज़रिए सीधे जुड़ें। नौकरी चाहने वालों के लिए पूरी तरह मुफ़्त।",
+        testi_pill: "प्रशंसापत्र", testi_title: "लोग क्या कह रहे हैं",
+        testi_sub: "SR Job Center के साथ सफलता पाने वाले नौकरी चाहने वालों और नियोक्ताओं की असली कहानियाँ।",
+        t1_text: `"मुझे SR Job Center पर आवेदन करने के 3 दिनों के भीतर नौकरी मिल गई! WhatsApp की सुविधा ने पूरी प्रक्रिया को बेहद तेज़ और आसान बना दिया।"`,
+        t1_name: "रमेश थापा", t1_role: "नौकरी चाहने वाले · काठमांडू",
+        t2_text: `"एक छोटे व्यवसाय के मालिक के रूप में, अच्छे स्टाफ ढूंढना हमेशा चुनौती थी। SR Job Center ने पोस्ट करने के 24 घंटे के भीतर 10+ योग्य आवेदक भेजे।"`,
+        t2_name: "सीता शर्मा", t2_role: "नियोक्ता · पोखरा",
+        t3_text: `"प्लेटफॉर्म इस्तेमाल करना बहुत आसान है। मैं बहुत तकनीकी नहीं हूं लेकिन फिर भी आसानी से नौकरियों के लिए आवेदन कर सका। धन्यवाद SR Job Center!"`,
+        t3_name: "बिना गुरुंग", t3_role: "नौकरी चाहने वाली · ललितपुर",
+        footer_desc: "नेपाल का विश्वसनीय जॉब प्लेसमेंट प्लेटफॉर्म जो WhatsApp के माध्यम से नौकरी चाहने वालों और नियोक्ताओं को जोड़ता है।",
+        footer_links: "त्वरित लिंक", fl_home: "होम", fl_about: "हमारे बारे में", fl_jobs: "नौकरियाँ देखें", fl_post: "ज़रूरत पोस्ट करें", fl_contact: "संपर्क",
+        footer_seekers: "नौकरी चाहने वाले", fs_browse: "सभी नौकरियाँ देखें", fs_apply: "WhatsApp से आवेदन", fs_save: "नौकरियाँ सेव करें", fs_guide: "कैसे आवेदन करें",
+        footer_contact: "हमसे संपर्क करें", footer_addr: "बानेश्वर, काठमांडू, नेपाल",
+        footer_copy: "© 2025 SR Job Center · ❤️ के साथ नेपाल में बनाया · बानेश्वर, काठमांडू",
+        toast_lang: "भाषा हिंदी में बदली गई", toast_dark: "डार्क मोड चालू", toast_light: "लाइट मोड चालू",
       }
-    </div>
-  `;
-  return div;
-}
+    };
 
-function renderStars(r){
-  let s="";
-  for(let i=1;i<=5;i++){
-    if(i<=Math.floor(r))s+=`<i class="fas fa-star"></i>`;
-    else if(i-r<1)s+=`<i class="fas fa-star-half-stroke"></i>`;
-    else s+=`<i class="far fa-star"></i>`;
-  }
-  return s;
-}
+    let currentLang = localStorage.getItem('sr_lang') || 'en';
+    let isDark = localStorage.getItem('sr_dark') === 'true';
 
-// ===== SEARCH =====
-function handleSearch(v){
-  currentSearch=v.trim();
-  document.getElementById("search-clear").style.display=v?"block":"none";
-  renderJobs();
-}
-function clearSearch(){
-  document.getElementById("search-input").value="";
-  currentSearch="";
-  document.getElementById("search-clear").style.display="none";
-  renderJobs();
-}
-function setSearch(v){
-  document.getElementById("search-input").value=v;
-  handleSearch(v);
-  document.getElementById("main").scrollIntoView({behavior:"smooth"});
-}
+    // ============================================================
+    // APPLY TRANSLATIONS
+    // ============================================================
+    function applyTranslation(lang) {
+      const t = translations[lang] || translations['en'];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) {
+          // Preserve inner spans if any (hero title)
+          if (el.querySelector('span')) {
+            el.childNodes.forEach(node => {
+              if (node.nodeType === Node.TEXT_NODE) {
+                // find matching key... skip for complex nodes
+              }
+            });
+          } else {
+            el.textContent = t[key];
+          }
+        }
+      });
+      document.documentElement.lang = lang === 'ne' ? 'ne' : lang === 'hi' ? 'hi' : 'en';
+    }
 
-// ===== CATEGORY FILTER =====
-function filterCategory(cat,btn){
-  currentCategory=cat;
-  document.querySelectorAll(".cat-pill").forEach(p=>p.classList.remove("active"));
-  if(btn)btn.classList.add("active");
-  else{
-    document.querySelectorAll(".cat-pill").forEach(p=>{
-      if(p.dataset.cat===cat)p.classList.add("active");
+    // ============================================================
+    // THEME
+    // ============================================================
+    function applyTheme(dark) {
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      document.getElementById('themeIcon').className = dark ? 'fas fa-sun' : 'fas fa-moon';
+    }
+
+    // ============================================================
+    // TOAST
+    // ============================================================
+    let toastTimer;
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMsg').textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    // ============================================================
+    // ANIMATED COUNTER
+    // ============================================================
+    function animateCounter(el, target, duration = 1600) {
+      const start = performance.now();
+      const update = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * target);
+        if (progress < 1) requestAnimationFrame(update);
+        else el.textContent = target;
+      };
+      requestAnimationFrame(update);
+    }
+
+    // ============================================================
+    // INTERSECTION OBSERVER (scroll reveal + counter trigger)
+    // ============================================================
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const statCards = entry.target.querySelectorAll('.stat-card');
+          statCards.forEach(card => {
+            const numEl = card.querySelector('.count');
+            const target = parseInt(card.querySelector('.stat-number').getAttribute('data-target'), 10);
+            animateCounter(numEl, target);
+          });
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    // ============================================================
+    // INIT
+    // ============================================================
+    document.addEventListener('DOMContentLoaded', () => {
+      // Init theme
+      applyTheme(isDark);
+
+      // Init language select
+      const langSelect = document.getElementById('langSelect');
+      langSelect.value = currentLang;
+      applyTranslation(currentLang);
+
+      // Attach observers
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+      const statsSection = document.querySelector('.stats-section');
+      if (statsSection) counterObserver.observe(statsSection);
+
+      // Theme toggle
+      document.getElementById('themeToggle').addEventListener('click', () => {
+        isDark = !isDark;
+        localStorage.setItem('sr_dark', isDark);
+        applyTheme(isDark);
+        const t = translations[currentLang] || translations['en'];
+        showToast(isDark ? (t.toast_dark || 'Dark mode enabled') : (t.toast_light || 'Light mode enabled'));
+      });
+
+      // Language change
+      langSelect.addEventListener('change', (e) => {
+        currentLang = e.target.value;
+        localStorage.setItem('sr_lang', currentLang);
+        applyTranslation(currentLang);
+        const t = translations[currentLang] || translations['en'];
+        showToast(t.toast_lang || 'Language changed');
+      });
+
+      // Card button clicks (prevent double navigation from <a> + <button>)
+      document.querySelectorAll('.card-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const card = btn.closest('.role-card');
+          if (card) window.location.href = card.getAttribute('href');
+        });
+      });
     });
-  }
-  renderJobs();
-  document.getElementById("main").scrollIntoView({behavior:"smooth"});
-}
+  </script>
 
-// ===== SAVE =====
-function toggleSave(id,btn){
-  const idx=savedJobs.indexOf(id);
-  if(idx===-1){
-    savedJobs.push(id);
-    btn.classList.add("saved");
-    btn.innerHTML='<i class="fas fa-heart"></i>';
-    showToast("Job saved! ❤️","success");
-  } else {
-    savedJobs.splice(idx,1);
-    btn.classList.remove("saved");
-    btn.innerHTML='<i class="far fa-heart"></i>';
-    showToast("Removed from saved","info");
-  }
-  localStorage.setItem("sr_saved",JSON.stringify(savedJobs));
-  updateBadges();
-}
-
-function toggleSaveModal(){
-  if(!currentJob)return;
-  const id=currentJob.id;
-  const btn=document.getElementById("modal-save-btn");
-  const idx=savedJobs.indexOf(id);
-  if(idx===-1){
-    savedJobs.push(id);
-    btn.classList.add("saved");
-    btn.innerHTML='<i class="fas fa-heart"></i>';
-    showToast("Job saved! ❤️","success");
-  } else {
-    savedJobs.splice(idx,1);
-    btn.classList.remove("saved");
-    btn.innerHTML='<i class="far fa-heart"></i>';
-    showToast("Removed from saved","info");
-  }
-  localStorage.setItem("sr_saved",JSON.stringify(savedJobs));
-  updateBadges();
-  renderJobs();
-}
-
-function updateBadges(){
-  const sb=document.getElementById("saved-badge");
-  const sc=savedJobs.length;
-  if(sc>0){sb.style.display="flex";sb.textContent=sc}else{sb.style.display="none"}
-}
-
-// ===== JOB MODAL =====
-function openJobModal(j){
-  currentJob=j;
-  // Add to recent
-  recentJobs=recentJobs.filter(x=>x!==j.id);
-  recentJobs.unshift(j.id);
-  if(recentJobs.length>10)recentJobs=recentJobs.slice(0,10);
-  localStorage.setItem("sr_recent",JSON.stringify(recentJobs));
-
-  document.getElementById("modal-job-title").textContent=j.title;
-  const saved=savedJobs.includes(j.id);
-  const saveBtn=document.getElementById("modal-save-btn");
-  saveBtn.className=`btn-save-job${saved?" saved":""}`;
-  saveBtn.innerHTML=`<i class="fa${saved?"s":"r"} fa-heart"></i>`;
-
-  const reqs=j.requirements.map(r=>`<div class="modal-req-item"><i class="fas fa-check-circle"></i>${r}</div>`).join("");
-  document.getElementById("modal-body").innerHTML=`
-    <div class="modal-job-icon"><i class="${j.icon}"></i></div>
-    <div class="modal-job-title">${j.title}</div>
-    <div class="modal-company"><i class="fas fa-building"></i> ${j.company}</div>
-    <div class="modal-tags">
-      <span class="modal-tag"><i class="fas fa-tag"></i>${j.category}</span>
-      <span class="modal-tag"><i class="fas fa-location-dot"></i>${j.location}</span>
-      <span class="modal-tag"><i class="fas fa-briefcase"></i>${j.type}</span>
-      <span class="modal-tag"><i class="fas fa-money-bill-wave"></i>Rs. ${j.salary}</span>
-      <span class="modal-tag"><i class="fas fa-clock"></i>${j.posted}</span>
-    </div>
-    <div class="modal-section-title"><span class="en">Job Description</span><span class="np">जागिर विवरण</span></div>
-    <p class="modal-desc">${j.description}</p>
-    <div class="modal-section-title"><span class="en">Requirements</span><span class="np">आवश्यकताहरू</span></div>
-    <div class="modal-requirements">${reqs}</div>
-    <div style="background:rgba(37,211,102,.08);border:1.5px solid rgba(37,211,102,.3);border-radius:12px;padding:14px;margin-bottom:12px;font-size:.88rem;color:var(--text2)">
-      <i class="fab fa-whatsapp" style="color:#25D366;margin-right:8px"></i>
-      <span class="en">Apply via WhatsApp to <strong>+977-9712037365</strong>. Our team will contact you within 24-48 hours.</span>
-      <span class="np">व्हाट्सएप मार्फत <strong>+977-9712037365</strong> मा आवेदन दिनुहोस्।</span>
-    </div>
-  `;
-  document.getElementById("job-modal").classList.add("open");
-}
-
-// ===== APPLY MODAL =====
-function openApplyModal(){
-  if(!currentJob)return;
-  document.getElementById("form-job").value=currentJob.title;
-  document.getElementById("apply-modal").classList.add("open");
-  document.getElementById("msg-preview").classList.remove("show");
-  // reset
-  ["form-name","form-age","form-address","form-exp"].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el&&id!=="form-job")el.value="";
-  });
-  document.getElementById("form-qual").value="";
-}
-
-function addFormListeners(){
-  ["form-name","form-age","form-qual","form-address","form-exp"].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el)el.addEventListener("input",updatePreview);
-  });
-}
-
-function updatePreview(){
-  const name=document.getElementById("form-name").value.trim();
-  const age=document.getElementById("form-age").value.trim();
-  const qual=document.getElementById("form-qual").value;
-  const job=document.getElementById("form-job").value;
-  const addr=document.getElementById("form-address").value.trim();
-  const exp=document.getElementById("form-exp").value.trim();
-  if(!name&&!age)return;
-  const msg=`🟢 New Job Application – Safe Rojgar\n\n👤 Name: ${name||"—"}\n🎂 Age: ${age||"—"}\n💼 Job: ${job||"—"}\n🎓 Qualification: ${qual||"—"}\n📍 Address: ${addr||"—"}\n💪 Experience: ${exp||"Fresher"}\n\n📞 Contact: 9712037365\n🌐 saferojgar@gmail.com`;
-  const preview=document.getElementById("msg-preview");
-  preview.textContent=msg;
-  preview.classList.add("show");
-}
-
-function submitApply(){
-  const name=document.getElementById("form-name").value.trim();
-  const age=parseInt(document.getElementById("form-age").value);
-  const qual=document.getElementById("form-qual").value;
-  const addr=document.getElementById("form-address").value.trim();
-  const exp=document.getElementById("form-exp").value.trim();
-  const job=document.getElementById("form-job").value;
-  let valid=true;
-  const showErr=(id,show)=>{document.getElementById(id).style.display=show?"block":"none"};
-  if(!name){showErr("err-name",true);valid=false}else showErr("err-name",false);
-  if(!age||age<16||age>65){showErr("err-age",true);valid=false}else showErr("err-age",false);
-  if(!qual){showErr("err-qual",true);valid=false}else showErr("err-qual",false);
-  if(!addr){showErr("err-address",true);valid=false}else showErr("err-address",false);
-  if(!valid)return;
-  const msg=`🟢 New Job Application – Safe Rojgar\n\n👤 Name: ${name}\n🎂 Age: ${age}\n💼 Job: ${job}\n🎓 Qualification: ${qual}\n📍 Address: ${addr}\n💪 Experience: ${exp||"Fresher"}\n\n📞 Contact: 9712037365\n🌐 saferojgar@gmail.com`;
-  // Save applied
-  if(currentJob&&!appliedJobs.includes(currentJob.id)){
-    appliedJobs.push(currentJob.id);
-    localStorage.setItem("sr_applied",JSON.stringify(appliedJobs));
-  }
-  showToast("Redirecting to WhatsApp... 📲","success");
-  setTimeout(()=>{
-    document.getElementById("apply-modal").classList.remove("open");
-    document.getElementById("job-modal").classList.remove("open");
-    window.open(`https://wa.me/9712037365?text=${encodeURIComponent(msg)}`,"_blank");
-    renderJobs();
-  },1200);
-}
-
-// ===== WHATSAPP =====
-function openWhatsApp(msg){
-  window.open(`https://wa.me/9712037365?text=${encodeURIComponent(msg)}`,"_blank");
-}
-
-// ===== MODALS =====
-function closeModal(e,id){
-  if(e.target.id===id)document.getElementById(id).classList.remove("open");
-}
-
-// ===== SAVED PANEL =====
-function showSavedPanel(){
-  renderSavedPanel();
-  document.getElementById("saved-modal").classList.add("open");
-}
-
-function renderSavedPanel(){
-  // Saved
-  const savedEl=document.getElementById("saved-tab");
-  const savedList=JOBS.filter(j=>savedJobs.includes(j.id));
-  if(savedList.length===0){
-    savedEl.innerHTML=`<div class="empty-state"><div class="empty-icon">💔</div><p>No saved jobs yet. Tap ❤️ on any job to save it.</p></div>`;
-  } else {
-    savedEl.innerHTML=savedList.map(j=>miniCard(j)).join("");
-  }
-  // Applied
-  const appliedEl=document.getElementById("applied-tab");
-  const appliedList=JOBS.filter(j=>appliedJobs.includes(j.id));
-  if(appliedList.length===0){
-    appliedEl.innerHTML=`<div class="empty-state"><div class="empty-icon">📋</div><p>No applications yet. Apply to a job via WhatsApp!</p></div>`;
-  } else {
-    appliedEl.innerHTML=appliedList.map(j=>miniCard(j,true)).join("");
-  }
-  // Recent
-  const recentEl=document.getElementById("recent-tab");
-  const recentList=JOBS.filter(j=>recentJobs.includes(j.id)).sort((a,b)=>recentJobs.indexOf(a.id)-recentJobs.indexOf(b.id));
-  if(recentList.length===0){
-    recentEl.innerHTML=`<div class="empty-state"><div class="empty-icon">🕐</div><p>No recently viewed jobs.</p></div>`;
-  } else {
-    recentEl.innerHTML=recentList.map(j=>miniCard(j)).join("");
-  }
-}
-
-function miniCard(j,applied=false){
-  const isApplied=appliedJobs.includes(j.id)||applied;
-  return `<div style="display:flex;align-items:center;gap:12px;padding:14px;background:var(--bg3);border-radius:12px;margin-bottom:10px;cursor:pointer;border:1px solid var(--border)" onclick="openJobModal(JOBS.find(x=>x.id===${j.id}));document.getElementById('saved-modal').classList.remove('open')">
-    <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-light));display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0"><i class="${j.icon}"></i></div>
-    <div style="flex:1;min-width:0">
-      <div style="font-weight:700;font-size:.92rem;color:var(--text)">${j.title}</div>
-      <div style="font-size:.78rem;color:var(--text3)">${j.category} · ${j.location}</div>
-    </div>
-    ${isApplied?`<span style="font-size:.72rem;font-weight:700;color:var(--accent2);background:rgba(16,185,129,.12);padding:4px 8px;border-radius:6px">Applied ✓</span>`:""}
-  </div>`;
-}
-
-function switchTab(tabId,btn){
-  document.querySelectorAll(".saved-panel").forEach(p=>p.classList.remove("active"));
-  document.getElementById(tabId).classList.add("active");
-  document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
-  btn.classList.add("active");
-}
-
-// ===== PROFILE PANEL =====
-function showProfilePanel(){
-  showToast("Feature coming soon! 🚀","info");
-}
-
-// ===== RECOMMENDED =====
-function renderRecommended(){
-  const scroll=document.getElementById("rec-scroll");
-  const picks=JOBS.sort(()=>Math.random()-.5).slice(0,6);
-  scroll.innerHTML=picks.map(j=>`
-    <div class="rec-card" onclick="openJobModal(JOBS.find(x=>x.id===${j.id}))">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-        <div style="width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,var(--brand),var(--brand-light));display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem"><i class="${j.icon}"></i></div>
-        <div>
-          <div style="font-weight:700;font-size:.88rem;color:var(--text)">${j.title}</div>
-          <div style="font-size:.74rem;color:var(--text3)">${j.type}</div>
-        </div>
-      </div>
-      <div style="font-size:.76rem;color:var(--brand);font-weight:600;margin-bottom:6px">${j.category}</div>
-      <div style="font-size:.78rem;color:var(--text3)">${j.posted} · ${j.location}</div>
-    </div>
-  `).join("");
-}
-
-// ===== NAVIGATION =====
-function goHome(el){
-  document.querySelectorAll(".bnav-item").forEach(i=>i.classList.remove("active"));
-  el.classList.add("active");
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-function goJobs(el){
-  document.querySelectorAll(".bnav-item").forEach(i=>i.classList.remove("active"));
-  el.classList.add("active");
-  document.getElementById("main").scrollIntoView({behavior:"smooth"});
-}
-
-// ===== TOAST =====
-function showToast(msg,type="info"){
-  const container=document.getElementById("toast-container");
-  const toast=document.createElement("div");
-  toast.className=`toast ${type}`;
-  toast.innerHTML=`<i class="fas fa-${type==="success"?"check-circle":type==="error"?"exclamation-circle":"info-circle"}"></i>${msg}`;
-  container.appendChild(toast);
-  setTimeout(()=>{
-    toast.style.animation="toastOut .3s ease forwards";
-    setTimeout(()=>toast.remove(),300);
-  },3000);
-}
-
-// ===== SCROLL ANIMATIONS =====
-function initScrollAnimations(){
-  const obs=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target)}
-    });
-  },{threshold:.15});
-  document.querySelectorAll(".fade-in-up").forEach(el=>obs.observe(el));
-}
-
-// ===== START =====
-window.addEventListener("DOMContentLoaded",init);
-</script>
 </body>
 </html>
