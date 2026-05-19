@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Hire qualified staff in Nepal – Submit your staff requirement to SR Job Center."/>
+<title>Hire Staff – SR Job Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0a0f1e;
+    --bg2: #0d1428;
+    --surface: rgba(255,255,255,0.05);
+    --surface2: rgba(255,255,255,0.08);
+    --surface3: rgba(255,255,255,0.12);
+    --glass: rgba(255,255,255,0.07);
+    --glass-border: rgba(255,255,255,0.15);
+    --glass-border2: rgba(255,255,255,0.25);
+    --ink: #f0f4ff;
+    --ink2: rgba(200,210,240,0.7);
+    --ink3: rgba(180,190,220,0.4);
+    --gold: #c8973a;
+    --gold2: #e8b84b;
+    --gold-glow: rgba(200,151,58,0.3);
+    --gold-glass: rgba(200,151,58,0.12);
+    --success: #4ade80;
+    --error: #f87171;
+    --radius: 20px;
+    --transition: 0.4s cubic-bezier(0.23,1,0.32,1);
+    --blur: blur(24px);
+    --blur-sm: blur(12px);
+    --shadow-glass: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+    --shadow-gold: 0 0 40px rgba(200,151,58,0.25), 0 8px 32px rgba(0,0,0,0.5);
+  }
+
+  [data-theme="light"] {
+    --bg: #e8edf8;
+    --bg2: #dde3f5;
+    --surface: rgba(255,255,255,0.6);
+    --surface2: rgba(255,255,255,0.75);
+    --surface3: rgba(255,255,255,0.9);
+    --glass: rgba(255,255,255,0.5);
+    --glass-border: rgba(200,210,255,0.5);
+    --glass-border2: rgba(160,180,255,0.6);
+    --ink: #0d1428;
+    --ink2: rgba(30,50,100,0.7);
+    --ink3: rgba(30,50,100,0.35);
+    --gold-glow: rgba(200,151,58,0.2);
+    --gold-glass: rgba(200,151,58,0.08);
+    --shadow-glass: 0 8px 32px rgba(100,130,200,0.2), inset 0 1px 0 rgba(255,255,255,0.8);
+    --shadow-gold: 0 0 40px rgba(200,151,58,0.2), 0 8px 32px rgba(100,130,200,0.2);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background var(--transition), color var(--transition);
+  }
+
+  /* Ambient orbs */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse 700px 500px at 15% 10%, rgba(74,158,255,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 500px 400px at 85% 85%, rgba(200,151,58,0.1) 0%, transparent 60%),
+      radial-gradient(ellipse 400px 300px at 50% 50%, rgba(120,80,200,0.06) 0%, transparent 60%);
+    pointer-events: none; z-index: 0;
+  }
+
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.5;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(200,151,58,0.3); border-radius: 3px; }
+
+  /* ── Header ── */
+  header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 40px;
+    border-bottom: 1px solid var(--glass-border);
+    background: var(--glass);
+    backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
+    position: sticky; top: 0; z-index: 200;
+    transition: all var(--transition);
+  }
+
+  .logo-wrap {
+    display: flex; align-items: center; gap: 12px; text-decoration: none;
+  }
+
+  .logo-wrap img {
+    width: 40px; height: 40px; border-radius: 50%; object-fit: cover;
+    border: 1.5px solid var(--glass-border2);
+    box-shadow: 0 0 16px var(--gold-glow);
+  }
+
+  .logo-name {
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 1.1rem; color: var(--ink);
+  }
+
+  .logo-name span { color: var(--gold); }
+
+  /* Desktop header right */
+  .header-right {
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .btn-sm {
+    padding: 7px 16px; border-radius: 100px;
+    font-size: 0.8rem; font-weight: 500; font-family: 'DM Sans', sans-serif;
+    border: 1px solid var(--glass-border);
+    background: transparent; color: var(--ink2);
+    cursor: pointer; text-decoration: none;
+    display: inline-flex; align-items: center;
+    transition: all var(--transition);
+  }
+
+  .btn-sm:hover {
+    background: var(--surface2); color: var(--ink); border-color: var(--glass-border2);
+  }
+
+  .theme-btn {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1px solid var(--glass-border);
+    background: var(--surface);
+    backdrop-filter: var(--blur-sm); -webkit-backdrop-filter: var(--blur-sm);
+    cursor: pointer; font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: all var(--transition); color: var(--ink);
+  }
+
+  .theme-btn:hover {
+    border-color: var(--gold); box-shadow: 0 0 12px var(--gold-glow); transform: rotate(20deg);
+  }
+
+  /* Hamburger */
+  .hamburger-btn {
+    display: none;
+    flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+    width: 40px; height: 40px;
+    border: 1px solid var(--glass-border); border-radius: 10px;
+    background: var(--surface); backdrop-filter: var(--blur-sm);
+    cursor: pointer; padding: 0; transition: all var(--transition);
+  }
+
+  .hamburger-btn:hover { border-color: var(--gold); }
+
+  .hamburger-btn span {
+    display: block; width: 18px; height: 1.5px;
+    background: var(--ink); border-radius: 2px; transition: all var(--transition);
+  }
+
+  .hamburger-btn.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .hamburger-btn.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger-btn.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* Mobile drawer */
+  .mobile-menu {
+    display: none; position: fixed; inset: 0; z-index: 190;
+    background: rgba(5,8,20,0.6); backdrop-filter: blur(4px);
+    opacity: 0; transition: opacity var(--transition);
+  }
+
+  .mobile-menu.open { opacity: 1; }
+
+  .mobile-menu-drawer {
+    position: absolute; top: 0; right: 0;
+    width: min(290px, 85vw); height: 100%;
+    background: rgba(13,20,40,0.92);
+    border-left: 1px solid var(--glass-border);
+    backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+    padding: 24px 18px;
+    transform: translateX(100%); transition: transform var(--transition);
+    display: flex; flex-direction: column; gap: 10px;
+  }
+
+  [data-theme="light"] .mobile-menu-drawer { background: rgba(220,228,248,0.95); }
+  .mobile-menu.open .mobile-menu-drawer { transform: translateX(0); }
+
+  .mobile-menu-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 18px; border-bottom: 1px solid var(--glass-border); margin-bottom: 6px;
+  }
+
+  .mobile-menu-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--ink); }
+
+  .mobile-close-btn {
+    width: 34px; height: 34px; border: 1px solid var(--glass-border); border-radius: 8px;
+    background: var(--surface); cursor: pointer; font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink2); transition: all var(--transition);
+  }
+
+  .mobile-close-btn:hover { border-color: var(--error); color: var(--error); }
+
+  .mobile-nav-link {
+    display: flex; align-items: center; gap: 10px;
+    padding: 13px 14px; border: 1px solid var(--glass-border); border-radius: 12px;
+    text-decoration: none; color: var(--ink); font-size: 0.9rem; font-weight: 500;
+    transition: all var(--transition); background: var(--surface);
+  }
+
+  .mobile-nav-link:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-glass); }
+
+  .mobile-theme-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 13px 14px; border: 1px solid var(--glass-border); border-radius: 12px;
+    background: var(--surface); margin-top: 4px;
+  }
+
+  .mobile-theme-row span { font-size: 0.85rem; color: var(--ink2); }
+
+  .mobile-theme-btn {
+    width: 34px; height: 34px; border-radius: 50%;
+    border: 1px solid var(--glass-border); background: none; cursor: pointer;
+    font-size: 0.95rem; display: flex; align-items: center; justify-content: center;
+    color: var(--ink); transition: all var(--transition);
+  }
+
+  .mobile-contact-info {
+    margin-top: auto; padding-top: 16px;
+    border-top: 1px solid var(--glass-border);
+    font-size: 0.75rem; color: var(--ink2); line-height: 1.8;
+  }
+
+  .mobile-contact-info a { color: var(--gold); text-decoration: none; }
+
+  /* ── Hero ── */
+  .page-hero {
+    position: relative; z-index: 1;
+    padding: 64px 40px 56px;
+    text-align: center;
+    border-bottom: 1px solid var(--glass-border);
+    overflow: hidden;
+  }
+
+  .page-hero::before {
+    content: '';
+    position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 300px; border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(200,151,58,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--gold-glass);
+    border: 1px solid rgba(200,151,58,0.3);
+    border-radius: 100px; padding: 5px 14px;
+    font-size: 0.72rem; font-weight: 600; color: var(--gold);
+    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px;
+    backdrop-filter: var(--blur-sm);
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--gold); box-shadow: 0 0 6px var(--gold);
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.03em; line-height: 1.1;
+    margin-bottom: 14px; color: var(--ink);
+  }
+
+  h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--gold), var(--gold2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 0.95rem; color: var(--ink2); max-width: 480px;
+    margin: 0 auto 40px; line-height: 1.7; font-weight: 300;
+  }
+
+  /* Categories */
+  .categories {
+    display: grid; grid-template-columns: repeat(4,1fr); gap: 12px;
+    max-width: 680px; margin: 0 auto;
+  }
+
+  .cat-card {
+    background: var(--glass); border: 1px solid var(--glass-border); border-radius: 16px;
+    padding: 18px 14px; text-align: center;
+    backdrop-filter: var(--blur-sm); -webkit-backdrop-filter: var(--blur-sm);
+    box-shadow: var(--shadow-glass); transition: all var(--transition);
+    position: relative; overflow: hidden;
+  }
+
+  .cat-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  }
+
+  .cat-card:hover {
+    border-color: rgba(200,151,58,0.4);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-gold);
+  }
+
+  .cat-icon { font-size: 1.6rem; margin-bottom: 8px; display: block; }
+  .cat-name { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.78rem; color: var(--ink); }
+
+  /* ── Form container ── */
+  .form-container {
+    max-width: 800px; margin: 48px auto; padding: 0 24px 60px;
+    position: relative; z-index: 1;
+  }
+
+  /* Glass form card */
+  .form-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border2);
+    border-radius: 28px;
+    padding: 44px 48px;
+    backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
+    box-shadow: var(--shadow-glass);
+    position: relative; overflow: hidden;
+  }
+
+  .form-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(200,151,58,0.6), transparent);
+  }
+
+  .form-card::after {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold2));
+    border-radius: 28px 28px 0 0;
+  }
+
+  .form-section-title {
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.82rem;
+    color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em;
+    display: flex; align-items: center; gap: 8px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--glass-border);
+    margin-bottom: 24px; margin-top: 36px;
+  }
+
+  .form-section-title:first-of-type { margin-top: 0; }
+
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .form-grid .full { grid-column: 1/-1; }
+  .form-group { display: flex; flex-direction: column; }
+
+  label {
+    font-size: 0.72rem; font-weight: 600; color: var(--ink2);
+    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 7px;
+  }
+
+  .required::after { content: ' *'; color: var(--error); }
+
+  input, select, textarea {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 11px 15px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.875rem; color: var(--ink);
+    transition: all var(--transition); outline: none;
+    backdrop-filter: var(--blur-sm); -webkit-backdrop-filter: var(--blur-sm);
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: rgba(200,151,58,0.5);
+    background: var(--surface2);
+    box-shadow: 0 0 0 3px var(--gold-glow);
+  }
+
+  input::placeholder, textarea::placeholder { color: var(--ink3); }
+  select option { background: #0d1428; color: var(--ink); }
+  [data-theme="light"] select option { background: #dde3f5; }
+  textarea { resize: vertical; min-height: 110px; }
+
+  .field-hint { font-size: 0.72rem; color: var(--ink3); margin-top: 6px; }
+
+  /* ── Form actions ── */
+  .form-actions { margin-top: 32px; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+
+  .btn-submit {
+    background: linear-gradient(135deg, var(--gold), var(--gold2));
+    border: none; border-radius: 14px; padding: 14px 36px;
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; color: #fff;
+    cursor: pointer; transition: all var(--transition);
+    box-shadow: 0 6px 24px var(--gold-glow);
+    display: flex; align-items: center; gap: 10px;
+  }
+
+  .btn-submit:hover:not(:disabled) {
+    transform: translateY(-2px); box-shadow: 0 10px 32px rgba(200,151,58,0.5);
+  }
+
+  .btn-submit:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .btn-reset {
+    background: var(--surface);
+    border: 1px solid var(--glass-border); border-radius: 14px; padding: 14px 24px;
+    font-size: 0.9rem; color: var(--ink2); cursor: pointer;
+    transition: all var(--transition); font-family: 'DM Sans', sans-serif;
+    backdrop-filter: var(--blur-sm);
+  }
+
+  .btn-reset:hover { border-color: var(--glass-border2); color: var(--ink); background: var(--surface2); }
+
+  .spinner {
+    width: 18px; height: 18px; border: 2.5px solid rgba(255,255,255,0.3);
+    border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Alert */
+  .alert {
+    border-radius: 12px; padding: 14px 18px; font-size: 0.875rem;
+    margin-top: 20px; display: none; align-items: flex-start; gap: 12px;
+    backdrop-filter: var(--blur-sm);
+  }
+
+  .alert.show { display: flex; }
+
+  .alert.success {
+    background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.25); color: var(--success);
+  }
+
+  .alert.error {
+    background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.25); color: var(--error);
+  }
+
+  .alert-icon { font-size: 1.2rem; flex-shrink: 0; }
+
+  /* Contact note */
+  .contact-note {
+    margin-top: 20px;
+    background: var(--glass); border: 1px solid var(--glass-border); border-radius: 20px;
+    padding: 24px 28px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
+    box-shadow: var(--shadow-glass);
+    position: relative; overflow: hidden;
+  }
+
+  .contact-note::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  }
+
+  .contact-note-icon { font-size: 1.8rem; flex-shrink: 0; }
+
+  .contact-note-title {
+    font-family: 'Syne', sans-serif; font-weight: 700; margin-bottom: 4px; color: var(--ink);
+  }
+
+  .contact-note-body { font-size: 0.875rem; color: var(--ink2); }
+  .contact-note-body a { color: var(--gold); text-decoration: none; font-weight: 600; }
+  .contact-note-body a:hover { color: var(--gold2); }
+
+  /* ── Footer ── */
+  footer {
+    background: var(--glass); border-top: 1px solid var(--glass-border);
+    backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
+    padding: 28px 40px; display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px; font-size: 0.8rem; color: var(--ink2);
+    margin-top: 60px; position: relative; z-index: 1;
+  }
+
+  footer a { color: var(--gold); text-decoration: none; }
+  footer a:hover { color: var(--gold2); }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    header { padding: 13px 18px; }
+
+    .header-right.desktop-only { display: none; }
+    .hamburger-btn { display: flex; }
+
+    .page-hero { padding: 44px 18px 40px; }
+
+    .categories { grid-template-columns: 1fr 1fr; gap: 10px; max-width: 100%; }
+
+    .form-container { padding: 0 14px 48px; margin-top: 28px; }
+
+    .form-card { padding: 26px 18px; border-radius: 20px; }
+
+    .form-grid { grid-template-columns: 1fr; gap: 14px; }
+    .form-grid .full { grid-column: 1; }
+
+    .contact-note { padding: 18px 18px; flex-direction: row; align-items: flex-start; }
+
+    footer { padding: 20px 18px; flex-direction: column; align-items: flex-start; gap: 10px; }
+
+    h1 { font-size: 1.9rem; }
+  }
+
+  @media (max-width: 480px) {
+    .categories { grid-template-columns: 1fr 1fr; }
+    .form-actions { flex-direction: column; }
+    .btn-submit, .btn-reset { width: 100%; justify-content: center; }
+  }
+
+  /* Fade-up */
+  .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo-wrap">
+    <img src="srlogo.png" alt="SR Job Center Logo"/>
+    <span class="logo-name">SR <span>Job Center</span></span>
+  </a>
+
+  <!-- Desktop -->
+  <div class="header-right desktop-only">
+    <a href="userhome.html" class="btn-sm">🔍 Find Jobs</a>
+    <a href="index.html" class="btn-sm">← Home</a>
+    <button class="theme-btn" id="themeToggle">🌙</button>
+  </div>
+
+  <!-- Hamburger (mobile) -->
+  <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" style="display:none;">
+  <div class="mobile-menu-drawer">
+    <div class="mobile-menu-header">
+      <span class="mobile-menu-title">Menu</span>
+      <button class="mobile-close-btn" id="mobileCloseBtn">✕</button>
+    </div>
+    <a href="userhome.html" class="mobile-nav-link">🔍 Find Jobs</a>
+    <a href="index.html" class="mobile-nav-link">🏠 Home</a>
+    <div class="mobile-theme-row">
+      <span>Toggle Theme</span>
+      <button class="mobile-theme-btn" id="mobileThemeToggle">🌙</button>
+    </div>
+    <div class="mobile-contact-info">
+      📞 <a href="tel:+9779706886200">+977 9706886200</a><br>
+      ✉️ <a href="mailto:srjobcentersupport@gmail.com">srjobcentersupport@gmail.com</a><br>
+      📍 Baneshwor, Kathmandu
+    </div>
+  </div>
+</div>
+
+<!-- Hero -->
+<div class="page-hero">
+  <div class="hero-badge">🏢 For Employers</div>
+  <h1>Find the <em>Right Staff</em><br/>for Your Business</h1>
+  <p class="hero-sub">Submit your staffing requirements and our team will connect you with pre-screened, qualified candidates.</p>
+  <div class="categories">
+    <div class="cat-card fade-up">
+      <span class="cat-icon">🏨</span>
+      <div class="cat-name">Hospitality</div>
+    </div>
+    <div class="cat-card fade-up" style="transition-delay:0.08s">
+      <span class="cat-icon">📈</span>
+      <div class="cat-name">Sales / Marketing</div>
+    </div>
+    <div class="cat-card fade-up" style="transition-delay:0.16s">
+      <span class="cat-icon">💼</span>
+      <div class="cat-name">Professional</div>
+    </div>
+    <div class="cat-card fade-up" style="transition-delay:0.24s">
+      <span class="cat-icon">🛡️</span>
+      <div class="cat-name">Security</div>
+    </div>
+  </div>
+</div>
+
+<!-- Form -->
+<div class="form-container">
+  <div class="form-card fade-up">
+
+    <div class="form-section-title">🏢 Company Information</div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label class="required">Company Name</label>
+        <input type="text" id="company_name" placeholder="Your company name"/>
+      </div>
+      <div class="form-group">
+        <label class="required">Category</label>
+        <select id="category">
+          <option value="">Select Category</option>
+          <option>Hospitality</option>
+          <option>Sales/Marketing</option>
+          <option>Professional</option>
+          <option>Security</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="required">Address</label>
+        <input type="text" id="address" placeholder="Office address"/>
+      </div>
+      <div class="form-group">
+        <label>Google Maps Link</label>
+        <input type="url" id="location_link" placeholder="https://maps.app.goo.gl/…"/>
+        <span class="field-hint">Share your location link from Google Maps</span>
+      </div>
+    </div>
+
+    <div class="form-section-title">👥 Staff Requirements</div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label class="required">Number of Staff Needed</label>
+        <input type="number" id="staff_need" placeholder="e.g. 5" min="1"/>
+      </div>
+      <div class="form-group">
+        <label class="required">Position</label>
+        <input type="text" id="position" placeholder="e.g. Front Desk Officer"/>
+      </div>
+      <div class="form-group">
+        <label>Working Hours</label>
+        <input type="text" id="working_hrs" placeholder="e.g. 9:00 AM – 5:00 PM"/>
+      </div>
+      <div class="form-group">
+        <label>Qualification Required</label>
+        <input type="text" id="qualifaction_need" placeholder="e.g. +2 Pass, Bachelor"/>
+      </div>
+      <div class="form-group">
+        <label>Shift</label>
+        <input type="text" id="shift" placeholder="e.g. Day / Night / Rotating"/>
+      </div>
+      <div class="form-group">
+        <label>Salary Range</label>
+        <input type="text" id="salary_range" placeholder="e.g. 12,000 – 18,000 NPR"/>
+      </div>
+      <div class="form-group">
+        <label>Gender Preference</label>
+        <input type="text" id="gender" placeholder="Male / Female / Any"/>
+      </div>
+    </div>
+
+    <div class="form-section-title">📝 Job Description</div>
+    <div class="form-group">
+      <label>Describe the Role</label>
+      <textarea id="job_discription" placeholder="Describe responsibilities, requirements, benefits, and any other relevant information…" rows="5"></textarea>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn-submit" id="submitBtn" onclick="submitRequest()">
+        <span id="submitBtnText">🚀 Submit Request</span>
+      </button>
+      <button class="btn-reset" onclick="resetForm()">Reset Form</button>
+    </div>
+
+    <div class="alert" id="formAlert">
+      <span class="alert-icon" id="alertIcon">✅</span>
+      <div>
+        <div id="alertMsg">Staff request submitted successfully!</div>
+        <div id="alertSub" style="font-size:0.8rem; opacity:0.75; margin-top:4px"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact note -->
+  <div class="contact-note fade-up">
+    <div class="contact-note-icon">📞</div>
+    <div>
+      <div class="contact-note-title">Prefer to talk directly?</div>
+      <div class="contact-note-body">
+        Call us at <a href="tel:+9779706886200">+977 9706886200</a> or email
+        <a href="mailto:srjobcentersupport@gmail.com">srjobcentersupport@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>© 2025 SR Job Center · Baneshwor, Kathmandu</span>
+  <span>
+    <a href="mailto:srjobcentersupport@gmail.com">✉️ srjobcentersupport@gmail.com</a> &nbsp;·&nbsp;
+    <a href="tel:+9779706886200">📞 +977 9706886200</a> &nbsp;·&nbsp;
+    <a href="https://maps.app.goo.gl/pcfGBEcxYLsEteHY9" target="_blank">📍 View on Map</a>
+  </span>
+</footer>
+
+<script>
+  const API = "https://script.google.com/macros/s/AKfycbxQ-QXTfypT2y1b5b2OTGNnMYYiOywbzsnZozDxN1LmfW4TyYcaTin-LsvUNKc4GodL/exec";
+
+  // ─── Theme ───
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    const icon = theme === 'light' ? '🌙' : '☀️';
+    themeToggle.textContent = icon;
+    mobileThemeToggle.textContent = icon;
+    localStorage.setItem('theme', theme);
+  }
+
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  applyTheme(savedTheme);
+
+  themeToggle.addEventListener('click', () => {
+    const isLight = root.getAttribute('data-theme') === 'light';
+    applyTheme(isLight ? 'dark' : 'light');
+  });
+
+  mobileThemeToggle.addEventListener('click', () => {
+    const isLight = root.getAttribute('data-theme') === 'light';
+    applyTheme(isLight ? 'dark' : 'light');
+  });
+
+  // ─── Mobile menu ───
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+
+  function openMenu() {
+    mobileMenu.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => {
+      mobileMenu.classList.add('open');
+      hamburgerBtn.classList.add('open');
+    });
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    hamburgerBtn.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(() => { mobileMenu.style.display = 'none'; }, 400);
+  }
+
+  hamburgerBtn.addEventListener('click', () => {
+    mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  mobileCloseBtn.addEventListener('click', closeMenu);
+  mobileMenu.addEventListener('click', e => { if (e.target === mobileMenu) closeMenu(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu(); });
+
+  // ─── Submit ───
+  async function submitRequest() {
+    const d = {
+      company_name:      document.getElementById('company_name').value.trim(),
+      category:          document.getElementById('category').value,
+      address:           document.getElementById('address').value.trim(),
+      location_link:     document.getElementById('location_link').value.trim(),
+      staff_need:        document.getElementById('staff_need').value,
+      position:          document.getElementById('position').value.trim(),
+      working_hrs:       document.getElementById('working_hrs').value.trim(),
+      qualifaction_need: document.getElementById('qualifaction_need').value.trim(),
+      shift:             document.getElementById('shift').value.trim(),
+      salary_range:      document.getElementById('salary_range').value.trim(),
+      gender:            document.getElementById('gender').value.trim(),
+      job_discription:   document.getElementById('job_discription').value.trim(),
+      timestamp:         new Date().toLocaleString()
+    };
+
+    if (!d.company_name || !d.category || !d.address || !d.position) {
+      showAlert('error', '⚠️', 'Please fill in required fields: Company Name, Category, Address, Position.', '');
+      return;
+    }
+
+    const btn = document.getElementById('submitBtn');
+    const txt = document.getElementById('submitBtnText');
+    btn.disabled = true;
+    txt.innerHTML = '<span class="spinner"></span> Submitting…';
+
+    try {
+      const resp = await fetch(API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({ action: 'addJobRequest', data: d })
+      });
+      const result = await resp.json();
+      if (result.success) {
+        showAlert('success', '✅', 'Staff request submitted successfully!', 'Our team will review your request and reach out within 24 hours.');
+        resetForm();
+      } else {
+        showAlert('error', '❌', result.message || 'Something went wrong. Please try again.', '');
+      }
+    } catch(e) {
+      showAlert('error', '❌', 'Network error. Please check your connection.', '');
+    } finally {
+      btn.disabled = false;
+      txt.textContent = '🚀 Submit Request';
+    }
+  }
+
+  function showAlert(type, icon, msg, sub) {
+    const el = document.getElementById('formAlert');
+    document.getElementById('alertIcon').textContent = icon;
+    document.getElementById('alertMsg').textContent = msg;
+    document.getElementById('alertSub').textContent = sub;
+    el.className = 'alert show ' + type;
+    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (type === 'success') setTimeout(() => el.className = 'alert', 8000);
+  }
+
+  function resetForm() {
+    ['company_name','address','location_link','staff_need','position',
+     'working_hrs','qualifaction_need','shift','salary_range','gender','job_discription'].forEach(id => {
+      const el = document.getElementById(id); if (el) el.value = '';
+    });
+    document.getElementById('category').selectedIndex = 0;
+  }
+
+  // ─── Scroll animations ───
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

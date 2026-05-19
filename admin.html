@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="robots" content="noindex"/>
+<link rel="icon" type="image/png" href="srlogo.png">
+<title>Admin Login – SR Job Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0a0806;
+    --bg2: #120f09;
+    --ink: #f0e8d5;
+    --ink2: #8a7a60;
+    --gold: #c8973a;
+    --gold2: #e8b84b;
+    --card: #1a1610;
+    --border: #2a2218;
+    --error: #e74c3c;
+    --success: #27ae60;
+    --radius: 16px;
+    --transition: 0.3s cubic-bezier(0.23,1,0.32,1);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  /* Ambient background */
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse 600px 600px at 20% 50%, rgba(200,151,58,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 400px 400px at 80% 20%, rgba(200,151,58,0.05) 0%, transparent 70%);
+  }
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  /* Lines decorative */
+  .bg-lines {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(
+      90deg,
+      rgba(200,151,58,0.03) 0px,
+      rgba(200,151,58,0.03) 1px,
+      transparent 1px,
+      transparent 120px
+    );
+  }
+
+  .login-container {
+    position: relative; z-index: 1;
+    width: 100%; max-width: 440px;
+    padding: 20px;
+    animation: slideUp 0.7s cubic-bezier(0.23,1,0.32,1) both;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .back-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--ink2); text-decoration: none; font-size: 0.85rem;
+    transition: color var(--transition);
+    margin-bottom: 32px;
+  }
+  .back-link:hover { color: var(--gold); }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 44px 40px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(200,151,58,0.05);
+    position: relative; overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(200,151,58,0.4), transparent);
+  }
+
+  .card-logo {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 32px;
+  }
+  .logo-badge {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--gold), var(--gold2));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px;
+    color: #fff; box-shadow: 0 4px 20px rgba(200,151,58,0.5);
+  }
+  .card-logo-text {
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem;
+    color: var(--ink);
+  }
+  .card-logo-text span { color: var(--gold); }
+
+  h1 {
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: 1.7rem; color: var(--ink);
+    letter-spacing: -0.02em; margin-bottom: 8px;
+  }
+  .subtitle {
+    font-size: 0.875rem; color: var(--ink2); margin-bottom: 36px; font-weight: 300;
+  }
+
+  .form-group { margin-bottom: 20px; }
+  label {
+    display: block; font-size: 0.8rem; font-weight: 500;
+    color: var(--ink2); margin-bottom: 8px;
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .input-wrap { position: relative; }
+  .input-icon {
+    position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+    font-size: 1rem; opacity: 0.5; pointer-events: none;
+  }
+  input {
+    width: 100%; background: rgba(255,255,255,0.04);
+    border: 1.5px solid var(--border); border-radius: 12px;
+    padding: 14px 16px 14px 46px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--ink);
+    transition: border-color var(--transition), box-shadow var(--transition);
+    outline: none;
+    -webkit-autofill-background-color: transparent;
+  }
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 100px var(--card) inset;
+    -webkit-text-fill-color: var(--ink);
+  }
+  input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(200,151,58,0.12);
+  }
+  input::placeholder { color: var(--ink2); opacity: 0.6; }
+
+  .password-wrap { position: relative; }
+  .toggle-pass {
+    position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+    background: none; border: none; cursor: pointer;
+    font-size: 1rem; color: var(--ink2); transition: color var(--transition);
+    padding: 4px;
+  }
+  .toggle-pass:hover { color: var(--gold); }
+
+  .btn-login {
+    width: 100%; background: linear-gradient(135deg, var(--gold), var(--gold2));
+    border: none; border-radius: 12px; padding: 15px;
+    font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700;
+    color: #fff; cursor: pointer; transition: all var(--transition);
+    box-shadow: 0 6px 24px rgba(200,151,58,0.35); margin-top: 8px;
+    position: relative; overflow: hidden;
+  }
+  .btn-login:hover:not(:disabled) {
+    transform: translateY(-1px); box-shadow: 0 10px 32px rgba(200,151,58,0.5);
+  }
+  .btn-login:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  .spinner {
+    display: inline-block; width: 18px; height: 18px;
+    border: 2.5px solid rgba(255,255,255,0.3);
+    border-top-color: #fff; border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .alert {
+    border-radius: 10px; padding: 12px 16px;
+    font-size: 0.875rem; margin-top: 16px;
+    display: none; align-items: center; gap: 10px;
+  }
+  .alert.show { display: flex; }
+  .alert.error { background: rgba(231,76,60,0.1); border: 1px solid rgba(231,76,60,0.25); color: #e74c3c; }
+  .alert.success { background: rgba(39,174,96,0.1); border: 1px solid rgba(39,174,96,0.25); color: #27ae60; }
+
+  .divider { height: 1px; background: var(--border); margin: 28px 0; }
+
+  .footer-note {
+    text-align: center; font-size: 0.78rem; color: var(--ink2);
+    margin-top: 28px;
+  }
+  .footer-note a { color: var(--gold); text-decoration: none; }
+
+  @media (max-width: 480px) {
+    .card { padding: 32px 24px; }
+    .login-container { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="bg-lines"></div>
+
+<div class="login-container">
+  <a href="index.html" class="back-link">← Back to Home</a>
+
+  <div class="card">
+    <div class="card-logo">
+       <div style="display:flex; align-items:center; gap:10px;">
+
+                <img src="srlogo.png" alt="SR Job Center Logo"
+                    style="width:50px; height:50px; object-fit:cover; border-radius:50%;">
+
+                <span style="font-size:24px; font-weight:bold; color:#000;">
+                    SR <span style="color:#007bff;">Job Center</span>
+                </span>
+
+            </div>
+    </div>
+    <h1>Admin Portal</h1>
+    <p class="subtitle">Sign in with your administrator credentials to continue.</p>
+
+    <form id="loginForm" onsubmit="handleLogin(event)">
+      <div class="form-group">
+        <label>Email Address</label>
+        <div class="input-wrap">
+          <span class="input-icon">✉️</span>
+          <input type="email" id="email" placeholder="admin@srjob.com" required autocomplete="email"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <div class="input-wrap password-wrap">
+          <span class="input-icon">🔒</span>
+          <input type="password" id="password" placeholder="Enter your password" required autocomplete="current-password"/>
+          <button type="button" class="toggle-pass" onclick="togglePass()">👁️</button>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-login" id="loginBtn">
+        <span id="btnText">Sign In to Dashboard</span>
+      </button>
+
+      <div class="alert error" id="errorAlert">
+        <span>⚠️</span><span id="errorMsg">Invalid credentials. Please try again.</span>
+      </div>
+      <div class="alert success" id="successAlert">
+        <span>✅</span><span>Login successful! Redirecting…</span>
+      </div>
+    </form>
+
+    <div class="divider"></div>
+    <div class="footer-note">
+      SR Job Center Admin · <a href="mailto:srjobcentersupport@gmail.com">srjobcentersupport@gmail.com</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const API = "https://script.google.com/macros/s/AKfycbxQ-QXTfypT2y1b5b2OTGNnMYYiOywbzsnZozDxN1LmfW4TyYcaTin-LsvUNKc4GodL/exec";
+
+  // Redirect if already logged in
+  if (sessionStorage.getItem('adminAuth') === 'true') {
+    location.href = 'adminhome.html';
+  }
+
+  function togglePass() {
+    const pw = document.getElementById('password');
+    pw.type = pw.type === 'password' ? 'text' : 'password';
+  }
+
+  async function handleLogin(e) {
+    e.preventDefault();
+    const email    = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const btn      = document.getElementById('loginBtn');
+    const btnText  = document.getElementById('btnText');
+    const errAlert = document.getElementById('errorAlert');
+    const sucAlert = document.getElementById('successAlert');
+
+    // Reset
+    errAlert.classList.remove('show');
+    sucAlert.classList.remove('show');
+    btn.disabled = true;
+    btnText.innerHTML = '<span class="spinner"></span>';
+
+    try {
+      const resp = await fetch(API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({ action: 'verifyAdminLogin', email, password })
+      });
+      const data = await resp.json();
+
+      if (data.success) {
+        sucAlert.classList.add('show');
+        sessionStorage.setItem('adminAuth', 'true');
+        sessionStorage.setItem('adminName', data.fullname || 'Admin');
+        setTimeout(() => { location.href = 'adminhome.html'; }, 1200);
+      } else {
+        document.getElementById('errorMsg').textContent = data.message || 'Invalid credentials.';
+        errAlert.classList.add('show');
+        btn.disabled = false;
+        btnText.textContent = 'Sign In to Dashboard';
+      }
+    } catch (err) {
+      document.getElementById('errorMsg').textContent = 'Network error. Please check connection.';
+      errAlert.classList.add('show');
+      btn.disabled = false;
+      btnText.textContent = 'Sign In to Dashboard';
+    }
+  }
+</script>
+</body>
+</html>

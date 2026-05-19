@@ -1,1175 +1,1653 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="SR Job Center - Nepal's most trusted job placement platform. Find jobs or hire qualified candidates instantly via WhatsApp." />
-  <meta name="keywords" content="jobs in Nepal, job placement Nepal, hire staff Nepal, Kathmandu jobs, SR Job Center" />
-  <meta property="og:title" content="SR Job Center – Nepal's Trusted Job Platform" />
-  <meta property="og:description" content="Connect job seekers and employers instantly. 500+ active jobs. 100% free for job seekers." />
-  <meta property="og:type" content="website" />
-  <title>SR Job Center | एसआर जब सेन्टर – Nepal's Trusted Job Platform</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description"
+        content="SR Job Center – Connecting talent with opportunity in Nepal. Find jobs or hire staff today." />
+    <meta name="keywords" content="SR Job Center, jobs Nepal, hire staff, Kathmandu jobs, employment agency" />
+    <link rel="icon" type="image/png" href="srlogo.png">
+    <title>SR Job Center – Nepal's Trusted Employment Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #f5f0e8;
+            --bg2: #ebe4d6;
+            --ink: #1a1208;
+            --ink2: #5a4e38;
+            --gold: #c8973a;
+            --gold2: #e8b84b;
+            --red: #c0392b;
+            --card: #fff9f0;
+            --border: #d4c8b0;
+            --shadow: 0 8px 40px rgba(26, 18, 8, 0.12);
+            --radius: 16px;
+            --transition: 0.35s cubic-bezier(0.23, 1, 0.32, 1);
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet" />
+            /* Liquid glass extras */
+            --glass-light: rgba(255,255,255,0.55);
+            --glass-border-light: rgba(255,255,255,0.7);
+            --orb1: rgba(200,151,58,0.18);
+            --orb2: rgba(120,80,200,0.10);
+            --orb3: rgba(74,158,255,0.10);
+            --shine: rgba(255,255,255,0.12);
+        }
 
-  <!-- Font Awesome 6.5.0 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+        [data-theme="dark"] {
+            --bg: #0a0d14;
+            --bg2: #0e1220;
+            --ink: #f0e8d5;
+            --ink2: #a89878;
+            --gold: #e8b84b;
+            --gold2: #ffd166;
+            --card: #111827;
+            --border: rgba(255,255,255,0.10);
+            --shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
 
-  <!-- Favicon (text-based SVG) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a56db'/><text y='.9em' font-size='60' font-family='Arial' font-weight='bold' fill='white' x='10'>SR</text></svg>" />
+            --glass-light: rgba(255,255,255,0.04);
+            --glass-border-light: rgba(255,255,255,0.12);
+            --orb1: rgba(200,151,58,0.12);
+            --orb2: rgba(120,80,200,0.08);
+            --orb3: rgba(74,158,255,0.08);
+            --shine: rgba(255,255,255,0.06);
+        }
 
-  <style>
-    /* ============================================================
-       CSS CUSTOM PROPERTIES & RESET
-    ============================================================ */
-    :root {
-      --blue: #1a56db;
-      --blue-mid: #3b82f6;
-      --blue-light: #93c5fd;
-      --cyan: #06b6d4;
-      --orange: #f59e0b;
-      --orange-deep: #ef4444;
-      --white: #ffffff;
-      --off-white: #f8fafc;
-      --gray-100: #f1f5f9;
-      --gray-200: #e2e8f0;
-      --gray-400: #94a3b8;
-      --gray-600: #475569;
-      --gray-800: #1e293b;
-      --gray-900: #0f172a;
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-      /* Theme tokens */
-      --bg: #f0f4ff;
-      --surface: #ffffff;
-      --surface-2: #f8fafc;
-      --text: #0f172a;
-      --text-muted: #64748b;
-      --border: #e2e8f0;
-      --shadow: 0 4px 24px rgba(26, 86, 219, 0.10);
-      --shadow-lg: 0 12px 48px rgba(26, 86, 219, 0.18);
-      --card-bg: #ffffff;
-      --nav-bg: rgba(255,255,255,0.85);
-      --footer-bg: #0f172a;
-      --toast-bg: #1e293b;
-      --toast-text: #ffffff;
+        html { scroll-behavior: smooth; }
 
-      --radius: 18px;
-      --radius-sm: 10px;
-      --font-body: 'Plus Jakarta Sans', sans-serif;
-      --font-display: 'Sora', sans-serif;
-      --transition: 0.3s cubic-bezier(.4,0,.2,1);
-    }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            min-height: 100vh;
+            transition: background var(--transition), color var(--transition);
+            overflow-x: hidden;
+        }
 
-    [data-theme="dark"] {
-      --bg: #070d1a;
-      --surface: #0f1a2e;
-      --surface-2: #0a1221;
-      --text: #e8f0ff;
-      --text-muted: #8eaad4;
-      --border: #1e3a5f;
-      --shadow: 0 4px 24px rgba(0,0,0,0.45);
-      --shadow-lg: 0 12px 48px rgba(0,0,0,0.6);
-      --card-bg: #0f1e38;
-      --nav-bg: rgba(7,13,26,0.90);
-      --footer-bg: #050b18;
-      --toast-bg: #e8f0ff;
-      --toast-text: #0f1a2e;
-    }
+        /* ── Animated liquid gradient bg ── */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background: linear-gradient(
+                125deg,
+                #0a0d14 0%,
+                #141028 25%,
+                #0d1a20 50%,
+                #130e1e 75%,
+                #0a0d14 100%
+            );
+            background-size: 400% 400%;
+            animation: liquidBg 20s ease-in-out infinite;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            pointer-events: none;
+        }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-body);
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      overflow-x: hidden;
-      transition: background var(--transition), color var(--transition);
-    }
+        [data-theme="dark"] body::after { opacity: 1; }
 
-    /* ============================================================
-       NAVBAR
-    ============================================================ */
-    .navbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: var(--nav-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      transition: background var(--transition), border-color var(--transition);
-    }
-    .nav-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 24px;
-    }
-    .nav-logo {
-      display: flex; align-items: center; gap: 12px;
-      text-decoration: none;
-    }
-    .logo-circle {
-      width: 42px; height: 42px; border-radius: 12px;
-      background: linear-gradient(135deg, var(--blue), var(--cyan));
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-display); font-weight: 700; font-size: 15px;
-      color: white; letter-spacing: 0.5px;
-      box-shadow: 0 4px 16px rgba(26,86,219,0.3);
-      flex-shrink: 0;
-    }
-    .logo-text { line-height: 1.2; }
-    .logo-name {
-      font-family: var(--font-display); font-weight: 700; font-size: 17px;
-      color: var(--blue); display: block;
-    }
-    .logo-tagline {
-      font-size: 11px; color: var(--text-muted); font-weight: 500;
-    }
-    .nav-actions { display: flex; align-items: center; gap: 10px; }
+        @keyframes liquidBg {
+            0%   { background-position: 0% 50%; }
+            33%  { background-position: 100% 50%; }
+            66%  { background-position: 50% 100%; }
+            100% { background-position: 0% 50%; }
+        }
 
-    /* Language Dropdown */
-    .lang-select {
-      appearance: none;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--text);
-      font-family: var(--font-body);
-      font-size: 13px; font-weight: 500;
-      padding: 7px 28px 7px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 9px center;
-      transition: border-color var(--transition), background var(--transition);
-    }
-    .lang-select:focus { outline: none; border-color: var(--blue); }
+        /* Noise texture */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 999;
+            opacity: 0.4;
+        }
 
-    /* Dark Mode Toggle */
-    .theme-toggle {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      cursor: pointer; display: flex; align-items: center; justify-content: center;
-      font-size: 17px; color: var(--text-muted);
-      transition: all var(--transition);
-    }
-    .theme-toggle:hover { background: var(--blue); color: white; border-color: var(--blue); }
+        /* ── Ambient glass orbs ── */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            filter: blur(60px);
+            will-change: transform;
+        }
 
-    /* ============================================================
-       HERO SECTION
-    ============================================================ */
-    .hero {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #1a56db 0%, #3b82f6 60%, #06b6d4 100%);
-      position: relative; overflow: hidden;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      padding: 100px 24px 60px;
-    }
+        .orb-1 {
+            width: 500px; height: 500px;
+            background: var(--orb1);
+            top: -100px; left: -80px;
+            animation: orbDrift1 18s ease-in-out infinite;
+        }
 
-    /* Animated floating shapes */
-    .hero-shape {
-      position: absolute; border-radius: 50%;
-      opacity: 0.12; animation: floatShape 8s ease-in-out infinite;
-      background: white;
-    }
-    .hero-shape:nth-child(1) { width: 340px; height: 340px; top: -80px; left: -100px; animation-delay: 0s; }
-    .hero-shape:nth-child(2) { width: 220px; height: 220px; top: 30%; right: -60px; animation-delay: 2s; }
-    .hero-shape:nth-child(3) { width: 160px; height: 160px; bottom: 10%; left: 10%; animation-delay: 4s; }
-    .hero-shape:nth-child(4) { width: 90px; height: 90px; top: 20%; left: 40%; animation-delay: 1s; }
-    .hero-shape:nth-child(5) { width: 60px; height: 60px; bottom: 20%; right: 15%; animation-delay: 3s; }
+        .orb-2 {
+            width: 380px; height: 380px;
+            background: var(--orb2);
+            bottom: 10%; right: -60px;
+            animation: orbDrift2 22s ease-in-out infinite;
+        }
 
-    @keyframes floatShape {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-28px) scale(1.05); }
-    }
+        .orb-3 {
+            width: 300px; height: 300px;
+            background: var(--orb3);
+            top: 40%; left: 30%;
+            animation: orbDrift3 15s ease-in-out infinite;
+        }
 
-    /* Particle dots */
-    .hero-dots {
-      position: absolute; inset: 0; pointer-events: none;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.25) 1px, transparent 1px);
-      background-size: 36px 36px;
-      animation: driftDots 20s linear infinite;
-    }
-    @keyframes driftDots {
-      0% { background-position: 0 0; }
-      100% { background-position: 36px 36px; }
-    }
+        @keyframes orbDrift1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33%  { transform: translate(120px, 80px) scale(1.1); }
+            66%  { transform: translate(40px, -60px) scale(0.9); }
+        }
 
-    .hero-content {
-      position: relative; z-index: 2;
-      text-align: center; max-width: 800px;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 100px; padding: 8px 20px;
-      font-size: 13px; font-weight: 600; color: white;
-      margin-bottom: 28px;
-      backdrop-filter: blur(10px);
-      animation: fadeDown 0.6s ease both;
-    }
-    .hero-badge i { color: #fde68a; }
+        @keyframes orbDrift2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            40%  { transform: translate(-100px, -80px) rotate(45deg); }
+            70%  { transform: translate(60px, 40px) rotate(-20deg); }
+        }
 
-    .hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 700; color: white; line-height: 1.15;
-      margin-bottom: 20px;
-      animation: fadeDown 0.7s ease 0.1s both;
-    }
-    .hero-title span { color: #fde68a; }
+        @keyframes orbDrift3 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50%  { transform: translate(-80px, 60px) scale(1.2); }
+        }
 
-    .hero-subtitle {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: rgba(255,255,255,0.85); line-height: 1.7;
-      margin-bottom: 14px;
-      animation: fadeDown 0.7s ease 0.2s both;
-    }
-    .hero-tagline {
-      font-size: 14px; color: rgba(255,255,255,0.65);
-      margin-bottom: 40px; font-style: italic;
-      animation: fadeDown 0.7s ease 0.3s both;
-    }
-    .hero-cta-label {
-      font-size: 13px; font-weight: 600; color: #fde68a;
-      text-transform: uppercase; letter-spacing: 2px;
-      margin-bottom: 32px;
-      animation: fadeDown 0.7s ease 0.4s both;
-    }
+        /* ─── Header ─── */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 48px;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            background: var(--glass-light);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            box-shadow: 0 1px 0 var(--glass-border-light), 0 8px 32px rgba(0,0,0,0.08);
+            transition: background var(--transition), box-shadow var(--transition);
+        }
 
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+        [data-theme="dark"] header {
+            background: rgba(10,13,20,0.6);
+            box-shadow: 0 1px 0 rgba(255,255,255,0.08), 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+        }
 
-    /* ============================================================
-       ROLE CARDS
-    ============================================================ */
-    .cards-row {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 24px; max-width: 840px; width: 100%;
-      animation: fadeUp 0.8s ease 0.5s both;
-    }
-    @media (max-width: 639px) {
-      .cards-row { grid-template-columns: 1fr; }
-    }
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+        .logo-text {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--ink);
+        }
 
-    .role-card {
-      position: relative; border-radius: var(--radius);
-      padding: 36px 28px; cursor: pointer;
-      transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s ease;
-      overflow: hidden; text-decoration: none;
-      display: flex; flex-direction: column; gap: 20px;
-    }
-    .role-card:hover { transform: translateY(-8px) scale(1.02); }
+        .logo-text span { color: var(--gold); }
 
-    .card-seeker {
-      background: linear-gradient(145deg, #1a4fd3 0%, #0ea5e9 100%);
-      box-shadow: 0 16px 48px rgba(26,86,219,0.4);
-    }
-    .card-seeker:hover { box-shadow: 0 24px 64px rgba(26,86,219,0.55); }
+        /* ─── Desktop Nav ─── */
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    .card-employer {
-      background: linear-gradient(145deg, #d97706 0%, #ef4444 100%);
-      box-shadow: 0 16px 48px rgba(239,68,68,0.35);
-    }
-    .card-employer:hover { box-shadow: 0 24px 64px rgba(239,68,68,0.5); }
+        .btn-ghost {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 8px 20px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--ink);
+            cursor: pointer;
+            transition: all var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
 
-    /* Shine effect */
-    .role-card::before {
-      content: '';
-      position: absolute; top: -50%; left: -60%;
-      width: 60%; height: 200%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
-      transform: skewX(-20deg);
-      transition: left 0.6s ease;
-    }
-    .role-card:hover::before { left: 120%; }
+        .btn-ghost:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(200,151,58,0.06);
+            box-shadow: 0 0 16px rgba(200,151,58,0.12);
+        }
 
-    .card-icon {
-      width: 68px; height: 68px; border-radius: 16px;
-      background: rgba(255,255,255,0.2);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 30px; backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.3);
-    }
-    .card-title {
-      font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;
-      color: white; line-height: 1.2;
-    }
-    .card-desc {
-      font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.65;
-    }
+        .theme-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--glass-light);
+            backdrop-filter: blur(8px);
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition);
+            color: var(--ink);
+        }
 
-    .card-features {
-      list-style: none; display: flex; flex-direction: column; gap: 10px;
-    }
-    .card-features li {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 13.5px; color: rgba(255,255,255,0.9); font-weight: 500;
-    }
-    .card-features li::before {
-      content: '';
-      width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0;
-      background: rgba(255,255,255,0.25);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: center;
-    }
+        .theme-btn:hover {
+            border-color: var(--gold);
+            transform: rotate(20deg);
+            box-shadow: 0 0 20px rgba(200,151,58,0.25);
+        }
 
-    .card-btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 14px 24px; border-radius: 12px;
-      background: rgba(255,255,255,0.22);
-      border: 1.5px solid rgba(255,255,255,0.45);
-      color: white; font-weight: 700; font-size: 15px;
-      font-family: var(--font-body);
-      transition: background 0.25s, border-color 0.25s, transform 0.2s;
-      backdrop-filter: blur(8px); cursor: pointer;
-      width: 100%;
-    }
-    .card-btn:hover {
-      background: rgba(255,255,255,0.38);
-      border-color: rgba(255,255,255,0.7);
-      transform: scale(1.02);
-    }
-    .card-btn i { font-size: 14px; transition: transform 0.2s; }
-    .card-btn:hover i { transform: translateX(4px); }
+        /* ─── Hamburger Button ─── */
+        .hamburger-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--glass-light);
+            backdrop-filter: blur(8px);
+            cursor: pointer;
+            padding: 0;
+            transition: border-color var(--transition);
+        }
 
-    /* ============================================================
-       MAIN CONTENT SECTIONS (white area)
-    ============================================================ */
-    .main-content { background: var(--bg); transition: background var(--transition); }
+        .hamburger-btn:hover { border-color: var(--gold); }
 
-    .section { padding: 80px 24px; }
-    .container { max-width: 1200px; margin: 0 auto; }
+        .hamburger-btn span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--ink);
+            border-radius: 2px;
+            transition: all var(--transition);
+        }
 
-    .section-title {
-      font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 700; color: var(--text); text-align: center;
-      margin-bottom: 12px; line-height: 1.25;
-    }
-    .section-sub {
-      font-size: 15px; color: var(--text-muted); text-align: center;
-      max-width: 520px; margin: 0 auto 52px; line-height: 1.7;
-    }
-    .section-pill {
-      display: inline-block; background: rgba(26,86,219,0.1); color: var(--blue);
-      border-radius: 100px; padding: 5px 18px; font-size: 12px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px;
-    }
+        .hamburger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger-btn.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* ============================================================
-       STATS SECTION
-    ============================================================ */
-    .stats-section {
-      background: linear-gradient(135deg, #1a56db 0%, #3b82f6 60%, #06b6d4 100%);
-      padding: 60px 24px;
-    }
-    .stats-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 16px; max-width: 900px; margin: 0 auto;
-    }
-    @media (max-width: 640px) {
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    .stat-card {
-      text-align: center; padding: 28px 16px;
-      background: rgba(255,255,255,0.12);
-      border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.2);
-      backdrop-filter: blur(12px);
-      transition: transform 0.3s ease;
-    }
-    .stat-card:hover { transform: translateY(-4px); }
-    .stat-number {
-      font-family: var(--font-display); font-size: 2.4rem; font-weight: 700;
-      color: #fde68a; line-height: 1;
-    }
-    .stat-suffix { font-size: 1.5rem; color: rgba(255,255,255,0.8); }
-    .stat-label { font-size: 13px; color: rgba(255,255,255,0.8); margin-top: 8px; font-weight: 500; }
+        /* ─── Mobile Menu Drawer ─── */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 190;
+            background: rgba(26, 18, 8, 0.5);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            transition: opacity var(--transition);
+        }
 
-    /* ============================================================
-       HOW IT WORKS
-    ============================================================ */
-    .steps-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 24px; position: relative;
-    }
-    @media (max-width: 768px) {
-      .steps-grid { grid-template-columns: 1fr; gap: 16px; }
-    }
-    .step-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 36px 28px;
-      text-align: center; position: relative;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background var(--transition), border-color var(--transition);
-    }
-    .step-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-    .step-num {
-      width: 56px; height: 56px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--blue), var(--cyan));
-      color: white; font-family: var(--font-display); font-size: 1.3rem; font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 20px;
-      box-shadow: 0 6px 20px rgba(26,86,219,0.3);
-    }
-    .step-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
-    .step-title {
-      font-family: var(--font-display); font-size: 1.1rem; font-weight: 700;
-      color: var(--text); margin-bottom: 10px;
-    }
-    .step-desc { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+        .mobile-menu.open { opacity: 1; }
 
-    /* Connector line between steps */
-    @media (min-width: 769px) {
-      .steps-grid::after {
-        content: '';
-        position: absolute; top: 56px; left: calc(33.33% - 12px); right: calc(33.33% - 12px);
-        height: 2px;
-        background: linear-gradient(90deg, var(--blue), var(--cyan));
-        opacity: 0.25; z-index: 0;
-      }
-    }
+        .mobile-menu-drawer {
+            position: absolute;
+            top: 0; right: 0;
+            width: min(300px, 85vw);
+            height: 100%;
+            background: var(--bg);
+            border-left: 1px solid var(--border);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            padding: 24px 20px;
+            transform: translateX(100%);
+            transition: transform var(--transition);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-    /* ============================================================
-       TESTIMONIALS
-    ============================================================ */
-    .testimonials-section { background: var(--surface-2); transition: background var(--transition); }
-    .testi-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    @media (max-width: 900px) { .testi-grid { grid-template-columns: 1fr; } }
-    @media (min-width: 640px) and (max-width: 900px) { .testi-grid { grid-template-columns: repeat(2, 1fr); } }
+        [data-theme="dark"] .mobile-menu-drawer {
+            background: rgba(10,13,20,0.92);
+            box-shadow: -4px 0 40px rgba(0,0,0,0.5);
+        }
 
-    .testi-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 28px;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background var(--transition), border-color var(--transition);
-      display: flex; flex-direction: column; gap: 16px;
-    }
-    .testi-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-    .testi-stars { color: #f59e0b; font-size: 15px; letter-spacing: 2px; }
-    .testi-text {
-      font-size: 14.5px; color: var(--text-muted); line-height: 1.75;
-      font-style: italic;
-    }
-    .testi-user { display: flex; align-items: center; gap: 12px; margin-top: auto; }
-    .testi-avatar {
-      width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 16px; color: white;
-    }
-    .av-blue { background: linear-gradient(135deg, #1a56db, #06b6d4); }
-    .av-orange { background: linear-gradient(135deg, #f59e0b, #ef4444); }
-    .av-green { background: linear-gradient(135deg, #10b981, #3b82f6); }
-    .testi-name { font-weight: 700; font-size: 14px; color: var(--text); }
-    .testi-role { font-size: 12px; color: var(--text-muted); }
+        .mobile-menu.open .mobile-menu-drawer { transform: translateX(0); }
 
-    /* ============================================================
-       ABOUT STRIP
-    ============================================================ */
-    .about-strip {
-      background: var(--surface); padding: 60px 24px;
-      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-      transition: background var(--transition), border-color var(--transition);
-    }
-    .about-inner {
-      max-width: 800px; margin: 0 auto; text-align: center;
-    }
-    .about-inner p { font-size: 16px; color: var(--text-muted); line-height: 1.8; }
+        .mobile-menu-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 8px;
+        }
 
-    /* ============================================================
-       FOOTER
-    ============================================================ */
-    .footer {
-      background: var(--footer-bg);
-      padding: 56px 24px 28px;
-      transition: background var(--transition);
-    }
-    .footer-grid {
-      max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 40px; padding-bottom: 40px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    @media (max-width: 768px) {
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
-    }
-    @media (max-width: 480px) {
-      .footer-grid { grid-template-columns: 1fr; }
-    }
-    .footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .footer-logo-circle {
-      width: 44px; height: 44px; border-radius: 12px;
-      background: linear-gradient(135deg, var(--blue), var(--cyan));
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-display); font-weight: 700; font-size: 15px; color: white;
-    }
-    .footer-brand { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: white; }
-    .footer-brand-tag { font-size: 11px; color: rgba(255,255,255,0.45); display: block; }
-    .footer-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 20px; }
-    .footer-social { display: flex; gap: 10px; }
-    .social-btn {
-      width: 36px; height: 36px; border-radius: 9px;
-      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
-      display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.65); font-size: 15px; text-decoration: none;
-      transition: all 0.25s ease;
-    }
-    .social-btn:hover { background: var(--blue); color: white; border-color: var(--blue); }
-    .footer-col-title { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 18px; }
-    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-links li a { font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
-    .footer-links li a:hover { color: var(--blue-light); }
-    .footer-contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
-    .footer-contact-item i { color: var(--blue-light); font-size: 14px; margin-top: 3px; }
-    .footer-contact-item span { font-size: 14px; color: rgba(255,255,255,0.5); }
-    .footer-bottom {
-      max-width: 1100px; margin: 0 auto; padding-top: 24px;
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
-    }
-    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.35); }
+        .mobile-menu-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--ink);
+        }
 
-    /* ============================================================
-       TOAST NOTIFICATION
-    ============================================================ */
-    #toast {
-      position: fixed; bottom: 28px; right: 28px; z-index: 9999;
-      background: var(--toast-bg); color: var(--toast-text);
-      padding: 14px 22px; border-radius: 12px;
-      font-size: 14px; font-weight: 600;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-      display: flex; align-items: center; gap: 10px;
-      transform: translateY(20px); opacity: 0;
-      transition: all 0.35s cubic-bezier(.34,1.56,.64,1);
-      pointer-events: none; max-width: 300px;
-    }
-    #toast.show { transform: translateY(0); opacity: 1; pointer-events: auto; }
-    #toast i { color: #4ade80; font-size: 16px; }
+        .mobile-close-btn {
+            width: 36px; height: 36px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--ink);
+            transition: all var(--transition);
+        }
 
-    /* ============================================================
-       SCROLL REVEAL
-    ============================================================ */
-    .reveal {
-      opacity: 0; transform: translateY(28px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
+        .mobile-close-btn:hover { border-color: var(--gold); color: var(--gold); }
 
-    /* ============================================================
-       MISC UTILITIES
-    ============================================================ */
-    .text-center { text-align: center; }
-    .flex-center { display: flex; align-items: center; justify-content: center; }
+        .mobile-nav-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--ink);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all var(--transition);
+            background: var(--card);
+        }
 
-    /* Scroll-down chevron */
-    .scroll-hint {
-      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
-      color: rgba(255,255,255,0.6); font-size: 24px;
-      animation: bounce 2s infinite;
-      z-index: 2;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(8px); }
-    }
-  </style>
+        .mobile-nav-link:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            box-shadow: 0 0 16px rgba(200,151,58,0.1);
+        }
+
+        .mobile-nav-link .link-icon {
+            font-size: 1.2rem;
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            background: rgba(200,151,58,0.1);
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .mobile-theme-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--card);
+            margin-top: 4px;
+        }
+
+        .mobile-theme-row span { font-size: 0.9rem; color: var(--ink2); }
+
+        .mobile-theme-btn {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: none;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex; align-items: center; justify-content: center;
+            transition: all var(--transition);
+            color: var(--ink);
+        }
+
+        .mobile-contact-info {
+            margin-top: auto;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            font-size: 0.78rem;
+            color: var(--ink2);
+            line-height: 1.7;
+        }
+
+        .mobile-contact-info a { color: var(--gold); text-decoration: none; }
+
+        /* ─── Hero ─── */
+        .hero {
+            min-height: calc(100vh - 74px);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            position: relative;
+            z-index: 2;
+            perspective: 1200px;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 60px 80px 80px;
+            animation: heroLeftIn 0.8s cubic-bezier(0.23,1,0.32,1) both;
+        }
+
+        @keyframes heroLeftIn {
+            from { opacity: 0; transform: translateY(40px) translateX(-20px); }
+            to   { opacity: 1; transform: translateY(0) translateX(0); }
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(200, 151, 58, 0.12);
+            border: 1px solid rgba(200, 151, 58, 0.3);
+            border-radius: 100px;
+            padding: 6px 16px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+            width: fit-content;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 0 20px rgba(200,151,58,0.1);
+            text-shadow: 0 0 12px rgba(200,151,58,0.4);
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 8px var(--gold);
+            animation: orbPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes orbPulse {
+            0%, 100% { box-shadow: 0 0 8px var(--gold); }
+            50%       { box-shadow: 0 0 20px var(--gold); }
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(2.4rem, 5vw, 4.5rem);
+            line-height: 1.05;
+            color: var(--ink);
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            text-shadow: 0 2px 12px rgba(200,151,58,0.15);
+        }
+
+        h1 em {
+            font-style: normal;
+            color: var(--gold);
+            text-shadow: 0 0 30px rgba(200,151,58,0.4), 0 2px 10px rgba(200,151,58,0.2);
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--ink2);
+            line-height: 1.7;
+            max-width: 480px;
+            margin-bottom: 52px;
+            font-weight: 300;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--ink);
+            color: var(--bg);
+            border: none;
+            border-radius: 100px;
+            padding: 16px 32px;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all var(--transition);
+            box-shadow: 0 4px 20px rgba(26,18,8,0.2);
+            position: relative;
+            overflow: hidden;
+            will-change: transform;
+            animation: ctaGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes ctaGlow {
+            0%, 100% { box-shadow: 0 4px 20px rgba(26,18,8,0.2); }
+            50%       { box-shadow: 0 4px 28px rgba(26,18,8,0.35), 0 0 0 3px rgba(200,151,58,0.08); }
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gold);
+            opacity: 0;
+            transition: opacity var(--transition);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(26,18,8,0.35);
+        }
+
+        .btn-primary:hover::after { opacity: 0.15; }
+
+        .btn-gold {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--gold), var(--gold2));
+            color: #fff;
+            border: none;
+            border-radius: 100px;
+            padding: 16px 32px;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all var(--transition);
+            box-shadow: 0 4px 20px rgba(200,151,58,0.35);
+            will-change: transform;
+            animation: goldGlow 3s ease-in-out 1.5s infinite;
+        }
+
+        @keyframes goldGlow {
+            0%, 100% { box-shadow: 0 4px 20px rgba(200,151,58,0.35); }
+            50%       { box-shadow: 0 4px 36px rgba(200,151,58,0.6), 0 0 0 3px rgba(200,151,58,0.1); }
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(200,151,58,0.55);
+        }
+
+        .btn-icon {
+            font-size: 1.1rem;
+            transition: transform var(--transition);
+            display: inline-block;
+        }
+
+        .btn-primary:hover .btn-icon,
+        .btn-gold:hover .btn-icon { transform: translateX(5px); }
+
+        /* ─── Hero Right ─── */
+        .hero-right {
+            position: relative;
+            overflow: hidden;
+            background: var(--bg2);
+            border-left: 1px solid var(--border);
+            transform-style: preserve-3d;
+        }
+
+        [data-theme="dark"] .hero-right {
+            background: rgba(14,18,32,0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .hero-right::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                transparent 0%,
+                var(--shine) 50%,
+                transparent 100%
+            );
+            background-size: 200% 200%;
+            animation: liquidShine 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes liquidShine {
+            0%   { background-position: -100% -100%; }
+            50%  { background-position: 200% 200%; }
+            100% { background-position: -100% -100%; }
+        }
+
+        .hero-right::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px; height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(200,151,58,0.12) 0%, transparent 70%);
+            animation: orbPulse 4s ease-in-out infinite;
+        }
+
+        .hero-visual {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .big-number {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(6rem, 12vw, 11rem);
+            color: rgba(200,151,58,0.07);
+            line-height: 1;
+            letter-spacing: -0.05em;
+            user-select: none;
+            position: absolute;
+            z-index: 0;
+        }
+
+        /* ─── Float cards (3D enhanced) ─── */
+        .float-cards {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding: 40px;
+            transform-style: preserve-3d;
+            animation: heroRightIn 0.9s 0.2s cubic-bezier(0.23,1,0.32,1) both;
+        }
+
+        @keyframes heroRightIn {
+            from { opacity: 0; transform: translateX(30px) scale(0.95); }
+            to   { opacity: 1; transform: translateX(0) scale(1); }
+        }
+
+        .float-card {
+            background: var(--glass-light);
+            border: 1px solid var(--glass-border-light);
+            border-radius: var(--radius);
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            will-change: transform;
+            transform-style: preserve-3d;
+            cursor: default;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .float-card {
+            background: rgba(255,255,255,0.04);
+            border-color: rgba(255,255,255,0.10);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08);
+        }
+
+        [data-theme="light"] .float-card {
+            background: rgba(255,255,255,0.7);
+            border-color: rgba(255,255,255,0.9);
+            box-shadow: 0 8px 32px rgba(26,18,8,0.1), inset 0 1px 0 rgba(255,255,255,0.9);
+        }
+
+        /* Liquid shine overlay on cards */
+        .float-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.6s ease;
+            pointer-events: none;
+        }
+
+        .float-card:hover::after { left: 160%; }
+
+        .float-card:nth-child(1) {
+            animation: floatCard1 4s ease-in-out infinite;
+            animation-delay: 0.4s;
+        }
+
+        .float-card:nth-child(2) {
+            animation: floatCard2 4.5s ease-in-out infinite;
+            animation-delay: 1s;
+            margin-left: 30px;
+        }
+
+        .float-card:nth-child(3) {
+            animation: floatCard3 3.8s ease-in-out infinite;
+            animation-delay: 1.8s;
+            margin-left: -10px;
+        }
+
+        .float-card:hover {
+            transform: translateY(-6px) translateZ(30px) rotateX(4deg) !important;
+            box-shadow: 0 24px 50px -10px rgba(200,151,58,0.25), 0 12px 24px rgba(0,0,0,0.2) !important;
+            animation-play-state: paused;
+        }
+
+        @keyframes floatCard1 {
+            0%, 100% { transform: translateY(0) translateZ(20px); }
+            50%       { transform: translateY(-10px) translateZ(30px); }
+        }
+
+        @keyframes floatCard2 {
+            0%, 100% { transform: translateY(-4px) translateZ(15px); }
+            50%       { transform: translateY(8px) translateZ(25px); }
+        }
+
+        @keyframes floatCard3 {
+            0%, 100% { transform: translateY(0) translateZ(10px); }
+            50%       { transform: translateY(-12px) translateZ(25px); }
+        }
+
+        .fc-icon {
+            width: 44px; height: 44px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--gold), var(--gold2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(200,151,58,0.35);
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .float-card:hover .fc-icon {
+            transform: scale(1.12) rotate(-5deg);
+            box-shadow: 0 8px 24px rgba(200,151,58,0.5);
+        }
+
+        .fc-label {
+            font-size: 0.75rem;
+            color: var(--ink2);
+            margin-bottom: 3px;
+        }
+
+        .fc-value {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--ink);
+        }
+
+        /* ─── Stats Bar ─── */
+        .stats-bar {
+            display: flex;
+            align-items: stretch;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: var(--bg2);
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        [data-theme="dark"] .stats-bar {
+            background: rgba(14,18,32,0.6);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+
+        .stat-item {
+            flex: 1;
+            padding: 28px 32px;
+            border-right: 1px solid var(--border);
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+            will-change: transform;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            inset: 1px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            transition: border-color var(--transition);
+        }
+
+        .stat-item:last-child { border-right: none; }
+
+        .stat-item:hover {
+            background: rgba(200,151,58,0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+
+        .stat-item:hover::before {
+            border-color: rgba(200,151,58,0.15);
+        }
+
+        .stat-num {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 2.2rem;
+            color: var(--gold);
+            letter-spacing: -0.02em;
+            text-shadow: 0 0 20px rgba(200,151,58,0.25);
+        }
+
+        .stat-label {
+            font-size: 0.82rem;
+            color: var(--ink2);
+            margin-top: 4px;
+        }
+
+        /* ─── Features ─── */
+        .section {
+            padding: 100px 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gold);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            text-shadow: 0 0 16px rgba(200,151,58,0.4);
+        }
+
+        .section-label::before {
+            content: '';
+            width: 24px;
+            height: 1.5px;
+            background: linear-gradient(90deg, var(--gold), var(--gold2));
+            box-shadow: 0 0 8px rgba(200,151,58,0.5);
+        }
+
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 10px rgba(200,151,58,0.15);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-top: 56px;
+        }
+
+        .feat-card {
+            background: var(--card);
+            padding: 36px 32px;
+            transition: all 0.4s cubic-bezier(0.23,1,0.32,1);
+            position: relative;
+            overflow: hidden;
+            will-change: transform;
+        }
+
+        [data-theme="dark"] .feat-card {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Diagonal shine on hover */
+        .feat-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -100%;
+            width: 60%;
+            height: 200%;
+            background: linear-gradient(
+                105deg,
+                transparent,
+                rgba(255,255,255,0.07),
+                transparent
+            );
+            transition: left 0.5s ease;
+            pointer-events: none;
+        }
+
+        .feat-card:hover::after { left: 160%; }
+
+        .feat-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold2));
+            box-shadow: 0 0 12px rgba(200,151,58,0.5);
+            transform: scaleX(0);
+            transition: transform var(--transition);
+            transform-origin: left;
+        }
+
+        .feat-card:hover {
+            background: var(--bg);
+            transform: translateY(-8px) rotateX(3deg);
+            box-shadow: 0 30px 50px -20px rgba(200,151,58,0.25), 0 12px 24px rgba(0,0,0,0.12);
+        }
+
+        [data-theme="dark"] .feat-card:hover {
+            background: rgba(255,255,255,0.06);
+            box-shadow: 0 30px 50px -20px rgba(200,151,58,0.35), 0 12px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+
+        .feat-card:hover::before { transform: scaleX(1); }
+
+        .feat-icon {
+            width: 52px; height: 52px;
+            border-radius: 14px;
+            background: rgba(200,151,58,0.1);
+            border: 1px solid rgba(200,151,58,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            transition: all var(--transition);
+            will-change: transform;
+        }
+
+        .feat-card:hover .feat-icon {
+            transform: scale(1.15) rotate(-8deg);
+            background: rgba(200,151,58,0.18);
+            box-shadow: 0 8px 20px rgba(200,151,58,0.25);
+        }
+
+        .feat-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        .feat-desc {
+            font-size: 0.875rem;
+            color: var(--ink2);
+            line-height: 1.65;
+        }
+
+        /* ─── Process ─── */
+        .process-section {
+            background: var(--bg2);
+        }
+
+        [data-theme="dark"] .process-section {
+            background: rgba(14,18,32,0.5);
+            backdrop-filter: blur(8px);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-top: 56px;
+        }
+
+        .step { text-align: center; }
+
+        .step-num {
+            width: 64px; height: 64px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--gold), var(--gold2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: #fff;
+            box-shadow: 0 6px 24px rgba(200,151,58,0.35), 0 0 0 0 rgba(200,151,58,0.2);
+            transition: all var(--transition);
+            will-change: transform, box-shadow;
+        }
+
+        .step:hover .step-num {
+            transform: translateY(-4px) scale(1.08);
+            box-shadow: 0 12px 32px rgba(200,151,58,0.5), 0 0 0 8px rgba(200,151,58,0.08);
+        }
+
+        .step h3 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 0.875rem;
+            color: var(--ink2);
+            line-height: 1.6;
+        }
+
+        /* ─── CTA Banner ─── */
+        .cta-banner {
+            margin: 80px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, var(--ink) 0%, #2d2210 100%);
+            padding: 72px 80px;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        [data-theme="dark"] .cta-banner {
+            background: linear-gradient(135deg, #0d1525 0%, #1a1208 100%);
+            border: 1px solid rgba(200,151,58,0.15);
+            box-shadow: 0 0 60px rgba(200,151,58,0.08), 0 40px 80px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 300px; height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(200,151,58,0.25) 0%, transparent 70%);
+            animation: orbDrift1 10s ease-in-out infinite;
+        }
+
+        .cta-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -40px; left: 60px;
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(200,151,58,0.12) 0%, transparent 70%);
+            animation: orbDrift2 14s ease-in-out infinite;
+        }
+
+        .cta-banner-inner {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+
+        .cta-banner h2 { color: #fff; margin-bottom: 8px; }
+        .cta-banner p { color: rgba(255,255,255,0.6); font-size: 0.95rem; }
+
+        .cta-banner-btns { display: flex; gap: 14px; flex-shrink: 0; }
+
+        /* ─── Footer ─── */
+        footer {
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+            padding: 48px 80px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            position: relative;
+            z-index: 2;
+        }
+
+        [data-theme="dark"] footer {
+            background: rgba(10,13,20,0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+
+        .footer-brand p {
+            font-size: 0.875rem;
+            color: var(--ink2);
+            line-height: 1.7;
+            max-width: 280px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 0.875rem;
+            color: var(--ink2);
+            text-decoration: none;
+            transition: color var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--gold);
+            text-shadow: 0 0 8px rgba(200,151,58,0.3);
+        }
+
+        .footer-bottom {
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+            padding: 20px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--ink2);
+            position: relative;
+            z-index: 2;
+        }
+
+        [data-theme="dark"] .footer-bottom {
+            background: rgba(10,13,20,0.8);
+        }
+
+        .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+        /* ─── Entrance animations ─── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.34, 1.2, 0.64, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* ─── Stats bounce in ─── */
+        .stat-item.visible {
+            animation: statBounce 0.6s cubic-bezier(0.34, 1.2, 0.64, 1) both;
+        }
+
+        @keyframes statBounce {
+            from { opacity: 0; transform: translateY(20px) scale(0.95); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 1024px) {
+            header { padding: 16px 28px; }
+
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .hero-right { display: none; }
+            .hero-left { padding: 60px 40px; }
+            .section { padding: 70px 40px; }
+            .features-grid { grid-template-columns: 1fr 1fr; }
+            .process-steps { grid-template-columns: 1fr 1fr; }
+            .cta-banner { margin: 40px; padding: 48px 40px; }
+            footer { grid-template-columns: 1fr 1fr; padding: 40px; }
+            .footer-bottom { padding: 16px 40px; }
+            .stats-bar { flex-wrap: wrap; }
+            .stat-item { min-width: 50%; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-desktop { display: none; }
+            .hamburger-btn { display: flex; }
+            .mobile-menu.open { display: block; }
+
+            header { padding: 14px 18px; }
+
+            .hero { grid-template-columns: 1fr; min-height: auto; }
+            .hero-right { display: none; }
+            .hero-left { padding: 44px 20px 52px; }
+
+            .hero-eyebrow { font-size: 0.7rem; padding: 5px 12px; margin-bottom: 20px; }
+
+            h1 { font-size: clamp(2.2rem, 9vw, 3rem); margin-bottom: 18px; }
+
+            .hero-sub { font-size: 0.95rem; margin-bottom: 36px; }
+
+            .cta-group { flex-direction: column; gap: 12px; }
+
+            .btn-primary, .btn-gold {
+                justify-content: center;
+                padding: 15px 28px;
+                width: 100%;
+                animation: none; /* reduce on mobile */
+            }
+
+            .stats-bar { flex-wrap: wrap; }
+
+            .stat-item {
+                min-width: 50%;
+                padding: 20px;
+                border-right: 1px solid var(--border);
+                transform: none !important;
+            }
+
+            .stat-item:nth-child(2) { border-right: none; }
+            .stat-item:nth-child(3) { border-right: 1px solid var(--border); border-top: 1px solid var(--border); }
+            .stat-item:nth-child(4) { border-right: none; border-top: 1px solid var(--border); }
+            .stat-num { font-size: 1.8rem; }
+
+            .section { padding: 52px 18px; }
+            .features-grid { grid-template-columns: 1fr; margin-top: 36px; }
+            .feat-card { padding: 26px 22px; }
+            .feat-card:hover { transform: none; } /* disable 3D on mobile */
+
+            .process-steps { grid-template-columns: 1fr; gap: 24px; margin-top: 36px; }
+
+            .step {
+                display: flex;
+                align-items: flex-start;
+                gap: 16px;
+                text-align: left;
+            }
+
+            .step-num { width: 52px; height: 52px; margin: 0; flex-shrink: 0; font-size: 1.1rem; }
+            .step-content { flex: 1; }
+            .step:hover .step-num { transform: none; }
+
+            .cta-banner { margin: 16px; padding: 36px 22px; border-radius: 18px; }
+
+            .cta-banner-inner { flex-direction: column; text-align: center; }
+
+            .cta-banner-btns {
+                flex-direction: column;
+                width: 100%;
+                gap: 10px;
+            }
+
+            .cta-banner-btns .btn-gold,
+            .cta-banner-btns .btn-ghost {
+                justify-content: center;
+                width: 100%;
+                padding: 15px 24px;
+            }
+
+            footer { grid-template-columns: 1fr; padding: 36px 18px; gap: 32px; }
+            .footer-brand p { max-width: 100%; }
+            .footer-links-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+            .footer-bottom { padding: 14px 18px; flex-direction: column; gap: 6px; text-align: center; }
+
+            h2 { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+
+            /* Reduce orb complexity on mobile */
+            .orb { filter: blur(80px); }
+            .orb-1 { width: 300px; height: 300px; }
+            .orb-2 { width: 240px; height: 240px; }
+            .orb-3 { display: none; }
+        }
+
+        @media (max-width: 380px) {
+            .hero-left { padding: 36px 16px 44px; }
+            h1 { font-size: 2rem; }
+            .stat-item {
+                min-width: 100%;
+                border-right: none !important;
+                border-top: 1px solid var(--border);
+            }
+            .stat-item:first-child { border-top: none; }
+        }
+    </style>
 </head>
+
 <body>
 
-  <!-- ======================================================
-       NAVBAR
-  ====================================================== -->
-  <nav class="navbar" role="navigation" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo" aria-label="SR Job Center Home">
-        <img src="logo.png" alt="SR Job Center Logo" class="nav-logo-img" style="width: 48px; height: 48px; border-radius: 12px; object-fit: cover; box-shadow: 0 4px 24px rgba(26,86,219,.10);" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'48\' height=\'48\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' rx=\'14\' fill=\'url(%23grad)\'/%3E%3Cdefs%3E%3ClinearGradient id=\'grad\' x1=\'0%25\' y1=\'0%25\' x2=\'100%25\' y2=\'100%25\'%3E%3Cstop offset=\'0%25\' stop-color=\'%231a56db\'/%3E%3Cstop offset=\'100%25\' stop-color=\'%2306b6d4\'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ctext x=\'50\' y=\'67\' text-anchor=\'middle\' fill=\'white\' font-size=\'44\' font-weight=\'bold\' font-family=\'Arial, sans-serif\'%3ESR%3C/text%3E%3C/svg%3E';">
-        <div class="logo-text">
-          <span class="logo-name">SR Job Center</span>
-          <span class="logo-tagline">एसआर जब सेन्टर</span>
-        </div>
-      </a>
-      <div class="nav-actions">
-        <!-- Language Selector -->
-        <select class="lang-select" id="langSelect" aria-label="Select language">
-          <option value="en">🇬🇧 English</option>
-          <option value="ne">🇳🇵 नेपाली</option>
-          <option value="hi">🇮🇳 हिन्दी</option>
-        </select>
-        <!-- Dark Mode Toggle -->
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
-          <i class="fas fa-moon" id="themeIcon"></i>
+    <!-- Ambient glass orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <header>
+        <a href="index.html" class="logo-wrap">
+            <img src="srlogo.png" alt="SR Job Center Logo"
+                style="width:46px; height:46px; object-fit:cover; border-radius:50%;">
+            <span style="font-family:'Syne',sans-serif; font-size:20px; font-weight:700; color:var(--ink);">
+                SR <span style="color:var(--gold);">Job Center</span>
+            </span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="nav-desktop">
+            <a href="userhome.html" class="btn-ghost">Find Jobs</a>
+            <a href="staffneed.html" class="btn-ghost">Hire Staff</a>
+            <a href="admin.html" class="btn-ghost">Admin</a>
+            <button class="theme-btn" id="themeToggle" title="Toggle theme">🌙</button>
+        </nav>
+
+        <!-- Hamburger (mobile only) -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
-      </div>
-    </div>
-  </nav>
+    </header>
 
-  <!-- ======================================================
-       HERO SECTION
-  ====================================================== -->
-  <section class="hero" aria-labelledby="hero-title">
-    <!-- Animated background shapes -->
-    <div class="hero-shape" aria-hidden="true"></div>
-    <div class="hero-shape" aria-hidden="true"></div>
-    <div class="hero-shape" aria-hidden="true"></div>
-    <div class="hero-shape" aria-hidden="true"></div>
-    <div class="hero-shape" aria-hidden="true"></div>
-    <div class="hero-dots" aria-hidden="true"></div>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu" style="display:none;">
+        <div class="mobile-menu-drawer">
+            <div class="mobile-menu-header">
+                <span class="mobile-menu-title">Menu</span>
+                <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close menu">✕</button>
+            </div>
 
-    <div class="hero-content">
-      <div class="hero-badge">
-        <i class="fas fa-star"></i>
-        <span data-i18n="badge">Nepal's #1 Trusted Job Platform</span>
-      </div>
+            <a href="userhome.html" class="mobile-nav-link">
+                <div class="link-icon">🔍</div>
+                Find Jobs
+            </a>
+            <a href="staffneed.html" class="mobile-nav-link">
+                <div class="link-icon">🏢</div>
+                Hire Staff
+            </a>
+            <a href="admin.html" class="mobile-nav-link">
+                <div class="link-icon">🔐</div>
+                Admin Login
+            </a>
 
-      <h1 class="hero-title" id="hero-title">
-        <span data-i18n="hero_title_1">Find Your Dream Job or</span><br/>
-        <span data-i18n="hero_title_2">Hire the Best <span style="color:#fde68a">Talent in Nepal</span></span>
-      </h1>
+            <div class="mobile-theme-row">
+                <span>Toggle Theme</span>
+                <button class="mobile-theme-btn" id="mobileThemeToggle" title="Toggle theme">🌙</button>
+            </div>
 
-      <p class="hero-subtitle" data-i18n="hero_subtitle">
-        SR Job Center connects job seekers and employers instantly via WhatsApp. 
-      </p>
-
-      <p class="hero-tagline" data-i18n="tagline">
-        एसआर जब सेन्टर – SR Job Center, Better Future
-      </p>
-
-      <p class="hero-cta-label" data-i18n="cta_label">
-        <i class="fas fa-arrow-down" style="margin-right:8px"></i>Choose your role to get started
-      </p>
-
-      <!-- ============ ROLE CARDS ============ -->
-      <div class="cards-row" role="main">
-
-        <!-- Card 1: Job Seeker -->
-        <a href="jobhome.html" class="role-card card-seeker" aria-label="I need a job - Browse Jobs">
-          <div class="card-icon" aria-hidden="true">
-            <i class="fas fa-user-briefcase" style="color:white"></i>
-          </div>
-          <div>
-            <div class="card-title" data-i18n="seeker_title">I Need a Job</div>
-          </div>
-          <p class="card-desc" data-i18n="seeker_desc">
-            Find your dream job in Nepal. Apply instantly via WhatsApp. 500+ active jobs.
-          </p>
-          <ul class="card-features" aria-label="Job Seeker Features">
-            <li data-i18n="sf1">500+ Active Jobs</li>
-            <li data-i18n="sf2">Free &amp; Instant Apply</li>
-            <li data-i18n="sf3">WhatsApp Application</li>
-            <li data-i18n="sf4">Save &amp; Track Jobs</li>
-          </ul>
-          <button class="card-btn" aria-label="Browse Jobs">
-            <span data-i18n="seeker_btn">Browse Jobs</span>
-            <i class="fas fa-arrow-right"></i>
-          </button>
-        </a>
-
-        <!-- Card 2: Employer -->
-        <a href="staffhome.html" class="role-card card-employer" aria-label="I need staff - Post Requirement">
-          <div class="card-icon" aria-hidden="true">
-            <i class="fas fa-building" style="color:white"></i>
-          </div>
-          <div>
-            <div class="card-title" data-i18n="employer_title">I Need Staff</div>
-          </div>
-          <p class="card-desc" data-i18n="employer_desc">
-            Post job requirements and find qualified candidates. Reach thousands of job seekers.
-          </p>
-          <ul class="card-features" aria-label="Employer Features">
-            <li data-i18n="ef1">Post Staff Requirements</li>
-            <li data-i18n="ef2">Receive Applications via Email</li>
-            <li data-i18n="ef3">WhatsApp Alerts</li>
-            <li data-i18n="ef4">Find Qualified Candidates</li>
-          </ul>
-          <button class="card-btn" aria-label="Post Requirement">
-            <span data-i18n="employer_btn">Post Requirement</span>
-            <i class="fas fa-arrow-right"></i>
-          </button>
-        </a>
-
-      </div><!-- /cards-row -->
-    </div><!-- /hero-content -->
-
-    <div class="scroll-hint" aria-hidden="true"><i class="fas fa-chevron-down"></i></div>
-  </section>
-
-  <!-- ======================================================
-       STATS SECTION
-  ====================================================== -->
-  <section class="stats-section" aria-label="Platform Statistics">
-    <div class="stats-grid">
-      <div class="stat-card reveal">
-        <div class="stat-number" data-target="500" data-suffix="+"><span class="count">0</span><span class="stat-suffix">+</span></div>
-        <div class="stat-label" data-i18n="stat1">Active Jobs</div>
-      </div>
-      <div class="stat-card reveal reveal-delay-1">
-        <div class="stat-number" data-target="200" data-suffix="+"><span class="count">0</span><span class="stat-suffix">+</span></div>
-        <div class="stat-label" data-i18n="stat2">Happy Employers</div>
-      </div>
-      <div class="stat-card reveal reveal-delay-2">
-        <div class="stat-number" data-target="5000" data-suffix="+"><span class="count">0</span><span class="stat-suffix">+</span></div>
-        <div class="stat-label" data-i18n="stat3">Job Seekers</div>
-      </div>
-      <div class="stat-card reveal reveal-delay-3">
-        <div class="stat-number" data-target="95" data-suffix="%"><span class="count">0</span><span class="stat-suffix">%</span></div>
-        <div class="stat-label" data-i18n="stat4">Success Rate</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================================================
-       MAIN CONTENT
-  ====================================================== -->
-  <div class="main-content">
-
-    <!-- ABOUT STRIP -->
-    <div class="about-strip">
-      <div class="about-inner reveal">
-        <div class="section-pill" data-i18n="about_pill">About Us</div>
-        <h2 class="section-title" style="margin-bottom:16px" data-i18n="about_title">Nepal's Most Trusted Job Platform</h2>
-        <p data-i18n="about_desc">SR Job Center is Nepal's most trusted job placement platform helping thousands of job seekers find employment and employers find qualified staff. Based in Baneshwor, Kathmandu, we bridge the gap between opportunity and talent across Nepal.</p>
-      </div>
-    </div>
-
-    <!-- HOW IT WORKS -->
-    <section class="section" aria-labelledby="how-title">
-      <div class="container">
-        <div class="text-center">
-          <div class="section-pill" data-i18n="how_pill">How It Works</div>
-          <h2 class="section-title" id="how-title" data-i18n="how_title">Get Started in 3 Easy Steps</h2>
-          <p class="section-sub" data-i18n="how_sub">Whether you're looking for work or looking for workers, we make it simple and fast.</p>
+            <div class="mobile-contact-info">
+                📞 <a href="tel:+9779706886200">+977 9706886200</a><br>
+                ✉️ <a href="mailto:srjobcentersupport@gmail.com">srjobcentersupport@gmail.com</a><br>
+                📍 Baneshwor, Kathmandu
+            </div>
         </div>
-        <div class="steps-grid">
-          <div class="step-card reveal">
-            <div class="step-num">1</div>
-            <span class="step-icon" aria-hidden="true">🎯</span>
-            <h3 class="step-title" data-i18n="step1_title">Choose Your Role</h3>
-            <p class="step-desc" data-i18n="step1_desc">Select whether you're a job seeker looking for work or an employer seeking qualified candidates.</p>
-          </div>
-          <div class="step-card reveal reveal-delay-1">
-            <div class="step-num">2</div>
-            <span class="step-icon" aria-hidden="true">📝</span>
-            <h3 class="step-title" data-i18n="step2_title">Complete Your Form</h3>
-            <p class="step-desc" data-i18n="step2_desc">Fill in your job application or post your staff requirement. Takes less than 2 minutes.</p>
-          </div>
-          <div class="step-card reveal reveal-delay-2">
-            <div class="step-num">3</div>
-            <span class="step-icon" aria-hidden="true">🤝</span>
-            <h3 class="step-title" data-i18n="step3_title">Get Hired / Hire</h3>
-            <p class="step-desc" data-i18n="step3_desc">Connect directly via WhatsApp or Email. Fast, simple, and completely free for job seekers.</p>
-          </div>
+    </div>
+
+    <section class="hero">
+        <div class="hero-left">
+            <div class="hero-eyebrow">Trusted Employment Agency · Kathmandu</div>
+            <h1>Your Career<br /><em>Starts Here.</em></h1>
+            <p class="hero-sub">SR Job Center connects talented professionals with top employers across Nepal. Whether
+                you're seeking your dream job or building a world-class team — we make it happen.</p>
+            <div class="cta-group">
+                <a href="userhome.html" class="btn-primary">
+                    I Need a Job <span class="btn-icon">→</span>
+                </a>
+                <a href="staffneed.html" class="btn-gold">
+                    I Need Staff <span class="btn-icon">→</span>
+                </a>
+            </div>
         </div>
-      </div>
+        <div class="hero-right">
+            <div class="big-number">SR</div>
+            <div class="hero-visual">
+                <div class="float-cards">
+                    <div class="float-card">
+                        <div class="fc-icon"><span>💼</span></div>
+                        <div>
+                            <div class="fc-label">Available Positions</div>
+                            <div class="fc-value">50+ Active Jobs</div>
+                        </div>
+                    </div>
+                    <div class="float-card">
+                        <div class="fc-icon"><span>🏢</span></div>
+                        <div>
+                            <div class="fc-label">Partner Companies</div>
+                            <div class="fc-value">Hotels, Banks & More</div>
+                        </div>
+                    </div>
+                    <div class="float-card">
+                        <div class="fc-icon"><span>✅</span></div>
+                        <div>
+                            <div class="fc-label">Placements This Year</div>
+                            <div class="fc-value">500+ Successful</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- TESTIMONIALS -->
-    <section class="section testimonials-section" aria-labelledby="testi-title">
-      <div class="container">
-        <div class="text-center">
-          <div class="section-pill" data-i18n="testi_pill">Testimonials</div>
-          <h2 class="section-title" id="testi-title" data-i18n="testi_title">What People Are Saying</h2>
-          <p class="section-sub" data-i18n="testi_sub">Real stories from job seekers and employers who found success with SR Job Center.</p>
+    <div class="stats-bar">
+        <div class="stat-item fade-up">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Job Placements</div>
         </div>
-        <div class="testi-grid">
-
-          <div class="testi-card reveal">
-            <div class="testi-stars" aria-label="5 stars">★★★★★</div>
-            <p class="testi-text" data-i18n="t1_text">"I got a job within 3 days of applying on SR Job Center! The WhatsApp application feature made the entire process incredibly fast and easy. Highly recommended for anyone in Nepal."</p>
-            <div class="testi-user">
-              <div class="testi-avatar av-blue" aria-hidden="true">R</div>
-              <div>
-                <div class="testi-name" data-i18n="t1_name">Ramesh Thapa</div>
-                <div class="testi-role" data-i18n="t1_role">Job Seeker · Kathmandu</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="testi-card reveal reveal-delay-1">
-            <div class="testi-stars" aria-label="5 stars">★★★★★</div>
-            <p class="testi-text" data-i18n="t2_text">"As a small business owner, finding good staff was always a challenge. SR Job Center sent us 10+ qualified applicants within 24 hours of posting. Excellent service!"</p>
-            <div class="testi-user">
-              <div class="testi-avatar av-orange" aria-hidden="true">S</div>
-              <div>
-                <div class="testi-name" data-i18n="t2_name">Sita Sharma</div>
-                <div class="testi-role" data-i18n="t2_role">Employer · Pokhara</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="testi-card reveal reveal-delay-2">
-            <div class="testi-stars" aria-label="4 stars">★★★★★</div>
-            <p class="testi-text" data-i18n="t3_text">"The platform is so simple to use. I'm not very tech-savvy but even I could apply for jobs easily. Found great employment in Lalitpur. Thank you SR Job Center!"</p>
-            <div class="testi-user">
-              <div class="testi-avatar av-green" aria-hidden="true">B</div>
-              <div>
-                <div class="testi-name" data-i18n="t3_name">Bina Gurung</div>
-                <div class="testi-role" data-i18n="t3_role">Job Seeker · Lalitpur</div>
-              </div>
-            </div>
-          </div>
-
+        <div class="stat-item fade-up" style="transition-delay:0.1s">
+            <div class="stat-num">50+</div>
+            <div class="stat-label">Active Job Listings</div>
         </div>
-      </div>
-    </section>
-
-  </div><!-- /main-content -->
-
-  <!-- ======================================================
-       FOOTER
-  ====================================================== -->
-  <footer class="footer" role="contentinfo">
-    <div class="footer-grid">
-      <!-- Brand -->
-      <div>
-        <div class="footer-logo">
-          <div class="footer-logo-circle" aria-hidden="true">SR</div>
-          <div>
-            <div class="footer-brand">SR Job Center</div>
-            <span class="footer-brand-tag">एसआर जब सेन्टर</span>
-          </div>
+        <div class="stat-item fade-up" style="transition-delay:0.2s">
+            <div class="stat-num">100+</div>
+            <div class="stat-label">Partner Companies</div>
         </div>
-        <p class="footer-desc" data-i18n="footer_desc">Nepal's trusted job placement platform connecting job seekers and employers instantly via WhatsApp.</p>
-        <div class="footer-social">
-          <a href="https://facebook.com" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="https://wa.me/9779712037365" class="social-btn" aria-label="WhatsApp" target="_blank" rel="noopener">
-            <i class="fab fa-whatsapp"></i>
-          </a>
-          <a href="mailto:srcareer@gmail.com" class="social-btn" aria-label="Email">
-            <i class="fas fa-envelope"></i>
-          </a>
+        <div class="stat-item fade-up" style="transition-delay:0.3s">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Years of Experience</div>
         </div>
-      </div>
-
-      <!-- Quick Links -->
-      <div>
-        <div class="footer-col-title" data-i18n="footer_links">Quick Links</div>
-        <ul class="footer-links">
-          <li><a href="#" data-i18n="fl_home">Home</a></li>
-          <li><a href="#" data-i18n="fl_about">About Us</a></li>
-          <li><a href="jobhome.html" data-i18n="fl_jobs">Browse Jobs</a></li>
-          <li><a href="staffhome.html" data-i18n="fl_post">Post Requirement</a></li>
-          <li><a href="#" data-i18n="fl_contact">Contact</a></li>
-        </ul>
-      </div>
-
-      <!-- Job Seekers -->
-      <div>
-        <div class="footer-col-title" data-i18n="footer_seekers">Job Seekers</div>
-        <ul class="footer-links">
-          <li><a href="jobhome.html" data-i18n="fs_browse">Browse All Jobs</a></li>
-          <li><a href="jobhome.html" data-i18n="fs_apply">Apply via WhatsApp</a></li>
-          <li><a href="jobhome.html" data-i18n="fs_save">Save Jobs</a></li>
-          <li><a href="#" data-i18n="fs_guide">How to Apply</a></li>
-        </ul>
-      </div>
-
-      <!-- Contact -->
-      <div>
-        <div class="footer-col-title" data-i18n="footer_contact">Contact Us</div>
-        <div class="footer-contact-item">
-          <i class="fas fa-envelope"></i>
-          <span>saferojgar@gmail.com</span>
-        </div>
-        <div class="footer-contact-item">
-          <i class="fas fa-phone"></i>
-          <span>+977 9712037365</span>
-        </div>
-        <div class="footer-contact-item">
-          <i class="fas fa-map-marker-alt"></i>
-          <span data-i18n="footer_addr">Baneshwor, Kathmandu, Nepal</span>
-        </div>
-      </div>
     </div>
 
+    <section class="section">
+        <div class="fade-up">
+            <div class="section-label">What We Offer</div>
+            <h2>Everything you need<br />to land your next role</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feat-card fade-up">
+                <div class="feat-icon"><span>🔍</span></div>
+                <div class="feat-title">Smart Job Matching</div>
+                <p class="feat-desc">Browse and filter jobs by position, location, and salary range. Find exactly what
+                    fits your skills and goals.</p>
+            </div>
+            <div class="feat-card fade-up" style="transition-delay:0.1s">
+                <div class="feat-icon"><span>⚡</span></div>
+                <div class="feat-title">Fast Application</div>
+                <p class="feat-desc">Apply in minutes with our streamlined one-page form. No lengthy processes — just
+                    submit and we handle the rest.</p>
+            </div>
+            <div class="feat-card fade-up" style="transition-delay:0.2s">
+                <div class="feat-icon"><span>🤝</span></div>
+                <div class="feat-title">Employer Connect</div>
+                <p class="feat-desc">Companies post staff requirements directly. We match qualified candidates to your
+                    exact specifications.</p>
+            </div>
+            <div class="feat-card fade-up" style="transition-delay:0.3s">
+                <div class="feat-icon"><span>📊</span></div>
+                <div class="feat-title">Track Applications</div>
+                <p class="feat-desc">Monitor all your applied positions in one place. Know exactly where you stand at
+                    every step.</p>
+            </div>
+            <div class="feat-card fade-up" style="transition-delay:0.4s">
+                <div class="feat-icon"><span>🏆</span></div>
+                <div class="feat-title">Top Industries</div>
+                <p class="feat-desc">Hospitality, security, sales, IT, and more. Specialized networks across every
+                    sector in Nepal.</p>
+            </div>
+            <div class="feat-card fade-up" style="transition-delay:0.5s">
+                <div class="feat-icon"><span>🛡️</span></div>
+                <div class="feat-title">Verified Employers</div>
+                <p class="feat-desc">Every company we work with is verified. No scams — only legitimate opportunities
+                    from real organizations.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section process-section">
+        <div class="fade-up">
+            <div class="section-label">How It Works</div>
+            <h2>Get hired in 4 simple steps</h2>
+        </div>
+        <div class="process-steps">
+            <div class="step fade-up">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h3>Browse Jobs</h3>
+                    <p>Explore our curated list of active job openings across multiple industries.</p>
+                </div>
+            </div>
+            <div class="step fade-up" style="transition-delay:0.1s">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h3>Apply Online</h3>
+                    <p>Fill out a simple form with your details, experience, and preferences.</p>
+                </div>
+            </div>
+            <div class="step fade-up" style="transition-delay:0.2s">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h3>We Match You</h3>
+                    <p>Our team reviews your profile and connects you with the right employer.</p>
+                </div>
+            </div>
+            <div class="step fade-up" style="transition-delay:0.3s">
+                <div class="step-num">4</div>
+                <div class="step-content">
+                    <h3>Get Hired</h3>
+                    <p>Attend your interview, accept the offer, and start your new career journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-banner">
+        <div class="cta-banner-inner">
+            <div>
+                <h2>Ready to build your dream team?</h2>
+                <p>Post your staff requirements and get qualified candidates within days.</p>
+            </div>
+            <div class="cta-banner-btns">
+                <a href="staffneed.html" class="btn-gold">Hire Staff Now →</a>
+                <a href="userhome.html" class="btn-ghost" style="color:#fff; border-color:rgba(255,255,255,0.3)">Find a Job →</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-brand">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+                <img src="srlogo.png" alt="SR Job Center Logo"
+                    style="width:46px; height:46px; object-fit:cover; border-radius:50%;">
+                <span style="font-family:'Syne',sans-serif; font-size:20px; font-weight:700; color:var(--ink);">
+                    SR <span style="color:var(--gold);">Job Center</span>
+                </span>
+            </div>
+            <p>SR Job Center is Nepal's trusted employment agency, connecting skilled
+                professionals with leading employers since 2019.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="userhome.html">🔍 Find Jobs</a></li>
+                <li><a href="staffneed.html">🏢 Hire Staff</a></li>
+                <li><a href="admin.html">🔐 Admin Login</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+                <li><a href="mailto:srjobcentersupport@gmail.com">✉️ srjobcentersupport@gmail.com</a></li>
+                <li><a href="tel:+9779706886200">📞 +977 9706886200</a></li>
+                <li><a href="https://maps.app.goo.gl/pcfGBEcxYLsEteHY9" target="_blank">📍 Baneshwor, Kathmandu</a></li>
+            </ul>
+        </div>
+    </footer>
     <div class="footer-bottom">
-      <span class="footer-copy" data-i18n="footer_copy">© 2025 SR Job Center · Made with ❤️ in Nepal · Baneshwor, Kathmandu</span>
-      <span class="footer-copy" style="color:rgba(255,255,255,0.2)">saferojgar@gmail.com · 9712037365</span>
+        <span>© 2025 SR Job Center. All rights reserved.</span>
+        <span>Baneshwor, Kathmandu | <a href="https://maps.app.goo.gl/pcfGBEcxYLsEteHY9" target="_blank">View on Map</a></span>
     </div>
-  </footer>
 
-  <!-- ======================================================
-       TOAST NOTIFICATION
-  ====================================================== -->
-  <div id="toast" role="status" aria-live="polite">
-    <i class="fas fa-check-circle"></i>
-    <span id="toastMsg">Preference saved!</span>
-  </div>
+    <script>
+        // ─── Theme ───
+        const root = document.documentElement;
+        const themeToggle = document.getElementById('themeToggle');
+        const mobileThemeToggle = document.getElementById('mobileThemeToggle');
 
-  <!-- ======================================================
-       JAVASCRIPT
-  ====================================================== -->
-  <script>
-    // ============================================================
-    // TRANSLATIONS
-    // ============================================================
-    const translations = {
-      en: {
-        badge: "Nepal's #1 Trusted Job Platform",
-        hero_title_1: "Find Your Dream Job or",
-        hero_title_2: "Hire the Best Talent in Nepal",
-        hero_subtitle: "SR Job Center connects job seekers and employers instantly via WhatsApp. 100% free for job seekers.",
-        tagline: "एसआर जब सेन्टर – SR Job Center, Better Future",
-        cta_label: "Choose your role to get started",
-        seeker_title: "I Need a Job",
-        seeker_desc: "Find your dream job in Nepal. Apply instantly via WhatsApp. 500+ active jobs.",
-        sf1: "500+ Active Jobs", sf2: "Free & Instant Apply", sf3: "WhatsApp Application", sf4: "Save & Track Jobs",
-        seeker_btn: "Browse Jobs",
-        employer_title: "I Need Staff",
-        employer_desc: "Post job requirements and find qualified candidates. Reach thousands of job seekers.",
-        ef1: "Post Staff Requirements", ef2: "Receive Applications via Email", ef3: "WhatsApp Alerts", ef4: "Find Qualified Candidates",
-        employer_btn: "Post Requirement",
-        stat1: "Active Jobs", stat2: "Happy Employers", stat3: "Job Seekers", stat4: "Success Rate",
-        about_pill: "About Us", about_title: "Nepal's Most Trusted Job Platform",
-        about_desc: "SR Job Center is Nepal's most trusted job placement platform helping thousands of job seekers find employment and employers find qualified staff. Based in Baneshwor, Kathmandu, we bridge the gap between opportunity and talent across Nepal.",
-        how_pill: "How It Works", how_title: "Get Started in 3 Easy Steps",
-        how_sub: "Whether you're looking for work or looking for workers, we make it simple and fast.",
-        step1_title: "Choose Your Role", step1_desc: "Select whether you're a job seeker looking for work or an employer seeking qualified candidates.",
-        step2_title: "Complete Your Form", step2_desc: "Fill in your job application or post your staff requirement. Takes less than 2 minutes.",
-        step3_title: "Get Hired / Hire", step3_desc: "Connect directly via WhatsApp or Email. Fast, simple, and completely free for job seekers.",
-        testi_pill: "Testimonials", testi_title: "What People Are Saying",
-        testi_sub: "Real stories from job seekers and employers who found success with SR Job Center.",
-        t1_text: `"I got a job within 3 days of applying on SR Job Center! The WhatsApp application feature made the entire process incredibly fast and easy. Highly recommended for anyone in Nepal."`,
-        t1_name: "Ramesh Thapa", t1_role: "Job Seeker · Kathmandu",
-        t2_text: `"As a small business owner, finding good staff was always a challenge. SR Job Center sent us 10+ qualified applicants within 24 hours of posting. Excellent service!"`,
-        t2_name: "Sita Sharma", t2_role: "Employer · Pokhara",
-        t3_text: `"The platform is so simple to use. I'm not very tech-savvy but even I could apply for jobs easily. Found great employment in Lalitpur. Thank you SR Job Center!"`,
-        t3_name: "Bina Gurung", t3_role: "Job Seeker · Lalitpur",
-        footer_desc: "Nepal's trusted job placement platform connecting job seekers and employers instantly via WhatsApp.",
-        footer_links: "Quick Links", fl_home: "Home", fl_about: "About Us", fl_jobs: "Browse Jobs", fl_post: "Post Requirement", fl_contact: "Contact",
-        footer_seekers: "Job Seekers", fs_browse: "Browse All Jobs", fs_apply: "Apply via WhatsApp", fs_save: "Save Jobs", fs_guide: "How to Apply",
-        footer_contact: "Contact Us", footer_addr: "Baneshwor, Kathmandu, Nepal",
-        footer_copy: "© 2025 SR Job Center · Made with ❤️ in Nepal · Baneshwor, Kathmandu",
-        toast_lang: "Language changed to English", toast_dark: "Dark mode enabled", toast_light: "Light mode enabled",
-      },
-      ne: {
-        badge: "नेपालको #१ विश्वसनीय जागिर प्लेटफर्म",
-        hero_title_1: "आफ्नो सपनाको जागिर खोज्नुहोस् वा",
-        hero_title_2: "नेपालमा उत्तम कर्मचारी भर्ना गर्नुहोस्",
-        hero_subtitle: "एसआर जॉब सेन्टरले जागिर खोज्नेहरू र नियोक्ताहरूलाई व्हाट्सएपमार्फत जोड्छ। जागिर खोज्नेका लागि १००% निशुल्क।",
-        tagline: "एसआर जॉब सेन्टर – SR Job Center, उज्ज्वल भविष्य",
-        cta_label: "सुरु गर्न आफ्नो भूमिका छान्नुहोस्",
-        seeker_title: "मलाई जागिर चाहिन्छ",
-        seeker_desc: "नेपालमा आफ्नो सपनाको जागिर खोज्नुहोस्। व्हाट्सएपमार्फत तुरुन्तै आवेदन दिनुहोस्।",
-        sf1: "५००+ सक्रिय जागिर", sf2: "निशुल्क र तुरुन्त आवेदन", sf3: "व्हाट्सएप आवेदन", sf4: "जागिर बचत गर्नुहोस्",
-        seeker_btn: "जागिर हेर्नुहोस्",
-        employer_title: "मलाई कर्मचारी चाहिन्छ",
-        employer_desc: "जागिरको आवश्यकता पोस्ट गर्नुहोस् र योग्य उम्मेदवारहरू फेला पार्नुहोस्।",
-        ef1: "कर्मचारी आवश्यकता पोस्ट", ef2: "इमेलमार्फत आवेदन प्राप्त", ef3: "व्हाट्सएप अलर्ट", ef4: "योग्य उम्मेदवार खोज्नुहोस्",
-        employer_btn: "आवश्यकता पोस्ट गर्नुहोस्",
-        stat1: "सक्रिय जागिर", stat2: "खुशी नियोक्ता", stat3: "जागिर खोज्नेहरू", stat4: "सफलता दर",
-        about_pill: "हाम्रोबारे", about_title: "नेपालको सबैभन्दा विश्वसनीय जागिर प्लेटफर्म",
-        about_desc: "एसआर जॉब सेन्टर नेपालको सबैभन्दा विश्वसनीय जागिर प्लेसमेन्ट प्लेटफर्म हो जसले हजारौं जागिर खोज्नेहरूलाई रोजगारी र नियोक्ताहरूलाई योग्य कर्मचारी खोज्न मद्दत गर्छ।",
-        how_pill: "कसरी काम गर्छ", how_title: "३ सजिलो चरणमा सुरु गर्नुहोस्",
-        how_sub: "तपाईं काम खोज्दै हुनुहुन्छ वा कामदार खोज्दै, हामी यसलाई सरल र छिटो बनाउँछौं।",
-        step1_title: "आफ्नो भूमिका छान्नुहोस्", step1_desc: "तपाईं जागिर खोज्ने वा कर्मचारी खोज्ने नियोक्ता कुन हुनुहुन्छ छान्नुहोस्।",
-        step2_title: "फर्म भर्नुहोस्", step2_desc: "जागिरको आवेदन वा कर्मचारी आवश्यकता पोस्ट गर्नुहोस्। २ मिनेटभन्दा कम लाग्छ।",
-        step3_title: "काम पाउनुहोस् / भर्ना गर्नुहोस्", step3_desc: "व्हाट्सएप वा इमेलमार्फत सिधै जोडिनुहोस्। जागिर खोज्नेका लागि पूर्णतः निशुल्क।",
-        testi_pill: "प्रशंसापत्र", testi_title: "मानिसहरू के भन्दैछन्",
-        testi_sub: "एसआर जॉब सेन्टरसँग सफलता पाएका जागिर खोज्नेहरू र नियोक्ताहरूका वास्तविक कथाहरू।",
-        t1_text: `"म एसआर जॉब सेन्टरमा आवेदन दिएको ३ दिनभित्र जागिर पाएँ! व्हाट्सएप सुविधाले पूरै प्रक्रिया अत्यन्त छिटो र सजिलो बनायो।"`,
-        t1_name: "रमेश थापा", t1_role: "जागिर खोज्ने · काठमाडौं",
-        t2_text: `"सानो व्यवसाय सञ्चालक भएकाले राम्रो कर्मचारी खोज्नु सधैं चुनौती थियो। एसआर जॉब सेन्टरले पोस्ट गरेको २४ घन्टाभित्र १०+ योग्य आवेदक पठायो।"`,
-        t2_name: "सीता शर्मा", t2_role: "नियोक्ता · पोखरा",
-        t3_text: `"प्लेटफर्म प्रयोग गर्न एकदमै सजिलो छ। म धेरै प्राविधिक जानकार छैन तर पनि सजिलैसँग जागिरका लागि आवेदन दिन सकेँ। धन्यवाद एसआर जॉब सेन्टर!"`,
-        t3_name: "बिना गुरुङ", t3_role: "जागिर खोज्ने · ललितपुर",
-        footer_desc: "नेपालको विश्वसनीय जागिर प्लेसमेन्ट प्लेटफर्म जसले जागिर खोज्नेहरू र नियोक्ताहरूलाई व्हाट्सएपमार्फत जोड्छ।",
-        footer_links: "द्रुत लिङ्कहरू", fl_home: "गृहपृष्ठ", fl_about: "हाम्रोबारे", fl_jobs: "जागिर हेर्नुहोस्", fl_post: "आवश्यकता पोस्ट", fl_contact: "सम्पर्क",
-        footer_seekers: "जागिर खोज्नेहरू", fs_browse: "सबै जागिर हेर्नुहोस्", fs_apply: "व्हाट्सएपमा आवेदन", fs_save: "जागिर बचत गर्नुहोस्", fs_guide: "कसरी आवेदन दिने",
-        footer_contact: "सम्पर्क गर्नुहोस्", footer_addr: "बानेश्वर, काठमाडौं, नेपाल",
-        footer_copy: "© २०२५ एसआर जॉब सेन्टर · ❤️ सहित नेपालमा बनाइएको · बानेश्वर, काठमाडौं",
-        toast_lang: "भाषा नेपालीमा परिवर्तन भयो", toast_dark: "डार्क मोड सक्षम", toast_light: "लाइट मोड सक्षम",
-      },
-      hi: {
-        badge: "नेपाल का #1 विश्वसनीय जॉब प्लेटफॉर्म",
-        hero_title_1: "अपना सपनों का जॉब खोजें या",
-        hero_title_2: "नेपाल में बेहतरीन टैलेंट हायर करें",
-        hero_subtitle: "SR Job Center नौकरी चाहने वालों और नियोक्ताओं को WhatsApp के माध्यम से तुरंत जोड़ता है। नौकरी चाहने वालों के लिए 100% मुफ़्त।",
-        tagline: "एसआर जॉब सेन्टर – SR Job Center, बेहतर भविष्य",
-        cta_label: "शुरू करने के लिए अपनी भूमिका चुनें",
-        seeker_title: "मुझे नौकरी चाहिए",
-        seeker_desc: "नेपाल में अपना सपनों का जॉब खोजें। WhatsApp के ज़रिए तुरंत आवेदन करें।",
-        sf1: "500+ सक्रिय नौकरियाँ", sf2: "मुफ़्त और तुरंत आवेदन", sf3: "WhatsApp आवेदन", sf4: "नौकरियाँ सेव करें",
-        seeker_btn: "नौकरियाँ देखें",
-        employer_title: "मुझे स्टाफ चाहिए",
-        employer_desc: "नौकरी की ज़रूरतें पोस्ट करें और योग्य उम्मीदवार खोजें।",
-        ef1: "स्टाफ की ज़रूरत पोस्ट करें", ef2: "ईमेल से आवेदन प्राप्त करें", ef3: "WhatsApp अलर्ट", ef4: "योग्य उम्मीदवार खोजें",
-        employer_btn: "ज़रूरत पोस्ट करें",
-        stat1: "सक्रिय नौकरियाँ", stat2: "खुश नियोक्ता", stat3: "नौकरी चाहने वाले", stat4: "सफलता दर",
-        about_pill: "हमारे बारे में", about_title: "नेपाल का सबसे विश्वसनीय जॉब प्लेटफॉर्म",
-        about_desc: "SR Job Center नेपाल का सबसे विश्वसनीय जॉब प्लेसमेंट प्लेटफॉर्म है जो हज़ारों नौकरी चाहने वालों को रोजगार और नियोक्ताओं को योग्य स्टाफ खोजने में मदद करता है।",
-        how_pill: "कैसे काम करता है", how_title: "3 आसान चरणों में शुरू करें",
-        how_sub: "चाहे आप काम ढूंढ रहे हों या कर्मचारी, हम इसे सरल और तेज़ बनाते हैं।",
-        step1_title: "अपनी भूमिका चुनें", step1_desc: "चुनें कि आप नौकरी चाहने वाले हैं या योग्य उम्मीदवारों की तलाश करने वाले नियोक्ता।",
-        step2_title: "फॉर्म भरें", step2_desc: "नौकरी का आवेदन भरें या स्टाफ की ज़रूरत पोस्ट करें। 2 मिनट से कम लगता है।",
-        step3_title: "काम पाएं / हायर करें", step3_desc: "WhatsApp या ईमेल के ज़रिए सीधे जुड़ें। नौकरी चाहने वालों के लिए पूरी तरह मुफ़्त।",
-        testi_pill: "प्रशंसापत्र", testi_title: "लोग क्या कह रहे हैं",
-        testi_sub: "SR Job Center के साथ सफलता पाने वाले नौकरी चाहने वालों और नियोक्ताओं की असली कहानियाँ।",
-        t1_text: `"मुझे SR Job Center पर आवेदन करने के 3 दिनों के भीतर नौकरी मिल गई! WhatsApp की सुविधा ने पूरी प्रक्रिया को बेहद तेज़ और आसान बना दिया।"`,
-        t1_name: "रमेश थापा", t1_role: "नौकरी चाहने वाले · काठमांडू",
-        t2_text: `"एक छोटे व्यवसाय के मालिक के रूप में, अच्छे स्टाफ ढूंढना हमेशा चुनौती थी। SR Job Center ने पोस्ट करने के 24 घंटे के भीतर 10+ योग्य आवेदक भेजे।"`,
-        t2_name: "सीता शर्मा", t2_role: "नियोक्ता · पोखरा",
-        t3_text: `"प्लेटफॉर्म इस्तेमाल करना बहुत आसान है। मैं बहुत तकनीकी नहीं हूं लेकिन फिर भी आसानी से नौकरियों के लिए आवेदन कर सका। धन्यवाद SR Job Center!"`,
-        t3_name: "बिना गुरुंग", t3_role: "नौकरी चाहने वाली · ललितपुर",
-        footer_desc: "नेपाल का विश्वसनीय जॉब प्लेसमेंट प्लेटफॉर्म जो WhatsApp के माध्यम से नौकरी चाहने वालों और नियोक्ताओं को जोड़ता है।",
-        footer_links: "त्वरित लिंक", fl_home: "होम", fl_about: "हमारे बारे में", fl_jobs: "नौकरियाँ देखें", fl_post: "ज़रूरत पोस्ट करें", fl_contact: "संपर्क",
-        footer_seekers: "नौकरी चाहने वाले", fs_browse: "सभी नौकरियाँ देखें", fs_apply: "WhatsApp से आवेदन", fs_save: "नौकरियाँ सेव करें", fs_guide: "कैसे आवेदन करें",
-        footer_contact: "हमसे संपर्क करें", footer_addr: "बानेश्वर, काठमांडू, नेपाल",
-        footer_copy: "© 2025 SR Job Center · ❤️ के साथ नेपाल में बनाया · बानेश्वर, काठमांडू",
-        toast_lang: "भाषा हिंदी में बदली गई", toast_dark: "डार्क मोड चालू", toast_light: "लाइट मोड चालू",
-      }
-    };
-
-    let currentLang = localStorage.getItem('sr_lang') || 'en';
-    let isDark = localStorage.getItem('sr_dark') === 'true';
-
-    // ============================================================
-    // APPLY TRANSLATIONS
-    // ============================================================
-    function applyTranslation(lang) {
-      const t = translations[lang] || translations['en'];
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (t[key] !== undefined) {
-          // Preserve inner spans if any (hero title)
-          if (el.querySelector('span')) {
-            el.childNodes.forEach(node => {
-              if (node.nodeType === Node.TEXT_NODE) {
-                // find matching key... skip for complex nodes
-              }
-            });
-          } else {
-            el.textContent = t[key];
-          }
+        function applyTheme(theme) {
+            root.setAttribute('data-theme', theme);
+            const icon = theme === 'dark' ? '☀️' : '🌙';
+            themeToggle.textContent = icon;
+            mobileThemeToggle.textContent = icon;
+            localStorage.setItem('theme', theme);
         }
-      });
-      document.documentElement.lang = lang === 'ne' ? 'ne' : lang === 'hi' ? 'hi' : 'en';
-    }
 
-    // ============================================================
-    // THEME
-    // ============================================================
-    function applyTheme(dark) {
-      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
-      document.getElementById('themeIcon').className = dark ? 'fas fa-sun' : 'fas fa-moon';
-    }
+        const saved = localStorage.getItem('theme') || 'light';
+        applyTheme(saved);
 
-    // ============================================================
-    // TOAST
-    // ============================================================
-    let toastTimer;
-    function showToast(msg) {
-      const toast = document.getElementById('toast');
-      document.getElementById('toastMsg').textContent = msg;
-      toast.classList.add('show');
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => toast.classList.remove('show'), 3000);
-    }
-
-    // ============================================================
-    // ANIMATED COUNTER
-    // ============================================================
-    function animateCounter(el, target, duration = 1600) {
-      const start = performance.now();
-      const update = (now) => {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.floor(eased * target);
-        if (progress < 1) requestAnimationFrame(update);
-        else el.textContent = target;
-      };
-      requestAnimationFrame(update);
-    }
-
-    // ============================================================
-    // INTERSECTION OBSERVER (scroll reveal + counter trigger)
-    // ============================================================
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const statCards = entry.target.querySelectorAll('.stat-card');
-          statCards.forEach(card => {
-            const numEl = card.querySelector('.count');
-            const target = parseInt(card.querySelector('.stat-number').getAttribute('data-target'), 10);
-            animateCounter(numEl, target);
-          });
-          counterObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-
-    // ============================================================
-    // INIT
-    // ============================================================
-    document.addEventListener('DOMContentLoaded', () => {
-      // Init theme
-      applyTheme(isDark);
-
-      // Init language select
-      const langSelect = document.getElementById('langSelect');
-      langSelect.value = currentLang;
-      applyTranslation(currentLang);
-
-      // Attach observers
-      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-      const statsSection = document.querySelector('.stats-section');
-      if (statsSection) counterObserver.observe(statsSection);
-
-      // Theme toggle
-      document.getElementById('themeToggle').addEventListener('click', () => {
-        isDark = !isDark;
-        localStorage.setItem('sr_dark', isDark);
-        applyTheme(isDark);
-        const t = translations[currentLang] || translations['en'];
-        showToast(isDark ? (t.toast_dark || 'Dark mode enabled') : (t.toast_light || 'Light mode enabled'));
-      });
-
-      // Language change
-      langSelect.addEventListener('change', (e) => {
-        currentLang = e.target.value;
-        localStorage.setItem('sr_lang', currentLang);
-        applyTranslation(currentLang);
-        const t = translations[currentLang] || translations['en'];
-        showToast(t.toast_lang || 'Language changed');
-      });
-
-      // Card button clicks (prevent double navigation from <a> + <button>)
-      document.querySelectorAll('.card-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const card = btn.closest('.role-card');
-          if (card) window.location.href = card.getAttribute('href');
+        themeToggle.addEventListener('click', () => {
+            const isDark = root.getAttribute('data-theme') === 'dark';
+            applyTheme(isDark ? 'light' : 'dark');
         });
-      });
-    });
-  </script>
 
+        mobileThemeToggle.addEventListener('click', () => {
+            const isDark = root.getAttribute('data-theme') === 'dark';
+            applyTheme(isDark ? 'light' : 'dark');
+        });
+
+        // ─── Mobile Menu ───
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+
+        function openMenu() {
+            mobileMenu.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            requestAnimationFrame(() => {
+                mobileMenu.classList.add('open');
+                hamburgerBtn.classList.add('open');
+            });
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.remove('open');
+            hamburgerBtn.classList.remove('open');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                mobileMenu.style.display = 'none';
+            }, 350);
+        }
+
+        hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+        });
+
+        mobileCloseBtn.addEventListener('click', closeMenu);
+
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) closeMenu();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
+        });
+
+        // ─── Scroll animations ───
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+    </script>
 </body>
+
 </html>
