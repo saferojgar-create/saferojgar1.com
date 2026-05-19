@@ -13,6 +13,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
         rel="stylesheet" />
+    <!-- Lucide Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
     <style>
         :root {
             --bg: #f5f0e8;
@@ -28,7 +30,6 @@
             --radius: 16px;
             --transition: 0.35s cubic-bezier(0.23, 1, 0.32, 1);
 
-            /* Liquid glass extras */
             --glass-light: rgba(255,255,255,0.55);
             --glass-border-light: rgba(255,255,255,0.7);
             --orb1: rgba(200,151,58,0.18);
@@ -73,7 +74,6 @@
             overflow-x: hidden;
         }
 
-        /* ── Animated liquid gradient bg ── */
         body::after {
             content: '';
             position: fixed;
@@ -103,7 +103,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Noise texture */
         body::before {
             content: '';
             position: fixed;
@@ -114,7 +113,6 @@
             opacity: 0.4;
         }
 
-        /* ── Ambient glass orbs ── */
         .orb {
             position: fixed;
             border-radius: 50%;
@@ -162,6 +160,24 @@
             50%  { transform: translate(-80px, 60px) scale(1.2); }
         }
 
+        /* SVG icon sizing */
+        .icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .icon svg {
+            width: 1em;
+            height: 1em;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
         /* ─── Header ─── */
         header {
             display: flex;
@@ -200,7 +216,6 @@
 
         .logo-text span { color: var(--gold); }
 
-        /* ─── Desktop Nav ─── */
         .nav-desktop {
             display: flex;
             align-items: center;
@@ -219,7 +234,9 @@
             cursor: pointer;
             transition: all var(--transition);
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
         }
@@ -239,7 +256,6 @@
             background: var(--glass-light);
             backdrop-filter: blur(8px);
             cursor: pointer;
-            font-size: 1.1rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -252,6 +268,8 @@
             transform: rotate(20deg);
             box-shadow: 0 0 20px rgba(200,151,58,0.25);
         }
+
+        .theme-btn svg { width: 18px; height: 18px; }
 
         /* ─── Hamburger Button ─── */
         .hamburger-btn {
@@ -346,13 +364,13 @@
             border-radius: 8px;
             background: none;
             cursor: pointer;
-            font-size: 1.2rem;
             display: flex; align-items: center; justify-content: center;
             color: var(--ink);
             transition: all var(--transition);
         }
 
         .mobile-close-btn:hover { border-color: var(--gold); color: var(--gold); }
+        .mobile-close-btn svg { width: 16px; height: 16px; }
 
         .mobile-nav-link {
             display: flex;
@@ -377,12 +395,14 @@
         }
 
         .mobile-nav-link .link-icon {
-            font-size: 1.2rem;
             width: 32px; height: 32px;
             border-radius: 8px;
             background: rgba(200,151,58,0.1);
             display: flex; align-items: center; justify-content: center;
+            color: var(--gold);
         }
+
+        .mobile-nav-link .link-icon svg { width: 16px; height: 16px; }
 
         .mobile-theme-row {
             display: flex;
@@ -403,11 +423,12 @@
             border: 1px solid var(--border);
             background: none;
             cursor: pointer;
-            font-size: 1rem;
             display: flex; align-items: center; justify-content: center;
             transition: all var(--transition);
             color: var(--ink);
         }
+
+        .mobile-theme-btn svg { width: 16px; height: 16px; }
 
         .mobile-contact-info {
             margin-top: auto;
@@ -415,10 +436,22 @@
             border-top: 1px solid var(--border);
             font-size: 0.78rem;
             color: var(--ink2);
-            line-height: 1.7;
+            line-height: 1.9;
         }
 
         .mobile-contact-info a { color: var(--gold); text-decoration: none; }
+
+        .mobile-contact-info .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mobile-contact-info .contact-row svg {
+            width: 14px; height: 14px;
+            stroke: var(--gold);
+            flex-shrink: 0;
+        }
 
         /* ─── Hero ─── */
         .hero {
@@ -584,10 +617,12 @@
         }
 
         .btn-icon {
-            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
             transition: transform var(--transition);
-            display: inline-block;
         }
+
+        .btn-icon svg { width: 16px; height: 16px; }
 
         .btn-primary:hover .btn-icon,
         .btn-gold:hover .btn-icon { transform: translateX(5px); }
@@ -661,7 +696,6 @@
             z-index: 0;
         }
 
-        /* ─── Float cards (3D enhanced) ─── */
         .float-cards {
             position: relative;
             z-index: 3;
@@ -706,7 +740,6 @@
             box-shadow: 0 8px 32px rgba(26,18,8,0.1), inset 0 1px 0 rgba(255,255,255,0.9);
         }
 
-        /* Liquid shine overlay on cards */
         .float-card::after {
             content: '';
             position: absolute;
@@ -765,11 +798,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
             flex-shrink: 0;
             box-shadow: 0 4px 12px rgba(200,151,58,0.35);
             transition: transform var(--transition), box-shadow var(--transition);
+            color: #fff;
         }
+
+        .fc-icon svg { width: 20px; height: 20px; }
 
         .float-card:hover .fc-icon {
             transform: scale(1.12) rotate(-5deg);
@@ -917,7 +952,6 @@
             -webkit-backdrop-filter: blur(12px);
         }
 
-        /* Diagonal shine on hover */
         .feat-card::after {
             content: '';
             position: absolute;
@@ -970,11 +1004,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
             margin-bottom: 20px;
             transition: all var(--transition);
             will-change: transform;
+            color: var(--gold);
         }
+
+        .feat-icon svg { width: 24px; height: 24px; }
 
         .feat-card:hover .feat-icon {
             transform: scale(1.15) rotate(-8deg);
@@ -1147,7 +1183,13 @@
             transition: color var(--transition);
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+        }
+
+        .footer-col ul li a svg {
+            width: 14px; height: 14px;
+            stroke: currentColor;
+            flex-shrink: 0;
         }
 
         .footer-col ul li a:hover {
@@ -1186,7 +1228,6 @@
             transform: translateY(0) scale(1);
         }
 
-        /* ─── Stats bounce in ─── */
         .stat-item.visible {
             animation: statBounce 0.6s cubic-bezier(0.34, 1.2, 0.64, 1) both;
         }
@@ -1240,7 +1281,7 @@
                 justify-content: center;
                 padding: 15px 28px;
                 width: 100%;
-                animation: none; /* reduce on mobile */
+                animation: none;
             }
 
             .stats-bar { flex-wrap: wrap; }
@@ -1260,7 +1301,7 @@
             .section { padding: 52px 18px; }
             .features-grid { grid-template-columns: 1fr; margin-top: 36px; }
             .feat-card { padding: 26px 22px; }
-            .feat-card:hover { transform: none; } /* disable 3D on mobile */
+            .feat-card:hover { transform: none; }
 
             .process-steps { grid-template-columns: 1fr; gap: 24px; margin-top: 36px; }
 
@@ -1299,7 +1340,6 @@
 
             h2 { font-size: clamp(1.6rem, 6vw, 2.2rem); }
 
-            /* Reduce orb complexity on mobile */
             .orb { filter: blur(80px); }
             .orb-1 { width: 300px; height: 300px; }
             .orb-2 { width: 240px; height: 240px; }
@@ -1337,10 +1377,21 @@
 
         <!-- Desktop Nav -->
         <nav class="nav-desktop">
-            <a href="userhome.html" class="btn-ghost">Find Jobs</a>
-            <a href="staffneed.html" class="btn-ghost">Hire Staff</a>
-            <a href="admin.html" class="btn-ghost">Admin</a>
-            <button class="theme-btn" id="themeToggle" title="Toggle theme">🌙</button>
+            <a href="userhome.html" class="btn-ghost">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                Find Jobs
+            </a>
+            <a href="staffneed.html" class="btn-ghost">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                Hire Staff
+            </a>
+            <a href="admin.html" class="btn-ghost">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Admin
+            </a>
+            <button class="theme-btn" id="themeToggle" title="Toggle theme">
+                <svg id="themeIconDesktop" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
         </nav>
 
         <!-- Hamburger (mobile only) -->
@@ -1356,31 +1407,50 @@
         <div class="mobile-menu-drawer">
             <div class="mobile-menu-header">
                 <span class="mobile-menu-title">Menu</span>
-                <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close menu">✕</button>
+                <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
             </div>
 
             <a href="userhome.html" class="mobile-nav-link">
-                <div class="link-icon">🔍</div>
+                <div class="link-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                </div>
                 Find Jobs
             </a>
             <a href="staffneed.html" class="mobile-nav-link">
-                <div class="link-icon">🏢</div>
+                <div class="link-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
                 Hire Staff
             </a>
             <a href="admin.html" class="mobile-nav-link">
-                <div class="link-icon">🔐</div>
+                <div class="link-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
                 Admin Login
             </a>
 
             <div class="mobile-theme-row">
                 <span>Toggle Theme</span>
-                <button class="mobile-theme-btn" id="mobileThemeToggle" title="Toggle theme">🌙</button>
+                <button class="mobile-theme-btn" id="mobileThemeToggle" title="Toggle theme">
+                    <svg id="themeIconMobile" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
             </div>
 
             <div class="mobile-contact-info">
-                📞 <a href="tel:+9779706886200">+977 9706886200</a><br>
-                ✉️ <a href="mailto:srjobcentersupport@gmail.com">srjobcentersupport@gmail.com</a><br>
-                📍 Baneshwor, Kathmandu
+                <div class="contact-row">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.27 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.96-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <a href="tel:+9779706886200">+977 9706886200</a>
+                </div>
+                <div class="contact-row">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <a href="mailto:srjobcentersupport@gmail.com">srjobcentersupport@gmail.com</a>
+                </div>
+                <div class="contact-row">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>Baneshwor, Kathmandu</span>
+                </div>
             </div>
         </div>
     </div>
@@ -1393,10 +1463,16 @@
                 you're seeking your dream job or building a world-class team — we make it happen.</p>
             <div class="cta-group">
                 <a href="userhome.html" class="btn-primary">
-                    I Need a Job <span class="btn-icon">→</span>
+                    I Need a Job
+                    <span class="btn-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </span>
                 </a>
                 <a href="staffneed.html" class="btn-gold">
-                    I Need Staff <span class="btn-icon">→</span>
+                    I Need Staff
+                    <span class="btn-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </span>
                 </a>
             </div>
         </div>
@@ -1405,21 +1481,27 @@
             <div class="hero-visual">
                 <div class="float-cards">
                     <div class="float-card">
-                        <div class="fc-icon"><span>💼</span></div>
+                        <div class="fc-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                        </div>
                         <div>
                             <div class="fc-label">Available Positions</div>
                             <div class="fc-value">50+ Active Jobs</div>
                         </div>
                     </div>
                     <div class="float-card">
-                        <div class="fc-icon"><span>🏢</span></div>
+                        <div class="fc-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
+                        </div>
                         <div>
                             <div class="fc-label">Partner Companies</div>
                             <div class="fc-value">Hotels, Banks & More</div>
                         </div>
                     </div>
                     <div class="float-card">
-                        <div class="fc-icon"><span>✅</span></div>
+                        <div class="fc-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                        </div>
                         <div>
                             <div class="fc-label">Placements This Year</div>
                             <div class="fc-value">500+ Successful</div>
@@ -1456,37 +1538,49 @@
         </div>
         <div class="features-grid">
             <div class="feat-card fade-up">
-                <div class="feat-icon"><span>🔍</span></div>
+                <div class="feat-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                </div>
                 <div class="feat-title">Smart Job Matching</div>
                 <p class="feat-desc">Browse and filter jobs by position, location, and salary range. Find exactly what
                     fits your skills and goals.</p>
             </div>
             <div class="feat-card fade-up" style="transition-delay:0.1s">
-                <div class="feat-icon"><span>⚡</span></div>
+                <div class="feat-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
                 <div class="feat-title">Fast Application</div>
                 <p class="feat-desc">Apply in minutes with our streamlined one-page form. No lengthy processes — just
                     submit and we handle the rest.</p>
             </div>
             <div class="feat-card fade-up" style="transition-delay:0.2s">
-                <div class="feat-icon"><span>🤝</span></div>
+                <div class="feat-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
                 <div class="feat-title">Employer Connect</div>
                 <p class="feat-desc">Companies post staff requirements directly. We match qualified candidates to your
                     exact specifications.</p>
             </div>
             <div class="feat-card fade-up" style="transition-delay:0.3s">
-                <div class="feat-icon"><span>📊</span></div>
+                <div class="feat-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
+                </div>
                 <div class="feat-title">Track Applications</div>
                 <p class="feat-desc">Monitor all your applied positions in one place. Know exactly where you stand at
                     every step.</p>
             </div>
             <div class="feat-card fade-up" style="transition-delay:0.4s">
-                <div class="feat-icon"><span>🏆</span></div>
+                <div class="feat-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                </div>
                 <div class="feat-title">Top Industries</div>
                 <p class="feat-desc">Hospitality, security, sales, IT, and more. Specialized networks across every
                     sector in Nepal.</p>
             </div>
             <div class="feat-card fade-up" style="transition-delay:0.5s">
-                <div class="feat-icon"><span>🛡️</span></div>
+                <div class="feat-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
                 <div class="feat-title">Verified Employers</div>
                 <p class="feat-desc">Every company we work with is verified. No scams — only legitimate opportunities
                     from real organizations.</p>
@@ -1538,8 +1632,18 @@
                 <p>Post your staff requirements and get qualified candidates within days.</p>
             </div>
             <div class="cta-banner-btns">
-                <a href="staffneed.html" class="btn-gold">Hire Staff Now →</a>
-                <a href="userhome.html" class="btn-ghost" style="color:#fff; border-color:rgba(255,255,255,0.3)">Find a Job →</a>
+                <a href="staffneed.html" class="btn-gold">
+                    Hire Staff Now
+                    <span class="btn-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </span>
+                </a>
+                <a href="userhome.html" class="btn-ghost" style="color:#fff; border-color:rgba(255,255,255,0.3)">
+                    Find a Job
+                    <span class="btn-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </span>
+                </a>
             </div>
         </div>
     </div>
@@ -1559,17 +1663,47 @@
         <div class="footer-col">
             <h4>Quick Links</h4>
             <ul>
-                <li><a href="userhome.html">🔍 Find Jobs</a></li>
-                <li><a href="staffneed.html">🏢 Hire Staff</a></li>
-                <li><a href="admin.html">🔐 Admin Login</a></li>
+                <li>
+                    <a href="userhome.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                        Find Jobs
+                    </a>
+                </li>
+                <li>
+                    <a href="staffneed.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                        Hire Staff
+                    </a>
+                </li>
+                <li>
+                    <a href="admin.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        Admin Login
+                    </a>
+                </li>
             </ul>
         </div>
         <div class="footer-col">
             <h4>Contact</h4>
             <ul>
-                <li><a href="mailto:srjobcentersupport@gmail.com">✉️ srjobcentersupport@gmail.com</a></li>
-                <li><a href="tel:+9779706886200">📞 +977 9706886200</a></li>
-                <li><a href="https://maps.app.goo.gl/pcfGBEcxYLsEteHY9" target="_blank">📍 Baneshwor, Kathmandu</a></li>
+                <li>
+                    <a href="mailto:srjobcentersupport@gmail.com">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        srjobcentersupport@gmail.com
+                    </a>
+                </li>
+                <li>
+                    <a href="tel:+9779706886200">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.27 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.96-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        +977 9706886200
+                    </a>
+                </li>
+                <li>
+                    <a href="https://maps.app.goo.gl/pcfGBEcxYLsEteHY9" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Baneshwor, Kathmandu
+                    </a>
+                </li>
             </ul>
         </div>
     </footer>
@@ -1584,11 +1718,14 @@
         const themeToggle = document.getElementById('themeToggle');
         const mobileThemeToggle = document.getElementById('mobileThemeToggle');
 
+        const moonSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+        const sunSVG  = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`;
+
         function applyTheme(theme) {
             root.setAttribute('data-theme', theme);
-            const icon = theme === 'dark' ? '☀️' : '🌙';
-            themeToggle.textContent = icon;
-            mobileThemeToggle.textContent = icon;
+            const icon = theme === 'dark' ? sunSVG : moonSVG;
+            themeToggle.innerHTML = icon;
+            mobileThemeToggle.innerHTML = icon;
             localStorage.setItem('theme', theme);
         }
 
