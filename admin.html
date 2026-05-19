@@ -7,6 +7,7 @@
 <link rel="icon" type="image/png" href="srlogo.png">
 <title>Admin Login – SR Job Center</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 <style>
   :root {
     --bg: #0a0806;
@@ -22,204 +23,471 @@
     --radius: 16px;
     --transition: 0.3s cubic-bezier(0.23,1,0.32,1);
   }
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ─── ANIMATED LIQUID GRADIENT BACKGROUND ─── */
   body {
     font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
     color: var(--ink);
     min-height: 100vh;
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     position: relative; overflow: hidden;
+    background: #060412;
+    background-size: 200% 200%;
+    animation: liquidGradient 20s ease infinite;
   }
-  /* Ambient background */
+
+  @keyframes liquidGradient {
+    0%   { background-position: 0% 50%;   background-color: #060412; }
+    25%  { background-position: 50% 0%;   background-color: #0a0520; }
+    50%  { background-position: 100% 50%; background-color: #04101a; }
+    75%  { background-position: 50% 100%; background-color: #08062a; }
+    100% { background-position: 0% 50%;   background-color: #060412; }
+  }
+
+  /* Dynamic colour wash overlay */
   body::before {
-    content: ''; position: fixed; inset: 0;
+    content: '';
+    position: fixed; inset: 0;
     background:
-      radial-gradient(ellipse 600px 600px at 20% 50%, rgba(200,151,58,0.08) 0%, transparent 70%),
-      radial-gradient(ellipse 400px 400px at 80% 20%, rgba(200,151,58,0.05) 0%, transparent 70%);
+      radial-gradient(ellipse 80% 60% at 10% 40%, rgba(72,0,120,0.35) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 70% at 90% 20%, rgba(0,40,100,0.3) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 50% 90%, rgba(0,80,80,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 70% 60%, rgba(60,0,100,0.2) 0%, transparent 60%);
+    animation: bgWash 20s ease infinite;
+    pointer-events: none; z-index: 0;
   }
+
+  @keyframes bgWash {
+    0%,100% { opacity: 1; }
+    50%     { opacity: 0.7; }
+  }
+
+  /* Noise grain texture */
   body::after {
     content: '';
     position: fixed; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0;
   }
 
-  /* Lines decorative */
+  /* ─── FLOATING LIQUID ORBS ─── */
+  .orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.18;
+    pointer-events: none;
+    z-index: 0;
+    will-change: transform;
+  }
+  .orb-1 {
+    width: 520px; height: 520px;
+    background: radial-gradient(circle, rgba(120,0,200,0.8), rgba(60,0,120,0.3));
+    top: -140px; left: -100px;
+    animation: orbFloat1 18s ease-in-out infinite;
+  }
+  .orb-2 {
+    width: 420px; height: 420px;
+    background: radial-gradient(circle, rgba(0,80,180,0.8), rgba(0,40,100,0.3));
+    bottom: -100px; right: -80px;
+    animation: orbFloat2 22s ease-in-out infinite;
+  }
+  .orb-3 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(0,120,100,0.7), rgba(0,60,60,0.3));
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+    animation: orbFloat3 15s ease-in-out infinite;
+  }
+
+  @keyframes orbFloat1 {
+    0%,100% { transform: translate(0,0) scale(1); }
+    33%     { transform: translate(60px,80px) scale(1.1); }
+    66%     { transform: translate(-40px,40px) scale(0.9); }
+  }
+  @keyframes orbFloat2 {
+    0%,100% { transform: translate(0,0) scale(1); }
+    40%     { transform: translate(-70px,-50px) scale(1.15); }
+    70%     { transform: translate(30px,-80px) scale(0.95); }
+  }
+  @keyframes orbFloat3 {
+    0%,100% { transform: translate(-50%,-50%) scale(1) rotate(0deg); }
+    50%     { transform: translate(-50%,-50%) scale(1.2) rotate(180deg); }
+  }
+
+  /* Grid lines */
   .bg-lines {
     position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    pointer-events: none;
+    pointer-events: none; z-index: 0;
     background-image: repeating-linear-gradient(
       90deg,
-      rgba(200,151,58,0.03) 0px,
-      rgba(200,151,58,0.03) 1px,
+      rgba(200,151,58,0.025) 0px,
+      rgba(200,151,58,0.025) 1px,
       transparent 1px,
       transparent 120px
     );
   }
 
+  /* ─── CONTAINER ─── */
   .login-container {
-    position: relative; z-index: 1;
-    width: 100%; max-width: 440px;
+    position: relative; z-index: 10;
+    width: 100%; max-width: 460px;
     padding: 20px;
-    animation: slideUp 0.7s cubic-bezier(0.23,1,0.32,1) both;
-  }
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to   { opacity: 1; transform: translateY(0); }
+    perspective: 1000px;
   }
 
+  /* ─── BACK LINK ─── */
   .back-link {
     display: inline-flex; align-items: center; gap: 8px;
     color: var(--ink2); text-decoration: none; font-size: 0.85rem;
-    transition: color var(--transition);
+    transition: color var(--transition), gap var(--transition);
     margin-bottom: 32px;
+    animation: slideInLeft 0.5s 0.4s cubic-bezier(0.23,1,0.32,1) both;
+    position: relative;
   }
-  .back-link:hover { color: var(--gold); }
+  .back-link::after {
+    content: '';
+    position: absolute; bottom: -2px; left: 0; right: 100%;
+    height: 1px; background: var(--gold);
+    transition: right 0.3s ease;
+  }
+  .back-link:hover { color: var(--gold); gap: 12px; }
+  .back-link:hover::after { right: 0; }
+  .back-link i { font-size: 0.8rem; transition: transform var(--transition); }
+  .back-link:hover i { transform: translateX(-3px); }
 
+  @keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-20px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  /* ─── GLASS CARD ─── */
   .card {
-    background: var(--card);
-    border: 1px solid var(--border);
+    background: linear-gradient(
+      145deg,
+      rgba(10,8,6,0.45) 0%,
+      rgba(26,22,16,0.55) 100%
+    );
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(200,151,58,0.25);
     border-radius: 24px;
     padding: 44px 40px;
-    box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(200,151,58,0.05);
+    box-shadow:
+      0 25px 50px -12px rgba(0,0,0,0.5),
+      inset 0 1px 0 rgba(255,255,255,0.1),
+      0 0 0 1px rgba(200,151,58,0.05);
     position: relative; overflow: hidden;
+    animation: cardEntrance 0.7s cubic-bezier(0.23,1,0.32,1) both;
+    transition: transform 0.4s cubic-bezier(0.23,1,0.32,1),
+                box-shadow 0.4s cubic-bezier(0.23,1,0.32,1);
+    will-change: transform;
   }
+
+  @keyframes cardEntrance {
+    from {
+      opacity: 0;
+      transform: translateY(40px) scale(0.97) rotateX(4deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1) rotateX(0deg);
+    }
+  }
+
+  .card:hover {
+    transform: translateY(-8px) scale(1.01) translateZ(20px);
+    box-shadow:
+      0 40px 70px -12px rgba(0,0,0,0.6),
+      inset 0 1px 0 rgba(255,255,255,0.15),
+      0 0 60px rgba(200,151,58,0.06);
+  }
+
+  /* Top gold line */
   .card::before {
     content: '';
     position: absolute; top: 0; left: 0; right: 0; height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(200,151,58,0.4), transparent);
+    background: linear-gradient(90deg, transparent, rgba(200,151,58,0.6), transparent);
   }
 
+  /* Glass reflection diagonal shine */
+  .card::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -60%;
+    width: 60%; height: 200%;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      rgba(255,255,255,0.03) 50%,
+      transparent 60%
+    );
+    transform: skewX(-15deg);
+    transition: left 0.6s ease;
+    pointer-events: none;
+  }
+  .card:hover::after { left: 120%; }
+
+  /* Breathing gold border glow */
+  @keyframes borderBreath {
+    0%,100% { box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 0 1px rgba(200,151,58,0.05); }
+    50%     { box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 0 1px rgba(200,151,58,0.15), 0 0 30px rgba(200,151,58,0.08); }
+  }
+  .card { animation: cardEntrance 0.7s cubic-bezier(0.23,1,0.32,1) both, borderBreath 4s ease-in-out 1s infinite; }
+
+  /* ─── LOGO ─── */
   .card-logo {
     display: flex; align-items: center; gap: 12px;
     margin-bottom: 32px;
+    animation: fadeInUp 0.5s 0.3s cubic-bezier(0.23,1,0.32,1) both;
   }
-  .logo-badge {
-    width: 48px; height: 48px; border-radius: 12px;
-    background: linear-gradient(135deg, var(--gold), var(--gold2));
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px;
-    color: #fff; box-shadow: 0 4px 20px rgba(200,151,58,0.5);
-  }
-  .card-logo-text {
-    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem;
-    color: var(--ink);
-  }
-  .card-logo-text span { color: var(--gold); }
 
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .logo-img-wrap {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .logo-img-wrap img {
+    width: 50px; height: 50px;
+    object-fit: cover; border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(200,151,58,0.4), 0 4px 20px rgba(200,151,58,0.3);
+    animation: logoPulse 0.5s 0.2s cubic-bezier(0.23,1,0.32,1) both;
+  }
+  @keyframes logoPulse {
+    from { opacity: 0; transform: scale(0.7) rotate(-10deg); }
+    to   { opacity: 1; transform: scale(1) rotate(0deg); }
+  }
+
+  .logo-text {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem; font-weight: 800;
+    background: linear-gradient(135deg, var(--ink) 30%, var(--gold2) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+  }
+  .logo-text .accent {
+    background: linear-gradient(135deg, var(--gold), var(--gold2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ─── HEADINGS ─── */
   h1 {
     font-family: 'Syne', sans-serif; font-weight: 800;
     font-size: 1.7rem; color: var(--ink);
     letter-spacing: -0.02em; margin-bottom: 8px;
+    text-shadow: 0 2px 10px rgba(200,151,58,0.2);
+    animation: fadeInUp 0.5s 0.35s cubic-bezier(0.23,1,0.32,1) both;
   }
   .subtitle {
     font-size: 0.875rem; color: var(--ink2); margin-bottom: 36px; font-weight: 300;
+    animation: fadeInUp 0.5s 0.4s cubic-bezier(0.23,1,0.32,1) both;
   }
 
-  .form-group { margin-bottom: 20px; }
+  /* ─── FORM GROUPS ─── */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .form-group:nth-child(1) { animation: fadeInUp 0.5s 0.45s cubic-bezier(0.23,1,0.32,1) both; }
+  .form-group:nth-child(2) { animation: fadeInUp 0.5s 0.55s cubic-bezier(0.23,1,0.32,1) both; }
+
   label {
     display: block; font-size: 0.8rem; font-weight: 500;
     color: var(--ink2); margin-bottom: 8px;
-    text-transform: uppercase; letter-spacing: 0.06em;
+    text-transform: uppercase; letter-spacing: 0.08em;
   }
   .input-wrap { position: relative; }
   .input-icon {
     position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
-    font-size: 1rem; opacity: 0.5; pointer-events: none;
+    font-size: 0.9rem; opacity: 0.45; pointer-events: none;
+    color: var(--gold);
+    transition: opacity var(--transition);
   }
+  .input-wrap:focus-within .input-icon { opacity: 0.9; }
+
   input {
-    width: 100%; background: rgba(255,255,255,0.04);
-    border: 1.5px solid var(--border); border-radius: 12px;
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
     padding: 14px 16px 14px 46px;
     font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--ink);
-    transition: border-color var(--transition), box-shadow var(--transition);
+    transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
     outline: none;
-    -webkit-autofill-background-color: transparent;
   }
   input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 100px var(--card) inset;
+    -webkit-box-shadow: 0 0 0 100px rgba(10,8,6,0.9) inset;
     -webkit-text-fill-color: var(--ink);
   }
   input:focus {
     border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(200,151,58,0.12);
+    background: rgba(200,151,58,0.04);
+    box-shadow:
+      0 0 0 3px rgba(200,151,58,0.3),
+      inset 0 2px 8px rgba(0,0,0,0.3),
+      0 4px 16px rgba(200,151,58,0.1);
   }
-  input::placeholder { color: var(--ink2); opacity: 0.6; }
+  input::placeholder { color: var(--ink2); opacity: 0.5; }
 
+  /* ─── PASSWORD TOGGLE ─── */
   .password-wrap { position: relative; }
   .toggle-pass {
     position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
     background: none; border: none; cursor: pointer;
-    font-size: 1rem; color: var(--ink2); transition: color var(--transition);
+    font-size: 0.9rem; color: var(--ink2);
+    transition: color var(--transition), transform var(--transition);
     padding: 4px;
   }
-  .toggle-pass:hover { color: var(--gold); }
+  .toggle-pass:hover { color: var(--gold); transform: translateY(-50%) scale(1.1); }
 
+  /* ─── LOGIN BUTTON ─── */
   .btn-login {
-    width: 100%; background: linear-gradient(135deg, var(--gold), var(--gold2));
+    width: 100%;
     border: none; border-radius: 12px; padding: 15px;
     font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700;
-    color: #fff; cursor: pointer; transition: all var(--transition);
-    box-shadow: 0 6px 24px rgba(200,151,58,0.35); margin-top: 8px;
+    color: #fff; cursor: pointer;
+    transition: all var(--transition);
+    box-shadow: 0 6px 24px rgba(200,151,58,0.35);
+    margin-top: 8px;
     position: relative; overflow: hidden;
+    will-change: transform;
+    background: linear-gradient(135deg, var(--gold), var(--gold2), var(--gold));
+    background-size: 200% 100%;
+    animation: fadeInUp 0.5s 0.6s cubic-bezier(0.23,1,0.32,1) both,
+               btnGradientShift 3s ease infinite 1.2s;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
   }
-  .btn-login:hover:not(:disabled) {
-    transform: translateY(-1px); box-shadow: 0 10px 32px rgba(200,151,58,0.5);
-  }
-  .btn-login:disabled { opacity: 0.6; cursor: not-allowed; }
 
+  @keyframes btnGradientShift {
+    0%,100% { background-position: 0% 50%; }
+    50%     { background-position: 100% 50%; }
+  }
+
+  /* Glossy overlay */
+  .btn-login::before {
+    content: '';
+    position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.18),
+      transparent
+    );
+    transition: left 0.5s ease;
+    pointer-events: none;
+  }
+  .btn-login:hover::before { left: 150%; }
+
+  .btn-login:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 36px rgba(200,151,58,0.5);
+  }
+  .btn-login:active:not(:disabled) {
+    transform: scale(0.98) translateY(0);
+    box-shadow: 0 4px 16px rgba(200,151,58,0.3);
+  }
+  .btn-login:disabled { opacity: 0.6; cursor: not-allowed; animation: none; }
+
+  /* ─── SPINNER ─── */
   .spinner {
     display: inline-block; width: 18px; height: 18px;
-    border: 2.5px solid rgba(255,255,255,0.3);
-    border-top-color: #fff; border-radius: 50%;
+    border: 2.5px solid rgba(255,255,255,0.25);
+    border-top-color: #fff;
+    border-right-color: rgba(255,255,255,0.6);
+    border-radius: 50%;
     animation: spin 0.7s linear infinite;
+    background: conic-gradient(from 0deg, rgba(200,151,58,0.3), transparent);
   }
   @keyframes spin { to { transform: rotate(360deg); } }
 
+  /* ─── ALERTS ─── */
   .alert {
     border-radius: 10px; padding: 12px 16px;
     font-size: 0.875rem; margin-top: 16px;
     display: none; align-items: center; gap: 10px;
+    animation: fadeInUp 0.3s ease both;
   }
   .alert.show { display: flex; }
-  .alert.error { background: rgba(231,76,60,0.1); border: 1px solid rgba(231,76,60,0.25); color: #e74c3c; }
-  .alert.success { background: rgba(39,174,96,0.1); border: 1px solid rgba(39,174,96,0.25); color: #27ae60; }
+  .alert.error {
+    background: rgba(231,76,60,0.1);
+    border: 1px solid rgba(231,76,60,0.25);
+    color: #e74c3c;
+  }
+  .alert.success {
+    background: rgba(39,174,96,0.1);
+    border: 1px solid rgba(39,174,96,0.25);
+    color: #27ae60;
+  }
+  .alert i { font-size: 0.95rem; flex-shrink: 0; }
 
-  .divider { height: 1px; background: var(--border); margin: 28px 0; }
+  /* ─── DIVIDER ─── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 28px 0;
+  }
 
+  /* ─── FOOTER ─── */
   .footer-note {
     text-align: center; font-size: 0.78rem; color: var(--ink2);
     margin-top: 28px;
+    animation: fadeInUp 0.5s 0.7s cubic-bezier(0.23,1,0.32,1) both;
   }
-  .footer-note a { color: var(--gold); text-decoration: none; }
+  .footer-note a {
+    color: var(--gold); text-decoration: none;
+    transition: color var(--transition);
+  }
+  .footer-note a:hover { color: var(--gold2); }
 
+  /* ─── INTERACTIVE CURSOR GLOW ─── */
+  button, a, input[type="submit"] { cursor: pointer; }
+
+  /* ─── RESPONSIVE ─── */
   @media (max-width: 480px) {
-    .card { padding: 32px 24px; }
-    .login-container { padding: 16px; }
+    .card {
+      padding: 32px 24px;
+      /* reduce 3D on mobile */
+      transition: none;
+    }
+    .card:hover {
+      transform: none;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .login-container { padding: 16px; perspective: none; }
+    .orb { display: none; }
+    .btn-login:hover:not(:disabled) { transform: none; }
+    @keyframes cardEntrance {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
   }
 </style>
 </head>
 <body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
 <div class="bg-lines"></div>
 
 <div class="login-container">
-  <a href="index.html" class="back-link">← Back to Home</a>
+  <a href="index.html" class="back-link">
+    <i class="fas fa-arrow-left"></i> Back to Home
+  </a>
 
   <div class="card">
     <div class="card-logo">
-       <div style="display:flex; align-items:center; gap:10px;">
-
-                <img src="srlogo.png" alt="SR Job Center Logo"
-                    style="width:50px; height:50px; object-fit:cover; border-radius:50%;">
-
-                <span style="font-size:24px; font-weight:bold; color:#000;">
-                    SR <span style="color:#007bff;">Job Center</span>
-                </span>
-
-            </div>
+      <div class="logo-img-wrap">
+        <img src="srlogo.png" alt="SR Job Center Logo">
+        <span class="logo-text">SR <span class="accent">Job Center</span></span>
+      </div>
     </div>
+
     <h1>Admin Portal</h1>
     <p class="subtitle">Sign in with your administrator credentials to continue.</p>
 
@@ -227,28 +495,33 @@
       <div class="form-group">
         <label>Email Address</label>
         <div class="input-wrap">
-          <span class="input-icon">✉️</span>
+          <span class="input-icon"><i class="fas fa-envelope"></i></span>
           <input type="email" id="email" placeholder="admin@srjob.com" required autocomplete="email"/>
         </div>
       </div>
       <div class="form-group">
         <label>Password</label>
         <div class="input-wrap password-wrap">
-          <span class="input-icon">🔒</span>
+          <span class="input-icon"><i class="fas fa-lock"></i></span>
           <input type="password" id="password" placeholder="Enter your password" required autocomplete="current-password"/>
-          <button type="button" class="toggle-pass" onclick="togglePass()">👁️</button>
+          <button type="button" class="toggle-pass" onclick="togglePass()" id="toggleBtn">
+            <i class="fas fa-eye" id="eyeIcon"></i>
+          </button>
         </div>
       </div>
 
       <button type="submit" class="btn-login" id="loginBtn">
+        <i class="fas fa-shield-alt"></i>
         <span id="btnText">Sign In to Dashboard</span>
       </button>
 
       <div class="alert error" id="errorAlert">
-        <span>⚠️</span><span id="errorMsg">Invalid credentials. Please try again.</span>
+        <i class="fas fa-exclamation-triangle"></i>
+        <span id="errorMsg">Invalid credentials. Please try again.</span>
       </div>
       <div class="alert success" id="successAlert">
-        <span>✅</span><span>Login successful! Redirecting…</span>
+        <i class="fas fa-check-circle"></i>
+        <span>Login successful! Redirecting…</span>
       </div>
     </form>
 
@@ -269,7 +542,16 @@
 
   function togglePass() {
     const pw = document.getElementById('password');
-    pw.type = pw.type === 'password' ? 'text' : 'password';
+    const icon = document.getElementById('eyeIcon');
+    if (pw.type === 'password') {
+      pw.type = 'text';
+      icon.classList.remove('fa-eye');
+      icon.classList.add('fa-eye-slash');
+    } else {
+      pw.type = 'password';
+      icon.classList.remove('fa-eye-slash');
+      icon.classList.add('fa-eye');
+    }
   }
 
   async function handleLogin(e) {
@@ -285,6 +567,7 @@
     errAlert.classList.remove('show');
     sucAlert.classList.remove('show');
     btn.disabled = true;
+    btn.querySelector('i.fas').style.display = 'none';
     btnText.innerHTML = '<span class="spinner"></span>';
 
     try {
@@ -304,12 +587,14 @@
         document.getElementById('errorMsg').textContent = data.message || 'Invalid credentials.';
         errAlert.classList.add('show');
         btn.disabled = false;
+        btn.querySelector('i.fas').style.display = '';
         btnText.textContent = 'Sign In to Dashboard';
       }
     } catch (err) {
       document.getElementById('errorMsg').textContent = 'Network error. Please check connection.';
       errAlert.classList.add('show');
       btn.disabled = false;
+      btn.querySelector('i.fas').style.display = '';
       btnText.textContent = 'Sign In to Dashboard';
     }
   }
